@@ -1,0 +1,39 @@
+{
+  "id": "event_preview",
+  "type": "SharedSlice",
+  "name": "EventPicker",
+  "description": "EventPreview",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "events": {
+          "type": "Group",
+          "config": {
+            "label": "Add Events & Exhibitions",
+            "repeat": true,
+            "fields": {
+              "event": {
+                "type": "Link",
+                "config": {
+                  "label": "Event Picker",
+                  "select": "document",
+                  "customtypes": [
+                    "event",
+                    "exhibition"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
