@@ -25,14 +25,28 @@ export default defineNuxtConfig({
   },
 
   css: [
-    '~/assets/styles/global.css',
+    '~/assets/scss/main.scss',
   ],
+
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+            @import "@/assets/scss/globals/variables.scss";
+            @import "@/assets/scss/globals/mixins.scss";
+            @import "breakpoint-sass/stylesheets/breakpoint";
+          `
+        }
+      }
+    }
+  },
 
   modules: [
     '@nuxtjs/prismic',
     '@nuxt/image',
   ],
-  
+
   image: {
     provider: 'prismic',
     prismic: {},

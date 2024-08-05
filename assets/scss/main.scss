@@ -1,0 +1,13 @@
+// GLOBALS
+@import './globals/reset';
+@import './globals/variables';
+@import './globals/mixins';
+@import './globals/typography';
+
+// COMPONENTS
+@import './components/header';
+@import './components/footer';
+@import './components/buttons';
+
+// SLICES
+@import './slices/hero';

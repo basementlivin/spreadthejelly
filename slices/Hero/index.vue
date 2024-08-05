@@ -16,8 +16,8 @@ const serializer: HTMLRichTextMapSerializer = {
 </script>
 
 <template>
-  <section class="relative bg-slate-900 text-white">
-    <figure class="absolute inset-0">
+  <section class="hero">
+    <figure class="">
       <PrismicImage
         v-if="slice.primary.backgroundImage.url"
         :field="slice.primary.backgroundImage"
