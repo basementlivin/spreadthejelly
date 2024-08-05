@@ -15,7 +15,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@nuxt/image": "^1.4.0",
+    "@nuxt/image": "^1.7.0",
     "breakpoint-sass": "^3.0.0"
   },
   "devDependencies": {

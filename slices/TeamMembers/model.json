@@ -1,0 +1,68 @@
+{
+  "id": "team_members",
+  "type": "SharedSlice",
+  "name": "TeamMembers",
+  "description": "TeamMembers",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "team_member": {
+          "type": "Group",
+          "config": {
+            "label": "Team Member",
+            "repeat": true,
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Name",
+                  "placeholder": ""
+                }
+              },
+              "bio": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Bio",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              },
+              "social_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Social Link",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "select": null
+                }
+              },
+              "social_link_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Social Link Text",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

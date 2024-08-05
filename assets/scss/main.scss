@@ -11,6 +11,7 @@ Version: 1.0
 @import './globals/variables';
 @import './globals/mixins';
 @import './globals/typography';
+@import './globals/wrappers';
 
 // COMPONENTS
 @import './components/header';
@@ -19,3 +20,4 @@ Version: 1.0
 
 // SLICES
 @import './slices/hero';
+@import './slices/team-members';

@@ -1,0 +1,85 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"team_member": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"__TYPE__": "ImageContent",
+									"url": "https://images.unsplash.com/photo-1498159413615-882f272c24f1?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHx3b21hbiUyMHdpdGglMjBiYWJ5fGVufDB8fHx8MTcyMjg5MzY2MXww&ixlib=rb-4.0.3&q=85",
+									"alt": "woman carrying baby",
+									"origin": {
+										"id": "8ybZT29CaoA",
+										"url": "https://images.unsplash.com/photo-1498159413615-882f272c24f1?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHx3b21hbiUyMHdpdGglMjBiYWJ5fGVufDB8fHx8MTcyMjg5MzY2MXww&ixlib=rb-4.0.3&q=85",
+										"width": 3840,
+										"height": 5760
+									},
+									"width": 3840,
+									"height": 5760,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										}
+									},
+									"thumbnails": {}
+								}
+							],
+							[
+								"bio",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Aliquip ullamco labore veniam consectetur elit esse dolor sit enim laborum do qui officia ad laborum."
+											}
+										}
+									]
+								}
+							],
+							[
+								"name",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Lauren"
+								}
+							],
+							[
+								"social_link_text",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "@lauren"
+								}
+							],
+							[
+								"social_link",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://instagram.com",
+										"target": "_blank"
+									}
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

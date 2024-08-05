@@ -123,6 +123,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TeamMembersSlice
   | CallToActionSlice
   | HeroSlice
   | TextSlice
@@ -599,6 +600,108 @@ export type ImageCardsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *TeamMembers → Default → Primary → Team Member*
+ */
+export interface TeamMembersSliceDefaultPrimaryTeamMemberItem {
+  /**
+   * Image field in *TeamMembers → Default → Primary → Team Member*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_members.default.primary.team_member[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Name field in *TeamMembers → Default → Primary → Team Member*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_members.default.primary.team_member[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Bio field in *TeamMembers → Default → Primary → Team Member*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_members.default.primary.team_member[].bio
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  bio: prismic.RichTextField;
+
+  /**
+   * Social Link field in *TeamMembers → Default → Primary → Team Member*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_members.default.primary.team_member[].social_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  social_link: prismic.LinkField;
+
+  /**
+   * Social Link Text field in *TeamMembers → Default → Primary → Team Member*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_members.default.primary.team_member[].social_link_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  social_link_text: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *TeamMembers → Default → Primary*
+ */
+export interface TeamMembersSliceDefaultPrimary {
+  /**
+   * Team Member field in *TeamMembers → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_members.default.primary.team_member[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  team_member: prismic.GroupField<
+    Simplify<TeamMembersSliceDefaultPrimaryTeamMemberItem>
+  >;
+}
+
+/**
+ * Default variation for TeamMembers Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TeamMembersSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TeamMembersSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TeamMembers*
+ */
+type TeamMembersSliceVariation = TeamMembersSliceDefault;
+
+/**
+ * TeamMembers Shared Slice
+ *
+ * - **API ID**: `team_members`
+ * - **Description**: TeamMembers
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TeamMembersSlice = prismic.SharedSlice<
+  "team_members",
+  TeamMembersSliceVariation
+>;
+
+/**
  * Primary content in *Text → Default → Primary*
  */
 export interface TextSliceDefaultPrimary {
@@ -826,6 +929,11 @@ declare module "@prismicio/client" {
       ImageCardsSliceDefaultItem,
       ImageCardsSliceVariation,
       ImageCardsSliceDefault,
+      TeamMembersSlice,
+      TeamMembersSliceDefaultPrimaryTeamMemberItem,
+      TeamMembersSliceDefaultPrimary,
+      TeamMembersSliceVariation,
+      TeamMembersSliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceTwoColumnsPrimary,
