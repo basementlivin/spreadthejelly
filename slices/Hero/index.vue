@@ -38,7 +38,7 @@ const serializer: HTMLRichTextMapSerializer = {
         <PrismicLink
           v-if="slice.primary.buttonLink && ('id' in slice.primary.buttonLink || 'url' in slice.primary.buttonLink)"
           :field="slice.primary.buttonLink"
-          class="rounded bg-white px-5 py-3 font-medium text-slate-800"
+          class="btn btn--secondary"
         >
           {{ slice.primary.buttonText || "Learn More" }}
         </PrismicLink>
