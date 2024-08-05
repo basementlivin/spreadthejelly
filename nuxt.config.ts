@@ -1,4 +1,3 @@
-import tailwindAspectRatio from '@tailwindcss/aspect-ratio'
 import { repositoryName } from './slicemachine.config.json'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -31,7 +30,6 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/prismic',
-    '@nuxtjs/tailwindcss',
     '@nuxt/image',
   ],
   
@@ -56,7 +54,5 @@ export default defineNuxtConfig({
         },
       ]
     }
-  },
-
-  tailwindcss: {}
+  }
 })
