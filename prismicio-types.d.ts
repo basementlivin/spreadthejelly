@@ -123,10 +123,8 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
-  | EventPreviewSlice
   | CallToActionSlice
   | HeroSlice
-  | QuoteSlice
   | TextSlice
   | ImageSlice
   | ImageCardsSlice
@@ -369,68 +367,6 @@ export type CallToActionSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *EventPicker → Default → Primary → Add Events & Exhibitions*
- */
-export interface EventPreviewSliceDefaultPrimaryEventsItem {
-  /**
-   * Event Picker field in *EventPicker → Default → Primary → Add Events & Exhibitions*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: event_preview.default.primary.events[].event
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  event: prismic.ContentRelationshipField<"event" | "exhibition">;
-}
-
-/**
- * Primary content in *EventPicker → Default → Primary*
- */
-export interface EventPreviewSliceDefaultPrimary {
-  /**
-   * Add Events & Exhibitions field in *EventPicker → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: event_preview.default.primary.events[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  events: prismic.GroupField<
-    Simplify<EventPreviewSliceDefaultPrimaryEventsItem>
-  >;
-}
-
-/**
- * Default variation for EventPicker Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type EventPreviewSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<EventPreviewSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *EventPicker*
- */
-type EventPreviewSliceVariation = EventPreviewSliceDefault;
-
-/**
- * EventPicker Shared Slice
- *
- * - **API ID**: `event_preview`
- * - **Description**: EventPreview
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type EventPreviewSlice = prismic.SharedSlice<
-  "event_preview",
-  EventPreviewSliceVariation
->;
-
-/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -663,58 +599,6 @@ export type ImageCardsSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *Quote → Default → Primary*
- */
-export interface QuoteSliceDefaultPrimary {
-  /**
-   * Quote field in *Quote → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: quote.default.primary.quote
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  quote: prismic.RichTextField;
-
-  /**
-   * Source field in *Quote → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: quote.default.primary.source
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  source: prismic.KeyTextField;
-}
-
-/**
- * Default variation for Quote Slice
- *
- * - **API ID**: `default`
- * - **Description**: Quote
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type QuoteSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<QuoteSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Quote*
- */
-type QuoteSliceVariation = QuoteSliceDefault;
-
-/**
- * Quote Shared Slice
- *
- * - **API ID**: `quote`
- * - **Description**: Quote
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type QuoteSlice = prismic.SharedSlice<"quote", QuoteSliceVariation>;
-
-/**
  * Primary content in *Text → Default → Primary*
  */
 export interface TextSliceDefaultPrimary {
@@ -927,11 +811,6 @@ declare module "@prismicio/client" {
       CallToActionSliceVariation,
       CallToActionSliceDefault,
       CallToActionSliceMarquee,
-      EventPreviewSlice,
-      EventPreviewSliceDefaultPrimaryEventsItem,
-      EventPreviewSliceDefaultPrimary,
-      EventPreviewSliceVariation,
-      EventPreviewSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
@@ -947,10 +826,6 @@ declare module "@prismicio/client" {
       ImageCardsSliceDefaultItem,
       ImageCardsSliceVariation,
       ImageCardsSliceDefault,
-      QuoteSlice,
-      QuoteSliceDefaultPrimary,
-      QuoteSliceVariation,
-      QuoteSliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceTwoColumnsPrimary,

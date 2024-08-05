@@ -11,14 +11,14 @@ defineProps(getSliceComponentProps<Content.ImageSlice>(
 <template>
   <Bounded
     as="section"
-    class="bg-white"
+    class=""
     :class="{
       'pt-0 md:pt-0': index === 0
     }"
   >
     <div
       v-if="slice.primary.image.url"
-      class="bg-gray-100"
+      class=""
     >
       <NuxtImg :src="slice.primary.image.url" />
     </div>

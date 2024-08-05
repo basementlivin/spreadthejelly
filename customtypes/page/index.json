@@ -35,16 +35,10 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "event_preview": {
-              "type": "SharedSlice"
-            },
             "call_to_action": {
               "type": "SharedSlice"
             },
             "hero": {
-              "type": "SharedSlice"
-            },
-            "quote": {
               "type": "SharedSlice"
             },
             "text": {

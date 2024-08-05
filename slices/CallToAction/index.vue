@@ -17,15 +17,15 @@ defineProps(
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="bg-LED border-t-void border-b-void border-t-2 border-b-2 text-2xl py-8"
+    class=""
   >
     <PrismicLink
       :field="slice.primary.cta_link"
-      class="width-full height-full flex items-center justify-center"
+      class=""
     >
       <PrismicRichText
         :field="slice.primary.cta_text"
-        class="sans uppercase"
+        class=""
       />
     </PrismicLink>
   </section>

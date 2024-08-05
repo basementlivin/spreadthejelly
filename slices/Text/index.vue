@@ -11,12 +11,12 @@ defineProps(getSliceComponentProps<Content.TextSlice>(
 <template>
   <Bounded
     as="section"
-    class="bg-white leading-relaxed"
+    class=""
   >
     <PrismicRichText
       :field="slice.primary.text"
       :class="{
-        'md:columns-2 md:gap-6': slice.variation === 'twoColumns'
+        '': slice.variation === 'twoColumns'
       }"
       wrapper="div"
     />

@@ -11,29 +11,29 @@ defineProps(getSliceComponentProps<Content.ImageCardsSlice>(
 <template>
   <Bounded
     as="section"
-    class="bg-white"
+    class=""
   >
-    <div class="grid gap-12">
+    <div class="">
       <Heading
         v-if="$prismic.asText(slice.primary.heading)"
-        class="text-center"
+        class=""
       >
         {{ $prismic.asText(slice.primary.heading) }}
       </Heading>
-      <ul class="grid grid-cols-1 gap-8 md:grid-cols-2">
+      <ul class="">
         <li
           v-for="item in slice.items"
           :key="item.image.url ?? undefined"
-          class="grid gap-8"
+          class=""
         >
           <div
             v-if="item.image.url"
-            class="bg-gray-100"
+            class=""
           >
             <PrismicLink
               v-if="item.buttonLink && ('id' in item.buttonLink || 'url' in item.buttonLink)"
               :field="item.buttonLink"
-              class="font-semibold"
+              class=""
               tabindex="-1"
             >
               <PrismicImage :field="item.image" />
@@ -45,13 +45,13 @@ defineProps(getSliceComponentProps<Content.ImageCardsSlice>(
           </div>
           <PrismicRichText
             :field="item.text"
-            class="leading-relaxed"
+            class=""
             wrapper="div"
           />
           <div v-if="item.buttonLink && ('id' in item.buttonLink || 'url' in item.buttonLink)">
             <PrismicLink
               :field="item.buttonLink"
-              class="font-semibold"
+              class=""
             >
               {{ item.buttonText || "More Info" }}
             </PrismicLink>

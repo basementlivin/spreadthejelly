@@ -4,27 +4,24 @@ const settings = useSettings()
 </script>
 
 <template>
-  <Bounded
-    as="header"
-    y-padding="sm"
-  >
+  <header>
     <div
-      class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 leading-none"
+      class=""
     >
       <NuxtLink
         to="/"
-        class="text-xl font-semibold tracking-tight"
+        class=""
       >
         {{ settings?.data.site_title }}
       </NuxtLink>
       <nav>
         <ul
-          class="flex flex-wrap gap-6 md:gap-10"
+          class=""
         >
           <li
             v-for="item in navigation?.data.links"
             :key="$prismic.asText(item.label) || ''"
-            class="font-semibold tracking-tight text-void"
+            class=""
           >
             <PrismicLink
               :field="item.link"
@@ -37,6 +34,6 @@ const settings = useSettings()
         </ul>
       </nav>
     </div>
-  </Bounded>
+  </header>
 </template>
 

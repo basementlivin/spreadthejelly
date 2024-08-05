@@ -4,12 +4,9 @@
 </script>
 
 <template>
-  <Bounded
-    as="footer"
-    y-padding="sm"
-  >
+  <footer>
     <div
-      class="flex flex-row justify-center gap-x-6 gap-y-3 leading-none"
+      class=""
     >
       <p>
         &copy; {{ new Date().getFullYear() }} Spread the Jelly.
@@ -22,6 +19,6 @@
         </a>
       </p>
     </div>
-  </Bounded>
+  </footer>
 </template>
 

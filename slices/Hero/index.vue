@@ -11,7 +11,7 @@ const prismic = usePrismic()
 const serializer: HTMLRichTextMapSerializer = {
   ...prismic.options.richTextSerializer,
   heading1: ({ children }) =>
-    /* html */ `<h2 class="font-semibold leading-tight tracking-tight md:leading-tight text-5xl md:text-7xl mb-4 mt-12 first:mt-0 last:mb-0">${children}</h2>`,
+    /* html */ `<h2 class="">${children}</h2>`,
 }
 </script>
 
@@ -21,28 +21,23 @@ const serializer: HTMLRichTextMapSerializer = {
       <PrismicImage
         v-if="slice.primary.backgroundImage.url"
         :field="slice.primary.backgroundImage"
-        class="pointer-events-none select-none object-cover opacity-40 h-full w-full"
+        class=""
       />
     </figure>
-    <Bounded
-      y-padding="lg"
-      class="relative"
-    >
-      <div class="grid justify-items-center gap-8">
-        <PrismicRichText
-          :field="slice.primary.text"
-          :html-serializer="serializer"
-          class="max-w-2xl text-center"
-          wrapper="div"
-        />
-        <PrismicLink
-          v-if="slice.primary.buttonLink && ('id' in slice.primary.buttonLink || 'url' in slice.primary.buttonLink)"
-          :field="slice.primary.buttonLink"
-          class="btn btn--secondary"
-        >
-          {{ slice.primary.buttonText || "Learn More" }}
-        </PrismicLink>
-      </div>
-    </Bounded>
+    <div class="">
+      <PrismicRichText
+        :field="slice.primary.text"
+        :html-serializer="serializer"
+        class=""
+        wrapper="div"
+      />
+      <PrismicLink
+        v-if="slice.primary.buttonLink && ('id' in slice.primary.buttonLink || 'url' in slice.primary.buttonLink)"
+        :field="slice.primary.buttonLink"
+        class="btn btn--secondary"
+      >
+        {{ slice.primary.buttonText || "Learn More" }}
+      </PrismicLink>
+    </div>
   </section>
 </template>
