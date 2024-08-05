@@ -41,12 +41,6 @@
             "call_to_action": {
               "type": "SharedSlice"
             },
-            "coop_member": {
-              "type": "SharedSlice"
-            },
-            "newsletter_signup": {
-              "type": "SharedSlice"
-            },
             "hero": {
               "type": "SharedSlice"
             },

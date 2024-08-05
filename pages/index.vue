@@ -8,14 +8,6 @@ const { data: page } = useAsyncData('index', () =>
       // Fetch linked documents
       // like all the fields in 'Event'
       // or the author of a blog post.
-      // For example:
-      'event.even_title',
-      'event.date',
-      'event.program',
-      'exhibition.exhibition_title',
-      'exhibition.opening_date',
-      'exhibition.closing_date',
-      'exhibition.featured_image',
     ]
   })
 )

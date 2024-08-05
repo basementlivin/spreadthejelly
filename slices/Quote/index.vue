@@ -36,7 +36,3 @@ defineProps(getSliceComponentProps<Content.QuoteSlice>(
     </figure>
   </Bounded>
 </template>
-
-<style lang="scss">
-@import '/assets/styles/slices/quote.scss';
-</style>

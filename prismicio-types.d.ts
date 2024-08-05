@@ -66,199 +66,6 @@ export type AboutDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<AboutDocumentData>, "about", Lang>;
 
 /**
- * Content for Event documents
- */
-interface EventDocumentData {
-  /**
-   * Event Title field in *Event*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: event.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Program field in *Event*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Revolve Sound
-   * - **API ID Path**: event.program
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  program: prismic.SelectField<
-    | "Revolve Sound"
-    | "Queer Artist Meetup"
-    | "Skillshare"
-    | "Film Screening"
-    | "Community Event"
-    | "Open Studios"
-    | "Opening Reception"
-    | "Performance"
-    | "Workshop",
-    "filled"
-  >;
-
-  /**
-   * Description field in *Event*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: event.description
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Date and Time field in *Event*
-   *
-   * - **Field Type**: Timestamp
-   * - **Placeholder**: *None*
-   * - **API ID Path**: event.date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#timestamp
-   */
-  date: prismic.TimestampField;
-
-  /**
-   * Featured Image field in *Event*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: event.featured_image
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  featured_image: prismic.ImageField<never>;
-}
-
-/**
- * Event document from Prismic
- *
- * - **API ID**: `event`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type EventDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<Simplify<EventDocumentData>, "event", Lang>;
-
-type ExhibitionDocumentDataSlicesSlice = never;
-
-/**
- * Content for Exhibition documents
- */
-interface ExhibitionDocumentData {
-  /**
-   * Exhibition Title & Artist(s) Name field in *Exhibition*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: exhibition.exhibition_title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  exhibition_title: prismic.RichTextField;
-
-  /**
-   * Opening Date field in *Exhibition*
-   *
-   * - **Field Type**: Timestamp
-   * - **Placeholder**: *None*
-   * - **API ID Path**: exhibition.opening_date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#timestamp
-   */
-  opening_date: prismic.TimestampField;
-
-  /**
-   * Closing Date field in *Exhibition*
-   *
-   * - **Field Type**: Timestamp
-   * - **Placeholder**: *None*
-   * - **API ID Path**: exhibition.closing_date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#timestamp
-   */
-  closing_date: prismic.TimestampField;
-
-  /**
-   * Featured Image field in *Exhibition*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: exhibition.featured_image
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  featured_image: prismic.ImageField<never>;
-
-  /**
-   * Slice Zone field in *Exhibition*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: exhibition.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<ExhibitionDocumentDataSlicesSlice> /**
-   * Meta Title field in *Exhibition*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: exhibition.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_title: prismic.KeyTextField;
-
-  /**
-   * Meta Description field in *Exhibition*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: exhibition.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *Exhibition*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: exhibition.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
-}
-
-/**
- * Exhibition document from Prismic
- *
- * - **API ID**: `exhibition`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type ExhibitionDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<ExhibitionDocumentData>,
-    "exhibition",
-    Lang
-  >;
-
-/**
  * Item in *Navigation → Links*
  */
 export interface NavigationDocumentDataLinksItem {
@@ -318,8 +125,6 @@ export type NavigationDocument<Lang extends string = string> =
 type PageDocumentDataSlicesSlice =
   | EventPreviewSlice
   | CallToActionSlice
-  | CoopMemberSlice
-  | NewsletterSignupSlice
   | HeroSlice
   | QuoteSlice
   | TextSlice
@@ -464,8 +269,6 @@ export type SettingsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | AboutDocument
-  | EventDocument
-  | ExhibitionDocument
   | NavigationDocument
   | PageDocument
   | SettingsDocument;
@@ -563,126 +366,6 @@ type CallToActionSliceVariation =
 export type CallToActionSlice = prismic.SharedSlice<
   "call_to_action",
   CallToActionSliceVariation
->;
-
-/**
- * Item in *CoopMember → Default → Primary → Co-Op Member*
- */
-export interface CoopMemberSliceDefaultPrimaryMemberItem {
-  /**
-   * Photo field in *CoopMember → Default → Primary → Co-Op Member*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: coop_member.default.primary.member[].member_photo
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  member_photo: prismic.ImageField<never>;
-
-  /**
-   * Member Name field in *CoopMember → Default → Primary → Co-Op Member*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: coop_member.default.primary.member[].member_name
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  member_name: prismic.KeyTextField;
-
-  /**
-   * Pronouns field in *CoopMember → Default → Primary → Co-Op Member*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: coop_member.default.primary.member[].member_pronouns
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  member_pronouns: prismic.KeyTextField;
-
-  /**
-   * Role/Responsibilities field in *CoopMember → Default → Primary → Co-Op Member*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: coop_member.default.primary.member[].member_role
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  member_role: prismic.KeyTextField;
-
-  /**
-   * Bio field in *CoopMember → Default → Primary → Co-Op Member*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: coop_member.default.primary.member[].member_bio
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  member_bio: prismic.RichTextField;
-
-  /**
-   * Web or social link field in *CoopMember → Default → Primary → Co-Op Member*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: https://
-   * - **API ID Path**: coop_member.default.primary.member[].member_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  member_link: prismic.LinkField;
-
-  /**
-   * Link Text field in *CoopMember → Default → Primary → Co-Op Member*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: coop_member.default.primary.member[].member_link_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  member_link_text: prismic.KeyTextField;
-}
-
-/**
- * Primary content in *CoopMember → Default → Primary*
- */
-export interface CoopMemberSliceDefaultPrimary {
-  /**
-   * Co-Op Member field in *CoopMember → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: coop_member.default.primary.member[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  member: prismic.GroupField<Simplify<CoopMemberSliceDefaultPrimaryMemberItem>>;
-}
-
-/**
- * Default variation for CoopMember Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type CoopMemberSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<CoopMemberSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *CoopMember*
- */
-type CoopMemberSliceVariation = CoopMemberSliceDefault;
-
-/**
- * CoopMember Shared Slice
- *
- * - **API ID**: `coop_member`
- * - **Description**: CoopMember
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type CoopMemberSlice = prismic.SharedSlice<
-  "coop_member",
-  CoopMemberSliceVariation
 >;
 
 /**
@@ -980,83 +663,6 @@ export type ImageCardsSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *NewsletterSignup → Default → Primary*
- */
-export interface NewsletterSignupSliceDefaultPrimary {
-  /**
-   * Headline field in *NewsletterSignup → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Revolve News
-   * - **API ID Path**: newsletter_signup.default.primary.headline
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  headline: prismic.RichTextField;
-
-  /**
-   * Copy field in *NewsletterSignup → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Sign up for our email list and never miss an event again!
-   * - **API ID Path**: newsletter_signup.default.primary.copy
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  copy: prismic.RichTextField;
-
-  /**
-   * Mailchimp Action URL field in *NewsletterSignup → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: https://revolveavl.us12.list-manage.com/subscribe/post?u=9656a8d7222f19b474060d83a&amp;id=1d2a995db9&amp;f_id=001c72e0f0
-   * - **API ID Path**: newsletter_signup.default.primary.mailchimp_action_url
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  mailchimp_action_url: prismic.LinkField;
-
-  /**
-   * Background Color field in *NewsletterSignup → Default → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: Select a background color for this section.
-   * - **API ID Path**: newsletter_signup.default.primary.background_color
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  background_color: prismic.SelectField<
-    "putty" | "drywall" | "led" | "pollen" | "sawdust" | "astroturf"
-  >;
-}
-
-/**
- * Default variation for NewsletterSignup Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type NewsletterSignupSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<NewsletterSignupSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *NewsletterSignup*
- */
-type NewsletterSignupSliceVariation = NewsletterSignupSliceDefault;
-
-/**
- * NewsletterSignup Shared Slice
- *
- * - **API ID**: `newsletter_signup`
- * - **Description**: NewsletterSignup
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type NewsletterSignupSlice = prismic.SharedSlice<
-  "newsletter_signup",
-  NewsletterSignupSliceVariation
->;
-
-/**
  * Primary content in *Quote → Default → Primary*
  */
 export interface QuoteSliceDefaultPrimary {
@@ -1293,36 +899,6 @@ export type TextWithImageSlice = prismic.SharedSlice<
   TextWithImageSliceVariation
 >;
 
-/**
- * Default variation for UpcomingEvents Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type UpcomingEventsSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Record<string, never>,
-  never
->;
-
-/**
- * Slice variation for *UpcomingEvents*
- */
-type UpcomingEventsSliceVariation = UpcomingEventsSliceDefault;
-
-/**
- * UpcomingEvents Shared Slice
- *
- * - **API ID**: `upcoming_events`
- * - **Description**: UpcomingEvents
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type UpcomingEventsSlice = prismic.SharedSlice<
-  "upcoming_events",
-  UpcomingEventsSliceVariation
->;
-
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1336,11 +912,6 @@ declare module "@prismicio/client" {
       AboutDocument,
       AboutDocumentData,
       AboutDocumentDataSlicesSlice,
-      EventDocument,
-      EventDocumentData,
-      ExhibitionDocument,
-      ExhibitionDocumentData,
-      ExhibitionDocumentDataSlicesSlice,
       NavigationDocument,
       NavigationDocumentData,
       NavigationDocumentDataLinksItem,
@@ -1356,11 +927,6 @@ declare module "@prismicio/client" {
       CallToActionSliceVariation,
       CallToActionSliceDefault,
       CallToActionSliceMarquee,
-      CoopMemberSlice,
-      CoopMemberSliceDefaultPrimaryMemberItem,
-      CoopMemberSliceDefaultPrimary,
-      CoopMemberSliceVariation,
-      CoopMemberSliceDefault,
       EventPreviewSlice,
       EventPreviewSliceDefaultPrimaryEventsItem,
       EventPreviewSliceDefaultPrimary,
@@ -1381,10 +947,6 @@ declare module "@prismicio/client" {
       ImageCardsSliceDefaultItem,
       ImageCardsSliceVariation,
       ImageCardsSliceDefault,
-      NewsletterSignupSlice,
-      NewsletterSignupSliceDefaultPrimary,
-      NewsletterSignupSliceVariation,
-      NewsletterSignupSliceDefault,
       QuoteSlice,
       QuoteSliceDefaultPrimary,
       QuoteSliceVariation,
@@ -1401,9 +963,6 @@ declare module "@prismicio/client" {
       TextWithImageSliceVariation,
       TextWithImageSliceDefault,
       TextWithImageSliceWithButton,
-      UpcomingEventsSlice,
-      UpcomingEventsSliceVariation,
-      UpcomingEventsSliceDefault,
     };
   }
 }

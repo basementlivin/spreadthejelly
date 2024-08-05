@@ -17,7 +17,7 @@ export default defineNuxtConfig({
         {
           hid: 'description',
           name: 'description',
-          content: 'REVOLVE Gallery and Co-Op Studios is a community of artists and makers in Asheville, NC. We offer a variety of art classes, workshops, and events. We also have a gallery space where you can view and purchase art from our members and exhibiting artists.'
+          content: 'An editorial resource & storytelling platform for every motherhood journey.'
         },
         { name: 'format-detection', content: 'telephone=no' }
       ],
@@ -48,14 +48,6 @@ export default defineNuxtConfig({
         {
           type: 'page',
           path: '/:uid',
-        },
-        {
-          type: 'exhibition',
-          path: '/exhibitions/:uid',
-        },
-        {
-          type: 'event',
-          path: '/events/:uid',
         },
         {
           type: 'page',
