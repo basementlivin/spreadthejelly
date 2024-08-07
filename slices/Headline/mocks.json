@@ -3,19 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"headline": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "about us",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			},
 			"headline_level": {
 				"__TYPE__": "FieldContent",
 				"type": "Select",
@@ -25,6 +12,11 @@
 				"__TYPE__": "FieldContent",
 				"type": "Select",
 				"value": "Large"
+			},
+			"headline": {
+				"__TYPE__": "FieldContent",
+				"value": "wrapped",
+				"type": "Text"
 			}
 		},
 		"items": []

@@ -13,12 +13,10 @@
       "imageUrl": "",
       "primary": {
         "headline": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Headline",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "strong,em,hyperlink"
+            "placeholder": ""
           }
         },
         "headline_level": {

@@ -35,6 +35,6 @@ const headlineClass = computed(() => {
     class="headline wrapper"
     :class="headlineClass"
   >
-    <PrismicRichText :field="slice.primary.headline" />
+    {{ slice.primary.headline }}
   </component>
 </template>
