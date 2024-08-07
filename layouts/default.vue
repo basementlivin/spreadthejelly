@@ -11,7 +11,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="">
+  <div>
     <Header />
     <slot />
     <Footer />

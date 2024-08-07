@@ -33,9 +33,17 @@ defineProps(
           />
         </div>
         <div class="team-member__content">
-          <h3>{{ item.name }}</h3>
-          <PrismicRichText :field="item.bio" />
-          <PrismicLink :field="item.social_link">
+          <h3 class="name">
+            {{ item.name }}
+          </h3>
+          <PrismicRichText
+            :field="item.bio"
+            class="bio" 
+          />
+          <PrismicLink
+            :field="item.social_link"
+            class="social-link"
+          >
             {{ item.social_link_text }}
           </PrismicLink>
         </div>
