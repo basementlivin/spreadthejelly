@@ -9,12 +9,8 @@ defineProps(getSliceComponentProps<Content.TextSlice>(
 </script>
 
 <template>
-  <div
+  <PrismicRichText
+    :field="slice.primary.copy"
     class="copy wrapper"
-  >
-    <PrismicRichText
-      :field="slice.primary.copy"
-      class="copy"
-    />
-  </div>
+  />
 </template>

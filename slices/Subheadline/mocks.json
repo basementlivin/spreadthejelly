@@ -1,0 +1,14 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"subheadline": {
+				"__TYPE__": "FieldContent",
+				"value": "dangerous",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

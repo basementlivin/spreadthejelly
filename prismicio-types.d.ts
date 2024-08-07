@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | SubheadlineSlice
   | HeadlineSlice
   | TeamMembersSlice
   | CallToActionSlice
@@ -313,12 +314,12 @@ export interface HeadlineSliceDefaultPrimary {
   /**
    * Headline field in *Headline → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: headline.default.primary.headline
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  headline: prismic.RichTextField;
+  headline: prismic.KeyTextField;
 
   /**
    * Headline Level field in *Headline → Default → Primary*
@@ -609,6 +610,51 @@ type ImageCardsSliceVariation = ImageCardsSliceDefault;
 export type ImageCardsSlice = prismic.SharedSlice<
   "image_cards",
   ImageCardsSliceVariation
+>;
+
+/**
+ * Primary content in *Subheadline → Default → Primary*
+ */
+export interface SubheadlineSliceDefaultPrimary {
+  /**
+   * Subheadline field in *Subheadline → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: subheadline.default.primary.subheadline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subheadline: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Subheadline Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SubheadlineSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SubheadlineSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Subheadline*
+ */
+type SubheadlineSliceVariation = SubheadlineSliceDefault;
+
+/**
+ * Subheadline Shared Slice
+ *
+ * - **API ID**: `subheadline`
+ * - **Description**: Subheadline
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SubheadlineSlice = prismic.SharedSlice<
+  "subheadline",
+  SubheadlineSliceVariation
 >;
 
 /**
@@ -914,6 +960,10 @@ declare module "@prismicio/client" {
       ImageCardsSliceDefaultItem,
       ImageCardsSliceVariation,
       ImageCardsSliceDefault,
+      SubheadlineSlice,
+      SubheadlineSliceDefaultPrimary,
+      SubheadlineSliceVariation,
+      SubheadlineSliceDefault,
       TeamMembersSlice,
       TeamMembersSliceDefaultPrimaryTeamMemberItem,
       TeamMembersSliceDefaultPrimary,
