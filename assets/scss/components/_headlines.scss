@@ -1,0 +1,19 @@
+.headline {
+  font-family: $sans;
+
+  &--large {
+    font-size: $h1;
+  }
+
+  &--medium {
+    font-size: $h2;
+  }
+
+  &--small {
+    font-size: $h3;
+  }
+
+  &--hidden {
+    @include visually-hidden();
+  }
+}

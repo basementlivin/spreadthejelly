@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | HeadlineSlice
   | TeamMembersSlice
   | CallToActionSlice
   | HeroSlice
@@ -303,6 +304,79 @@ type CallToActionSliceVariation =
 export type CallToActionSlice = prismic.SharedSlice<
   "call_to_action",
   CallToActionSliceVariation
+>;
+
+/**
+ * Primary content in *Headline → Default → Primary*
+ */
+export interface HeadlineSliceDefaultPrimary {
+  /**
+   * Headline field in *Headline → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: headline.default.primary.headline
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  headline: prismic.RichTextField;
+
+  /**
+   * Headline Level field in *Headline → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: h1
+   * - **API ID Path**: headline.default.primary.headline_level
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  headline_level: prismic.SelectField<
+    "h1" | "h2" | "h3" | "h4" | "h5" | "h6",
+    "filled"
+  >;
+
+  /**
+   * Headline Style field in *Headline → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Large
+   * - **API ID Path**: headline.default.primary.headline_style
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  headline_style: prismic.SelectField<
+    "Large" | "Medium" | "Small" | "Hidden",
+    "filled"
+  >;
+}
+
+/**
+ * Default variation for Headline Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeadlineSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeadlineSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Headline*
+ */
+type HeadlineSliceVariation = HeadlineSliceDefault;
+
+/**
+ * Headline Shared Slice
+ *
+ * - **API ID**: `headline`
+ * - **Description**: Headline
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeadlineSlice = prismic.SharedSlice<
+  "headline",
+  HeadlineSliceVariation
 >;
 
 /**
@@ -849,6 +923,10 @@ declare module "@prismicio/client" {
       CallToActionSliceVariation,
       CallToActionSliceDefault,
       CallToActionSliceMarquee,
+      HeadlineSlice,
+      HeadlineSliceDefaultPrimary,
+      HeadlineSliceVariation,
+      HeadlineSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

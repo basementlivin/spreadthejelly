@@ -35,6 +35,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "headline": {
+              "type": "SharedSlice"
+            },
             "team_members": {
               "type": "SharedSlice"
             },
