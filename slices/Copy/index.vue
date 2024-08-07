@@ -9,16 +9,12 @@ defineProps(getSliceComponentProps<Content.TextSlice>(
 </script>
 
 <template>
-  <Bounded
-    as="section"
-    class=""
+  <div
+    class="copy wrapper"
   >
     <PrismicRichText
-      :field="slice.primary.text"
-      :class="{
-        '': slice.variation === 'twoColumns'
-      }"
-      wrapper="div"
+      :field="slice.primary.copy"
+      class="copy"
     />
-  </Bounded>
+  </div>
 </template>

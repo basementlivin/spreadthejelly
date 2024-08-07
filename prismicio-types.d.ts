@@ -714,22 +714,22 @@ export type TeamMembersSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *Text → Default → Primary*
+ * Primary content in *Copy → Default → Primary*
  */
 export interface TextSliceDefaultPrimary {
   /**
-   * Text field in *Text → Default → Primary*
+   * Copy field in *Copy → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: text.default.primary.text
+   * - **API ID Path**: text.default.primary.copy
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  text: prismic.RichTextField;
+  copy: prismic.RichTextField;
 }
 
 /**
- * Default variation for Text Slice
+ * Default variation for Copy Slice
  *
  * - **API ID**: `default`
  * - **Description**: Text
@@ -742,40 +742,12 @@ export type TextSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *Text → Two Columns → Primary*
+ * Slice variation for *Copy*
  */
-export interface TextSliceTwoColumnsPrimary {
-  /**
-   * Text field in *Text → Two Columns → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text.twoColumns.primary.text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  text: prismic.RichTextField;
-}
+type TextSliceVariation = TextSliceDefault;
 
 /**
- * Two Columns variation for Text Slice
- *
- * - **API ID**: `twoColumns`
- * - **Description**: Text
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TextSliceTwoColumns = prismic.SharedSliceVariation<
-  "twoColumns",
-  Simplify<TextSliceTwoColumnsPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Text*
- */
-type TextSliceVariation = TextSliceDefault | TextSliceTwoColumns;
-
-/**
- * Text Shared Slice
+ * Copy Shared Slice
  *
  * - **API ID**: `text`
  * - **Description**: Text
@@ -949,10 +921,8 @@ declare module "@prismicio/client" {
       TeamMembersSliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
-      TextSliceTwoColumnsPrimary,
       TextSliceVariation,
       TextSliceDefault,
-      TextSliceTwoColumns,
       TextWithImageSlice,
       TextWithImageSliceDefaultPrimary,
       TextWithImageSliceWithButtonPrimary,

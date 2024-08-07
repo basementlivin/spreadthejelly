@@ -12,7 +12,7 @@ export const components = defineSliceZoneComponents({
   image: defineAsyncComponent(() => import("./Image/index.vue")),
   image_cards: defineAsyncComponent(() => import("./ImageCards/index.vue")),
   team_members: defineAsyncComponent(() => import("./TeamMembers/index.vue")),
-  text: defineAsyncComponent(() => import("./Text/index.vue")),
+  text: defineAsyncComponent(() => import("./Copy/index.vue")),
   text_with_image: defineAsyncComponent(
     () => import("./TextWithImage/index.vue"),
   ),
