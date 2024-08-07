@@ -4,12 +4,45 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type AboutDocumentDataSlicesSlice = never;
+type AboutDocumentDataSlicesSlice = TeamMembersSlice;
 
 /**
  * Content for About documents
  */
 interface AboutDocumentData {
+  /**
+   * Title field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.subtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * Copy field in *About*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.copy
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  copy: prismic.RichTextField;
+
   /**
    * Slice Zone field in *About*
    *
@@ -63,7 +96,7 @@ interface AboutDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type AboutDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<Simplify<AboutDocumentData>, "about", Lang>;
+  prismic.PrismicDocumentWithUID<Simplify<AboutDocumentData>, "about", Lang>;
 
 /**
  * Item in *Navigation → Links*
