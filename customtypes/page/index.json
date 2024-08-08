@@ -35,6 +35,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "hero": {
+              "type": "SharedSlice"
+            },
             "subheadline": {
               "type": "SharedSlice"
             },
@@ -45,9 +48,6 @@
               "type": "SharedSlice"
             },
             "call_to_action": {
-              "type": "SharedSlice"
-            },
-            "hero": {
               "type": "SharedSlice"
             },
             "text": {

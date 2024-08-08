@@ -62,11 +62,11 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | HeroSlice
   | SubheadlineSlice
   | HeadlineSlice
   | TeamMembersSlice
   | CallToActionSlice
-  | HeroSlice
   | TextSlice
   | ImageSlice
   | ImageCardsSlice
@@ -381,55 +381,217 @@ export type HeadlineSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *Hero → Default → Primary*
+ * Item in *Hero → Bump → Primary → Headline*
  */
-export interface HeroSliceDefaultPrimary {
+export interface HeroSliceDefaultPrimaryHeadlineItem {
   /**
-   * Text field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  text: prismic.RichTextField;
-
-  /**
-   * Button Link field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: Button Link
-   * - **API ID Path**: hero.default.primary.buttonLink
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  buttonLink: prismic.LinkField;
-
-  /**
-   * Button Text field in *Hero → Default → Primary*
+   * Headline Text field in *Hero → Bump → Primary → Headline*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.buttonText
+   * - **API ID Path**: hero.default.primary.headline[].headline
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  buttonText: prismic.KeyTextField;
+  headline: prismic.KeyTextField;
 
   /**
-   * Background Image field in *Hero → Default → Primary*
+   * Headline Level field in *Hero → Bump → Primary → Headline*
    *
-   * - **Field Type**: Image
+   * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.backgroundImage
-   * - **Documentation**: https://prismic.io/docs/field#image
+   * - **Default Value**: p
+   * - **API ID Path**: hero.default.primary.headline[].headline_level
+   * - **Documentation**: https://prismic.io/docs/field#select
    */
-  backgroundImage: prismic.ImageField<never>;
+  headline_level: prismic.SelectField<
+    "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6",
+    "filled"
+  >;
 }
 
 /**
- * Default variation for Hero Slice
+ * Item in *Hero → Bump → Primary → Link*
+ */
+export interface HeroSliceDefaultPrimaryLinkItem {
+  /**
+   * Link Text field in *Hero → Bump → Primary → Link*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.link[].link_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_text: prismic.KeyTextField;
+
+  /**
+   * Link Location field in *Hero → Bump → Primary → Link*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.link[].link_location
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_location: prismic.LinkField;
+}
+
+/**
+ * Item in *Hero → Straight → Primary → Headline*
+ */
+export interface HeroSliceStraightPrimaryHeadlineItem {
+  /**
+   * Headline Text field in *Hero → Straight → Primary → Headline*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.straight.primary.headline[].headline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  headline: prismic.KeyTextField;
+
+  /**
+   * Headline Level field in *Hero → Straight → Primary → Headline*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: p
+   * - **API ID Path**: hero.straight.primary.headline[].headline_level
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  headline_level: prismic.SelectField<
+    "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6",
+    "filled"
+  >;
+}
+
+/**
+ * Item in *Hero → Straight → Primary → Link*
+ */
+export interface HeroSliceStraightPrimaryLinkItem {
+  /**
+   * Link Text field in *Hero → Straight → Primary → Link*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.straight.primary.link[].link_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_text: prismic.KeyTextField;
+
+  /**
+   * Link Location field in *Hero → Straight → Primary → Link*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.straight.primary.link[].link_location
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_location: prismic.LinkField;
+}
+
+/**
+ * Item in *Hero → Super → Primary → Headline*
+ */
+export interface HeroSliceSuperPrimaryHeadlineItem {
+  /**
+   * Headline Text field in *Hero → Super → Primary → Headline*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.super.primary.headline[].headline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  headline: prismic.KeyTextField;
+
+  /**
+   * Headline Level field in *Hero → Super → Primary → Headline*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: p
+   * - **API ID Path**: hero.super.primary.headline[].headline_level
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  headline_level: prismic.SelectField<
+    "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6",
+    "filled"
+  >;
+}
+
+/**
+ * Item in *Hero → Super → Primary → Link*
+ */
+export interface HeroSliceSuperPrimaryLinkItem {
+  /**
+   * Link Text field in *Hero → Super → Primary → Link*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.super.primary.link[].link_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_text: prismic.KeyTextField;
+
+  /**
+   * Link Location field in *Hero → Super → Primary → Link*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.super.primary.link[].link_location
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_location: prismic.LinkField;
+}
+
+/**
+ * Primary content in *Hero → Bump → Primary*
+ */
+export interface HeroSliceDefaultPrimary {
+  /**
+   * Image field in *Hero → Bump → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<"mobile">;
+
+  /**
+   * Headline field in *Hero → Bump → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.headline[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  headline: prismic.GroupField<Simplify<HeroSliceDefaultPrimaryHeadlineItem>>;
+
+  /**
+   * Subheadline field in *Hero → Bump → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.subheadline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subheadline: prismic.KeyTextField;
+
+  /**
+   * Link field in *Hero → Bump → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.link[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  link: prismic.GroupField<Simplify<HeroSliceDefaultPrimaryLinkItem>>;
+}
+
+/**
+ * Bump variation for Hero Slice
  *
  * - **API ID**: `default`
- * - **Description**: Hero
+ * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSliceDefault = prismic.SharedSliceVariation<
@@ -439,9 +601,135 @@ export type HeroSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Hero → Straight → Primary*
+ */
+export interface HeroSliceStraightPrimary {
+  /**
+   * Image field in *Hero → Straight → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.straight.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<"mobile">;
+
+  /**
+   * Headline field in *Hero → Straight → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.straight.primary.headline[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  headline: prismic.GroupField<Simplify<HeroSliceStraightPrimaryHeadlineItem>>;
+
+  /**
+   * Subheadline field in *Hero → Straight → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.straight.primary.subheadline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subheadline: prismic.KeyTextField;
+
+  /**
+   * Link field in *Hero → Straight → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.straight.primary.link[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  link: prismic.GroupField<Simplify<HeroSliceStraightPrimaryLinkItem>>;
+}
+
+/**
+ * Straight variation for Hero Slice
+ *
+ * - **API ID**: `straight`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceStraight = prismic.SharedSliceVariation<
+  "straight",
+  Simplify<HeroSliceStraightPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Hero → Super → Primary*
+ */
+export interface HeroSliceSuperPrimary {
+  /**
+   * Image field in *Hero → Super → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.super.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<"mobile">;
+
+  /**
+   * Headline field in *Hero → Super → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.super.primary.headline[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  headline: prismic.GroupField<Simplify<HeroSliceSuperPrimaryHeadlineItem>>;
+
+  /**
+   * Subheadline field in *Hero → Super → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.super.primary.subheadline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subheadline: prismic.KeyTextField;
+
+  /**
+   * Link field in *Hero → Super → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.super.primary.link[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  link: prismic.GroupField<Simplify<HeroSliceSuperPrimaryLinkItem>>;
+
+  /**
+   * Copy field in *Hero → Super → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.super.primary.copy
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  copy: prismic.RichTextField;
+}
+
+/**
+ * Super variation for Hero Slice
+ *
+ * - **API ID**: `super`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceSuper = prismic.SharedSliceVariation<
+  "super",
+  Simplify<HeroSliceSuperPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Hero*
  */
-type HeroSliceVariation = HeroSliceDefault;
+type HeroSliceVariation = HeroSliceDefault | HeroSliceStraight | HeroSliceSuper;
 
 /**
  * Hero Shared Slice
@@ -946,9 +1234,19 @@ declare module "@prismicio/client" {
       HeadlineSliceVariation,
       HeadlineSliceDefault,
       HeroSlice,
+      HeroSliceDefaultPrimaryHeadlineItem,
+      HeroSliceDefaultPrimaryLinkItem,
       HeroSliceDefaultPrimary,
+      HeroSliceStraightPrimaryHeadlineItem,
+      HeroSliceStraightPrimaryLinkItem,
+      HeroSliceStraightPrimary,
+      HeroSliceSuperPrimaryHeadlineItem,
+      HeroSliceSuperPrimaryLinkItem,
+      HeroSliceSuperPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      HeroSliceStraight,
+      HeroSliceSuper,
       ImageSlice,
       ImageSliceDefaultPrimary,
       ImageSliceBannerPrimary,
