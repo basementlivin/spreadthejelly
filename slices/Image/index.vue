@@ -35,10 +35,9 @@ defineProps(
         :src="slice.primary.image.url ?? ''"
         :alt="slice.primary.image.alt ?? ''"
       />
-      
       <svg
         v-if="slice.variation === 'default'"
-        class="image--mask"
+        class="mask"
         viewBox="0 0 1543.25 38.41"
       >
         <path

@@ -3,32 +3,46 @@
     z-index: 1;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    padding: 0;
+    height: auto;
+    padding-bottom: 4rem;
 
     &__bg {
-        position: relative;
-        overflow: hidden;
-        aspect-ratio: 16 / 9;
-        
-        @include breakpoint($laptop) {
-            aspect-ratio: 8 / 3;
-        }
-        
-        img {
-            display: block;
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        user-select: none;
 
-        .image--mask {
-            color: $white;
-            position: absolute;
-            bottom: -2px;
-            left: -2px;
-            right: -2px;
-            width: 105%;
-            height: auto;
+        .image {
+            position: relative; // Change to relative to keep it within the flow
+            z-index: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            
+            img {
+                display: block;
+                width: 100%;
+                // height: auto;
+                object-fit: cover;
+                height: 66vh;
+
+                @include breakpoint($laptop) {
+                    height: 80vh;
+                }
+            }
+            
+            .image--mask {
+                color: $white;
+                position: absolute;
+                z-index: 4;
+                bottom: -1px;
+                left: 0;
+                right: 0;
+                width: 100vw;
+                height: auto;
+            } 
         }
     }
 
@@ -51,10 +65,13 @@
     }
 
     &__content {
+        position: relative;
+        z-index: 1;
         display: flex;
         flex-direction: column;
         gap: 0;
         width: 100%;
+
         .headline {
             font-weight: bold;
         }
@@ -62,7 +79,7 @@
             display: flex;
             flex-direction: column;
             gap: 0;
-
+            
             @include breakpoint($laptop) {
                 flex-direction: row;
                 gap: 2rem;
@@ -70,9 +87,16 @@
 
             span {}
             a {}
-            
         }
-
+        .copy {
+            @include breakpoint($laptop) {
+                display: grid;
+                grid-template-columns: repeat(12, 1fr);
+                div {
+                    grid-column-start: 3;
+                    grid-column-end: 12;
+                }
+            }
+        }
     }
-
 }

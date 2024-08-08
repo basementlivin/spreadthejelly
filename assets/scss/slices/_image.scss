@@ -1,4 +1,4 @@
-.image {
+section.image {
   position: relative;
   z-index: 1;
   display: flex;
@@ -19,13 +19,13 @@
             object-fit: cover;
         }
   
-        .image--mask {
+        .mask {
             color: $white;
             position: absolute;
             bottom: -2px;
-            left: -2px;
-            right: -2px;
-            width: 105%;
+            left: 0;
+            right: 0;
+            width: 100vw;
             height: auto;
         }
       }

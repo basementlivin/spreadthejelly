@@ -25,9 +25,8 @@ defineProps(
           :src="slice.primary.image.url ?? ''"
           :alt="slice.primary.image.alt ?? ''"
         />
-        <!-- Conditionally render the SVG mask -->
         <svg
-          v-if="slice.variation === 'default'"
+          v-if="slice.variation === 'default' || slice.variation === 'super'"
           class="image--mask"
           viewBox="0 0 1543.25 38.41"
         >
@@ -71,3 +70,7 @@ defineProps(
     </div>
   </section>
 </template>
+
+<style lang="scss" scoped>
+  @import '@/assets/scss/slices/_hero.scss';
+</style>
