@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | DividingLineSlice
   | QuestionSlice
   | ImageSlice
   | HeroSlice
@@ -306,6 +307,66 @@ type CallToActionSliceVariation =
 export type CallToActionSlice = prismic.SharedSlice<
   "call_to_action",
   CallToActionSliceVariation
+>;
+
+/**
+ * Primary content in *DividingLine → Default → Primary*
+ */
+export interface DividingLineSliceDefaultPrimary {
+  /**
+   * Padding Top field in *DividingLine → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 16px
+   * - **API ID Path**: dividing_line.default.primary.padding_top
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  padding_top: prismic.SelectField<"16px" | "32px" | "48px" | "64px", "filled">;
+
+  /**
+   * Padding Bottom field in *DividingLine → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 16px
+   * - **API ID Path**: dividing_line.default.primary.padding_bottom
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  padding_bottom: prismic.SelectField<
+    "16px" | "32px" | "48px" | "64px",
+    "filled"
+  >;
+}
+
+/**
+ * Default variation for DividingLine Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DividingLineSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<DividingLineSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *DividingLine*
+ */
+type DividingLineSliceVariation = DividingLineSliceDefault;
+
+/**
+ * DividingLine Shared Slice
+ *
+ * - **API ID**: `dividing_line`
+ * - **Description**: DividingLine
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DividingLineSlice = prismic.SharedSlice<
+  "dividing_line",
+  DividingLineSliceVariation
 >;
 
 /**
@@ -1305,6 +1366,10 @@ declare module "@prismicio/client" {
       CallToActionSliceVariation,
       CallToActionSliceDefault,
       CallToActionSliceMarquee,
+      DividingLineSlice,
+      DividingLineSliceDefaultPrimary,
+      DividingLineSliceVariation,
+      DividingLineSliceDefault,
       HeadlineSlice,
       HeadlineSliceDefaultPrimary,
       HeadlineSliceVariation,

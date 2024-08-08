@@ -35,6 +35,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "dividing_line": {
+              "type": "SharedSlice"
+            },
             "question": {
               "type": "SharedSlice"
             },
