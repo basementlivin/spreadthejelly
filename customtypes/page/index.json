@@ -35,6 +35,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "image": {
+              "type": "SharedSlice"
+            },
             "hero": {
               "type": "SharedSlice"
             },
@@ -51,9 +54,6 @@
               "type": "SharedSlice"
             },
             "text": {
-              "type": "SharedSlice"
-            },
-            "image": {
               "type": "SharedSlice"
             },
             "image_cards": {

@@ -62,13 +62,13 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ImageSlice
   | HeroSlice
   | SubheadlineSlice
   | HeadlineSlice
   | TeamMembersSlice
   | CallToActionSlice
   | TextSlice
-  | ImageSlice
   | ImageCardsSlice
   | TextWithImageSlice;
 
@@ -741,11 +741,11 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceStraight | HeroSliceSuper;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
- * Primary content in *Image → Default → Primary*
+ * Primary content in *Image → Full-Width → Primary*
  */
 export interface ImageSliceDefaultPrimary {
   /**
-   * Image field in *Image → Default → Primary*
+   * Image field in *Image → Full-Width → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -756,10 +756,10 @@ export interface ImageSliceDefaultPrimary {
 }
 
 /**
- * Default variation for Image Slice
+ * Full-Width variation for Image Slice
  *
  * - **API ID**: `default`
- * - **Description**: Image
+ * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type ImageSliceDefault = prismic.SharedSliceVariation<
@@ -769,37 +769,47 @@ export type ImageSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *Image → Banner → Primary*
+ * Primary content in *Image → Two Column → Primary*
  */
-export interface ImageSliceBannerPrimary {
+export interface ImageSliceTwoColumnPrimary {
   /**
-   * Image field in *Image → Banner → Primary*
+   * Image Left field in *Image → Two Column → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: image.banner.primary.image
+   * - **API ID Path**: image.twoColumn.primary.image_left
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  image: prismic.ImageField<never>;
+  image_left: prismic.ImageField<never>;
+
+  /**
+   * Image Right field in *Image → Two Column → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image.twoColumn.primary.image_right
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_right: prismic.ImageField<never>;
 }
 
 /**
- * Banner variation for Image Slice
+ * Two Column variation for Image Slice
  *
- * - **API ID**: `banner`
- * - **Description**: Image
+ * - **API ID**: `twoColumn`
+ * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type ImageSliceBanner = prismic.SharedSliceVariation<
-  "banner",
-  Simplify<ImageSliceBannerPrimary>,
+export type ImageSliceTwoColumn = prismic.SharedSliceVariation<
+  "twoColumn",
+  Simplify<ImageSliceTwoColumnPrimary>,
   never
 >;
 
 /**
  * Slice variation for *Image*
  */
-type ImageSliceVariation = ImageSliceDefault | ImageSliceBanner;
+type ImageSliceVariation = ImageSliceDefault | ImageSliceTwoColumn;
 
 /**
  * Image Shared Slice
@@ -1249,10 +1259,10 @@ declare module "@prismicio/client" {
       HeroSliceSuper,
       ImageSlice,
       ImageSliceDefaultPrimary,
-      ImageSliceBannerPrimary,
+      ImageSliceTwoColumnPrimary,
       ImageSliceVariation,
       ImageSliceDefault,
-      ImageSliceBanner,
+      ImageSliceTwoColumn,
       ImageCardsSlice,
       ImageCardsSliceDefaultPrimary,
       ImageCardsSliceDefaultItem,
