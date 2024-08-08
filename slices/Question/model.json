@@ -1,0 +1,46 @@
+{
+  "id": "question",
+  "type": "SharedSlice",
+  "name": "Question",
+  "description": "Question",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "shape": {
+          "type": "Image",
+          "config": {
+            "label": "Shape",
+            "constraint": {
+              "width": null,
+              "height": null
+            },
+            "thumbnails": []
+          }
+        },
+        "question": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Question",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "asked_by": {
+          "type": "Text",
+          "config": {
+            "label": "Asked By",
+            "placeholder": "from "
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

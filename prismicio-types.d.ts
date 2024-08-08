@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | QuestionSlice
   | ImageSlice
   | HeroSlice
   | SubheadlineSlice
@@ -911,6 +912,71 @@ export type ImageCardsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Question → Default → Primary*
+ */
+export interface QuestionSliceDefaultPrimary {
+  /**
+   * Shape field in *Question → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: question.default.primary.shape
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  shape: prismic.ImageField<never>;
+
+  /**
+   * Question field in *Question → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: question.default.primary.question
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  question: prismic.RichTextField;
+
+  /**
+   * Asked By field in *Question → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: from
+   * - **API ID Path**: question.default.primary.asked_by
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  asked_by: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Question Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type QuestionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<QuestionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Question*
+ */
+type QuestionSliceVariation = QuestionSliceDefault;
+
+/**
+ * Question Shared Slice
+ *
+ * - **API ID**: `question`
+ * - **Description**: Question
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type QuestionSlice = prismic.SharedSlice<
+  "question",
+  QuestionSliceVariation
+>;
+
+/**
  * Primary content in *Subheadline → Default → Primary*
  */
 export interface SubheadlineSliceDefaultPrimary {
@@ -1268,6 +1334,10 @@ declare module "@prismicio/client" {
       ImageCardsSliceDefaultItem,
       ImageCardsSliceVariation,
       ImageCardsSliceDefault,
+      QuestionSlice,
+      QuestionSliceDefaultPrimary,
+      QuestionSliceVariation,
+      QuestionSliceDefault,
       SubheadlineSlice,
       SubheadlineSliceDefaultPrimary,
       SubheadlineSliceVariation,
