@@ -40,3 +40,7 @@ defineProps(
     </div>
   </section>
 </template>
+
+<style lang="scss" scoped>
+  @import '@/assets/scss/slices/_question.scss';
+</style>

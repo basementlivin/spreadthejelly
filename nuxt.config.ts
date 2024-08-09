@@ -25,7 +25,7 @@ export default defineNuxtConfig({
   },
 
   css: [
-    '~/assets/scss/main.scss',
+    '@/assets/scss/main.scss', // Main SCSS file that imports everything
   ],
 
   vite: {
@@ -33,9 +33,13 @@ export default defineNuxtConfig({
       preprocessorOptions: {
         scss: {
           additionalData: `
-            @import "@/assets/scss/globals/variables.scss";
-            @import "@/assets/scss/globals/mixins.scss";
+            @import "@/assets/scss/globals/reset";
+            @import "@/assets/scss/globals/variables";
+            @import "@/assets/scss/globals/mixins";
+            @import "@/assets/scss/globals/typography";
+            @import "@/assets/scss/globals/global";
             @import "breakpoint-sass/stylesheets/breakpoint";
+            @import "@/assets/scss/globals/wrappers";
           `
         }
       }

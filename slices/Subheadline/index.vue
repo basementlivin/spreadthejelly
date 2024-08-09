@@ -22,3 +22,7 @@ defineProps(
     {{ slice.primary.subheadline }}
   </span>
 </template>
+
+<style lang="scss" scoped>
+  @import '@/assets/scss/components/_subheadlines.scss';
+</style>

@@ -5,19 +5,8 @@ Author URI: https://historyofsalad.com/, https://erikpedersen.website/
 Version: 1.0
 */
 
-// GLOBALS
-@import './globals/reset';
-@import './globals/global';
-@import './globals/variables';
-@import './globals/mixins';
-@import './globals/typography';
-@import './globals/wrappers';
-
 // COMPONENTS
 @import './components/header';
-@import './components/headlines';
-@import './components/subheadlines';
-@import './components/copy';
 @import './components/footer';
 @import './components/buttons';
 

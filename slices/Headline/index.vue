@@ -38,3 +38,7 @@ const headlineClass = computed(() => {
     {{ slice.primary.headline }}
   </component>
 </template>
+
+<style lang="scss" scoped>
+  @import '@/assets/scss/components/_headlines.scss';
+</style>

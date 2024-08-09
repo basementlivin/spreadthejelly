@@ -41,7 +41,8 @@
       }
 
       &__question {
-        font-size: 2rem;
+        font-family: $monument;
+        font-size: $h3;
         font-weight: 700;
         line-height: 1.5;
 
@@ -51,6 +52,7 @@
       }
 
       &__asker {
+       font-family: $monument;
         font-size: $text--small;
       }
     }

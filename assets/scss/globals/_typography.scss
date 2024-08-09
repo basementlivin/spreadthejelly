@@ -1,3 +1,5 @@
+@import 'variables';
+
 html {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -26,7 +28,7 @@ html {font-size: 100%; }
 body {
     font-family: $sans;
     background: $white;
-    line-height: 1.75;
+    line-height: 1.5;
     color: $black;
 }
 

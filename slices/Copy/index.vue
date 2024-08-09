@@ -11,6 +11,10 @@ defineProps(getSliceComponentProps<Content.TextSlice>(
 <template>
   <PrismicRichText
     :field="slice.primary.copy"
-    class="copy wrapper"
+    class="copy wrapper wrapper--narrow"
   />
 </template>
+
+<style lang="scss" scoped>
+  @import '@/assets/scss/components/_copy.scss';
+</style>

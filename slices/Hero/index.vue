@@ -45,16 +45,17 @@ defineProps(
           v-if="slice.primary.headline[0]?.headline_level && slice.primary.headline[0]?.headline"
           :data-slice-type="slice.slice_type"
           :data-slice-variation="slice.variation"
-          class="headline h1"
+          class="h1"
         >
           {{ slice.primary.headline[0]?.headline }}
         </component>
       </div>
-      <div class="subheadline">
-        <span>{{ slice.primary.subheadline }}</span>
+      <div class="details">
+        <span class="subheadline">{{ slice.primary.subheadline }}</span>
         <PrismicLink
           v-if="slice.primary.link && slice.primary.link[0]?.link_location"
           :field="slice.primary.link[0].link_location"
+          class="link"
         >
           {{ slice.primary.link[0]?.link_text }}
         </PrismicLink>

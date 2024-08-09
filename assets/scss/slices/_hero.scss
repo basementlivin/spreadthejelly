@@ -24,7 +24,7 @@
             img {
                 display: block;
                 width: 100%;
-                // height: auto;
+                height: auto;
                 object-fit: cover;
                 height: 66vh;
 
@@ -79,30 +79,46 @@
         flex-direction: column;
         gap: 0;
         width: 100%;
-
+        
         .headline {
-            font-weight: bold;
+            > * {
+                font-family: $syne;
+                margin: 0;
+            }
         }
-        .subheadline {
+        .details {
             display: flex;
             flex-direction: column;
-            gap: 0;
+            gap: 1rem;
             
             @include breakpoint($laptop) {
                 flex-direction: row;
+                align-items: flex-end;
                 gap: 2rem;
             }
 
-            span {}
-            a {}
+            .subheadline {
+                @include chivo-variable();
+                font-size: $h3;
+                line-height: 1;
+            }
+            
+            .link {
+                font-family: $monument;
+                font-size: 1rem;
+                text-decoration: underline;
+                line-height: 1.6;
+            }
         }
         .copy {
+            padding-top: 3rem;
             @include breakpoint($laptop) {
                 display: grid;
                 grid-template-columns: repeat(12, 1fr);
                 div {
                     grid-column-start: 3;
                     grid-column-end: 12;
+                    @include chivo-variable();
                 }
             }
         }
