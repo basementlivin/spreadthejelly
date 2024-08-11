@@ -5,6 +5,8 @@
   "license": "Apache-2.0",
   "author": "Prismic <contact@prismic.io> (https://prismic.io)",
   "scripts": {
+    "preinstall": "dotenv -e .env",
+    "install": "npm install",
     "dev": "concurrently \"npm:nuxt:dev\" \"npm:slicemachine\" --names \"nuxt,slicemachine\" --prefix-colors green,magenta",
     "nuxt:dev": "nuxt dev",
     "build": "nuxt build",
@@ -26,6 +28,7 @@
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@slicemachine/adapter-nuxt": "^0.3.43",
     "concurrently": "^8.2.2",
+    "dotenv-cli": "^7.4.2",
     "eslint": "^8.52.0",
     "nuxt": "^3.8.0",
     "sass": "^1.71.1",
