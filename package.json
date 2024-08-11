@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "@nuxt/image": "^1.7.0",
-    "breakpoint-sass": "^3.0.0"
+    "breakpoint-sass": "^3.0.0",
+    "gsap": "npm:@gsap/shockingly@^3.12.5"
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.0.0",
