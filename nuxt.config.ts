@@ -25,7 +25,7 @@ export default defineNuxtConfig({
   },
 
   css: [
-    '@/assets/scss/main.scss', // Main SCSS file that imports everything
+    '@/assets/scss/main.scss',
   ],
 
   vite: {
@@ -49,6 +49,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/prismic',
     '@nuxt/image',
+    '@nuxtjs/seo',
+    '~/modules.ts'
   ],
 
   image: {
@@ -72,5 +74,29 @@ export default defineNuxtConfig({
         },
       ]
     }
-  }
+  },
+
+  site: {
+    url: 'https://spreadthejelly.com',
+    name: 'Spread the Jelly',
+    description: 'An editorial resource & storytelling platform for every motherhood journey.',
+    defaultLocale: 'en',
+    social: {
+      twitter: '@spreadthejelly',
+      facebook: 'spreadthejelly',
+      instagram: 'spreadthejelly'
+    },
+    seo: {
+      titleTemplate: '%s - Spread the Jelly',
+      openGraph: {
+        type: 'website',
+        locale: 'en_US',
+        site_name: 'Spread the Jelly',
+      },
+      twitter: {
+        card: 'summary_large_image',
+        site: '@spreadthejelly',
+      }
+    }
+  },
 })
