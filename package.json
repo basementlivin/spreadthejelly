@@ -36,6 +36,7 @@
     "nuxt": "^3.8.0",
     "nuxt-site-config": "^2.2.15",
     "nuxt-site-config-kit": "^2.2.15",
+    "nuxt-svgo": "^4.0.3",
     "sass": "^1.71.1",
     "sass-loader": "^14.1.1",
     "slice-machine-ui": "^2.3.0"

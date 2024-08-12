@@ -51,7 +51,8 @@ export default defineNuxtConfig({
     '@nuxt/image',
     'nuxt-swiper',
     '@nuxtjs/seo',
-    '~/modules.ts'
+    "nuxt-svgo",
+    '~/modules.ts',
   ],
 
   image: {
