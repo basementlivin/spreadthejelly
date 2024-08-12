@@ -38,15 +38,16 @@
                 text-align: left;
 
                 .name {
-                    font-weight: bold;
+                    font-family: $syne;
                 }
 
                 .bio {
-                    line-height: 1.65;
+                    @include chivo-variable(500);
+                    line-height: 1.5;
                 }
 
                 .social-link {
-                    font-weight: bolder;
+                    font-family: $monument;
                 }
             }
         }
