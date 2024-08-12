@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ImageSliderSlice
   | DividingLineSlice
   | QuestionSlice
   | ImageSlice
@@ -973,6 +974,68 @@ export type ImageCardsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *ImageSlider → Default → Primary → Images*
+ */
+export interface ImageSliderSliceDefaultPrimaryImagesItem {
+  /**
+   * Image field in *ImageSlider → Default → Primary → Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_slider.default.primary.images[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *ImageSlider → Default → Primary*
+ */
+export interface ImageSliderSliceDefaultPrimary {
+  /**
+   * Images field in *ImageSlider → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_slider.default.primary.images[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  images: prismic.GroupField<
+    Simplify<ImageSliderSliceDefaultPrimaryImagesItem>
+  >;
+}
+
+/**
+ * Default variation for ImageSlider Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageSliderSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageSliderSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImageSlider*
+ */
+type ImageSliderSliceVariation = ImageSliderSliceDefault;
+
+/**
+ * ImageSlider Shared Slice
+ *
+ * - **API ID**: `image_slider`
+ * - **Description**: ImageSlider
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageSliderSlice = prismic.SharedSlice<
+  "image_slider",
+  ImageSliderSliceVariation
+>;
+
+/**
  * Primary content in *Question → Default → Primary*
  */
 export interface QuestionSliceDefaultPrimary {
@@ -1399,6 +1462,11 @@ declare module "@prismicio/client" {
       ImageCardsSliceDefaultItem,
       ImageCardsSliceVariation,
       ImageCardsSliceDefault,
+      ImageSliderSlice,
+      ImageSliderSliceDefaultPrimaryImagesItem,
+      ImageSliderSliceDefaultPrimary,
+      ImageSliderSliceVariation,
+      ImageSliderSliceDefault,
       QuestionSlice,
       QuestionSliceDefaultPrimary,
       QuestionSliceVariation,

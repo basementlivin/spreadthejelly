@@ -1,0 +1,63 @@
+.image-slider {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  position: relative;
+  width: 100%;
+  padding-right: 4rem;
+  
+  @include breakpoint($tablet) {
+    padding-right: 4.75rem;
+  }
+  
+  @include breakpoint($laptop){
+    padding-right: 5.85rem;
+  }
+  
+  .image {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  .swiper-navigation {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1.25rem;
+    
+    @include breakpoint($tablet) {
+      right: 1.55rem
+    }
+    
+    @include breakpoint($laptop){
+      right: 2rem;
+    }
+
+    .swiper-button-prev--custom,
+    .swiper-button-next--custom {
+      color: $black;
+      font-size: 2.75rem;
+      @include chivo-variable(500);
+      cursor: pointer;
+      
+      &::selection {
+        background-color: transparent;
+        color: $black;
+      }
+      
+      @include breakpoint($tablet) {
+        font-size: 3.125rem
+      }
+      
+      @include breakpoint($laptop){
+        font-size: 3.5rem;
+      }
+    }
+  }
+}

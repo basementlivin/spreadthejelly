@@ -35,6 +35,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "image_slider": {
+              "type": "SharedSlice"
+            },
             "dividing_line": {
               "type": "SharedSlice"
             },
