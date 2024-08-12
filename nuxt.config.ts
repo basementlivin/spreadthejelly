@@ -49,6 +49,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/prismic',
     '@nuxt/image',
+    'nuxt-swiper',
     '@nuxtjs/seo',
     '~/modules.ts'
   ],

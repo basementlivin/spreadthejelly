@@ -20,7 +20,8 @@
     "@nuxt/image": "^1.7.0",
     "breakpoint-sass": "^3.0.0",
     "dotenv": "^16.4.5",
-    "gsap": "npm:@gsap/shockingly@^3.12.5"
+    "gsap": "npm:@gsap/shockingly@^3.12.5",
+    "nuxt-swiper": "^1.2.2"
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.0.0",
