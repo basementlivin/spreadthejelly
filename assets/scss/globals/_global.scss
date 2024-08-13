@@ -57,6 +57,15 @@ body.search-open {
 	}
 }
 
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
 @keyframes fadeSiteOut {
 	from {
 		opacity: 1;
