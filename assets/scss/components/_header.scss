@@ -49,16 +49,15 @@
 
 .slide-in-menu {
   position: fixed;
-  // top: -100%;
   top: 0;
   right: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   background: $white;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-  z-index: 9;
-  opacity: 0; // Initial opacity
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
   transition: opacity 0.475s;
   
   @include breakpoint($tablet) {
@@ -67,10 +66,11 @@
   }
   
   &.menu-open {
-    // top: 0;
+    z-index: 9;
     opacity: 1;
 
     .menu-item {
+      pointer-events: all;
       opacity: 1;
       transition: opacity 0.475s;
       animation-delay: 0.2s;
@@ -85,7 +85,7 @@
     padding: 12rem 1.5rem;
 
     @include breakpoint($tablet) {
-      padding: 1rem 7rem 1rem 14rem;
+      padding: 1rem 5.825rem 1rem 13.75rem;
       justify-content: center;
     }
 
@@ -113,7 +113,7 @@
         margin: 0;
 
         @include breakpoint($tablet) {
-          font-size: clamp(1rem, 1.75vw, 1.5rem);
+          font-size: clamp(0.875rem, 1.75vw, 1.5rem);
         }
         
         a {
