@@ -37,6 +37,7 @@ const paddingBottom = computed(() => {
     :data-slice-variation="slice.variation"
     :style="{ paddingTop: paddingTop, paddingBottom: paddingBottom }"
     class="dividing-line"
+    data-scroll-section
   >
     <div class="line" />
   </section>

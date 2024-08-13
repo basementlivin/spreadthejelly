@@ -34,6 +34,7 @@ const headlineClass = computed(() => {
     :data-slice-variation="slice.variation"
     class="headline wrapper"
     :class="headlineClass"
+    data-scroll-section
   >
     {{ slice.primary.headline }}
   </component>

@@ -52,6 +52,7 @@ export default defineNuxtConfig({
     'nuxt-swiper',
     '@nuxtjs/seo',
     "nuxt-svgo",
+    "nuxt-locomotive-scroll",
     '~/modules.ts',
   ],
 

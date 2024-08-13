@@ -12,6 +12,7 @@ defineProps(getSliceComponentProps<Content.TextSlice>(
   <PrismicRichText
     :field="slice.primary.copy"
     class="copy wrapper wrapper--narrow"
+    data-scroll-section
   />
 </template>
 

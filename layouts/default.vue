@@ -7,11 +7,13 @@ useSeoMeta({
   description: settings.value?.data.meta_description ?? undefined,
   ogImage: prismic.asImageSrc(settings.value?.data.og_image) ?? undefined,
 })
-
 </script>
 
 <template>
-  <div>
+  <div 
+    v-locomotive
+    data-scroll-container
+  >
     <Header />
     <slot />
     <Footer />

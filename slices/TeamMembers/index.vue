@@ -18,6 +18,7 @@ defineProps(
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
     class="team-members wrapper wrapper--wide"
+    data-scroll-section
   >
     <div class="team-members__inner">
       <div

@@ -18,6 +18,7 @@ defineProps(
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
     class="question wrapper wrapper--wide"
+    data-scroll-section
   >
     <div
       class="question__inner"

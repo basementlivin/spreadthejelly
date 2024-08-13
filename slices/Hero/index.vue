@@ -18,6 +18,7 @@ defineProps(
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
     :class="['hero', 'hero--' + slice.variation, 'wrapper--fullscreen']"
+    data-scroll-section
   >
     <div class="hero__bg">
       <div class="image">

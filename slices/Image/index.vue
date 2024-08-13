@@ -26,6 +26,7 @@ defineProps(
         'wrapper--wide': slice.variation === 'twoColumn'
       }
     ]"
+    data-scroll-section
   >
     <div
       v-if="slice.variation === 'default'"
