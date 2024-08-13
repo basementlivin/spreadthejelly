@@ -60,6 +60,10 @@ export default defineNuxtConfig({
     prismic: {},
   },
 
+  svgo: {
+    autoImportPath: '~/assets/svg',
+  },
+
   prismic: {
     endpoint: 'spreadthejelly',
     preview: '/api/preview',
