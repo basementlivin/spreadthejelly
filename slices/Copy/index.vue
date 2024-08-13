@@ -9,11 +9,14 @@ defineProps(getSliceComponentProps<Content.TextSlice>(
 </script>
 
 <template>
-  <PrismicRichText
-    :field="slice.primary.copy"
+  <section
     class="copy wrapper wrapper--narrow"
     data-scroll-section
-  />
+  >
+    <PrismicRichText
+      :field="slice.primary.copy"
+    />
+  </section>
 </template>
 
 <style lang="scss" scoped>

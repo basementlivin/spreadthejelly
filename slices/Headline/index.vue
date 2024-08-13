@@ -28,16 +28,19 @@ const headlineClass = computed(() => {
 </script>
 
 <template>
-  <component
-    :is="slice.primary.headline_level"
-    :data-slice-type="slice.slice_type"
-    :data-slice-variation="slice.variation"
+  <section
     class="headline wrapper"
-    :class="headlineClass"
     data-scroll-section
   >
-    {{ slice.primary.headline }}
-  </component>
+    <component
+      :is="slice.primary.headline_level"
+      :data-slice-type="slice.slice_type"
+      :data-slice-variation="slice.variation"
+      :class="headlineClass"
+    >
+      {{ slice.primary.headline }}
+    </component>
+  </section>
 </template>
 
 <style lang="scss" scoped>

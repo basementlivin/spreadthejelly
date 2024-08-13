@@ -14,14 +14,14 @@ defineProps(
 </script>
 
 <template>
-  <span
+  <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
     class="subheadline wrapper"
     data-scroll-section
   >
     {{ slice.primary.subheadline }}
-  </span>
+  </section>
 </template>
 
 <style lang="scss" scoped>
