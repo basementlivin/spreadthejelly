@@ -40,6 +40,7 @@ export default defineNuxtConfig({
             @import "@/assets/scss/globals/global";
             @import "breakpoint-sass/stylesheets/breakpoint";
             @import "@/assets/scss/globals/wrappers";
+            @import "@/assets/scss/globals/locomotive-scroll";
           `
         }
       }
@@ -47,62 +48,70 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@nuxtjs/prismic',
-    '@nuxt/image',
-    'nuxt-swiper',
-    '@nuxtjs/seo',
+    "@nuxtjs/prismic",
+    "@nuxt/image",
+    "nuxt-swiper",
+    "@nuxtjs/seo",
     "nuxt-svgo",
     "nuxt-locomotive-scroll",
-    '~/modules.ts',
+    "~/modules.ts",
   ],
 
   image: {
-    provider: 'prismic',
+    provider: "prismic",
     prismic: {},
   },
 
   svgo: {
-    autoImportPath: '~/assets/svg',
+    autoImportPath: "~/assets/svg",
   },
 
   prismic: {
-    endpoint: 'spreadthejelly',
-    preview: '/api/preview',
+    endpoint: "spreadthejelly",
+    preview: "/api/preview",
     clientConfig: {
       routes: [
         {
-          type: 'page',
-          path: '/:uid',
+          type: "page",
+          uid: "home",
+          path: "/",
         },
         {
-          type: 'page',
-          uid: 'home',
-          path: '/',
+          type: "page",
+          path: "/:uid",
         },
+        {
+          type: "blog_article",
+          path: "/articles/:uid",
+        },
+        {
+          type: "ask_jelly_article",
+          path: "/ask-jelly/:uid",
+        }
       ]
     }
   },
 
   site: {
-    url: 'https://spreadthejelly.com',
-    name: 'Spread the Jelly',
-    description: 'An editorial resource & storytelling platform for every motherhood journey.',
-    defaultLocale: 'en',
+    url: "https://spreadthejelly.com",
+    name: "Spread the Jelly",
+    description: "An editorial resource & storytelling platform for every motherhood journey.",
+    defaultLocale: "en",
     social: {
-      twitter: '@spreadthejelly',
-      facebook: 'spreadthejelly',
-      instagram: 'spreadthejelly'
+      twitter: "@spreadthejelly",
+      facebook: "spreadthejelly",
+      instagram: "spreadthejelly"
     },
     seo: {
-      titleTemplate: '%s - Spread the Jelly',
+      titleTemplate: "%s - Spread the Jelly",
       openGraph: {
-        type: 'website',
-        locale: 'en_US',
-        site_name: 'Spread the Jelly',
+        type: "website",
+        locale: "en_US",
+        site_name: "Spread the Jelly",
       },
       twitter: {
-        card: 'summary_large_image',
-        site: '@spreadthejelly',
+        card: "summary_large_image",
+        site: "@spreadthejelly",
       }
     }
   },

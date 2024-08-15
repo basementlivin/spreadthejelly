@@ -10,10 +10,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div 
-    v-locomotive
-    data-scroll-container
-  >
+  <div>
     <Header />
     <slot />
     <Footer />
