@@ -12,7 +12,6 @@ const { data: page } = useAsyncData(route.params.uid as string, () =>
     ]
   })
 )
-const settings = useSettings()
 
 useSeoMeta({
   title: page.value?.data.meta_title ?? undefined,
