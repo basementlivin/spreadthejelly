@@ -9,7 +9,6 @@ import YouTubeIcon from '@/assets/svg/social--youtube.svg'
 
 const footerLinks = useFooterLinks()
 
-footerLinks && console.log('Here they are, the Footer Links:', footerLinks)
 </script>
 
 <template>
@@ -37,7 +36,7 @@ footerLinks && console.log('Here they are, the Footer Links:', footerLinks)
       </ul>
     </div>
     <div class="footer__newsletter-signup">
-      <span>Hear the news</span>
+      <span class="form-header">Hear the news</span>
       <form
         action="#"
         method="post"
