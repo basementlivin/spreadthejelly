@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { components } from '~/slices'
-import { computed } from 'vue'
 
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
   month: 'short',
@@ -15,8 +14,6 @@ const route = useRoute()
 const { data: article } = await useAsyncData(`ask-jelly/${route.params.uid}`, () =>
   prismic.client.getByUID('ask_jelly_article', route.params.uid as string)
 )
-
-const settings = useSettings()
 
 </script>
 

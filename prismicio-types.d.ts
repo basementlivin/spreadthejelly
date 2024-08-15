@@ -5,8 +5,8 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type AskJellyArticleDocumentDataSlicesSlice =
+  | QuestionSlice
   | ImageSlice
-  | HeroSlice
   | TextSlice
   | DividingLineSlice
   | HeadlineSlice
@@ -49,6 +49,17 @@ interface AskJellyArticleDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#date
    */
   publication_date: prismic.DateField;
+
+  /**
+   * Featured Image field in *Ask Jelly Article*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ask_jelly_article.featured_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featured_image: prismic.ImageField<never>;
 
   /**
    * Slice Zone field in *Ask Jelly Article*
@@ -155,6 +166,17 @@ interface BlogArticleDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#date
    */
   publication_date: prismic.DateField;
+
+  /**
+   * Featured Image field in *Blog Article*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_article.featured_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featured_image: prismic.ImageField<never>;
 
   /**
    * Slice Zone field in *Blog Article*

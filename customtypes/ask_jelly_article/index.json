@@ -33,15 +33,23 @@
           "placeholder": ""
         }
       },
+      "featured_image": {
+        "type": "Image",
+        "config": {
+          "label": "Featured Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "image": {
+            "question": {
               "type": "SharedSlice"
             },
-            "hero": {
+            "image": {
               "type": "SharedSlice"
             },
             "text": {

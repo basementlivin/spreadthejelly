@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { components } from '~/slices'
-import { computed } from 'vue'
 
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
   month: 'short',
@@ -16,12 +15,13 @@ const { data: article } = await useAsyncData(`articles/${route.params.uid}`, () 
   prismic.client.getByUID('blog_article', route.params.uid as string)
 )
 
-const settings = useSettings()
-
 </script>
 
 <template>
   <div>
+    <h1>
+      {{ article?.data.title }}
+    </h1>
     <SliceZone
       id="main"
       wrapper="main"
