@@ -87,6 +87,7 @@ body {
 }
 
 main {
+    margin-top: $nav-height;
 	position: relative;
 	z-index: 2;
 	backface-visibility: hidden;

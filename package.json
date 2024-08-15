@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@nuxt/image": "^1.7.0",
+    "@prismicio/helpers": "^2.3.9",
     "breakpoint-sass": "^3.0.0",
     "dotenv": "^16.4.5",
     "gsap": "npm:@gsap/shockingly@^3.12.5",

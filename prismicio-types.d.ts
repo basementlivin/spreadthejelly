@@ -5,18 +5,117 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 /**
+ * Item in *Footer Links → Links*
+ */
+export interface FooterLinksDocumentDataLinksItem {
+  /**
+   * Label field in *Footer Links → Links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Link Text
+   * - **API ID Path**: footer_links.links[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *Footer Links → Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_links.links[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Content for Footer Links documents
+ */
+interface FooterLinksDocumentData {
+  /**
+   * Links field in *Footer Links*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_links.links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  links: prismic.GroupField<Simplify<FooterLinksDocumentDataLinksItem>> /**
+   * Facebook URL field in *Footer Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_links.facebook_url
+   * - **Tab**: Social Links
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */;
+  facebook_url: prismic.LinkField;
+
+  /**
+   * Instagram URL field in *Footer Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_links.instagram_url
+   * - **Tab**: Social Links
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  instagram_url: prismic.LinkField;
+
+  /**
+   * TikTok URL field in *Footer Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_links.tiktok_url
+   * - **Tab**: Social Links
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  tiktok_url: prismic.LinkField;
+
+  /**
+   * YouTube URL field in *Footer Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_links.youtube_url
+   * - **Tab**: Social Links
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  youtube_url: prismic.LinkField;
+}
+
+/**
+ * Footer Links document from Prismic
+ *
+ * - **API ID**: `footer_links`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterLinksDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterLinksDocumentData>,
+    "footer_links",
+    Lang
+  >;
+
+/**
  * Item in *Navigation → Links*
  */
 export interface NavigationDocumentDataLinksItem {
   /**
    * Label field in *Navigation → Links*
    *
-   * - **Field Type**: Title
-   * - **Placeholder**: Optional - Label for the link
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Link Text
    * - **API ID Path**: navigation.links[].label
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  label: prismic.TitleField;
+  label: prismic.RichTextField;
 
   /**
    * Link field in *Navigation → Links*
@@ -211,6 +310,7 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | FooterLinksDocument
   | NavigationDocument
   | PageDocument
   | SettingsDocument;
@@ -1414,6 +1514,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      FooterLinksDocument,
+      FooterLinksDocumentData,
+      FooterLinksDocumentDataLinksItem,
       NavigationDocument,
       NavigationDocumentData,
       NavigationDocumentDataLinksItem,

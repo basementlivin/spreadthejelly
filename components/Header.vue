@@ -1,13 +1,11 @@
 <script setup lang="ts">
 const navigation = useNavigation()
-const settings = useSettings()
-
-import { ref } from 'vue'
 
 import Logo from '@/assets/svg/logo--header.svg'
 import MenuHamburger from '@/assets/svg/menu--hamburger.svg'
 import MenuX from '@/assets/svg/menu--x.svg'
 
+import { ref } from 'vue'
 const isMenuOpen = ref(false)
 
 const toggleMenu = () => {
