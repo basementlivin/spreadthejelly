@@ -35,7 +35,7 @@ defineProps(
           class="content__question"
         />
         <span class="content__asker">
-          {{ slice.primary.asked_by }}
+          from {{ slice.primary.asked_by }}
         </span>
       </div>
     </div>
