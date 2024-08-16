@@ -77,6 +77,10 @@ export default defineNuxtConfig({
           path: "/",
         },
         {
+          type: "about",
+          path: "/about-us",
+        },
+        {
           type: "page",
           path: "/:uid",
         },
