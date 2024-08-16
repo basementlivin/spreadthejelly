@@ -5,9 +5,6 @@ const prismic = usePrismic()
 const { data: page } = useAsyncData('index', () =>
   prismic.client.getByUID('page', 'home', {
     fetchLinks: [
-      // Fetch linked documents
-      // like all the fields in 'Event'
-      // or the author of a blog post.
     ]
   })
 )

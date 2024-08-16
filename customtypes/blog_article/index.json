@@ -15,7 +15,7 @@
       "title": {
         "type": "Text",
         "config": {
-          "label": "Title",
+          "label": "Article Title",
           "placeholder": ""
         }
       },
