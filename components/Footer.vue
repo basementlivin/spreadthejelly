@@ -45,6 +45,7 @@ const footerLinks = useFooterLinks()
         <input
           type="email"
           name="email"
+          autocomplete="email"
           placeholder="Your email"
           class="input"
         >
