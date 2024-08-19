@@ -64,15 +64,15 @@ $monument: "PP Monument Extended Regular", $sans;
   font-variation-settings: "wght" $wght;
 }
 
-// TYPE SCALE: PERFECT FIFTH
-$h0: 7.594rem;
-$h1: 5.063rem;
-$h2: 3.375rem;
-$h3: 2.25rem;
-$h4: 1.5rem;
+// TYPE SCALE: AUGMENTED FOURTH
+$h0: 5.653rem;
+$h1: 3.998rem;
+$h2: 2.827rem;
+$h3: 1.999rem;
+$h4: 1.414rem;
 $body: 1rem;
-$h5: 0.667rem;
-$h6: 0.444rem;
+$h5: 0.707rem;
+$h6: 0.5rem;
 
 // BREAKPOINTS
 $page-width: var(--page-width, 1300px);
