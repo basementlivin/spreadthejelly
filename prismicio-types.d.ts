@@ -98,6 +98,93 @@ interface AboutDocumentData {
 export type AboutDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<AboutDocumentData>, "about", Lang>;
 
+type AskJellyDocumentDataSlicesSlice = DividingLineSlice;
+
+/**
+ * Content for Ask Jelly documents
+ */
+interface AskJellyDocumentData {
+  /**
+   * Headline field in *Ask Jelly*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ask_jelly.headline
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  headline: prismic.KeyTextField;
+
+  /**
+   * Copy field in *Ask Jelly*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ask_jelly.copy
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  copy: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Ask Jelly*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ask_jelly.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AskJellyDocumentDataSlicesSlice> /**
+   * Meta Title field in *Ask Jelly*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: ask_jelly.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Ask Jelly*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: ask_jelly.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Ask Jelly*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ask_jelly.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Ask Jelly document from Prismic
+ *
+ * - **API ID**: `ask_jelly`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AskJellyDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<AskJellyDocumentData>,
+    "ask_jelly",
+    Lang
+  >;
+
 type AskJellyArticleDocumentDataSlicesSlice =
   | QuestionSlice
   | ImageSlice
@@ -112,6 +199,17 @@ type AskJellyArticleDocumentDataSlicesSlice =
  */
 interface AskJellyArticleDocumentData {
   /**
+   * Featured Image field in *Ask Jelly Article*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ask_jelly_article.featured_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featured_image: prismic.ImageField<never>;
+
+  /**
    * Article Title field in *Ask Jelly Article*
    *
    * - **Field Type**: Text
@@ -123,15 +221,15 @@ interface AskJellyArticleDocumentData {
   title: prismic.KeyTextField;
 
   /**
-   * Author(s) field in *Ask Jelly Article*
+   * Asked By field in *Ask Jelly Article*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: ask_jelly_article.author
+   * - **Placeholder**: Jenny C.
+   * - **API ID Path**: ask_jelly_article.asked_by
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  author: prismic.KeyTextField;
+  asked_by: prismic.KeyTextField;
 
   /**
    * Publication Date field in *Ask Jelly Article*
@@ -143,17 +241,6 @@ interface AskJellyArticleDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#date
    */
   publication_date: prismic.DateField;
-
-  /**
-   * Featured Image field in *Ask Jelly Article*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: ask_jelly_article.featured_image
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  featured_image: prismic.ImageField<never>;
 
   /**
    * Slice Zone field in *Ask Jelly Article*
@@ -638,6 +725,7 @@ export type SettingsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | AboutDocument
+  | AskJellyDocument
   | AskJellyArticleDocument
   | BlogArticleDocument
   | FooterLinksDocument
@@ -1847,6 +1935,9 @@ declare module "@prismicio/client" {
       AboutDocument,
       AboutDocumentData,
       AboutDocumentDataSlicesSlice,
+      AskJellyDocument,
+      AskJellyDocumentData,
+      AskJellyDocumentDataSlicesSlice,
       AskJellyArticleDocument,
       AskJellyArticleDocumentData,
       AskJellyArticleDocumentDataSlicesSlice,

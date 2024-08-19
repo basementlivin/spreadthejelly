@@ -1,17 +1,11 @@
 <script setup lang="ts">
 import { components } from '~/slices'
 
-const dateFormatter = new Intl.DateTimeFormat('en-US', {
-  month: 'short',
-  day: 'numeric',
-  year: 'numeric'
-})
-
 const prismic = usePrismic()
 const route = useRoute()
 
-// Fetch the article data
-const { data: article } = await useAsyncData(`ask-jelly/${route.params.uid}`, () =>
+// Fetch the article data reactively based on the route params
+const { data: article } = useAsyncData(`ask-jelly/${route.params.uid}`, () =>
   prismic.client.getByUID('ask_jelly_article', route.params.uid as string)
 )
 
@@ -24,7 +18,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div>
+  <div :key="$route.fullPath">
     <SliceZone
       id="main"
       wrapper="main"

@@ -12,6 +12,14 @@
         },
         "type": "UID"
       },
+      "featured_image": {
+        "type": "Image",
+        "config": {
+          "label": "Featured Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "title": {
         "type": "Text",
         "config": {
@@ -19,11 +27,11 @@
           "placeholder": ""
         }
       },
-      "author": {
+      "asked_by": {
         "type": "Text",
         "config": {
-          "label": "Author(s)",
-          "placeholder": ""
+          "label": "Asked By",
+          "placeholder": "Jenny C."
         }
       },
       "publication_date": {
@@ -31,14 +39,6 @@
         "config": {
           "label": "Publication Date",
           "placeholder": ""
-        }
-      },
-      "featured_image": {
-        "type": "Image",
-        "config": {
-          "label": "Featured Image",
-          "constraint": {},
-          "thumbnails": []
         }
       },
       "slices": {

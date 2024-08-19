@@ -81,6 +81,10 @@ export default defineNuxtConfig({
           path: "/about-us",
         },
         {
+          type: "ask_jelly",
+          path: "/ask-jelly",
+        },
+        {
           type: "page",
           path: "/:uid",
         },
