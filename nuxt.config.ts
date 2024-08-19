@@ -85,6 +85,10 @@ export default defineNuxtConfig({
           path: "/about-us",
         },
         {
+          type: "contact",
+          path: "/contact",
+        },
+        {
           type: "ask_jelly",
           path: "/ask-jelly",
         },
