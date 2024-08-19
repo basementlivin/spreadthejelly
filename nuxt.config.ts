@@ -77,6 +77,10 @@ export default defineNuxtConfig({
           path: "/",
         },
         {
+          type: "page",
+          path: "/:uid",
+        },
+        {
           type: "about",
           path: "/about-us",
         },
@@ -85,17 +89,17 @@ export default defineNuxtConfig({
           path: "/ask-jelly",
         },
         {
-          type: "page",
-          path: "/:uid",
+          type: "ask_jelly_article",
+          path: "/ask-jelly/:uid",
+        },
+        {
+          type: "blog",
+          path: "/articles",
         },
         {
           type: "blog_article",
           path: "/articles/:uid",
         },
-        {
-          type: "ask_jelly_article",
-          path: "/ask-jelly/:uid",
-        }
       ]
     }
   },
