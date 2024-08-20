@@ -110,6 +110,10 @@
         }
         .copy {
             padding-top: 3rem;
+            @include chivo-variable();
+            font-size: 1.125rem;
+            line-height: 1.45;
+            text-align: left;
             @include breakpoint($laptop) {
                 display: grid;
                 grid-template-columns: repeat(12, 1fr);
