@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import { type Content } from "@prismicio/client";
 
 // The array passed to `getSliceComponentProps` is purely optional.
 // Consider it as a visual hint for you when templating your slice.
-defineProps(
+const props = defineProps(
   getSliceComponentProps<Content.ImageSliderSlice>([
     "slice",
     "index",
@@ -11,6 +12,23 @@ defineProps(
     "context",
   ]),
 );
+
+// Loop over the images array, duplicating the
+// slides until we have at least 10 images to display.
+// This ensures that the Swiper loop functions correctly.
+const slides = computed(() => {
+  const images = props.slice.primary.images
+  const minSlides = 10
+  let duplicatedImages = [...images]
+
+  if (images.length < minSlides) {
+    while (duplicatedImages.length < minSlides) {
+      duplicatedImages = [...duplicatedImages, ...images]
+    }
+  }
+
+  return duplicatedImages
+})
 </script>
 
 <template>
@@ -51,7 +69,7 @@ defineProps(
       }"
     >
       <SwiperSlide
-        v-for="(slide, index) in slice.primary.images"
+        v-for="(slide, index) in slides"
         :key="index"
       >
         <div class="image">
