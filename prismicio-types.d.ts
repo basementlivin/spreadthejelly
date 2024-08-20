@@ -2056,9 +2056,57 @@ export type TextSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Copy → Copy with Image → Primary*
+ */
+export interface TextSliceCopyWithImagePrimary {
+  /**
+   * Image field in *Copy → Copy with Image → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.copyWithImage.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Image Caption field in *Copy → Copy with Image → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.copyWithImage.primary.image_caption
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  image_caption: prismic.KeyTextField;
+
+  /**
+   * Copy field in *Copy → Copy with Image → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.copyWithImage.primary.copy
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  copy: prismic.RichTextField;
+}
+
+/**
+ * Copy with Image variation for Copy Slice
+ *
+ * - **API ID**: `copyWithImage`
+ * - **Description**: Text
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextSliceCopyWithImage = prismic.SharedSliceVariation<
+  "copyWithImage",
+  Simplify<TextSliceCopyWithImagePrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Copy*
  */
-type TextSliceVariation = TextSliceDefault;
+type TextSliceVariation = TextSliceDefault | TextSliceCopyWithImage;
 
 /**
  * Copy Shared Slice
@@ -2289,8 +2337,10 @@ declare module "@prismicio/client" {
       TeamMembersSliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
+      TextSliceCopyWithImagePrimary,
       TextSliceVariation,
       TextSliceDefault,
+      TextSliceCopyWithImage,
       TextWithImageSlice,
       TextWithImageSliceDefaultPrimary,
       TextWithImageSliceWithButtonPrimary,

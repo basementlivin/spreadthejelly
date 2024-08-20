@@ -21,5 +21,54 @@
 				"value": []
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "copyWithImage",
+		"primary": {
+			"copy": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ex est eu id anim id laboris nulla laborum ex aute labore. Laboris incididunt laboris consectetur aute velit consectetur mollit."
+						}
+					}
+				]
+			},
+			"image": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
+					"width": 3212,
+					"height": 3880
+				},
+				"url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?rect=20%2C0%2C3173%2C3880&w=1570&h=1920",
+				"width": 1570,
+				"height": 1920,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 20,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"thumbnails": {}
+			},
+			"image_caption": {
+				"__TYPE__": "FieldContent",
+				"value": "than",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]
