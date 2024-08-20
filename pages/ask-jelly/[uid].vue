@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { components } from '~/slices'
-import { usePageSeo } from '~/composables/usePageSeo'
+import { useArticleSeo } from '~/composables/useArticleSeo';
 
 const prismic = usePrismic()
 const route = useRoute()
@@ -10,7 +10,7 @@ const { data: article } = useAsyncData(`ask-jelly/${route.params.uid}`, () =>
   prismic.client.getByUID('ask_jelly_article', route.params.uid as string)
 )
 
-usePageSeo(article)
+useArticleSeo(article)
 </script>
 
 <template>

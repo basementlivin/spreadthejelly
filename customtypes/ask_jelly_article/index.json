@@ -34,6 +34,13 @@
           "placeholder": "Jenny C."
         }
       },
+      "author": {
+        "type": "Text",
+        "config": {
+          "label": "Author",
+          "placeholder": ""
+        }
+      },
       "publication_date": {
         "type": "Date",
         "config": {
