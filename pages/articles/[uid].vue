@@ -21,12 +21,10 @@ useArticleSeo(article)
 
 <template>
   <div>
-    <h1>
-      {{ article?.data.title }}
-    </h1>
     <SliceZone
       id="main"
       wrapper="main"
+      class="page--article"
       :slices="article?.data.slices ?? []"
       :components="components"
     />

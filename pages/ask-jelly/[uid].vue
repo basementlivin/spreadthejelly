@@ -18,6 +18,7 @@ useArticleSeo(article)
     <SliceZone
       id="main"
       wrapper="main"
+      class="page--ask-jelly-article"
       :slices="article?.data.slices ?? []"
       :components="components"
     />
