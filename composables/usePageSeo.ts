@@ -17,7 +17,7 @@ export function usePageSeo(page: Ref<PrismicDocument | null>) {
       ? { url: pageImage, alt: page.value?.data.meta_image.alt ?? '' }
       : settingsImage
       ? { url: settingsImage, alt: settings.value?.data.og_image.alt ?? '' }
-      : { url: '/spread-the-jelly--og.png', alt: 'Default OG Image' }
+      : { url: '/spread-the-jelly--og.png', alt: 'Spread the Jelly' }
   })
 
   const ogUrl = computed(() => `https://spreadthejelly.com${route.path}`)
