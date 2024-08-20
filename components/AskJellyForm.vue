@@ -45,7 +45,10 @@
           required
         />
       </div>
-      <button type="submit">
+      <button
+        type="submit"
+        class="link"
+      >
         send
       </button>
     </form>

@@ -27,7 +27,7 @@ const footerLinks = useFooterLinks()
         <li
           v-for="item in footerLinks?.data?.links"
           :key="item?.label?.[0]|| ''"
-          class="link"
+          class="link--footer"
         >
           <PrismicLink :field="item.link">
             {{ item?.label || '' }}
@@ -51,7 +51,7 @@ const footerLinks = useFooterLinks()
         >
         <button
           type="submit"
-          class="button"
+          class="button link"
         >
           subscribe
         </button>

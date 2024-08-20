@@ -45,6 +45,7 @@ const relatedAnswers = computed(() => {
     :data-slice-variation="slice.variation"
     class="related-answers wrapper wrapper--wide"
   >
+    <span class="related-answers__headline">Related Answers</span>
     <div
       v-if="relatedAnswers"
       class="related-answers__inner"
@@ -52,10 +53,10 @@ const relatedAnswers = computed(() => {
       <div
         v-for="(answer, index) in relatedAnswers"
         :key="index"
-        class="related-answers__answer"
+        class="answer"
       >
-        <h3>{{ answer.data.title }}</h3>
-        <p>From {{ answer.data.asked_by }}</p>
+        <h3 class="title">{{ answer.data.title }}</h3>
+        <p class="asked-by">From {{ answer.data.asked_by }}</p>
         <PrismicLink
           :field="answer"
           class="link"

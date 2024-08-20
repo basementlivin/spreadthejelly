@@ -1,3 +1,26 @@
+.link {
+    width: max-content;
+    cursor: pointer;
+    font-family: $monument;
+    text-decoration: underline;
+    text-underline-offset: 0.1rem;
+    transition: text-underline-offset .22s;
+       
+    &:hover {
+        text-decoration: underline;
+        text-underline-offset: 0.275rem;
+    }    
+}
+
+.link--no-underline {
+    text-decoration: none;
+    
+    &:hover {
+        text-decoration: underline;
+        text-underline-offset: 0.1rem;
+    }
+}
+
 .btn {
     display: inline-flex;
     align-self: flex-start;

@@ -1,13 +1,41 @@
 .related-answers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+
+  &__headline {
+    font-size: 1rem;
+    font-family: $monument;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
   &__inner {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 
-    @include breakpoint($laptop) {
+    @include breakpoint($tablet + 150px) {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       column-gap: 2rem;
+    }
+
+    .answer {
+      display: flex;
+      flex-direction: column;
+
+      .title {
+        font-family: $syne;
+        font-size: 1.5rem;
+      }
+
+      .asked-by, .link {
+        font-family: $monument;
+        font-size: 0.875rem;
+        margin: 0;
+      }
     }
   }
 }

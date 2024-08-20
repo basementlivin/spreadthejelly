@@ -43,7 +43,7 @@ defineProps(
           />
           <PrismicLink
             :field="item.social_link"
-            class="social-link"
+            class="link link--no-underline"
           >
             {{ item.social_link_text }}
           </PrismicLink>
