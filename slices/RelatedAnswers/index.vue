@@ -1,0 +1,72 @@
+<script setup lang="ts">
+import { type Content, isFilled } from "@prismicio/client";
+import { computed } from "vue";
+
+// Get props for the slice
+const props = defineProps(
+  getSliceComponentProps<Content.RelatedAnswersSlice>([
+    "slice",
+    "index",
+    "slices",
+    "context",
+  ]),
+);
+
+// Prismic client instance
+const prismic = usePrismic();
+
+// Fetch the related ask_jelly_article documents
+const relatedAnswersData = await prismic.client.getByType('ask_jelly_article', {
+  fetchLinks: [
+    "ask_jelly_article.title",
+    "ask_jelly_article.asked_by",
+  ]
+});
+
+// Filter and map the related answers
+const relatedAnswers = computed(() => {
+  return props.slice.primary.answers
+    .map(item => item.answer)
+    .filter(answer => isFilled.contentRelationship(answer)) // Ensure only filled relationships are processed
+    .map(answer => {
+      const relatedDoc = relatedAnswersData.results.find(
+        (doc) => doc.id === answer.id
+      );
+      return relatedDoc ? { ...answer, data: relatedDoc.data } : null;
+    })
+    .filter(answer => answer !== null);  // Filter out any null entries
+});
+
+</script>
+
+<template>
+  <section
+    :data-slice-type="slice.slice_type"
+    :data-slice-variation="slice.variation"
+    class="related-answers wrapper wrapper--wide"
+  >
+    <div
+      v-if="relatedAnswers"
+      class="related-answers__inner"
+    >
+      <div
+        v-for="(answer, index) in relatedAnswers"
+        :key="index"
+        class="related-answers__answer"
+      >
+        <h3>{{ answer.data.title }}</h3>
+        <p>From {{ answer.data.asked_by }}</p>
+        <PrismicLink
+          :field="answer"
+          class="link"
+        >
+          read more
+        </PrismicLink>
+      </div>
+    </div>
+  </section>
+</template>
+
+<style lang="scss" scoped>
+  @import url('/assets/scss/slices/_related-answers.scss');
+</style>

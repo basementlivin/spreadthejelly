@@ -7,12 +7,9 @@ import AskJellyForm from '@/components/AskJellyForm.vue'
 const prismic = usePrismic()
 const route = useRoute()
 
-const { data: page, error } = useAsyncData('askJellyPage', () => 
+const { data: page } = useAsyncData('askJellyPage', () => 
   prismic.client.getSingle('ask_jelly'))
 
-if (error.value) {
-  console.error('Error value from useAsyncData:', error.value)
-}
 
 const { data: latestArticles } = useAsyncData(`ask-jelly/${route.params.uid}`, () =>
   prismic.client.getAllByType("ask_jelly_article", {

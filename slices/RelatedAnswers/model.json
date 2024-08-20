@@ -1,0 +1,38 @@
+{
+  "id": "related_answers",
+  "type": "SharedSlice",
+  "name": "RelatedAnswers",
+  "description": "RelatedAnswers",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "answers": {
+          "type": "Group",
+          "config": {
+            "label": "Answers",
+            "repeat": true,
+            "fields": {
+              "answer": {
+                "type": "Link",
+                "config": {
+                  "label": "Answer",
+                  "select": "document",
+                  "customtypes": [
+                    "ask_jelly_article"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

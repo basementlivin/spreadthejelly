@@ -186,6 +186,7 @@ export type AskJellyDocument<Lang extends string = string> =
   >;
 
 type AskJellyArticleDocumentDataSlicesSlice =
+  | RelatedAnswersSlice
   | QuestionSlice
   | ImageSlice
   | TextSlice
@@ -1807,6 +1808,68 @@ export type QuestionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *RelatedAnswers → Default → Primary → Answers*
+ */
+export interface RelatedAnswersSliceDefaultPrimaryAnswersItem {
+  /**
+   * Answer field in *RelatedAnswers → Default → Primary → Answers*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: related_answers.default.primary.answers[].answer
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  answer: prismic.ContentRelationshipField<"ask_jelly_article">;
+}
+
+/**
+ * Primary content in *RelatedAnswers → Default → Primary*
+ */
+export interface RelatedAnswersSliceDefaultPrimary {
+  /**
+   * Answers field in *RelatedAnswers → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: related_answers.default.primary.answers[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  answers: prismic.GroupField<
+    Simplify<RelatedAnswersSliceDefaultPrimaryAnswersItem>
+  >;
+}
+
+/**
+ * Default variation for RelatedAnswers Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RelatedAnswersSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RelatedAnswersSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *RelatedAnswers*
+ */
+type RelatedAnswersSliceVariation = RelatedAnswersSliceDefault;
+
+/**
+ * RelatedAnswers Shared Slice
+ *
+ * - **API ID**: `related_answers`
+ * - **Description**: RelatedAnswers
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RelatedAnswersSlice = prismic.SharedSlice<
+  "related_answers",
+  RelatedAnswersSliceVariation
+>;
+
+/**
  * Primary content in *Subheadline → Default → Primary*
  */
 export interface SubheadlineSliceDefaultPrimary {
@@ -2199,6 +2262,11 @@ declare module "@prismicio/client" {
       QuestionSliceDefaultPrimary,
       QuestionSliceVariation,
       QuestionSliceDefault,
+      RelatedAnswersSlice,
+      RelatedAnswersSliceDefaultPrimaryAnswersItem,
+      RelatedAnswersSliceDefaultPrimary,
+      RelatedAnswersSliceVariation,
+      RelatedAnswersSliceDefault,
       SubheadlineSlice,
       SubheadlineSliceDefaultPrimary,
       SubheadlineSliceVariation,

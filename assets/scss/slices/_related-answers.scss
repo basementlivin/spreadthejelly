@@ -1,0 +1,13 @@
+.related-answers {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include breakpoint($laptop) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 2rem;
+    }
+  }
+}
