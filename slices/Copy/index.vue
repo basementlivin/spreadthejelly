@@ -8,9 +8,16 @@ const props = defineProps(getSliceComponentProps<Content.TextSlice>(
   ['slice', 'index', 'slices', 'context']
 ));
 
+function isCopyWithPullQuote(slice: Content.TextSlice): slice is Content.TextSlice & { primary: { pull_quote_position: string } } {
+  return slice.variation === 'copyWithPullQuote'
+}
+
 const pullQuoteClass = computed(() => {
-  const position = props.slice.primary.pull_quote_position
-  return position === 'Quote Right' ? 'quote--right' : 'quote--left'
+  if (isCopyWithPullQuote(props.slice)) {
+    const position = props.slice.primary.pull_quote_position
+    return position === 'Quote Right' ? 'quote--right' : 'quote--left'
+  }
+  return ''
 })
 </script>
 
