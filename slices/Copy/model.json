@@ -61,6 +61,45 @@
       },
       "items": {},
       "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    },
+    {
+      "id": "copyWithPullQuote",
+      "name": "Copy with Pull Quote",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Text",
+      "primary": {
+        "copy": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Copy",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "pull_quote": {
+          "type": "Text",
+          "config": {
+            "label": "Pull Quote",
+            "placeholder": ""
+          }
+        },
+        "pull_quote_position": {
+          "type": "Select",
+          "config": {
+            "label": "Pull Quote Position",
+            "placeholder": "",
+            "options": [
+              "Quote Left",
+              "Quote Right"
+            ],
+            "default_value": "Quote Left"
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
     }
   ]
 }

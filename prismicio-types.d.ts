@@ -2104,9 +2104,64 @@ export type TextSliceCopyWithImage = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Copy → Copy with Pull Quote → Primary*
+ */
+export interface TextSliceCopyWithPullQuotePrimary {
+  /**
+   * Copy field in *Copy → Copy with Pull Quote → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.copyWithPullQuote.primary.copy
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  copy: prismic.RichTextField;
+
+  /**
+   * Pull Quote field in *Copy → Copy with Pull Quote → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.copyWithPullQuote.primary.pull_quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  pull_quote: prismic.KeyTextField;
+
+  /**
+   * Pull Quote Position field in *Copy → Copy with Pull Quote → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Quote Left
+   * - **API ID Path**: text.copyWithPullQuote.primary.pull_quote_position
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  pull_quote_position: prismic.SelectField<
+    "Quote Left" | "Quote Right",
+    "filled"
+  >;
+}
+
+/**
+ * Copy with Pull Quote variation for Copy Slice
+ *
+ * - **API ID**: `copyWithPullQuote`
+ * - **Description**: Text
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextSliceCopyWithPullQuote = prismic.SharedSliceVariation<
+  "copyWithPullQuote",
+  Simplify<TextSliceCopyWithPullQuotePrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Copy*
  */
-type TextSliceVariation = TextSliceDefault | TextSliceCopyWithImage;
+type TextSliceVariation =
+  | TextSliceDefault
+  | TextSliceCopyWithImage
+  | TextSliceCopyWithPullQuote;
 
 /**
  * Copy Shared Slice
@@ -2338,9 +2393,11 @@ declare module "@prismicio/client" {
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceCopyWithImagePrimary,
+      TextSliceCopyWithPullQuotePrimary,
       TextSliceVariation,
       TextSliceDefault,
       TextSliceCopyWithImage,
+      TextSliceCopyWithPullQuote,
       TextWithImageSlice,
       TextWithImageSliceDefaultPrimary,
       TextWithImageSliceWithButtonPrimary,

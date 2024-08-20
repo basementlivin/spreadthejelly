@@ -38,7 +38,6 @@
 				]
 			},
 			"image": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
@@ -56,12 +55,48 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
 			"image_caption": {
 				"__TYPE__": "FieldContent",
 				"value": "than",
 				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "copyWithPullQuote",
+		"primary": {
+			"copy": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Officia ad reprehenderit Lorem reprehenderit irure exercitation irure sunt commodo cupidatat."
+						}
+					}
+				]
+			},
+			"pull_quote": {
+				"__TYPE__": "FieldContent",
+				"value": "thousand",
+				"type": "Text"
+			},
+			"pull_quote_position": {
+				"__TYPE__": "FieldContent",
+				"value": "Quote Right",
+				"type": "Select"
 			}
 		},
 		"items": [
