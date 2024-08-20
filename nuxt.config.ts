@@ -51,10 +51,10 @@ export default defineNuxtConfig({
     "@nuxtjs/prismic",
     "@nuxt/image",
     "nuxt-swiper",
-    "@nuxtjs/seo",
+    // "@nuxtjs/seo",
     "nuxt-svgo",
     "nuxt-locomotive-scroll",
-    "~/modules.ts",
+    // "~/modules.ts",
   ],
 
   image: {
@@ -108,27 +108,27 @@ export default defineNuxtConfig({
     }
   },
 
-  site: {
-    url: "https://spreadthejelly.com",
-    name: "Spread the Jelly",
-    description: "An editorial resource & storytelling platform for every motherhood journey.",
-    defaultLocale: "en",
-    social: {
-      twitter: "@spreadthejelly",
-      facebook: "spreadthejelly",
-      instagram: "spreadthejelly"
-    },
-    seo: {
-      titleTemplate: "%s - Spread the Jelly",
-      openGraph: {
-        type: "website",
-        locale: "en_US",
-        site_name: "Spread the Jelly",
-      },
-      twitter: {
-        card: "summary_large_image",
-        site: "@spreadthejelly",
-      }
-    }
-  },
+  // site: {
+  //   url: "https://spreadthejelly.com",
+  //   name: "Spread the Jelly",
+  //   description: "An editorial resource & storytelling platform for every motherhood journey.",
+  //   defaultLocale: "en",
+  //   social: {
+  //     twitter: "@spreadthejelly",
+  //     facebook: "spreadthejelly",
+  //     instagram: "spreadthejelly"
+  //   },
+  //   seo: {
+  //     titleTemplate: "%s - Spread the Jelly",
+  //     openGraph: {
+  //       type: "website",
+  //       locale: "en_US",
+  //       site_name: "Spread the Jelly",
+  //     },
+  //     twitter: {
+  //       card: "summary_large_image",
+  //       site: "@spreadthejelly",
+  //     }
+  //   }
+  // },
 })

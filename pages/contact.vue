@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { usePrismic } from '@prismicio/vue'
+import { usePageSeo } from '~/composables/usePageSeo'
 
 const prismic = usePrismic()
 
@@ -10,12 +11,6 @@ const { data: page, error } = useAsyncData('contactPage', () =>
 if (error.value) {
   console.error('Error value from useAsyncData:', error.value)
 }
-
-useSeoMeta({
-  title: page.value?.data.meta_title ?? undefined,
-  description: page.value?.data.meta_description ?? undefined,
-  ogImage: prismic.asImageSrc(page.value?.data.meta_image) ?? undefined,
-})
 
 const tooltipText = ref('')
 
@@ -44,6 +39,8 @@ const handleKeydown = (event: KeyboardEvent, text: string) => {
     copyToClipboard(text)
   }
 }
+
+usePageSeo(page)
 </script>
 
 <template>

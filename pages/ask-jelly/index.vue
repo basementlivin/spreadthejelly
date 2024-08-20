@@ -1,7 +1,7 @@
 <script setup lang="ts">
-
 import { components } from '~/slices'
 import { usePrismic } from '@prismicio/vue'
+import { usePageSeo } from '~/composables/usePageSeo'
 import AskJellyForm from '@/components/AskJellyForm.vue'
 
 const prismic = usePrismic()
@@ -17,11 +17,7 @@ const { data: latestArticles } = useAsyncData(`ask-jelly/${route.params.uid}`, (
     orderings: { field: 'publication_date', direction: 'desc' }
   }))
 
-useSeoMeta({
-  title: page.value?.data.meta_title ?? undefined,
-  description: page.value?.data.meta_description ?? undefined,
-  ogImage: prismic.asImageSrc(page.value?.data.meta_image) ?? undefined,
-})
+usePageSeo(page)
 </script>
 
 <template>

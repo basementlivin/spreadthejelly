@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { components } from '~/slices'
+import { usePageSeo } from '~/composables/usePageSeo'
 
 const prismic = usePrismic()
 const route = useRoute()
@@ -9,12 +10,7 @@ const { data: article } = useAsyncData(`ask-jelly/${route.params.uid}`, () =>
   prismic.client.getByUID('ask_jelly_article', route.params.uid as string)
 )
 
-useSeoMeta({
-  title: article.value?.data.meta_title ?? undefined,
-  description: article.value?.data.meta_description ?? undefined,
-  ogImage: prismic.asImageSrc(article.value?.data.meta_image) ?? undefined,
-})
-
+usePageSeo(article)
 </script>
 
 <template>

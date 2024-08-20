@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { components } from '~/slices'
 import { usePrismic } from '@prismicio/vue'
+import { usePageSeo } from '~/composables/usePageSeo'
 
 const prismic = usePrismic()
-
-
 
 const { data: page, error } = useAsyncData('aboutPage', () => 
   prismic.client.getSingle('about'))
@@ -13,11 +12,7 @@ if (error.value) {
   console.error('Error value from useAsyncData:', error.value)
 }
 
-useSeoMeta({
-  title: page.value?.data.meta_title ?? undefined,
-  description: page.value?.data.meta_description ?? undefined,
-  ogImage: prismic.asImageSrc(page.value?.data.meta_image) ?? undefined,
-})
+usePageSeo(page)
 </script>
 
 <template>
