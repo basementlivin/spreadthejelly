@@ -56,7 +56,9 @@ const relatedAnswers = computed(() => {
         class="answer"
       >
         <h3 class="title">{{ answer.data.title }}</h3>
-        <p class="asked-by">From {{ answer.data.asked_by }}</p>
+        <p class="asked-by">
+          From {{ answer.data.asked_by }}
+        </p>
         <PrismicLink
           :field="answer"
           class="link"
