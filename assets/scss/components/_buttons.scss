@@ -1,5 +1,6 @@
 .link {
-    width: max-content;
+    display: inline-flex;
+    align-self: flex-start;
     cursor: pointer;
     font-family: $monument;
     text-decoration: underline;
