@@ -1,0 +1,40 @@
+.pull-quote {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  &__inner {
+    blockquote {
+      display: flex;
+      flex-direction: column;
+
+      @include breakpoint($laptop) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .quote {
+        font-family: $syne;
+        font-size: clamp(1.625rem, 2vw, 2.25rem);
+        line-height: 1.5;
+        
+        @include breakpoint($laptop) {
+          padding: 1rem 0;
+          max-width: 45vw;
+        }
+      }
+      
+      .citation {
+        display: flex;
+        flex-direction: column;
+        font-style: normal;
+        font-family: $monument;
+        font-size: clamp(0.825rem, 2vw, 1rem);
+        
+        @include breakpoint($laptop) {
+          width: 33%;
+          justify-self: flex-start;
+          align-self: flex-end;
+        }
+      }
+    }
+  }
+}

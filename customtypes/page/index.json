@@ -35,6 +35,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "pull_quote": {
+              "type": "SharedSlice"
+            },
             "jelly_likes": {
               "type": "SharedSlice"
             },

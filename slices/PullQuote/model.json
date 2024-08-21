@@ -1,0 +1,44 @@
+{
+  "id": "pull_quote",
+  "type": "SharedSlice",
+  "name": "PullQuote",
+  "description": "PullQuote",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "quote": {
+          "type": "Text",
+          "config": {
+            "label": "Quote",
+            "placeholder": ""
+          }
+        },
+        "article_title": {
+          "type": "Text",
+          "config": {
+            "label": "Article Title",
+            "placeholder": ""
+          }
+        },
+        "article_link": {
+          "type": "Link",
+          "config": {
+            "label": "Article Link",
+            "select": "document",
+            "customtypes": [
+              "ask_jelly_article",
+              "blog_article"
+            ]
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"quote": {
+				"__TYPE__": "FieldContent",
+				"value": "pain",
+				"type": "Text"
+			},
+			"article_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
+				}
+			},
+			"article_title": {
+				"__TYPE__": "FieldContent",
+				"value": "beyond",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

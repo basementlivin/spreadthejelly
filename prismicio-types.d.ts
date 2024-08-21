@@ -774,6 +774,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | PullQuoteSlice
   | JellyLikesSlice
   | TestimonialsSlice
   | ImageSliderSlice
@@ -1691,6 +1692,73 @@ export type JellyLikesSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *PullQuote → Default → Primary*
+ */
+export interface PullQuoteSliceDefaultPrimary {
+  /**
+   * Quote field in *PullQuote → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pull_quote.default.primary.quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  quote: prismic.KeyTextField;
+
+  /**
+   * Article Title field in *PullQuote → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pull_quote.default.primary.article_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  article_title: prismic.KeyTextField;
+
+  /**
+   * Article Link field in *PullQuote → Default → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pull_quote.default.primary.article_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  article_link: prismic.ContentRelationshipField<
+    "ask_jelly_article" | "blog_article"
+  >;
+}
+
+/**
+ * Default variation for PullQuote Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PullQuoteSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PullQuoteSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *PullQuote*
+ */
+type PullQuoteSliceVariation = PullQuoteSliceDefault;
+
+/**
+ * PullQuote Shared Slice
+ *
+ * - **API ID**: `pull_quote`
+ * - **Description**: PullQuote
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PullQuoteSlice = prismic.SharedSlice<
+  "pull_quote",
+  PullQuoteSliceVariation
+>;
+
+/**
  * Primary content in *Question → Default → Primary*
  */
 export interface QuestionSliceDefaultPrimary {
@@ -2260,6 +2328,10 @@ declare module "@prismicio/client" {
       JellyLikesSliceDefaultPrimary,
       JellyLikesSliceVariation,
       JellyLikesSliceDefault,
+      PullQuoteSlice,
+      PullQuoteSliceDefaultPrimary,
+      PullQuoteSliceVariation,
+      PullQuoteSliceDefault,
       QuestionSlice,
       QuestionSliceDefaultPrimary,
       QuestionSliceVariation,
