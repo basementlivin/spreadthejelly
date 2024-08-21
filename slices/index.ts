@@ -9,6 +9,7 @@ export const components = defineSliceZoneComponents({
   hero: defineAsyncComponent(() => import("./Hero/index.vue")),
   image: defineAsyncComponent(() => import("./Image/index.vue")),
   image_slider: defineAsyncComponent(() => import("./ImageSlider/index.vue")),
+  jelly_likes: defineAsyncComponent(() => import("./JellyLikes/index.vue")),
   question: defineAsyncComponent(() => import("./Question/index.vue")),
   related_answers: defineAsyncComponent(
     () => import("./RelatedAnswers/index.vue"),

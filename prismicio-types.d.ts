@@ -186,6 +186,7 @@ export type AskJellyDocument<Lang extends string = string> =
   >;
 
 type AskJellyArticleDocumentDataSlicesSlice =
+  | JellyLikesSlice
   | RelatedAnswersSlice
   | QuestionSlice
   | ImageSlice
@@ -375,6 +376,7 @@ export type BlogDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
 
 type BlogArticleDocumentDataSlicesSlice =
+  | JellyLikesSlice
   | ImageSliderSlice
   | TextSlice
   | HeroSlice
@@ -772,6 +774,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | JellyLikesSlice
   | TestimonialsSlice
   | ImageSliderSlice
   | DividingLineSlice
@@ -1566,6 +1569,128 @@ export type ImageSliderSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *JellyLikes → Default → Primary → Products*
+ */
+export interface JellyLikesSliceDefaultPrimaryProductsItem {
+  /**
+   * Product Image field in *JellyLikes → Default → Primary → Products*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_likes.default.primary.products[].product_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  product_image: prismic.ImageField<never>;
+
+  /**
+   * Product Name field in *JellyLikes → Default → Primary → Products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_likes.default.primary.products[].product_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  product_name: prismic.KeyTextField;
+
+  /**
+   * Product Manufacturer field in *JellyLikes → Default → Primary → Products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_likes.default.primary.products[].product_manufacturer
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  product_manufacturer: prismic.KeyTextField;
+
+  /**
+   * Product Info field in *JellyLikes → Default → Primary → Products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_likes.default.primary.products[].product_info
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  product_info: prismic.KeyTextField;
+
+  /**
+   * Product Price field in *JellyLikes → Default → Primary → Products*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_likes.default.primary.products[].product_price
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  product_price: prismic.NumberField;
+
+  /**
+   * Product Link field in *JellyLikes → Default → Primary → Products*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_likes.default.primary.products[].product_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  product_link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *JellyLikes → Default → Primary*
+ */
+export interface JellyLikesSliceDefaultPrimary {
+  /**
+   * Who Likes? field in *JellyLikes → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Jelly Likes
+   * - **API ID Path**: jelly_likes.default.primary.who_likes
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  who_likes: prismic.KeyTextField;
+
+  /**
+   * Products field in *JellyLikes → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_likes.default.primary.products[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  products: prismic.GroupField<
+    Simplify<JellyLikesSliceDefaultPrimaryProductsItem>
+  >;
+}
+
+/**
+ * Default variation for JellyLikes Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type JellyLikesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<JellyLikesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *JellyLikes*
+ */
+type JellyLikesSliceVariation = JellyLikesSliceDefault;
+
+/**
+ * JellyLikes Shared Slice
+ *
+ * - **API ID**: `jelly_likes`
+ * - **Description**: JellyLikes
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type JellyLikesSlice = prismic.SharedSlice<
+  "jelly_likes",
+  JellyLikesSliceVariation
+>;
+
+/**
  * Primary content in *Question → Default → Primary*
  */
 export interface QuestionSliceDefaultPrimary {
@@ -2130,6 +2255,11 @@ declare module "@prismicio/client" {
       ImageSliderSliceDefaultPrimary,
       ImageSliderSliceVariation,
       ImageSliderSliceDefault,
+      JellyLikesSlice,
+      JellyLikesSliceDefaultPrimaryProductsItem,
+      JellyLikesSliceDefaultPrimary,
+      JellyLikesSliceVariation,
+      JellyLikesSliceDefault,
       QuestionSlice,
       QuestionSliceDefaultPrimary,
       QuestionSliceVariation,

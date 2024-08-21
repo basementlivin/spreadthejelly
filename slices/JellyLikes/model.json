@@ -1,0 +1,79 @@
+{
+  "id": "jelly_likes",
+  "type": "SharedSlice",
+  "name": "JellyLikes",
+  "description": "JellyLikes",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "who_likes": {
+          "type": "Text",
+          "config": {
+            "label": "Who Likes?",
+            "placeholder": "Jelly Likes"
+          }
+        },
+        "products": {
+          "type": "Group",
+          "config": {
+            "label": "Products",
+            "repeat": true,
+            "fields": {
+              "product_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Product Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "product_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Product Name",
+                  "placeholder": ""
+                }
+              },
+              "product_manufacturer": {
+                "type": "Text",
+                "config": {
+                  "label": "Product Manufacturer",
+                  "placeholder": ""
+                }
+              },
+              "product_info": {
+                "type": "Text",
+                "config": {
+                  "label": "Product Info",
+                  "placeholder": ""
+                }
+              },
+              "product_price": {
+                "type": "Number",
+                "config": {
+                  "label": "Product Price",
+                  "placeholder": ""
+                }
+              },
+              "product_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Product Link",
+                  "placeholder": "",
+                  "select": null
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

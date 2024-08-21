@@ -1,0 +1,92 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"products": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"product_image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
+										"width": 6000,
+										"height": 4000
+									},
+									"url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
+									"width": 6000,
+									"height": 4000,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"product_name",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "bean",
+									"type": "Text"
+								}
+							],
+							[
+								"product_info",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "today",
+									"type": "Text"
+								}
+							],
+							[
+								"product_price",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "66",
+									"type": "Number"
+								}
+							],
+							[
+								"product_link",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com"
+									}
+								}
+							],
+							[
+								"product_manufacturer",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "himself",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"who_likes": {
+				"__TYPE__": "FieldContent",
+				"value": "something",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

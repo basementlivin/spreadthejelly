@@ -35,6 +35,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "jelly_likes": {
+              "type": "SharedSlice"
+            },
             "testimonials": {
               "type": "SharedSlice"
             },
