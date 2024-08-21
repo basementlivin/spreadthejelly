@@ -16,8 +16,17 @@
           "type": "Image",
           "config": {
             "label": "Image",
-            "constraint": {},
-            "thumbnails": []
+            "constraint": {
+              "width": 1920,
+              "height": 1080
+            },
+            "thumbnails": [
+              {
+                "name": "mobile",
+                "width": 960,
+                "height": 1200
+              }
+            ]
           }
         }
       },
@@ -35,7 +44,10 @@
           "type": "Image",
           "config": {
             "label": "Image Left",
-            "constraint": {},
+            "constraint": {
+              "width": 960,
+              "height": 1200
+            },
             "thumbnails": []
           }
         },
@@ -43,7 +55,10 @@
           "type": "Image",
           "config": {
             "label": "Image Right",
-            "constraint": {},
+            "constraint": {
+              "width": 960,
+              "height": 1200
+            },
             "thumbnails": []
           }
         }

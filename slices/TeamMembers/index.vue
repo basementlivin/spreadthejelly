@@ -30,7 +30,8 @@ defineProps(
           <NuxtImg
             :src="item.image.url ?? ''"
             :alt="item.image.alt ?? item.name ?? ''"
-            @load="console.log('Image URL:', item.image.url)"
+            loading="lazy"
+            placeholder
           />
         </div>
         <div class="team-member__content">

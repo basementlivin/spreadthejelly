@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { type Content } from "@prismicio/client";
+const img = useImage();
 
 // The array passed to `getSliceComponentProps` is purely optional.
 // Consider it as a visual hint for you when templating your slice.
@@ -35,6 +36,9 @@ defineProps(
       <NuxtImg
         :src="slice.primary.image.url ?? ''"
         :alt="slice.primary.image.alt ?? ''"
+        sizes="xs:90vw sm:90vw md:90vw lg:90vw xl:90vw xxl:90vw"
+        loading="lazy"
+        placeholder
       />
       <svg
         v-if="slice.variation === 'default'"
@@ -55,10 +59,16 @@ defineProps(
       <NuxtImg
         :src="slice.primary.image_left.url ?? ''"
         :alt="slice.primary.image_left.alt ?? ''"
+        sizes="xs:90vw sm:90vw md:90vw lg:50vw xl:50vw xxl:50vw"
+        loading="lazy"
+        placeholder
       />
       <NuxtImg
         :src="slice.primary.image_right.url ?? ''"
         :alt="slice.primary.image_right.alt ?? ''"
+        sizes="xs:90vw sm:90vw md:90vw lg:50vw xl:50vw xxl:50vw"
+        loading="lazy"
+        placeholder
       />
     </div>
   </section>
