@@ -4,14 +4,10 @@ import { defineAsyncComponent } from "vue";
 import { defineSliceZoneComponents } from "@prismicio/vue";
 
 export const components = defineSliceZoneComponents({
-  call_to_action: defineAsyncComponent(
-    () => import("./CallToAction/index.vue"),
-  ),
   dividing_line: defineAsyncComponent(() => import("./DividingLine/index.vue")),
   headline: defineAsyncComponent(() => import("./Headline/index.vue")),
   hero: defineAsyncComponent(() => import("./Hero/index.vue")),
   image: defineAsyncComponent(() => import("./Image/index.vue")),
-  image_cards: defineAsyncComponent(() => import("./ImageCards/index.vue")),
   image_slider: defineAsyncComponent(() => import("./ImageSlider/index.vue")),
   question: defineAsyncComponent(() => import("./Question/index.vue")),
   related_answers: defineAsyncComponent(
@@ -20,7 +16,4 @@ export const components = defineSliceZoneComponents({
   subheadline: defineAsyncComponent(() => import("./Subheadline/index.vue")),
   team_members: defineAsyncComponent(() => import("./TeamMembers/index.vue")),
   text: defineAsyncComponent(() => import("./Copy/index.vue")),
-  text_with_image: defineAsyncComponent(
-    () => import("./TextWithImage/index.vue"),
-  ),
 });

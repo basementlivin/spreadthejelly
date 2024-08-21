@@ -58,9 +58,6 @@
             "image": {
               "type": "SharedSlice"
             },
-            "image_cards": {
-              "type": "SharedSlice"
-            },
             "dividing_line": {
               "type": "SharedSlice"
             },
