@@ -42,3 +42,7 @@ const paddingBottom = computed(() => {
     <div class="line" />
   </section>
 </template>
+
+<style lang="scss" scoped>
+  @import '@/assets/scss/slices/_dividing-line.scss';
+</style>
