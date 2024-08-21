@@ -1,0 +1,39 @@
+.testimonials {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    @include breakpoint($laptop) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include breakpoint($desktop) {
+      gap: 5rem;
+    }
+
+    .testimonial {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto;
+
+      .quote {
+        font-family: $syne;
+        font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+        line-height: 1.45;
+        margin: 0;
+      }
+
+      .credit {
+        font-family: $monument;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.025em;
+        margin: 0;
+      }
+    }
+  }
+}
