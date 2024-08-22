@@ -1,8 +1,11 @@
 .jelly-likes {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   &__inner {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 4rem;
 
     .headline {
       @include chivo-variable(500);
@@ -12,22 +15,30 @@
     }
 
     .products {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 4rem;
-
+      // display: grid;
+      // grid-template-columns: repeat(2, 1fr);
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      column-gap: 3.5rem;
+      row-gap: 6rem;
+      
       @include breakpoint($laptop) {
-        grid-template-columns: repeat(4, 1fr);
+        // grid-template-columns: repeat(4, 1fr);
+        column-gap: 4.25rem;
       }
-
+      
       .product {
         display: flex;
         flex-direction: column;
         gap: 2rem;
+        width: 38%;
+        max-width: 225px;
         
         &__image {
           width: 100%;
-          height: 100%;
+          height: auto;
+          max-height: 250px;
 
           img {
             display: block;
