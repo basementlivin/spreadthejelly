@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { type Content, isFilled } from "@prismicio/client";
 import { computed } from "vue";
+import type { AskJellyArticleDocument } from '~/prismicio-types.d.ts';
 
 const props = defineProps(
   getSliceComponentProps<Content.RelatedAnswersSlice>([
@@ -13,8 +14,8 @@ const props = defineProps(
 
 const prismic = usePrismic();
 
-// Fetch the related ask_jelly_article documents
-const relatedAnswersData = await prismic.client.getByType('ask_jelly_article', {
+// Fetch the related ask_jelly_article documents with typed data
+const relatedAnswersData = await prismic.client.getByType<AskJellyArticleDocument>('ask_jelly_article', {
   fetchLinks: [
     "ask_jelly_article.title",
     "ask_jelly_article.asked_by",
@@ -34,7 +35,6 @@ const relatedAnswers = computed(() => {
     })
     .filter(answer => answer !== null);  // Filter out any null entries
 });
-
 </script>
 
 <template>
