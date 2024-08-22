@@ -15,17 +15,15 @@
     }
 
     .products {
-      // display: grid;
-      // grid-template-columns: repeat(2, 1fr);
       display: flex;
       flex-flow: row wrap;
-      justify-content: center;
+      justify-content: space-evenly;
       column-gap: 3.5rem;
       row-gap: 6rem;
       
       @include breakpoint($laptop) {
-        // grid-template-columns: repeat(4, 1fr);
         column-gap: 4.25rem;
+        justify-content: center;
       }
       
       .product {
