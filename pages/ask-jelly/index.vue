@@ -13,8 +13,10 @@ const { data: page } = useAsyncData('askJellyPage', () =>
 
 const { data: latestArticles } = useAsyncData(`ask-jelly/${route.params.uid}`, () =>
   prismic.client.getAllByType("ask_jelly_article", {
-    limit: 6,
-    orderings: { field: 'publication_date', direction: 'desc' }
+    orderings: { 
+      field: 'my.ask_jelly_article.publication_date', 
+      direction: 'desc'
+    }
   }))
 
 usePageSeo(page)
@@ -50,7 +52,7 @@ usePageSeo(page)
       class="ask-jelly__articles wrapper wrapper--wide"
     >
       <h2 class="headline">
-        Jelly answers
+        Jelly answers:
       </h2>
 
       <div class="articles__container">
