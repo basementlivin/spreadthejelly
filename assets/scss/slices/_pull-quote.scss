@@ -5,6 +5,7 @@
     blockquote {
       display: flex;
       flex-direction: column;
+      gap: 4rem;
 
       @include breakpoint($laptop) {
         flex-direction: row;
@@ -28,11 +29,11 @@
         font-style: normal;
         font-family: $monument;
         font-size: clamp(0.825rem, 2vw, 1rem);
+        align-self: flex-end;
         
         @include breakpoint($laptop) {
           width: 33%;
           justify-self: flex-start;
-          align-self: flex-end;
         }
       }
     }
