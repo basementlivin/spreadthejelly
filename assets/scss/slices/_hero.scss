@@ -104,9 +104,12 @@
             }
             
             .link {
-                align-self: flex-end;
                 font-size: 1rem;
                 line-height: 1.6;
+
+                @include breakpoint($laptop) {
+                    align-self: flex-end;
+                }
             }
         }
         .copy {
