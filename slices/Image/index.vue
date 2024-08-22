@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { type Content } from "@prismicio/client";
-const img = useImage();
+import { isFilled } from "@prismicio/client";
 
-// The array passed to `getSliceComponentProps` is purely optional.
-// Consider it as a visual hint for you when templating your slice.
 defineProps(
   getSliceComponentProps<Content.ImageSlice>([
     "slice",
@@ -30,7 +28,7 @@ defineProps(
     data-scroll-section
   >
     <div
-      v-if="slice.variation === 'default'"
+      v-if="slice.variation === 'default' && isFilled.image(slice.primary.image)"
       class="image__container full"
     >
       <NuxtImg
@@ -41,7 +39,7 @@ defineProps(
         placeholder
       />
       <svg
-        v-if="slice.variation === 'default'"
+        v-if="slice.variation === 'default' && isFilled.image(slice.primary.image)"
         class="mask"
         viewBox="0 0 1543.25 38.41"
       >
@@ -53,7 +51,7 @@ defineProps(
       </svg>
     </div>
     <div
-      v-if="slice.variation === 'twoColumn'"
+      v-if="slice.variation === 'twoColumn' && isFilled.image(slice.primary.image_left) && isFilled.image(slice.primary.image_right)"
       class="image__container columns"
     >
       <NuxtImg

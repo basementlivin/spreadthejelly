@@ -2,7 +2,6 @@
 import { type Content, isFilled } from "@prismicio/client";
 import { computed } from "vue";
 
-// Get props for the slice
 const props = defineProps(
   getSliceComponentProps<Content.RelatedAnswersSlice>([
     "slice",
@@ -12,7 +11,6 @@ const props = defineProps(
   ]),
 );
 
-// Prismic client instance
 const prismic = usePrismic();
 
 // Fetch the related ask_jelly_article documents
@@ -55,7 +53,9 @@ const relatedAnswers = computed(() => {
         :key="index"
         class="answer"
       >
-        <h3 class="title">{{ answer.data.title }}</h3>
+        <h3 class="title">
+          {{ answer.data.title }}
+        </h3>
         <p class="asked-by">
           From {{ answer.data.asked_by }}
         </p>

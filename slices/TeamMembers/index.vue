@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { type Content } from "@prismicio/client";
+import { isFilled } from "@prismicio/client";
 
-// The array passed to `getSliceComponentProps` is purely optional.
-// Consider it as a visual hint for you when templating your slice.
 defineProps(
   getSliceComponentProps<Content.TeamMembersSlice>([
     "slice",
@@ -15,6 +14,7 @@ defineProps(
 
 <template>
   <section
+    v-if="slice.primary.team_member.length === 3"
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
     class="team-members wrapper wrapper--wide"
@@ -28,6 +28,7 @@ defineProps(
       >
         <div class="team-member__image">
           <NuxtImg
+            v-if="isFilled.image(item.image)"
             :src="item.image.url ?? ''"
             :alt="item.image.alt ?? item.name ?? ''"
             loading="lazy"
@@ -35,14 +36,19 @@ defineProps(
           />
         </div>
         <div class="team-member__content">
-          <h3 class="name">
+          <h3
+            v-if="isFilled.keyText(item.name)"
+            class="name"
+          >
             {{ item.name }}
           </h3>
           <PrismicRichText
+            v-if="isFilled.richText(item.bio)"
             :field="item.bio"
             class="bio" 
           />
           <PrismicLink
+            v-if="isFilled.link(item.social_link)"
             :field="item.social_link"
             class="link link--no-underline"
           >

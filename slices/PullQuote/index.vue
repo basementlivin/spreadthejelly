@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { type Content } from "@prismicio/client";
+import { isFilled } from "@prismicio/client";
 
-// The array passed to `getSliceComponentProps` is purely optional.
-// Consider it as a visual hint for you when templating your slice.
 defineProps(
   getSliceComponentProps<Content.PullQuoteSlice>([
     "slice",
@@ -15,13 +14,16 @@ defineProps(
 
 <template>
   <section
+    v-if="isFilled.keyText(slice.primary.quote) && isFilled.keyText(slice.primary.article_title) && isFilled.link(slice.primary.article_link)"
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
     class="pull-quote wrapper wrapper--wide"
   >
     <div class="pull-quote__inner">
       <blockquote>
-        <p class="quote">"{{ slice.primary.quote }}"</p>
+        <p class="quote">
+          "{{ slice.primary.quote }}"
+        </p>
         <cite class="citation">
           <span class="citation__article-title">
             From {{ slice.primary.article_title }}

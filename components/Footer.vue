@@ -6,6 +6,7 @@ import FacebookIcon from '@/assets/svg/social--facebook.svg'
 import InstagramIcon from '@/assets/svg/social--instagram.svg'
 import TikTokIcon from '@/assets/svg/social--tiktok.svg'
 import YouTubeIcon from '@/assets/svg/social--youtube.svg'
+import { isFilled } from '@prismicio/client'
 
 const footerLinks = useFooterLinks()
 
@@ -60,25 +61,25 @@ const footerLinks = useFooterLinks()
     <div class="footer__social">
       <div class="social-links">
         <PrismicLink
-          v-if="footerLinks?.data?.facebook_url"
+          v-if="footerLinks?.data?.facebook_url && isFilled.link(footerLinks?.data?.facebook_url)"
           :field="footerLinks?.data?.facebook_url"
         >
           <FacebookIcon />
         </PrismicLink>
         <PrismicLink
-          v-if="footerLinks?.data?.instagram_url"
+          v-if="footerLinks?.data?.instagram_url && isFilled.link(footerLinks?.data?.instagram_url)"
           :field="footerLinks?.data?.instagram_url"
         >
           <InstagramIcon />
         </PrismicLink>
         <PrismicLink
-          v-if="footerLinks?.data?.tiktok_url"
+          v-if="footerLinks?.data?.tiktok_url && isFilled.link(footerLinks?.data?.tiktok_url)"
           :field="footerLinks?.data?.tiktok_url"
         >
           <TikTokIcon />
         </PrismicLink>
         <PrismicLink
-          v-if="footerLinks?.data?.youtube_url"
+          v-if="footerLinks?.data?.youtube_url && isFilled.link(footerLinks?.data?.youtube_url)"
           :field="footerLinks?.data?.youtube_url"
         >
           <YouTubeIcon />

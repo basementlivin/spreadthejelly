@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { type Content } from "@prismicio/client";
+import { isFilled } from "@prismicio/client";
 
-// The array passed to `getSliceComponentProps` is purely optional.
-// Consider it as a visual hint for you when templating your slice.
 defineProps(
   getSliceComponentProps<Content.TestimonialsSlice>([
     "slice",
@@ -15,6 +14,7 @@ defineProps(
 
 <template>
   <section
+    v-if="slice.primary.testimonials.length > 0"
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
     class="testimonials wrapper wrapper--wide"
@@ -25,8 +25,18 @@ defineProps(
         :key="index"
         class="testimonial"
       >
-        <p class="quote">"{{ testimonial.testimonial }}"</p>
-        <span class="credit">{{ testimonial.credit }}</span>
+        <p
+          v-if="isFilled.keyText(testimonial.testimonial)"
+          class="quote"
+        >
+          "{{ testimonial.testimonial }}"
+        </p>
+        <span
+          v-if="isFilled.keyText(testimonial.credit)"
+          class="credit"
+        >
+          {{ testimonial.credit }}
+        </span>
       </div>
     </div>
   </section>

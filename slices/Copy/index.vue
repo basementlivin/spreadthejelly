@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { type Content } from '@prismicio/client'
+import { isFilled } from '@prismicio/client'
 
-// The array passed to \`getSliceComponentProps\` is purely optional.
-// Consider it as a visual hint for you when templating your slice.
 const props = defineProps(getSliceComponentProps<Content.TextSlice>(
   ['slice', 'index', 'slices', 'context']
 ));
@@ -28,6 +27,7 @@ const pullQuoteClass = computed(() => {
     data-scroll-section
   >
     <PrismicRichText
+      v-if="isFilled.richText(slice.primary.copy)"
       :field="slice.primary.copy"
       class="copy__inner"
     />
@@ -42,13 +42,21 @@ const pullQuoteClass = computed(() => {
       <NuxtImg
         :src="slice.primary.image.url ?? ''"
         :alt="slice.primary.image.alt ?? ''"
+        loading="lazy"
+        placeholder
       />
-      <figcaption class="image__caption">
+      <figcaption
+        v-if="isFilled.keyText(slice.primary.image_caption)"
+        class="image__caption"
+      >
         {{ slice.primary.image_caption }}
       </figcaption>
     </figure>
 
-    <div class="copy">
+    <div
+      v-if="isFilled.richText(slice.primary.copy)"
+      class="copy"
+    >
       <PrismicRichText
         :field="slice.primary.copy"
       />
@@ -60,14 +68,20 @@ const pullQuoteClass = computed(() => {
     :class="['copy-with-pull-quote', pullQuoteClass, 'wrapper wrapper--wide']"
     data-scroll-section
   >
-    <div class="copy">
+    <div
+      v-if="isFilled.richText(slice.primary.copy)"
+      class="copy"
+    >
       <PrismicRichText
         :field="slice.primary.copy"
       />
     </div>
 
     <div class="pull-quote">
-      <blockquote>
+      <blockquote
+        v-if="isFilled.keyText(slice.primary.pull_quote)"
+        class="quote"
+      >
         {{ slice.primary.pull_quote }}
       </blockquote>
     </div>

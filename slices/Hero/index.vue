@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { type Content } from "@prismicio/client";
+import { isFilled } from "@prismicio/client";
 
-// The array passed to `getSliceComponentProps` is purely optional.
-// Consider it as a visual hint for you when templating your slice.
 defineProps(
   getSliceComponentProps<Content.HeroSlice>([
     "slice",
@@ -43,7 +42,7 @@ defineProps(
       <div class="headline">
         <component
           :is="slice.primary.headline[0]?.headline_level"
-          v-if="slice.primary.headline[0]?.headline_level && slice.primary.headline[0]?.headline"
+          v-if="isFilled.keyText(slice.primary.headline[0]?.headline)"
           :data-slice-type="slice.slice_type"
           :data-slice-variation="slice.variation"
           class="h1"
@@ -52,9 +51,14 @@ defineProps(
         </component>
       </div>
       <div class="details">
-        <span class="subheadline">{{ slice.primary.subheadline }}</span>
+        <span
+          v-if="isFilled.keyText(slice.primary.subheadline)"
+          class="subheadline"
+        >
+          {{ slice.primary.subheadline }}
+        </span>
         <PrismicLink
-          v-if="slice.primary.link && slice.primary.link[0]?.link_location"
+          v-if="isFilled.link(slice.primary.link[0]?.link_location) && isFilled.keyText(slice.primary.link[0]?.link_text)"
           :field="slice.primary.link[0].link_location"
           class="link"
         >

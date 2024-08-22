@@ -2,8 +2,6 @@
 import { computed } from "vue";
 import { type Content } from "@prismicio/client";
 
-// The array passed to `getSliceComponentProps` is purely optional.
-// Consider it as a visual hint for you when templating your slice.
 const props = defineProps(
   getSliceComponentProps<Content.ImageSliderSlice>([
     "slice",
@@ -33,6 +31,7 @@ const slides = computed(() => {
 
 <template>
   <section
+    v-if="props.slice.primary.images"
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
     class="image-slider wrapper wrapper--fullscreen"

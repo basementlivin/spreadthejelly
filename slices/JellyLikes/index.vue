@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { type Content } from "@prismicio/client";
+import { isFilled } from "@prismicio/client";
 
-// The array passed to `getSliceComponentProps` is purely optional.
-// Consider it as a visual hint for you when templating your slice.
 defineProps(
   getSliceComponentProps<Content.JellyLikesSlice>([
     "slice",
@@ -20,14 +19,22 @@ defineProps(
     class="jelly-likes wrapper wrapper--wide"
   >
     <div class="jelly-likes__inner">
-      <span class="headline">{{ slice.primary.who_likes }}</span>
+      <span
+        v-if="isFilled.keyText(slice.primary.who_likes)"
+        class="headline"
+      >
+        {{ slice.primary.who_likes }}
+      </span>
       <div class="products">
         <div
           v-for="(product, index) in slice.primary.products"
           :key="index"
           class="product"
         >
-          <div class="product__image">
+          <div 
+            v-if="isFilled.image(product.product_image)"
+            class="product__image"
+          >
             <NuxtImg
               :src="product.product_image.url ?? ''"
               :alt="product.product_image.alt ?? ''"
@@ -35,7 +42,10 @@ defineProps(
               placeholder
             />
           </div>
-          <div class="product__details">
+          <div
+            v-if="isFilled.keyText(product.product_name) && isFilled.keyText(product.product_manufacturer) && isFilled.keyText(product.product_info) && isFilled.number(product.product_price) && isFilled.link(product.product_link)"
+            class="product__details"
+          >
             <p class="name">
               {{ product.product_name }}
             </p>

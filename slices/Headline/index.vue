@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { type Content } from "@prismicio/client";
+import { isFilled } from "@prismicio/client";
 
-// The array passed to `getSliceComponentProps` is purely optional.
-// Consider it as a visual hint for you when templating your slice.
 const props = defineProps(
   getSliceComponentProps<Content.HeadlineSlice>([
     "slice",
@@ -29,6 +28,7 @@ const headlineClass = computed(() => {
 
 <template>
   <section
+    v-if="isFilled.keyText(slice.primary.headline)"
     class="headline wrapper"
     data-scroll-section
   >
