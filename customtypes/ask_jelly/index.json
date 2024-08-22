@@ -67,6 +67,22 @@
         },
         "type": "Image"
       }
+    },
+    "Blog Roll Settings": {
+      "load_more_button_text": {
+        "type": "Text",
+        "config": {
+          "label": "\"Load More Articles\" Button Text",
+          "placeholder": "Load More"
+        }
+      },
+      "no_more_articles_message": {
+        "type": "Text",
+        "config": {
+          "label": "\"No More Articles\" Message",
+          "placeholder": "No more articles to display."
+        }
+      }
     }
   }
 }

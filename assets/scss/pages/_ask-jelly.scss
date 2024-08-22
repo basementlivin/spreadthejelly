@@ -109,5 +109,19 @@
       }
     }
 
+    .articles__load-more {
+      padding-top: 6rem;
+      align-self: center;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .articles__no-more {
+      padding-top: 6rem;
+      align-self: center;
+      text-align: center;
+      @include chivo-variable(500);
+    }
+
   }
 }

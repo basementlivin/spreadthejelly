@@ -1,25 +1,54 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { components } from '~/slices'
 import { usePrismic } from '@prismicio/vue'
 import { usePageSeo } from '~/composables/usePageSeo'
 import AskJellyForm from '@/components/AskJellyForm.vue'
+import type { AskJellyArticleDocument } from '~/prismicio-types.d.ts'
 
 const prismic = usePrismic()
-const route = useRoute()
 
-const { data: page } = useAsyncData('askJellyPage', () => 
+// State for loaded articles and pagination
+const articles = ref<AskJellyArticleDocument[]>([])
+const page = ref(1)
+const hasMore = ref(true)
+const loading = ref(false)
+
+// Fetch the initial page content
+const { data: pageData } = useAsyncData('askJellyPage', () => 
   prismic.client.getSingle('ask_jelly'))
 
+// Function to load articles (initial and on "Load More")
+const loadArticles = async () => {
+  if (loading.value || !hasMore.value) return
+  loading.value = true
 
-const { data: latestArticles } = useAsyncData(`ask-jelly/${route.params.uid}`, () =>
-  prismic.client.getAllByType("ask_jelly_article", {
+  const newArticles = await prismic.client.getByType<AskJellyArticleDocument>("ask_jelly_article", {
+    pageSize: 6,  // Number of articles per page (or, in this case, per group)
+    page: page.value,  // Page number for pagination
     orderings: { 
       field: 'my.ask_jelly_article.publication_date', 
       direction: 'desc'
     }
-  }))
+  })
 
-usePageSeo(page)
+  // Add the new articles to the existing list
+  articles.value.push(...newArticles.results)
+
+  // If fewer articles than expected are returned, set hasMore to false
+  if (newArticles.results_size < 6) {
+    hasMore.value = false
+  }
+
+  // Increment the page number for the next load
+  page.value++
+  loading.value = false
+}
+
+// Fetch the initial articles when the page loads
+await loadArticles()
+
+usePageSeo(pageData)
 </script>
 
 <template>
@@ -30,10 +59,10 @@ usePageSeo(page)
     <section class="ask-jelly__intro wrapper wrapper--page-width">
       <div class="content">
         <h1 class="headline">
-          {{ page?.data.headline }}
+          {{ pageData?.data.headline }}
         </h1>
         <PrismicRichText
-          :field="page?.data.copy"
+          :field="pageData?.data.copy"
           class="copy"
         />
       </div>
@@ -43,12 +72,12 @@ usePageSeo(page)
     </section>
 
     <SliceZone
-      :slices="page?.data.slices ?? []"
+      :slices="pageData?.data.slices ?? []"
       :components="components"
     />
 
     <section
-      v-if="latestArticles"
+      v-if="articles.length"
       class="ask-jelly__articles wrapper wrapper--wide"
     >
       <h2 class="headline">
@@ -57,7 +86,7 @@ usePageSeo(page)
 
       <div class="articles__container">
         <div
-          v-for="article in latestArticles"
+          v-for="article in articles"
           :key="article.id"
           class="article"
         >
@@ -80,6 +109,22 @@ usePageSeo(page)
           </PrismicLink>
         </div>
       </div>
+
+      <!-- Load More Button -->
+      <span
+        v-if="hasMore && !loading"
+        class="articles__load-more link"
+        aria-label="Load more articles"
+        @click="loadArticles"
+      >
+        {{ pageData?.data.load_more_button_text ? pageData.data.load_more_button_text : 'Load More' }}
+      </span>
+      <p
+        v-else-if="!hasMore"
+        class="articles__no-more"
+      >
+        {{ pageData?.data.no_more_articles_message ? pageData.data.no_more_articles_message : 'You made it to the end!' }}
+      </p>
     </section>
   </main>
 </template>

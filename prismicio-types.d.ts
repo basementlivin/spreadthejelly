@@ -166,7 +166,27 @@ interface AskJellyDocumentData {
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  meta_image: prismic.ImageField<never>;
+  meta_image: prismic.ImageField<never> /**
+   * "Load More Articles" Button Text field in *Ask Jelly*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Load More
+   * - **API ID Path**: ask_jelly.load_more_button_text
+   * - **Tab**: Blog Roll Settings
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  load_more_button_text: prismic.KeyTextField;
+
+  /**
+   * "No More Articles" Message field in *Ask Jelly*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: No more articles to display.
+   * - **API ID Path**: ask_jelly.no_more_articles_message
+   * - **Tab**: Blog Roll Settings
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  no_more_articles_message: prismic.KeyTextField;
 }
 
 /**
