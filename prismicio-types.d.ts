@@ -416,6 +416,7 @@ export type BlogDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
 
 type BlogArticleDocumentDataSlicesSlice =
+  | RelatedArticlesSlice
   | JellyLikesSlice
   | ImageSliderSlice
   | TextSlice
@@ -1926,6 +1927,89 @@ export type RelatedAnswersSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
+ */
+export interface RelatedArticlesSliceDefaultPrimaryArticlesItem {
+  /**
+   * Article Link field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: related_articles.default.primary.articles[].article_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  article_link: prismic.ContentRelationshipField<"blog_article">;
+
+  /**
+   * Image Mask field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: related_articles.default.primary.articles[].image_mask
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  image_mask: prismic.SelectField<"none" | "blob", "filled">;
+}
+
+/**
+ * Primary content in *RelatedArticles → Default → Primary*
+ */
+export interface RelatedArticlesSliceDefaultPrimary {
+  /**
+   * Headline field in *RelatedArticles → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: You might also like
+   * - **API ID Path**: related_articles.default.primary.headline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  headline: prismic.KeyTextField;
+
+  /**
+   * Related Articles (choose 3) field in *RelatedArticles → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: related_articles.default.primary.articles[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  articles: prismic.GroupField<
+    Simplify<RelatedArticlesSliceDefaultPrimaryArticlesItem>
+  >;
+}
+
+/**
+ * Default variation for RelatedArticles Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RelatedArticlesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RelatedArticlesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *RelatedArticles*
+ */
+type RelatedArticlesSliceVariation = RelatedArticlesSliceDefault;
+
+/**
+ * RelatedArticles Shared Slice
+ *
+ * - **API ID**: `related_articles`
+ * - **Description**: RelatedArticles
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RelatedArticlesSlice = prismic.SharedSlice<
+  "related_articles",
+  RelatedArticlesSliceVariation
+>;
+
+/**
  * Primary content in *Subheadline → Default → Primary*
  */
 export interface SubheadlineSliceDefaultPrimary {
@@ -2381,6 +2465,11 @@ declare module "@prismicio/client" {
       RelatedAnswersSliceDefaultPrimary,
       RelatedAnswersSliceVariation,
       RelatedAnswersSliceDefault,
+      RelatedArticlesSlice,
+      RelatedArticlesSliceDefaultPrimaryArticlesItem,
+      RelatedArticlesSliceDefaultPrimary,
+      RelatedArticlesSliceVariation,
+      RelatedArticlesSliceDefault,
       SubheadlineSlice,
       SubheadlineSliceDefaultPrimary,
       SubheadlineSliceVariation,

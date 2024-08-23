@@ -1,0 +1,57 @@
+{
+  "id": "related_articles",
+  "type": "SharedSlice",
+  "name": "RelatedArticles",
+  "description": "RelatedArticles",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "headline": {
+          "type": "Text",
+          "config": {
+            "label": "Headline",
+            "placeholder": "You might also like"
+          }
+        },
+        "articles": {
+          "type": "Group",
+          "config": {
+            "label": "Related Articles (choose 3)",
+            "repeat": true,
+            "fields": {
+              "article_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Article Link",
+                  "select": "document",
+                  "customtypes": [
+                    "blog_article"
+                  ]
+                }
+              },
+              "image_mask": {
+                "type": "Select",
+                "config": {
+                  "label": "Image Mask",
+                  "placeholder": "",
+                  "options": [
+                    "none",
+                    "blob"
+                  ],
+                  "default_value": "none"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
