@@ -15,7 +15,7 @@
         "headline": {
           "type": "Text",
           "config": {
-            "label": "Headline",
+            "label": "Headline (optional)",
             "placeholder": "You might also like"
           }
         },
