@@ -1,0 +1,104 @@
+.featured-articles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  &__headline {
+    font-size: 2rem;
+    font-family: $syne;
+    text-transform: lowercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint($tablet - 100px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .article {
+      position: relative;
+
+      &__image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 5;
+        overflow: hidden;
+        background-color: $black;
+        border-radius: 0;
+        
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        &.full-bleed {
+          .article__details {
+            align-self: flex-start;
+          }
+        }
+        
+        &.mask--blob {
+          padding-bottom: 4rem;
+          img {
+            -webkit-mask: url('@/assets/svg/mask--image01.svg') no-repeat center;
+            mask: url('@/assets/svg/mask--image01.svg') no-repeat center;
+            -webkit-mask-size: 62% 62%;
+            mask-size: 62% 62%;
+          }
+        }
+
+        &.inset {
+          padding: 25% 25% 40% 25%;
+        }
+      }
+
+      &__details {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 2rem 2rem;
+        color: $white;
+
+        @include breakpoint($desktop) {
+          padding: 4rem 2rem;
+        }
+
+        &.align--top {
+          justify-content: flex-start;
+        }
+
+        &.align--bottom {
+          justify-content: flex-end;
+        }
+
+        .title {
+          font-family: $monument;
+          font-size: clamp(1.25rem, 2vw, 1.75rem);
+          line-height: 1.35;
+          margin: 0;
+        }
+  
+        .link {
+          font-family: $monument;
+          font-size: 0.875rem;
+          margin: 0;
+        }
+      }
+
+    }
+  }
+}

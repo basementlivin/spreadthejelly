@@ -815,6 +815,8 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | RelatedArticlesSlice
+  | FeaturedArticlesSlice
   | PullQuoteSlice
   | JellyLikesSlice
   | TestimonialsSlice
@@ -1033,6 +1035,104 @@ type DividingLineSliceVariation = DividingLineSliceDefault;
 export type DividingLineSlice = prismic.SharedSlice<
   "dividing_line",
   DividingLineSliceVariation
+>;
+
+/**
+ * Item in *FeaturedArticles → Default → Primary → Articles*
+ */
+export interface FeaturedArticlesSliceDefaultPrimaryArticlesItem {
+  /**
+   * Article field in *FeaturedArticles → Default → Primary → Articles*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_articles.default.primary.articles[].article
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  article: prismic.ContentRelationshipField<"blog_article">;
+
+  /**
+   * Image Style field in *FeaturedArticles → Default → Primary → Articles*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Full Bleed
+   * - **API ID Path**: featured_articles.default.primary.articles[].image_style
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  image_style: prismic.SelectField<
+    "Full Bleed" | "Inset" | "Blob Mask",
+    "filled"
+  >;
+
+  /**
+   * Text Align field in *FeaturedArticles → Default → Primary → Articles*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bottom
+   * - **API ID Path**: featured_articles.default.primary.articles[].text_align
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  text_align: prismic.SelectField<"Bottom" | "Top", "filled">;
+
+  /**
+   * Text Color field in *FeaturedArticles → Default → Primary → Articles*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: White
+   * - **API ID Path**: featured_articles.default.primary.articles[].text_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  text_color: prismic.SelectField<"White" | "Black", "filled">;
+}
+
+/**
+ * Primary content in *FeaturedArticles → Default → Primary*
+ */
+export interface FeaturedArticlesSliceDefaultPrimary {
+  /**
+   * Articles field in *FeaturedArticles → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_articles.default.primary.articles[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  articles: prismic.GroupField<
+    Simplify<FeaturedArticlesSliceDefaultPrimaryArticlesItem>
+  >;
+}
+
+/**
+ * Default variation for FeaturedArticles Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturedArticlesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeaturedArticlesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FeaturedArticles*
+ */
+type FeaturedArticlesSliceVariation = FeaturedArticlesSliceDefault;
+
+/**
+ * FeaturedArticles Shared Slice
+ *
+ * - **API ID**: `featured_articles`
+ * - **Description**: FeaturedArticles
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturedArticlesSlice = prismic.SharedSlice<
+  "featured_articles",
+  FeaturedArticlesSliceVariation
 >;
 
 /**
@@ -1957,7 +2057,7 @@ export interface RelatedArticlesSliceDefaultPrimaryArticlesItem {
  */
 export interface RelatedArticlesSliceDefaultPrimary {
   /**
-   * Headline field in *RelatedArticles → Default → Primary*
+   * Headline (optional) field in *RelatedArticles → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: You might also like
@@ -2418,6 +2518,11 @@ declare module "@prismicio/client" {
       DividingLineSliceDefaultPrimary,
       DividingLineSliceVariation,
       DividingLineSliceDefault,
+      FeaturedArticlesSlice,
+      FeaturedArticlesSliceDefaultPrimaryArticlesItem,
+      FeaturedArticlesSliceDefaultPrimary,
+      FeaturedArticlesSliceVariation,
+      FeaturedArticlesSliceDefault,
       HeadlineSlice,
       HeadlineSliceDefaultPrimary,
       HeadlineSliceVariation,
