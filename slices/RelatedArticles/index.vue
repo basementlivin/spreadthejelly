@@ -65,7 +65,10 @@ const relatedArticles = computed(() => {
       >
         <div
           class="article__image"
-          :class="{ mask: article.image_mask === 'blob' }"
+          :class="{
+            'mask mask--blob-01': article.image_mask === 'Blob 1',
+            'mask mask--blob-02': article.image_mask === 'Blob 2',
+          }"
         >
           <NuxtImg
             :src="article.data.featured_image.url ?? ''"

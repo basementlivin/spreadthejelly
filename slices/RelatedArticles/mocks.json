@@ -28,7 +28,7 @@
 								"image_mask",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "blob",
+									"value": "None",
 									"type": "Select"
 								}
 							]

@@ -63,7 +63,8 @@ const featuredArticles = computed(() => {
           :class="{
             'full-bleed': article.image_style === 'Full Bleed',
             'inset': article.image_style === 'Inset',
-            'mask--blob': article.image_style === 'Blob Mask'
+            'mask--blob-01': article.image_style === 'Blob Mask 1',
+            'mask--blob-02': article.image_style === 'Blob Mask 2',
           }"
         >
           <NuxtImg

@@ -46,11 +46,21 @@
           }
         }
         
-        &.mask--blob {
+        &.mask--blob-01 {
           padding-bottom: 4rem;
           img {
             -webkit-mask: url('@/assets/svg/mask--image01.svg') no-repeat center;
             mask: url('@/assets/svg/mask--image01.svg') no-repeat center;
+            -webkit-mask-size: 62% 62%;
+            mask-size: 62% 62%;
+          }
+        }
+        
+        &.mask--blob-02 {
+          padding-bottom: 4rem;
+          img {
+            -webkit-mask: url('@/assets/svg/mask--image02.svg') no-repeat center;
+            mask: url('@/assets/svg/mask--image02.svg') no-repeat center;
             -webkit-mask-size: 62% 62%;
             mask-size: 62% 62%;
           }

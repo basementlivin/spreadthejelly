@@ -36,7 +36,8 @@
                   "options": [
                     "Full Bleed",
                     "Inset",
-                    "Blob Mask"
+                    "Blob Mask 1",
+                    "Blob Mask 2"
                   ],
                   "default_value": "Full Bleed"
                 }

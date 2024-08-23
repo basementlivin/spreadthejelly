@@ -41,10 +41,11 @@
                   "label": "Image Mask",
                   "placeholder": "",
                   "options": [
-                    "none",
-                    "blob"
+                    "None",
+                    "Blob 1",
+                    "Blob 2"
                   ],
-                  "default_value": "none"
+                  "default_value": "None"
                 }
               }
             }

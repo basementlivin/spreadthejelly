@@ -1061,7 +1061,7 @@ export interface FeaturedArticlesSliceDefaultPrimaryArticlesItem {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   image_style: prismic.SelectField<
-    "Full Bleed" | "Inset" | "Blob Mask",
+    "Full Bleed" | "Inset" | "Blob Mask 1" | "Blob Mask 2",
     "filled"
   >;
 
@@ -2045,11 +2045,11 @@ export interface RelatedArticlesSliceDefaultPrimaryArticlesItem {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: none
+   * - **Default Value**: None
    * - **API ID Path**: related_articles.default.primary.articles[].image_mask
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  image_mask: prismic.SelectField<"none" | "blob", "filled">;
+  image_mask: prismic.SelectField<"None" | "Blob 1" | "Blob 2", "filled">;
 }
 
 /**

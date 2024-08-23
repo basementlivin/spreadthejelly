@@ -23,7 +23,7 @@
 								"image_style",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "Inset",
+									"value": "Full Bleed",
 									"type": "Select"
 								}
 							],
