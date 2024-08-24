@@ -1,6 +1,7 @@
 section.copy {
   .copy__inner {
     padding-top: 2rem;
+    padding-bottom: 2rem;
     @include chivo-variable();
     font-size: 1.35rem;
     line-height: 1.45;
