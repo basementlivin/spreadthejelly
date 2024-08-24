@@ -35,7 +35,7 @@ const relatedArticles = computed(() => {
       );
 
       // Return the related document along with the image_mask field
-      return relatedDoc ? { ...relatedDoc, image_mask: item.image_mask } : null;
+      return relatedDoc ? { ...relatedDoc, image_mask: item.image_mask, image_mask_color: item.image_mask_color } : null;
     })
     .filter(article => article !== null);  // Filter out any null entries
 });
@@ -68,6 +68,8 @@ const relatedArticles = computed(() => {
           :class="{
             'mask mask--blob-01': article.image_mask === 'Blob 1',
             'mask mask--blob-02': article.image_mask === 'Blob 2',
+            'mask--white': article.image_mask_color === 'White',
+            'mask--black': article.image_mask_color === 'Black',
           }"
         >
           <NuxtImg

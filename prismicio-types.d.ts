@@ -2050,6 +2050,17 @@ export interface RelatedArticlesSliceDefaultPrimaryArticlesItem {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   image_mask: prismic.SelectField<"None" | "Blob 1" | "Blob 2", "filled">;
+
+  /**
+   * Image Mask Color field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Black
+   * - **API ID Path**: related_articles.default.primary.articles[].image_mask_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  image_mask_color: prismic.SelectField<"Black" | "White", "filled">;
 }
 
 /**

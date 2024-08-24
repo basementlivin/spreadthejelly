@@ -47,6 +47,18 @@
                   ],
                   "default_value": "None"
                 }
+              },
+              "image_mask_color": {
+                "type": "Select",
+                "config": {
+                  "label": "Image Mask Color",
+                  "placeholder": "",
+                  "options": [
+                    "Black",
+                    "White"
+                  ],
+                  "default_value": "Black"
+                }
               }
             }
           }

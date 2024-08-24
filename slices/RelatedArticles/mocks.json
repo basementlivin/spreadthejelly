@@ -31,6 +31,14 @@
 									"value": "None",
 									"type": "Select"
 								}
+							],
+							[
+								"image_mask_color",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Black",
+									"type": "Select"
+								}
 							]
 						]
 					}

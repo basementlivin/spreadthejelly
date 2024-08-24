@@ -29,8 +29,11 @@
       flex-direction: column;
       
       &:hover {
-        .article__image.mask {
+        .article__image.mask.mask--black {
           background-color: $green;
+        }
+        .article__image.mask.mask--white {
+          background-color: $black;
         }
         .article__image:not(.mask) {
           border-radius: 80px;
@@ -42,7 +45,6 @@
         height: auto;
         aspect-ratio: 4 / 5;
         overflow: hidden;
-        background-color: $black;
         border-radius: 0;
         transition: border-radius 0.175s ease-in-out;
         
@@ -73,6 +75,14 @@
             -webkit-mask-size: 85% 85%;
             mask-size: 85% 85%;
           }
+        }
+
+        &.mask--white {
+          background-color: $white;
+        }
+
+        &.mask--black {
+          background-color: $black;
         }
       }
 
