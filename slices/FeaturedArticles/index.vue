@@ -34,7 +34,7 @@ const featuredArticles = computed(() => {
         const relatedDoc = featuredArticlesData.results.find(
           (doc) => doc.id === articleLink.id
         );
-        return relatedDoc ? { ...relatedDoc, image_style: item.image_style, text_align: item.text_align, text_color: item.text_color } : null;
+        return relatedDoc ? { ...relatedDoc, image_style: item.image_style, bg_color: item.background_color, text_align: item.text_align, text_color: item.text_color } : null;
       }
       return null;
     })
@@ -66,6 +66,9 @@ const featuredArticles = computed(() => {
             'mask--blob-01': article.image_style === 'Blob Mask 1',
             'mask--blob-02': article.image_style === 'Blob Mask 2',
           }"
+          :style="{
+            backgroundColor: article.bg_color
+          }"
         >
           <NuxtImg
             :src="article.data.featured_image.url ?? ''"
@@ -79,7 +82,7 @@ const featuredArticles = computed(() => {
             'align--bottom': article.text_align === 'Bottom'
           }"
           :style="{
-            color: article.text_color
+            color: article.text_color,
           }"
         >
           <p class="title h3">

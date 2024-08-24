@@ -30,7 +30,6 @@
         height: auto;
         aspect-ratio: 4 / 5;
         overflow: hidden;
-        background-color: $black;
         border-radius: 0;
         
         img {
@@ -81,7 +80,6 @@
         flex-direction: column;
         gap: 0.5rem;
         padding: 2rem 2rem;
-        color: $white;
 
         @include breakpoint($desktop) {
           padding: 4rem 2rem;

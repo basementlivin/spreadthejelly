@@ -42,6 +42,18 @@
                   "default_value": "Full Bleed"
                 }
               },
+              "background_color": {
+                "type": "Select",
+                "config": {
+                  "label": "Background Color",
+                  "placeholder": "",
+                  "options": [
+                    "Black",
+                    "White"
+                  ],
+                  "default_value": "Black"
+                }
+              },
               "text_align": {
                 "type": "Select",
                 "config": {

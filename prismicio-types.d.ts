@@ -1066,6 +1066,17 @@ export interface FeaturedArticlesSliceDefaultPrimaryArticlesItem {
   >;
 
   /**
+   * Background Color field in *FeaturedArticles → Default → Primary → Articles*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Black
+   * - **API ID Path**: featured_articles.default.primary.articles[].background_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background_color: prismic.SelectField<"Black" | "White", "filled">;
+
+  /**
    * Text Align field in *FeaturedArticles → Default → Primary → Articles*
    *
    * - **Field Type**: Select

@@ -42,6 +42,14 @@
 									"value": "Black",
 									"type": "Select"
 								}
+							],
+							[
+								"background_color",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Black",
+									"type": "Select"
+								}
 							]
 						]
 					}
