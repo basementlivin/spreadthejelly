@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { ref } from "vue";
 import { type Content } from "@prismicio/client";
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Thumbs } from 'swiper/modules';
+import type { Swiper as SwiperInstance } from 'swiper';
 
 const props = defineProps(
   getSliceComponentProps<Content.ImageSliderSlice>([
@@ -11,27 +14,32 @@ const props = defineProps(
   ]),
 );
 
-// Loop over the images array, duplicating the
-// slides until we have at least 10 images to display.
-// This ensures that the Swiper loop functions correctly.
+// Loop over the images array, duplicating the slides if needed
 const slides = computed(() => {
-  const images = props.slice.primary.images
-  const minSlides = 10
-  let duplicatedImages = [...images]
+  const images = props.slice.primary.images;
+  const minSlides = 10;
+  let duplicatedImages = [...images];
 
   if (images.length < minSlides) {
     while (duplicatedImages.length < minSlides) {
-      duplicatedImages = [...duplicatedImages, ...images]
+      duplicatedImages = [...duplicatedImages, ...images];
     }
   }
 
-  return duplicatedImages
-})
+  return duplicatedImages;
+});
+
+// Set up the thumbsSwiper instance with the correct type
+const thumbsSwiper = ref<SwiperInstance | null>(null);
+const setThumbsSwiper = (swiper: SwiperInstance) => {
+  thumbsSwiper.value = swiper;
+};
+
 </script>
 
 <template>
   <section
-    v-if="props.slice.primary.images"
+    v-if="props.slice.primary.images && slice.variation === 'default'"
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
     class="image-slider wrapper wrapper--fullscreen"
@@ -84,6 +92,78 @@ const slides = computed(() => {
         +
       </div>
     </div>
+  </section>
+
+  <section
+    v-else-if="props.slice.primary.images && slice.variation === 'thumbsGallery'"
+    :data-slice-type="slice.slice_type"
+    :data-slice-variation="slice.variation"
+    class="thumbs-slider wrapper wrapper--fullscreen"
+    data-scroll-section
+  >
+    <Swiper
+      :modules="[Thumbs, SwiperA11y, SwiperKeyboard]"
+      :thumbs="{
+        swiper: thumbsSwiper,
+      }"
+      :space-between="0"
+      :slides-per-view="1"
+      :loop="true"
+      :a11y="{
+        enabled: true,
+      }"
+      :keyboard="{
+        enabled: true,
+      }"
+      class="thumbs-slider__main"
+    >
+      <SwiperSlide
+        v-for="(slide, index) in slides"
+        :key="index"
+      >
+        <div class="image">
+          <NuxtImg
+            :src="slide.image.url ?? ''"
+            :alt="slide.image.alt ?? ''"
+          />
+        </div>
+      </SwiperSlide>
+    </Swiper>
+
+    <Swiper
+      :modules="[Thumbs, SwiperFreeMode]"
+      watch-slides-progress
+      :space-between="0"
+      :slides-per-view="3"
+      :grab-cursor="true"
+      :free-mode="{
+        enabled: true,
+        minimumVelocity: 0.05,
+      }"
+      :loop="true"
+      :breakpoints="{
+        768: {
+          slidesPerView: 4,
+        },
+        1024: {
+          slidesPerView: 5,
+        },
+      }"
+      class="thumbs-slider__thumbs"
+      @swiper="setThumbsSwiper"
+    >
+      <SwiperSlide
+        v-for="(slide, index) in slides"
+        :key="index"
+      >
+        <div class="thumb">
+          <NuxtImg
+            :src="slide.image.url ?? ''"
+            :alt="slide.image.alt ?? ''"
+          />
+        </div>
+      </SwiperSlide>
+    </Swiper>
   </section>
 </template>
 

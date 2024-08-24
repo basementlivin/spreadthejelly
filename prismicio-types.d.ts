@@ -1660,11 +1660,11 @@ type ImageSliceVariation = ImageSliceDefault | ImageSliceTwoColumn;
 export type ImageSlice = prismic.SharedSlice<"image", ImageSliceVariation>;
 
 /**
- * Item in *ImageSlider → Default → Primary → Images*
+ * Item in *ImageSlider → Small Carousel → Primary → Images*
  */
 export interface ImageSliderSliceDefaultPrimaryImagesItem {
   /**
-   * Image field in *ImageSlider → Default → Primary → Images*
+   * Image field in *ImageSlider → Small Carousel → Primary → Images*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -1675,11 +1675,26 @@ export interface ImageSliderSliceDefaultPrimaryImagesItem {
 }
 
 /**
- * Primary content in *ImageSlider → Default → Primary*
+ * Item in *ImageSlider → Thumbs Gallery → Primary → Images*
+ */
+export interface ImageSliderSliceThumbsGalleryPrimaryImagesItem {
+  /**
+   * Image field in *ImageSlider → Thumbs Gallery → Primary → Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_slider.thumbsGallery.primary.images[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *ImageSlider → Small Carousel → Primary*
  */
 export interface ImageSliderSliceDefaultPrimary {
   /**
-   * Images field in *ImageSlider → Default → Primary*
+   * Images field in *ImageSlider → Small Carousel → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -1692,7 +1707,7 @@ export interface ImageSliderSliceDefaultPrimary {
 }
 
 /**
- * Default variation for ImageSlider Slice
+ * Small Carousel variation for ImageSlider Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -1705,9 +1720,41 @@ export type ImageSliderSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *ImageSlider → Thumbs Gallery → Primary*
+ */
+export interface ImageSliderSliceThumbsGalleryPrimary {
+  /**
+   * Images field in *ImageSlider → Thumbs Gallery → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_slider.thumbsGallery.primary.images[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  images: prismic.GroupField<
+    Simplify<ImageSliderSliceThumbsGalleryPrimaryImagesItem>
+  >;
+}
+
+/**
+ * Thumbs Gallery variation for ImageSlider Slice
+ *
+ * - **API ID**: `thumbsGallery`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageSliderSliceThumbsGallery = prismic.SharedSliceVariation<
+  "thumbsGallery",
+  Simplify<ImageSliderSliceThumbsGalleryPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *ImageSlider*
  */
-type ImageSliderSliceVariation = ImageSliderSliceDefault;
+type ImageSliderSliceVariation =
+  | ImageSliderSliceDefault
+  | ImageSliderSliceThumbsGallery;
 
 /**
  * ImageSlider Shared Slice
@@ -2572,8 +2619,11 @@ declare module "@prismicio/client" {
       ImageSliderSlice,
       ImageSliderSliceDefaultPrimaryImagesItem,
       ImageSliderSliceDefaultPrimary,
+      ImageSliderSliceThumbsGalleryPrimaryImagesItem,
+      ImageSliderSliceThumbsGalleryPrimary,
       ImageSliderSliceVariation,
       ImageSliderSliceDefault,
+      ImageSliderSliceThumbsGallery,
       JellyLikesSlice,
       JellyLikesSliceDefaultPrimaryProductsItem,
       JellyLikesSliceDefaultPrimary,

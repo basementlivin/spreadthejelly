@@ -6,7 +6,35 @@
   "variations": [
     {
       "id": "default",
-      "name": "Default",
+      "name": "Small Carousel",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "images": {
+          "type": "Group",
+          "config": {
+            "label": "Images",
+            "repeat": true,
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "thumbsGallery",
+      "name": "Thumbs Gallery",
       "docURL": "...",
       "version": "initial",
       "description": "Default",
