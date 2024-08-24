@@ -27,6 +27,7 @@
     .article {
       display: flex;
       flex-direction: column;
+      gap: 0.5rem;
       
       &:hover {
         .article__image.mask.mask--black {
@@ -45,6 +46,8 @@
         height: auto;
         aspect-ratio: 4 / 5;
         overflow: hidden;
+        background-color: $black;
+        outline: 3px solid $black;
         border-radius: 0;
         transition: border-radius 0.175s ease-in-out;
         
@@ -56,7 +59,7 @@
         }
         
         &.mask--blob-01, &.mask--blob-02 {
-          transition: background-color 0.175s;
+          transition: background-color 0.185s;
         }
 
         &.mask--blob-01 {
