@@ -17,9 +17,9 @@ defineProps(
     v-if="slice.primary.testimonials.length > 0"
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="testimonials wrapper wrapper--wide"
+    class="testimonials wrapper wrapper--fullscreen"
   >
-    <div class="testimonials__inner">
+    <div class="testimonials__inner wrapper wrapper--wide">
       <div
         v-for="(testimonial, index) in slice.primary.testimonials"
         :key="index"
