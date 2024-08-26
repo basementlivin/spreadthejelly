@@ -8,8 +8,10 @@ nav.article-navigation {
   gap: 1.5rem;
 
   @include breakpoint($tablet){
-    flex-direction: row;
-    justify-content: space-between;
+    padding-top: 8rem;
+    gap: 2rem;
+    // flex-direction: row;
+    // justify-content: space-between;
   }
   
   .prev-article,
@@ -72,25 +74,25 @@ nav.article-navigation {
     }
   }
 
-  .prev-article {
-    @include breakpoint($tablet){
-      transition: transform 0.175s ease-in-out;
+  // .prev-article {
+    // @include breakpoint($tablet){
+    //   transition: transform 0.175s ease-in-out;
   
-      &:hover {
-        animation: none;
-        transform: translateX(-0.875rem);
-      }
-    }
-  }
+    //   &:hover {
+    //     animation: none;
+    //     transform: translateX(-0.875rem);
+    //   }
+    // }
+  // }
 
-  .next-article {
-    @include breakpoint($tablet){
-      transition: transform 0.175s ease-in-out;
+  // .next-article {
+    // @include breakpoint($tablet){
+    //   transition: transform 0.175s ease-in-out;
   
-      &:hover {
-        animation: none;
-        transform: translateX(0.875rem);
-      }
-    }
-  }
+    //   &:hover {
+    //     animation: none;
+    //     transform: translateX(0.875rem);
+    //   }
+    // }
+  // }
 }

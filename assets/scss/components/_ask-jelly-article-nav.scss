@@ -8,8 +8,10 @@
   gap: 1.5rem;
 
   @include breakpoint($tablet){
-    flex-direction: row;
-    justify-content: space-between;
+    padding-top: 8rem;
+    gap: 2rem;
+    // flex-direction: row;
+    // justify-content: space-between;
   }
   
   .prev-article,
@@ -50,25 +52,25 @@
     }
   }
 
-  .prev-article {
-    @include breakpoint($tablet){
-      transition: transform 0.175s ease-in-out;
+  // .prev-article {
+  //   @include breakpoint($tablet){
+  //     transition: transform 0.175s ease-in-out;
   
-      &:hover {
-        animation: none;
-        transform: translateX(-1rem);
-      }
-    }
-  }
+  //     &:hover {
+  //       animation: none;
+  //       transform: translateX(-1rem);
+  //     }
+  //   }
+  // }
   
-  .next-article {
-    @include breakpoint($tablet){
-      transition: transform 0.175s ease-in-out;
+  // .next-article {
+  //   @include breakpoint($tablet){
+  //     transition: transform 0.175s ease-in-out;
       
-      &:hover {
-        animation: none;
-        transform: translateX(1rem);
-      }
-    }
-  }
+  //     &:hover {
+  //       animation: none;
+  //       transform: translateX(1rem);
+  //     }
+  //   }
+  // }
 }
