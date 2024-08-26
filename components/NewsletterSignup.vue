@@ -1,48 +1,55 @@
 <script setup lang="ts">
 import { isFilled } from '@prismicio/client';
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted } from 'vue'
+import Cookies from 'universal-cookie'
 
 const newsletter = useNewsletterPopupForm()
 const isModalVisible = ref(false) // Controls modal visibility
 const isFormSubmitted = ref(false) // Controls form submission state
-let closeTimeout: number | null = null // Explicitly define the type
+const COOKIE_NAME = 'newsletter_signup'
+const DAYS_TO_EXPIRE = 30 // Number of days before the modal is shown again
+const cookies = new Cookies() // Initialize universal-cookie
 
 onMounted(() => {
-  // Show the modal after 3 seconds
-  setTimeout(() => {
-    isModalVisible.value = true
-  }, 3000)
-
-  // Add event listener for Escape key
-  document.addEventListener('keydown', handleEscape)
-})
-
-onBeforeUnmount(() => {
-  // Clean up the event listener when the component is destroyed
-  document.removeEventListener('keydown', handleEscape)
+  console.log("Checking if the user has seen the newsletter signup modal...")
+  if (!hasSeenModal()) {
+    console.log("User has not seen the modal. Showing it in 5 seconds...")
+    setTimeout(() => {
+      isModalVisible.value = true
+    }, 5000)
+  } else {
+    console.log("User has already seen the modal. Not showing it.")
+  }
 })
 
 const closeModal = () => {
-  if (closeTimeout !== null) {
-    clearTimeout(closeTimeout) // Clear any active timeout
-    closeTimeout = null // Reset timeout
-  }
+  console.log("Closing the modal...")
   isModalVisible.value = false
 }
 
-// Function to handle Escape key press
-const handleEscape = (event: KeyboardEvent) => {
-  if (event.key === 'Escape' && isModalVisible.value) {
-    closeModal()
-  }
-}
-
 const handleSubmit = () => {
+  console.log("Form submitted. Setting the cookie...")
   isFormSubmitted.value = true
-  // Show success message for 2.5 seconds, then close the modal
-  closeTimeout = window.setTimeout(() => {
+  setCookie(COOKIE_NAME, 'true', DAYS_TO_EXPIRE) // Set the cookie after submission
+  setTimeout(() => {
+    console.log("Hiding the modal after showing the success message...")
     closeModal()
   }, 2500)
+}
+
+// Function to set a cookie with an expiration date
+const setCookie = (name: string, value: string, days: number) => {
+  const expires = new Date()
+  expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000))
+  cookies.set(name, value, { path: '/', expires })
+  console.log(`Cookie "${name}" set with value "${value}" and expiration of ${days} days.`)
+}
+
+// Function to check if the user has already seen the modal
+const hasSeenModal = (): boolean => {
+  const cookieValue = cookies.get(COOKIE_NAME)
+  console.log(`Checking for cookie "${COOKIE_NAME}":`, cookieValue)
+  return cookieValue !== undefined
 }
 </script>
 
