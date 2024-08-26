@@ -24,7 +24,8 @@
     "breakpoint-sass": "^3.0.0",
     "dotenv": "^16.4.5",
     "gsap": "npm:@gsap/shockingly@^3.12.5",
-    "nuxt-swiper": "^1.2.2"
+    "nuxt-swiper": "^1.2.2",
+    "universal-cookie": "^7.2.0"
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.0.0",
