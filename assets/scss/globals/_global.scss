@@ -95,6 +95,6 @@ main {
     min-height: 100svh;
 }
 
-.hidden {
-    display: none;
+.hidden, .sr-only {
+    @include visually-hidden;
 }

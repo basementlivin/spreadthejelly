@@ -16,7 +16,10 @@
         "type": "Image",
         "config": {
           "label": "Featured Image",
-          "constraint": {},
+          "constraint": {
+            "width": "",
+            "height": ""
+          },
           "thumbnails": []
         }
       },
