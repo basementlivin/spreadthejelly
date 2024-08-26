@@ -1,0 +1,193 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.33);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.newsletter-popup {
+  position: relative;
+  margin: 2rem;
+  max-width: 625px;
+  width: 95vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: $black;
+  
+  @include breakpoint($tablet - 200px) {
+    width: 80vw;
+    height: 55vh;
+  }
+
+  @include breakpoint($tablet) {
+    width: 80vw;
+    height: 75vh;
+  }
+  
+  @include breakpoint($laptop) {
+    width: 60vw;
+    max-width: 900px;
+    text-align: left;
+  }
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('/assets/svg/flower.svg') no-repeat center center;
+    background-size: contain;
+    z-index: -1;
+    animation: flower-animation 0.83s cubic-bezier(.31,.62,.5,1.1)
+  }
+  
+  form.signup-form {
+    width: 65%;
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0rem;
+    opacity: 0;
+    animation: form-fade-in 1s ease-in-out 0.83s forwards;
+    
+    @include breakpoint($tablet) {
+    }
+    
+    @include breakpoint($laptop) {
+      gap: 1rem;
+      padding: 1rem 2rem;
+      width: 55%;
+      align-items: flex-start;
+    }
+
+    .signup-form__intro {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.175rem;
+
+      @include breakpoint($tablet) {
+        gap: 0.75rem;
+      }
+      
+      .headline, .subheadline {
+        font-family: $syne;
+        line-height: 1.2;
+      }
+    
+      .headline {
+        font-size: clamp(1.25rem, 4vw, 3.25rem);
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      
+      .subheadline {
+        font-size: clamp(0.875rem, 4vw, 2rem);
+        text-transform: lowercase;
+        padding-bottom: 1rem;
+      }
+    }
+
+    .signup-form__content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      @include breakpoint($laptop) {
+        gap: 1rem;
+      }
+
+      input {
+        @include chivo-variable();
+        font-size: 0.875rem;
+        padding: 0.5rem;
+        color: $black;
+        background-color: $white;
+        border: none;
+        border-radius: none;
+        text-align: center;
+        
+        &::placeholder {
+          color: $black;
+        }
+        
+        @include breakpoint($laptop) {
+          text-align: left;
+          font-size: 1rem;
+          padding: 0.75rem 1rem;
+        }
+      }
+      
+      button.link {
+        padding: 0;
+        @include chivo-variable();
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.01em;
+        background: none;
+        border: none;
+        cursor: pointer;
+        align-self: center;
+
+        @include breakpoint($laptop) {
+          align-self: flex-start;
+        }
+      }
+    }
+  }
+  
+  .success-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 85%;
+    padding: 4rem;
+    text-align: center;
+    
+    @include breakpoint($laptop) {
+      gap: 1.5rem;
+    }
+
+    .headline {
+      font-family: $syne;
+      font-size: clamp(1.5rem, 4vw, 3.25rem);
+      line-height: 1.15;
+      max-width: 500px;
+    }
+    
+    .subheadline {
+      @include chivo-variable();
+      font-size: clamp(0.875rem, 4vw, 1.25rem);
+      line-height: 1.35;
+    }
+  }
+
+  .close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 40%;
+    right: 15%;
+    z-index: 10;
+    color: $black;
+    opacity: 0;
+    animation: form-fade-in 1s ease-in-out 0.83s forwards;
+  }
+}

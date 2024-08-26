@@ -814,6 +814,80 @@ export type NavigationDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Content for Newsletter Pop-Up Form documents
+ */
+interface NewsletterPopupFormDocumentData {
+  /**
+   * Headline field in *Newsletter Pop-Up Form*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Get Jelly
+   * - **API ID Path**: newsletter_popup_form.headline
+   * - **Tab**: Form Settings
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  headline: prismic.KeyTextField;
+
+  /**
+   * Subheadline field in *Newsletter Pop-Up Form*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Sign up for the newsletter
+   * - **API ID Path**: newsletter_popup_form.subheadline
+   * - **Tab**: Form Settings
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subheadline: prismic.KeyTextField;
+
+  /**
+   * Button Text field in *Newsletter Pop-Up Form*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Join the club!
+   * - **API ID Path**: newsletter_popup_form.button_text
+   * - **Tab**: Form Settings
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField /**
+   * Success Headline field in *Newsletter Pop-Up Form*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Got it, thanks!
+   * - **API ID Path**: newsletter_popup_form.success_headline
+   * - **Tab**: Form Success Message
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  success_headline: prismic.KeyTextField;
+
+  /**
+   * Success Subheadline field in *Newsletter Pop-Up Form*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_popup_form.success_subheadline
+   * - **Tab**: Form Success Message
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  success_subheadline: prismic.KeyTextField;
+}
+
+/**
+ * Newsletter Pop-Up Form document from Prismic
+ *
+ * - **API ID**: `newsletter_popup_form`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NewsletterPopupFormDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<NewsletterPopupFormDocumentData>,
+    "newsletter_popup_form",
+    Lang
+  >;
+
 type PageDocumentDataSlicesSlice =
   | RelatedArticlesSlice
   | FeaturedArticlesSlice
@@ -974,6 +1048,7 @@ export type AllDocumentTypes =
   | ContactDocument
   | FooterLinksDocument
   | NavigationDocument
+  | NewsletterPopupFormDocument
   | PageDocument
   | SettingsDocument;
 
@@ -2577,6 +2652,8 @@ declare module "@prismicio/client" {
       NavigationDocument,
       NavigationDocumentData,
       NavigationDocumentDataLinksItem,
+      NewsletterPopupFormDocument,
+      NewsletterPopupFormDocumentData,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,

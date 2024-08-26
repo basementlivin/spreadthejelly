@@ -18,6 +18,7 @@ useSeoMeta({
 <template>
   <div>
     <Header />
+    <NewsletterSignup />
     <slot />
     <Footer />
   </div>
