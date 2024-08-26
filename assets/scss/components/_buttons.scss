@@ -7,7 +7,7 @@
     text-underline-offset: 0.1rem;
     transition: text-underline-offset .22s;
        
-    &:hover {
+    &:hover, &:focus {
         text-decoration: underline;
         text-underline-offset: 0.275rem;
     }    
