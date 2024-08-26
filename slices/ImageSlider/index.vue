@@ -98,17 +98,22 @@ const setThumbsSwiper = (swiper: SwiperInstance) => {
     v-else-if="props.slice.primary.images && slice.variation === 'thumbsGallery'"
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="thumbs-slider wrapper wrapper--fullscreen"
+    class="thumbs-slider wrapper--narrow"
     data-scroll-section
   >
     <Swiper
-      :modules="[Thumbs, SwiperA11y, SwiperKeyboard]"
+      :modules="[Thumbs, SwiperNavigation, SwiperA11y, SwiperKeyboard]"
       :thumbs="{
         swiper: thumbsSwiper,
       }"
       :space-between="0"
       :slides-per-view="1"
       :loop="true"
+      :speed="680"
+      :navigation="{
+        nextEl: '.swiper-button-next--custom',
+        prevEl: '.swiper-button-prev--custom',
+      }"
       :a11y="{
         enabled: true,
       }"
@@ -128,12 +133,20 @@ const setThumbsSwiper = (swiper: SwiperInstance) => {
           />
         </div>
       </SwiperSlide>
+      <div class="swiper-navigation">
+        <div class="swiper-button-prev--custom">
+          –
+        </div>
+        <div class="swiper-button-next--custom">
+          +
+        </div>
+      </div>
     </Swiper>
 
     <Swiper
       :modules="[Thumbs, SwiperFreeMode]"
       watch-slides-progress
-      :space-between="0"
+      :space-between="10"
       :slides-per-view="3"
       :grab-cursor="true"
       :free-mode="{

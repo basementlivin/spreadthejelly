@@ -63,16 +63,30 @@
 }
 
 .thumbs-slider {
+  margin: 0 auto;
   padding-top: 4rem;
   padding-bottom: 4rem;
-
+  
   &__main {
     border-bottom: 4px solid $black;
   }
-
-  .image, .thumb {
+  
+  .image {
+    margin: 0 auto;
+    height: 600px;
+    width: 100%;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  
+  .thumb {
     width: 100%;
     height: 100%;
+    aspect-ratio: 1 / 1;
     
     img {
       display: block;
@@ -80,18 +94,53 @@
       height: 100%;
       object-fit: cover;
     }
-  }
 
-  .image {
-    height: 600px;
-    aspect-ratio: 4 / 5;
   }
-
-  .thumb {
-    aspect-ratio: 1 / 1;
-  }
-
-  .swiper-slide {
+  
+  &__thumbs {
+    border-bottom: 4px solid $black;
     
+    .swiper-slide {
+      &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        background-color: $black;
+        opacity: 0.5;
+        
+      }
+      
+      &.swiper-slide-thumb-active {
+        &::after {
+          opacity: 0;
+        }
+      }
+    }
+    
+  }
+  .swiper-navigation {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 1rem;
+    right: 1rem;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+  
+  
+    .swiper-button-prev--custom,
+    .swiper-button-next--custom {
+      color: $black;
+      font-size: clamp(2.75rem, 4vw, 3.5rem);
+      @include chivo-variable(500);
+      cursor: pointer;
+      user-select: none;
+    }
   }
 }
