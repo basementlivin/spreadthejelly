@@ -11,7 +11,13 @@ defineProps(getSliceComponentProps<Content.HeroSlice>(
 <template>
   <section
     v-if="['default', 'vertical', 'straight'].includes(slice.variation)"
-    :class="['hero', 'hero--' + slice.variation, 'wrapper--fullscreen']"
+    :class="[
+      'hero',
+      'hero--' + slice.variation,
+      'wrapper--fullscreen',
+      slice.variation === 'straight' && slice.primary.text_color === 'White' ? 'text--white' : '',
+      slice.variation === 'straight' && slice.primary.text_color === 'Black' ? 'text--black' : '',
+    ]"
     data-scroll-section
   >
     <div class="hero__bg">

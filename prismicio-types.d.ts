@@ -1611,6 +1611,17 @@ export interface HeroSliceStraightPrimary {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   link: prismic.GroupField<Simplify<HeroSliceStraightPrimaryLinkItem>>;
+
+  /**
+   * Text Color field in *Hero → Straight → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: White
+   * - **API ID Path**: hero.straight.primary.text_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  text_color: prismic.SelectField<"White" | "Black", "filled">;
 }
 
 /**

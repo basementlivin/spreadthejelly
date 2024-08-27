@@ -180,6 +180,18 @@
               }
             }
           }
+        },
+        "text_color": {
+          "type": "Select",
+          "config": {
+            "label": "Text Color",
+            "placeholder": "",
+            "options": [
+              "White",
+              "Black"
+            ],
+            "default_value": "White"
+          }
         }
       },
       "items": {}

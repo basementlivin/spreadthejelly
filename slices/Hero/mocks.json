@@ -115,7 +115,6 @@
 		"variation": "straight",
 		"primary": {
 			"image": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f",
@@ -133,6 +132,9 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
 			"headline": {
@@ -193,6 +195,11 @@
 						]
 					}
 				]
+			},
+			"text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "White",
+				"type": "Select"
 			}
 		},
 		"items": [
