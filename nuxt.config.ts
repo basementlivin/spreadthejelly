@@ -55,7 +55,6 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "nuxt-swiper",
     "nuxt-svgo",
-    "nuxt-locomotive-scroll",
   ],
 
   image: {
