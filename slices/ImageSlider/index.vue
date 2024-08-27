@@ -49,7 +49,7 @@ const setThumbsSwiper = (swiper: SwiperInstance) => {
       :modules="[SwiperAutoplay, SwiperNavigation, SwiperA11y, SwiperKeyboard]"
       :grab-cursor="true"
       :space-between="0"
-      :slides-per-view="2"
+      :slides-per-view="1"
       :loop="true"
       :speed="680"
       :autoplay="{
@@ -58,10 +58,13 @@ const setThumbsSwiper = (swiper: SwiperInstance) => {
       }"
       :breakpoints="{
         768: {
-          slidesPerView: 3,
+          slidesPerView: 2,
         },
         1024: {
-          slidesPerView: 5,
+          slidesPerView: 3,
+        },
+        1600: {
+          slidesPerView: 4,
         },
       }"
       :navigation="{
