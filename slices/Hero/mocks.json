@@ -115,49 +115,25 @@
 		"variation": "straight",
 		"primary": {
 			"image": {
+				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
-					"url": "https://images.unsplash.com/photo-1587614295999-6c1c13675117",
-					"width": 3810,
-					"height": 5715
+					"url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f",
+					"width": 6000,
+					"height": 4000
 				},
-				"url": "https://images.unsplash.com/photo-1587614295999-6c1c13675117?rect=0%2C1667%2C3810%2C2381&w=2400&h=1500",
-				"width": 2400,
-				"height": 1500,
+				"url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f",
+				"width": 6000,
+				"height": 4000,
 				"edit": {
 					"zoom": 1,
 					"crop": {
 						"x": 0,
-						"y": 1667
+						"y": 0
 					},
 					"background": "transparent"
 				},
-				"credits": null,
-				"alt": null,
-				"__TYPE__": "ImageContent",
-				"thumbnails": {
-					"mobile": {
-						"origin": {
-							"id": "mobile",
-							"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
-							"width": 3199,
-							"height": 3199
-						},
-						"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869?rect=453%2C0%2C2293%2C3199&w=860&h=1200",
-						"width": 860,
-						"height": 1200,
-						"edit": {
-							"zoom": 1,
-							"crop": {
-								"x": 453,
-								"y": 0
-							},
-							"background": "transparent"
-						},
-						"credits": null,
-						"alt": null
-					}
-				}
+				"thumbnails": {}
 			},
 			"headline": {
 				"__TYPE__": "GroupContentType",
@@ -231,7 +207,6 @@
 		"variation": "super",
 		"primary": {
 			"image": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88",
@@ -249,6 +224,9 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {
 					"mobile": {
 						"origin": {
@@ -267,7 +245,9 @@
 								"y": 0
 							},
 							"background": "transparent"
-						}
+						},
+						"credits": null,
+						"alt": null
 					}
 				}
 			},
@@ -338,6 +318,100 @@
 						"content": {
 							"text": "Reprehenderit anim nostrud ea anim id aliqua nulla cillum eu qui ut dolor quis ea. Eu pariatur sint quis esse ipsum proident ipsum qui anim laboris minim duis officia cupidatat veniam."
 						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "vertical",
+		"primary": {
+			"image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04",
+					"width": 4000,
+					"height": 4000
+				},
+				"url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04",
+				"width": 4000,
+				"height": 4000,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"headline": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"headline",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "gate",
+									"type": "Text"
+								}
+							],
+							[
+								"headline_level",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "p",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			},
+			"subheadline": {
+				"__TYPE__": "FieldContent",
+				"value": "independent",
+				"type": "Text"
+			},
+			"link": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link_text",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "tie",
+									"type": "Text"
+								}
+							],
+							[
+								"link_location",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://slicemachine.dev"
+									}
+								}
+							]
+						]
 					}
 				]
 			}
