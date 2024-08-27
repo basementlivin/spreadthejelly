@@ -42,7 +42,6 @@ export default defineNuxtConfig({
             @import "@/assets/scss/globals/global";
             @import "breakpoint-sass/stylesheets/breakpoint";
             @import "@/assets/scss/globals/wrappers";
-            @import "@/assets/scss/globals/locomotive-scroll";
             @import "@/assets/scss/components/buttons";
           `
         }
