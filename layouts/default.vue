@@ -1,7 +1,16 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { onMounted, watch } from 'vue'
+import { useRouter } from 'vue-router'
+import gsap from 'gsap'
+import ScrollSmoother from 'gsap/ScrollSmoother'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollSmoother)
+gsap.registerPlugin(ScrollTrigger)
+
 const settings = useSettings()
 const prismic = usePrismic()
+const router = useRouter()
 
 const title = computed(() => settings.value?.data.site_title ?? 'Spread the Jelly')
 const description = computed(() => settings.value?.data.meta_description ?? 'An editorial resource & storytelling platform for every motherhood journey.')
@@ -12,14 +21,40 @@ useSeoMeta({
   description,
   ogImage
 })
-</script>
 
+onMounted(() => {
+  if (typeof window !== 'undefined') {
+    const smoother = ScrollSmoother.create({
+      wrapper: "#smooth-wrapper",
+      content: "#smooth-content",
+      smooth: 1.35,
+      effects: true,
+    })
+
+    // Refresh ScrollTrigger on route changes
+    watch(router.currentRoute, () => {
+      smoother.scrollTop(0) // Start at the top of the new page
+      ScrollTrigger.refresh()
+    })
+  }
+})
+</script>
 
 <template>
   <div>
     <Header />
     <NewsletterSignup />
-    <slot />
-    <Footer />
+    <div
+      id="smooth-wrapper"
+      data-scroll-container
+    >
+      <div
+        id="smooth-content"
+        data-scroll-content
+      >
+        <slot />
+        <Footer />
+      </div>
+    </div>
   </div>
 </template>
