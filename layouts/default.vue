@@ -41,7 +41,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
+  <div class="fade-container">
     <Header />
     <NewsletterSignup />
     <div
