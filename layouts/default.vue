@@ -5,7 +5,6 @@ import gsap from 'gsap'
 import ScrollSmoother from 'gsap/ScrollSmoother'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
 const settings = useSettings()
 const prismic = usePrismic()
@@ -23,6 +22,7 @@ useSeoMeta({
 
 onMounted(() => {
   if (typeof window !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
     const smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",
