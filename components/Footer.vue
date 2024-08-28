@@ -60,6 +60,12 @@ const handleSubmit = () => {
         @submit.prevent="handleSubmit"
       >
         <input
+          type="hidden"
+          name="form-name"
+          value="newsletter-signup--footer" 
+        >
+
+        <input
           v-model="form.email"
           type="email"
           name="email"

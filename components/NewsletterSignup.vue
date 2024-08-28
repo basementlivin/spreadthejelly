@@ -103,6 +103,12 @@ const form = ref({
         class="signup-form"
         @submit.prevent="handleSubmit"
       >
+        <input
+          type="hidden"
+          name="form-name"
+          value="newsletter-signup--popup"
+        >
+
         <div class="signup-form__intro">
           <span
             v-if="isFilled.keyText(newsletter?.data.headline)"

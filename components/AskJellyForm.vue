@@ -6,6 +6,11 @@
       data-netlify="true"
       @submit.prevent="handleSubmit"
     >
+      <input
+        type="hidden"
+        name="form-name" 
+        value="ask-jelly"
+      >
       <div class="form-group">
         <label for="name">Name</label>
         <input  
