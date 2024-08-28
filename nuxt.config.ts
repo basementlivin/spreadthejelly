@@ -114,5 +114,9 @@ export default defineNuxtConfig({
         },
       ]
     }
+  },
+
+  runtimeConfig: {
+    gsapAuthToken: process.env.GSAP_AUTH_TOKEN,
   }
 })
