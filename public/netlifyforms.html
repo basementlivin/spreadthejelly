@@ -8,6 +8,8 @@
 <body>
     <!-- Ask Jelly Form -->
     <form name="ask-jelly" method="POST" data-netlify="true">
+        <!-- Hidden input for form name -->
+        <input type="hidden" name="form-name" value="ask-jelly" />
         <div class="form-group">
             <label for="name">Name</label>
             <input id="name" type="text" name="name" autocomplete="name" placeholder="NAME" required>
@@ -20,26 +22,30 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="MESSAGE" required></textarea>
         </div>
-        <button type="submit" class="link">send</button>
+        <button type="submit" class="link">Send</button> <!-- Placeholder for dynamic button text -->
     </form>
 
     <!-- Newsletter Signup Modal Form -->
     <form name="newsletter-signup--popup" method="POST" data-netlify="true" class="signup-form">
-      <div class="signup-form__intro">
-        <span class="headline">Get Jelly</span>
-        <span class="subheadline">Sign up for the newsletter</span>
-      </div>
-      <div class="signup-form__content">
-        <label for="email" class="sr-only"> Email Address </label>
-        <input id="email" type="email" name="email" placeholder="Your email" required>
-        <button type="submit" class="link">Join the club!</button>
-      </div>
+        <!-- Hidden input for form name -->
+        <input type="hidden" name="form-name" value="newsletter-signup--popup" />
+        <div class="signup-form__intro">
+            <span class="headline">Get Jelly</span> <!-- Placeholder for dynamic headline -->
+            <span class="subheadline">Sign up for the newsletter</span> <!-- Placeholder for dynamic subheadline -->
+        </div>
+        <div class="signup-form__content">
+            <label for="email" class="sr-only">Email Address</label>
+            <input id="email" type="email" name="email" placeholder="Your email" required>
+            <button type="submit" class="link">Join the club!</button> <!-- Placeholder for dynamic button text -->
+        </div>
     </form>
 
     <!-- Newsletter Signup Footer Form -->
     <form name="newsletter-signup--footer" method="POST" data-netlify="true" class="newsletter-signup">
+        <!-- Hidden input for form name -->
+        <input type="hidden" name="form-name" value="newsletter-signup--footer" />
         <input type="email" name="email" autocomplete="email" placeholder="Your email" class="input" required>
-        <button type="submit" class="button link">subscribe</button>
+        <button type="submit" class="button link">Subscribe</button> <!-- Placeholder for dynamic button text -->
     </form>
 </body>
 </html>
