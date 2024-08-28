@@ -95,7 +95,7 @@ const hasSeenModal = (): boolean => {
         v-else
         name="newsletter-signup--popup"
         method="POST"
-        netlify
+        data-netlify="true"
         class="signup-form"
         @submit.prevent="handleSubmit"
       >

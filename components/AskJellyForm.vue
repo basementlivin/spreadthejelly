@@ -3,7 +3,7 @@
     <form
       name="ask-jelly"
       method="POST"
-      netlify
+      data-netlify="true"
       @submit.prevent="handleSubmit"
     >
       <div class="form-group">

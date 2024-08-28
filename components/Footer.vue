@@ -56,7 +56,7 @@ const handleSubmit = () => {
         name="newsletter-signup--footer"
         method="POST"
         class="newsletter-signup"
-        netlify
+        data-netlify="true"
         @submit.prevent="handleSubmit"
       >
         <input
