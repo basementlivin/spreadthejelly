@@ -163,5 +163,5 @@ const form = ref({
 </template>
 
 <style scoped>
-  @import url('/assets/scss/components/_newsletter-popup.scss');
+  @import url('@/assets/scss/components/_newsletter-popup.scss');
 </style>
