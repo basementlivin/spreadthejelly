@@ -729,32 +729,32 @@ const _routes = [
   {
     name: "uid",
     path: "/:uid()",
-    component: () => import('./_uid_-D5RZH1-6.mjs').then((m) => m.default || m)
+    component: () => import('./_uid_-CCl17Hkh.mjs').then((m) => m.default || m)
   },
   {
     name: "about-us",
     path: "/about-us",
-    component: () => import('./about-us-CqEVR7Cx.mjs').then((m) => m.default || m)
+    component: () => import('./about-us-BUrmx9FB.mjs').then((m) => m.default || m)
   },
   {
     name: "articles-uid",
     path: "/articles/:uid()",
-    component: () => import('./_uid_-DfYYgbqh.mjs').then((m) => m.default || m)
+    component: () => import('./_uid_-CUzcy69s.mjs').then((m) => m.default || m)
   },
   {
     name: "articles",
     path: "/articles",
-    component: () => import('./index-Dvaybi7C.mjs').then((m) => m.default || m)
+    component: () => import('./index-DxDaVxqu.mjs').then((m) => m.default || m)
   },
   {
     name: "ask-jelly-uid",
     path: "/ask-jelly/:uid()",
-    component: () => import('./_uid_-BlfkOpkX.mjs').then((m) => m.default || m)
+    component: () => import('./_uid_-BlMebp4X.mjs').then((m) => m.default || m)
   },
   {
     name: "ask-jelly",
     path: "/ask-jelly",
-    component: () => import('./index-C0AexaHF.mjs').then((m) => m.default || m)
+    component: () => import('./index-DQc_y4Po.mjs').then((m) => m.default || m)
   },
   {
     name: "contact",
@@ -764,12 +764,12 @@ const _routes = [
   {
     name: "index",
     path: "/",
-    component: () => import('./index-D3kepRJx.mjs').then((m) => m.default || m)
+    component: () => import('./index-CQrPEL44.mjs').then((m) => m.default || m)
   },
   {
     name: "slice-simulator",
     path: "/slice-simulator",
-    component: () => import('./slice-simulator-CgqWEbtg.mjs').then((m) => m.default || m)
+    component: () => import('./slice-simulator-ft7TQZ6t.mjs').then((m) => m.default || m)
   }
 ];
 const _wrapIf = (component, props, slots) => {
@@ -2370,7 +2370,7 @@ const plugins = [
   plugin_PWMUhiA9tt
 ];
 const layouts = {
-  default: () => import('./default-ehPvfT_0.mjs').then((m) => m.default || m)
+  default: () => import('./default-De3GdAnJ.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = defineComponent({
   name: "LayoutLoader",

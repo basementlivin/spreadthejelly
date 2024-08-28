@@ -1,1 +1,0 @@
-import{u,m as c,b as m,e as o}from"./Cp_sTJnd.js";function f(t,a){const{title:s,titleTemplate:n,...i}=t;return u({title:s,titleTemplate:n,_flatMeta:i},{...a,transform(e){const r=c({...e._flatMeta});return delete e._flatMeta,{...e,meta:r}}})}const g=()=>{const t=m();return o("$settings",()=>t.client.getSingle("settings")).data};export{f as a,g as u};
