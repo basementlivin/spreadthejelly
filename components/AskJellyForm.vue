@@ -3,14 +3,9 @@
     <form
       name="ask-jelly"
       method="POST"
-      data-netlify="true"
+      netlify
       @submit.prevent="handleSubmit"
     >
-      <input
-        type="hidden"
-        name="form-name"
-        value="ask-jelly"
-      >
       <div class="form-group">
         <label for="name">Name</label>
         <input  
@@ -51,13 +46,13 @@
       >
         send
       </button>
+      <span
+        v-if="showAlert"
+        class="success-message"
+      >
+        Got it, thanks!
+      </span>
     </form>
-    <div
-      v-if="showAlert"
-      class="alert"
-    >
-      Got it, thanks!
-    </div>
   </div>
 </template>
 

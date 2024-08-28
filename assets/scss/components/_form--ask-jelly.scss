@@ -41,5 +41,9 @@
       font-size: 1rem;
       color: $black;
     }
+
+    .success-message {
+      @include chivo-variable(350);
+    }
   }
 }

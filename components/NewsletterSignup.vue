@@ -93,19 +93,12 @@ const hasSeenModal = (): boolean => {
       
       <form
         v-else
-        name="newsletter"
+        name="newsletter-signup--popup"
         method="POST"
-        data-netlify="true"
+        netlify
         class="signup-form"
         @submit.prevent="handleSubmit"
       >
-        <input
-          type="hidden"
-          name="newletter-signup-popup"
-          value="newsletter"
-          autocomplete="email"
-        >
-
         <div class="signup-form__intro">
           <span
             v-if="isFilled.keyText(newsletter?.data.headline)"

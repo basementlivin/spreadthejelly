@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 
 import FooterMask from '@/assets/svg/mask--footer.svg'
 import FooterLogo from '@/assets/svg/logo--footer.svg'
@@ -10,6 +11,19 @@ import { isFilled } from '@prismicio/client'
 
 const footerLinks = useFooterLinks()
 
+const form = ref({
+  email: '',
+})
+
+const showAlert = ref(false)
+
+const handleSubmit = () => {
+  showAlert.value = true
+  form.value.email = ''
+  setTimeout(() => {
+    showAlert.value = false
+  }, 3000)
+}
 </script>
 
 <template>
@@ -39,9 +53,11 @@ const footerLinks = useFooterLinks()
     <div class="footer__newsletter-signup">
       <span class="form-header">Hear the news</span>
       <form
-        action="#"
-        method="post"
+        name="newsletter-signup--footer"
+        method="POST"
         class="newsletter-signup"
+        netlify
+        @submit.prevent="handleSubmit"
       >
         <input
           type="email"
@@ -56,6 +72,12 @@ const footerLinks = useFooterLinks()
         >
           subscribe
         </button>
+        <span
+          v-if="showAlert"
+          class="success-message"
+        >
+          Got it, thanks!
+        </span>
       </form>
     </div>
     <div class="footer__social">

@@ -141,6 +141,10 @@ div.footer__mask {
         background-color: transparent;
         border: none;
       }
+
+      .success-message {
+        @include chivo-variable(350);
+      }
     }
     
   }
