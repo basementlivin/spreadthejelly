@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"
+  command = "npx nuxi generate"
   publish = "dist"
 
 [build.environment]
