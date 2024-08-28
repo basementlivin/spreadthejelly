@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { isFilled } from '@prismicio/client';
 import { ref, onMounted } from 'vue'
+import { isFilled } from '@prismicio/client';
 import Cookies from 'universal-cookie'
 
 const newsletter = useNewsletterPopupForm()
@@ -11,19 +11,14 @@ const DAYS_TO_EXPIRE = 30 // Number of days before the modal is shown again
 const cookies = new Cookies() // Initialize universal-cookie
 
 onMounted(() => {
-  console.log("Checking if the user has seen the newsletter signup modal...")
   if (!hasSeenModal()) {
-    console.log("User has not seen the modal. Showing it in 5 seconds...")
     setTimeout(() => {
       isModalVisible.value = true
     }, 5000)
-  } else {
-    console.log("User has already seen the modal. Not showing it.")
   }
 })
 
 const closeModal = () => {
-  console.log("Closing the modal...")
   isModalVisible.value = false
 }
 
@@ -36,14 +31,12 @@ const handleSubmit = (event: Event) => {
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(formData as any).toString(), // Ensure data is URL-encoded
+    body: new URLSearchParams(formData as any).toString(),
   })
     .then(() => {
-      console.log("Form submitted. Setting the cookie...")
       isFormSubmitted.value = true
-      setCookie(COOKIE_NAME, 'true', DAYS_TO_EXPIRE) // Set the cookie after submission
+      setCookie(COOKIE_NAME, 'true', DAYS_TO_EXPIRE)
       setTimeout(() => {
-        console.log("Hiding the modal after showing the success message...")
         closeModal()
       }, 2500)
     })
@@ -55,18 +48,15 @@ const setCookie = (name: string, value: string, days: number) => {
   const expires = new Date()
   expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000))
   cookies.set(name, value, { path: '/', expires })
-  console.log(`Cookie "${name}" set with value "${value}" and expiration of ${days} days.`)
 }
 
 // Function to check if the user has already seen the modal
 const hasSeenModal = (): boolean => {
-  const cookieValue = cookies.get(COOKIE_NAME)
-  console.log(`Checking for cookie "${COOKIE_NAME}":`, cookieValue)
-  return cookieValue !== undefined
+  return cookies.get(COOKIE_NAME) !== undefined
 }
 
 const form = ref({
-  email: '',
+  email: ''
 })
 </script>
 
@@ -113,13 +103,17 @@ const form = ref({
         name="newsletter-signup--popup"
         method="POST"
         data-netlify="true"
-        class="signup-form"
+        data-netlify-honeypot="bot-field"
         @submit.prevent="handleSubmit"
       >
         <input
           type="hidden"
           name="form-name"
           value="newsletter-signup--popup"
+        >
+        <input
+          type="hidden"
+          name="bot-field"
         >
 
         <div class="signup-form__intro">

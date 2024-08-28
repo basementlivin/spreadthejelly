@@ -12,7 +12,7 @@ import { isFilled } from '@prismicio/client'
 const footerLinks = useFooterLinks()
 
 const form = ref({
-  email: '',
+  email: ''
 })
 
 const showAlert = ref(false)
@@ -26,7 +26,7 @@ const handleSubmit = (event: Event) => {
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(formData as any).toString(), // Ensure data is URL-encoded
+    body: new URLSearchParams(formData as any).toString(),
   })
     .then(() => {
       showAlert.value = true
@@ -70,12 +70,18 @@ const handleSubmit = (event: Event) => {
         method="POST"
         class="newsletter-signup"
         data-netlify="true"
+        data-netlify-honeypot="bot-field"
         @submit.prevent="handleSubmit"
       >
+        <!-- Hidden input for form name and honeypot field -->
         <input
           type="hidden"
           name="form-name"
           value="newsletter-signup--footer"
+        >
+        <input
+          type="hidden"
+          name="bot-field"
         >
 
         <input

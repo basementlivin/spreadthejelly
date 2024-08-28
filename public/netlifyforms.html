@@ -7,45 +7,110 @@
 </head>
 <body>
     <!-- Ask Jelly Form -->
-    <form name="ask-jelly" method="POST" data-netlify="true">
-        <!-- Hidden input for form name -->
-        <input type="hidden" name="form-name" value="ask-jelly" />
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input id="name" type="text" name="name" autocomplete="name" placeholder="NAME" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input id="email" type="email" name="email" autocomplete="email" placeholder="EMAIL" required>
-        </div>
-        <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="MESSAGE" required></textarea>
-        </div>
-        <button type="submit" class="link">Send</button> <!-- Placeholder for dynamic button text -->
+    <form
+      name="ask-jelly"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      hidden
+    >
+      <input
+        type="hidden"
+        name="form-name"
+        value="ask-jelly"
+      />
+      <input
+        type="hidden"
+        name="bot-field"
+      />
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input  
+          id="name"
+          type="text"
+          name="name"
+          autocomplete="name"
+          placeholder="NAME"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          autocomplete="email"
+          placeholder="EMAIL"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="MESSAGE"
+          required
+        ></textarea>
+      </div>
     </form>
 
     <!-- Newsletter Signup Modal Form -->
-    <form name="newsletter-signup--popup" method="POST" data-netlify="true" class="signup-form">
-        <!-- Hidden input for form name -->
-        <input type="hidden" name="form-name" value="newsletter-signup--popup" />
-        <div class="signup-form__intro">
-            <span class="headline">Get Jelly</span> <!-- Placeholder for dynamic headline -->
-            <span class="subheadline">Sign up for the newsletter</span> <!-- Placeholder for dynamic subheadline -->
-        </div>
-        <div class="signup-form__content">
-            <label for="email" class="sr-only">Email Address</label>
-            <input id="email" type="email" name="email" placeholder="Your email" required>
-            <button type="submit" class="link">Join the club!</button> <!-- Placeholder for dynamic button text -->
-        </div>
+    <form
+      name="newsletter-signup--popup"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      hidden
+    >
+      <input
+        type="hidden"
+        name="form-name"
+        value="newsletter-signup--popup"
+      />
+      <input
+        type="hidden"
+        name="bot-field"
+      />
+
+      <div class="signup-form__intro">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="Your email"
+          required
+        />
+      </div>
     </form>
 
     <!-- Newsletter Signup Footer Form -->
-    <form name="newsletter-signup--footer" method="POST" data-netlify="true" class="newsletter-signup">
-        <!-- Hidden input for form name -->
-        <input type="hidden" name="form-name" value="newsletter-signup--footer" />
-        <input type="email" name="email" autocomplete="email" placeholder="Your email" class="input" required>
-        <button type="submit" class="button link">Subscribe</button> <!-- Placeholder for dynamic button text -->
+    <form
+      name="newsletter-signup--footer"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      hidden
+    >
+      <input
+        type="hidden"
+        name="form-name"
+        value="newsletter-signup--footer"
+      />
+      <input
+        type="hidden"
+        name="bot-field"
+      />
+
+      <input
+        type="email"
+        name="email"
+        autocomplete="email"
+        placeholder="Your email"
+        required
+      />
     </form>
 </body>
 </html>

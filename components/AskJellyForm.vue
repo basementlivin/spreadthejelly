@@ -1,14 +1,55 @@
+<script lang="ts" setup>
+import { ref } from 'vue'
+
+const form = ref({
+  name: '',
+  email: '',
+  message: ''
+})
+
+const showAlert = ref(false)
+
+const handleSubmit = (event: Event) => {
+  event.preventDefault()
+
+  const formElement = event.target as HTMLFormElement
+  const formData = new FormData(formElement)
+
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData as any).toString(),
+  })
+    .then(() => {
+      showAlert.value = true
+      form.value.name = ''
+      form.value.email = ''
+      form.value.message = ''
+      setTimeout(() => {
+        showAlert.value = false
+      }, 3000)
+    })
+    .catch((error) => console.error("Form submission error:", error))
+}
+</script>
+
 <template>
   <div class="ask-jelly-form">
     <form
       name="ask-jelly"
       method="POST"
       data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      @submit.prevent="handleSubmit"
     >
       <input
         type="hidden"
         name="form-name"
         value="ask-jelly"
+      >
+      <input
+        type="hidden"
+        name="bot-field"
       >
 
       <div class="form-group">
@@ -60,41 +101,6 @@
     </form>
   </div>
 </template>
-
-<script lang="ts" setup>
-import { ref } from 'vue'
-
-const form = ref({
-  name: '',
-  email: '',
-  message: ''
-})
-
-const showAlert = ref(false)
-
-const handleSubmit = (event: Event) => {
-  event.preventDefault()
-
-  const formElement = event.target as HTMLFormElement
-  const formData = new FormData(formElement)
-
-  fetch("/", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(formData as any).toString(), // Ensure data is URL-encoded
-  })
-    .then(() => {
-      showAlert.value = true
-      form.value.name = ''
-      form.value.email = ''
-      form.value.message = ''
-      setTimeout(() => {
-        showAlert.value = false
-      }, 3000)
-    })
-    .catch((error) => console.error("Form submission error:", error))
-}
-</script>
 
 <style lang="scss" scoped>
   @import '@/assets/scss/components/_form--ask-jelly.scss';
