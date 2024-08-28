@@ -4,7 +4,6 @@
       name="ask-jelly"
       method="POST"
       data-netlify="true"
-      @submit.prevent="handleSubmit"
     >
       <input
         type="hidden"
