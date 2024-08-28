@@ -60,11 +60,13 @@ const handleSubmit = () => {
         @submit.prevent="handleSubmit"
       >
         <input
+          v-model="form.email"
           type="email"
           name="email"
           autocomplete="email"
           placeholder="Your email"
           class="input"
+          required
         >
         <button
           type="submit"

@@ -8,31 +8,38 @@
 <body>
     <!-- Ask Jelly Form -->
     <form name="ask-jelly" method="POST" data-netlify="true">
-        <div>
+        <div class="form-group">
             <label for="name">Name</label>
-            <input id="name" type="text" name="name" required>
+            <input id="name" type="text" name="name" autocomplete="name" placeholder="NAME" required>
         </div>
-        <div>
+        <div class="form-group">
             <label for="email">Email</label>
-            <input id="email" type="email" name="email" required>
+            <input id="email" type="email" name="email" autocomplete="email" placeholder="EMAIL" required>
         </div>
-        <div>
+        <div class="form-group">
             <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
+            <textarea id="message" name="message" placeholder="MESSAGE" required></textarea>
         </div>
-        <button type="submit">Send</button>
+        <button type="submit" class="link">send</button>
     </form>
 
     <!-- Newsletter Signup Modal Form -->
-    <form name="newsletter-signup--popup" method="POST" data-netlify="true">
-        <input type="email" name="email" required>
-        <button type="submit">Join the club!</button>
+    <form name="newsletter-signup--popup" method="POST" data-netlify="true" class="signup-form">
+      <div class="signup-form__intro">
+        <span class="headline">Get Jelly</span>
+        <span class="subheadline">Sign up for the newsletter</span>
+      </div>
+      <div class="signup-form__content">
+        <label for="email" class="sr-only"> Email Address </label>
+        <input id="email" type="email" name="email" placeholder="Your email" required>
+        <button type="submit" class="link">Join the club!</button>
+      </div>
     </form>
 
     <!-- Newsletter Signup Footer Form -->
-    <form name="newsletter-signup--footer" method="POST" data-netlify="true">
-        <input type="email" name="email" required>
-        <button type="submit">Subscribe</button>
+    <form name="newsletter-signup--footer" method="POST" data-netlify="true" class="newsletter-signup">
+        <input type="email" name="email" autocomplete="email" placeholder="Your email" class="input" required>
+        <button type="submit" class="button link">subscribe</button>
     </form>
 </body>
 </html>

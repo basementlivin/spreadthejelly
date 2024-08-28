@@ -51,6 +51,10 @@ const hasSeenModal = (): boolean => {
   console.log(`Checking for cookie "${COOKIE_NAME}":`, cookieValue)
   return cookieValue !== undefined
 }
+
+const form = ref({
+  email: '',
+})
 </script>
 
 <template>
@@ -124,8 +128,10 @@ const hasSeenModal = (): boolean => {
   
           <input
             id="email"
+            v-model="form.email"
             type="email"
             name="email"
+            autocomplete="email"
             placeholder="Your email"
             required
           >
