@@ -17,12 +17,25 @@ const form = ref({
 
 const showAlert = ref(false)
 
-const handleSubmit = () => {
-  showAlert.value = true
-  form.value.email = ''
-  setTimeout(() => {
-    showAlert.value = false
-  }, 3000)
+const handleSubmit = (event: Event) => {
+  event.preventDefault()
+
+  const formElement = event.target as HTMLFormElement
+  const formData = new FormData(formElement)
+
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData as any).toString(), // Ensure data is URL-encoded
+  })
+    .then(() => {
+      showAlert.value = true
+      form.value.email = ''
+      setTimeout(() => {
+        showAlert.value = false
+      }, 3000)
+    })
+    .catch((error) => console.error("Form submission error:", error))
 }
 </script>
 
@@ -62,7 +75,7 @@ const handleSubmit = () => {
         <input
           type="hidden"
           name="form-name"
-          value="newsletter-signup--footer" 
+          value="newsletter-signup--footer"
         >
 
         <input

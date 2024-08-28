@@ -27,14 +27,27 @@ const closeModal = () => {
   isModalVisible.value = false
 }
 
-const handleSubmit = () => {
-  console.log("Form submitted. Setting the cookie...")
-  isFormSubmitted.value = true
-  setCookie(COOKIE_NAME, 'true', DAYS_TO_EXPIRE) // Set the cookie after submission
-  setTimeout(() => {
-    console.log("Hiding the modal after showing the success message...")
-    closeModal()
-  }, 2500)
+const handleSubmit = (event: Event) => {
+  event.preventDefault()
+
+  const formElement = event.target as HTMLFormElement
+  const formData = new FormData(formElement)
+
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData as any).toString(), // Ensure data is URL-encoded
+  })
+    .then(() => {
+      console.log("Form submitted. Setting the cookie...")
+      isFormSubmitted.value = true
+      setCookie(COOKIE_NAME, 'true', DAYS_TO_EXPIRE) // Set the cookie after submission
+      setTimeout(() => {
+        console.log("Hiding the modal after showing the success message...")
+        closeModal()
+      }, 2500)
+    })
+    .catch((error) => console.error("Form submission error:", error))
 }
 
 // Function to set a cookie with an expiration date
