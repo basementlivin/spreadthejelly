@@ -112,24 +112,28 @@ const handleSubmit = (event: Event) => {
         <PrismicLink
           v-if="footerLinks?.data?.facebook_url && isFilled.link(footerLinks?.data?.facebook_url)"
           :field="footerLinks?.data?.facebook_url"
+          aria-label="Visit Spread the Jelly on Facebook"
         >
           <FacebookIcon />
         </PrismicLink>
         <PrismicLink
           v-if="footerLinks?.data?.instagram_url && isFilled.link(footerLinks?.data?.instagram_url)"
           :field="footerLinks?.data?.instagram_url"
+          aria-label="Visit Spread the Jelly on Instagram"
         >
           <InstagramIcon />
         </PrismicLink>
         <PrismicLink
           v-if="footerLinks?.data?.tiktok_url && isFilled.link(footerLinks?.data?.tiktok_url)"
           :field="footerLinks?.data?.tiktok_url"
+          aria-label="Visit Spread the Jelly on TikTok"
         >
           <TikTokIcon />
         </PrismicLink>
         <PrismicLink
           v-if="footerLinks?.data?.youtube_url && isFilled.link(footerLinks?.data?.youtube_url)"
           :field="footerLinks?.data?.youtube_url"
+          aria-label="Visit Spread the Jelly on YouTube"
         >
           <YouTubeIcon />
         </PrismicLink>
@@ -142,6 +146,7 @@ const handleSubmit = (event: Event) => {
         <a
           href="https://historyofsalad.com"
           target="_blank"
+          aria-label="Visit the website of History of Salad, the developers behind this site."
         >
           History of Salad.
         </a>
