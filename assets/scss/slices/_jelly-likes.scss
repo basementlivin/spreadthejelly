@@ -23,15 +23,19 @@
       
       @include breakpoint($laptop) {
         column-gap: 4.25rem;
-        justify-content: center;
+        justify-content: space-around;
       }
       
       .product {
         display: flex;
         flex-direction: column;
         gap: 2rem;
-        width: 38%;
-        max-width: 225px;
+        width: 165px;
+        
+        @include breakpoint($laptop) {
+          width: 20%;
+          max-width: 300px;
+        }
         
         &__image {
           width: 100%;
