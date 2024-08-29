@@ -100,7 +100,10 @@ defineProps(getSliceComponentProps<Content.HeroSlice>(
         </PrismicLink>
       </div>
       <div class="copy">
-        <PrismicRichText :field="slice.primary.copy" />
+        <PrismicRichText
+          :field="slice.primary.copy"
+          class="copy__inner"
+        />
       </div>
     </div>
   </section>

@@ -22,6 +22,12 @@
     }
 }
 
+.link--copy {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.1rem;
+}
+
 .btn {
     display: inline-flex;
     align-self: flex-start;
