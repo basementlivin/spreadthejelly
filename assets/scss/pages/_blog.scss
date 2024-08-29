@@ -15,18 +15,16 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         column-gap: 0;
-        row-gap: 2rem;
+        row-gap: 4rem;
       }
 
       @include breakpoint($laptop) {
         grid-template-columns: repeat(3, 1fr);
       }
 
-
       .article {
         display: flex;
         flex-direction: column;
-        max-height: 90vh;
 
         @include breakpoint($laptop) {
         }
