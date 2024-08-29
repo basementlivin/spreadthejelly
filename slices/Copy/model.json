@@ -100,6 +100,74 @@
       },
       "items": {},
       "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    },
+    {
+      "id": "pullQuote",
+      "name": "Pull Quote",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Text",
+      "primary": {
+        "pull_quote": {
+          "type": "Text",
+          "config": {
+            "label": "Pull Quote",
+            "placeholder": ""
+          }
+        },
+        "illustration_left": {
+          "type": "Select",
+          "config": {
+            "label": "Illustration Left (optional)",
+            "placeholder": "Select an illustrative element. Or don't!",
+            "options": [
+              "Pink Flower",
+              "Green Puddle",
+              "Yellow Star",
+              "Blue Star"
+            ]
+          }
+        },
+        "illustration_left_position": {
+          "type": "Select",
+          "config": {
+            "label": "Illustration Left Position",
+            "placeholder": "Set the vertical position of your illustration.",
+            "options": [
+              "Top",
+              "Middle",
+              "Bottom"
+            ]
+          }
+        },
+        "illustration_right": {
+          "type": "Select",
+          "config": {
+            "label": "Illustration Right (optional)",
+            "placeholder": "Select an illustrative element. Or don't!",
+            "options": [
+              "Pink Flower",
+              "Green Puddle",
+              "Yellow Star",
+              "Blue Star"
+            ]
+          }
+        },
+        "illustration_right_position": {
+          "type": "Select",
+          "config": {
+            "label": "Illustration Right Position",
+            "placeholder": "Set the vertical position of your illustration.",
+            "options": [
+              "Top",
+              "Middle",
+              "Bottom"
+            ]
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
     }
   ]
 }

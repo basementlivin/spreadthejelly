@@ -2728,12 +2728,85 @@ export type TextSliceCopyWithPullQuote = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Copy → Pull Quote → Primary*
+ */
+export interface TextSlicePullQuotePrimary {
+  /**
+   * Pull Quote field in *Copy → Pull Quote → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.pullQuote.primary.pull_quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  pull_quote: prismic.KeyTextField;
+
+  /**
+   * Illustration Left (optional) field in *Copy → Pull Quote → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Select an illustrative element. Or don't!
+   * - **API ID Path**: text.pullQuote.primary.illustration_left
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  illustration_left: prismic.SelectField<
+    "Pink Flower" | "Green Puddle" | "Yellow Star" | "Blue Star"
+  >;
+
+  /**
+   * Illustration Left Position field in *Copy → Pull Quote → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Set the vertical position of your illustration.
+   * - **API ID Path**: text.pullQuote.primary.illustration_left_position
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  illustration_left_position: prismic.SelectField<"Top" | "Middle" | "Bottom">;
+
+  /**
+   * Illustration Right (optional) field in *Copy → Pull Quote → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Select an illustrative element. Or don't!
+   * - **API ID Path**: text.pullQuote.primary.illustration_right
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  illustration_right: prismic.SelectField<
+    "Pink Flower" | "Green Puddle" | "Yellow Star" | "Blue Star"
+  >;
+
+  /**
+   * Illustration Right Position field in *Copy → Pull Quote → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Set the vertical position of your illustration.
+   * - **API ID Path**: text.pullQuote.primary.illustration_right_position
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  illustration_right_position: prismic.SelectField<"Top" | "Middle" | "Bottom">;
+}
+
+/**
+ * Pull Quote variation for Copy Slice
+ *
+ * - **API ID**: `pullQuote`
+ * - **Description**: Text
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextSlicePullQuote = prismic.SharedSliceVariation<
+  "pullQuote",
+  Simplify<TextSlicePullQuotePrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Copy*
  */
 type TextSliceVariation =
   | TextSliceDefault
   | TextSliceCopyWithImage
-  | TextSliceCopyWithPullQuote;
+  | TextSliceCopyWithPullQuote
+  | TextSlicePullQuote;
 
 /**
  * Copy Shared Slice
@@ -2873,10 +2946,12 @@ declare module "@prismicio/client" {
       TextSliceDefaultPrimary,
       TextSliceCopyWithImagePrimary,
       TextSliceCopyWithPullQuotePrimary,
+      TextSlicePullQuotePrimary,
       TextSliceVariation,
       TextSliceDefault,
       TextSliceCopyWithImage,
       TextSliceCopyWithPullQuote,
+      TextSlicePullQuote,
     };
   }
 }

@@ -24,7 +24,6 @@ const pullQuoteClass = computed(() => {
   <section
     v-if="slice.variation === 'default'"
     class="copy wrapper wrapper--narrow"
-    data-scroll-section
   >
     <PrismicRichText
       v-if="isFilled.richText(slice.primary.copy)"
@@ -34,9 +33,46 @@ const pullQuoteClass = computed(() => {
   </section>
 
   <section
+    v-else-if="slice.variation === 'pullQuote'"
+    class="article-pull-quote wrapper wrapper--page-width"
+  >
+    <div
+      :class="[
+        'illustration__left',
+        isFilled.select(slice.primary.illustration_left) && slice.primary.illustration_left === 'Pink Flower' ? 'flower' : '',
+        isFilled.select(slice.primary.illustration_left) && slice.primary.illustration_left === 'Green Puddle' ? 'puddle' : '',
+        isFilled.select(slice.primary.illustration_left) && slice.primary.illustration_left === 'Blue Star' ? 'star--blue' : '',
+        isFilled.select(slice.primary.illustration_left) && slice.primary.illustration_left === 'Yellow Star' ? 'star--yellow' : '',
+        isFilled.select(slice.primary.illustration_left_position) && slice.primary.illustration_left_position === 'Top' ? 'top' : '',
+        isFilled.select(slice.primary.illustration_left_position) && slice.primary.illustration_left_position === 'Middle' ? 'middle' : '',
+        isFilled.select(slice.primary.illustration_left_position) && slice.primary.illustration_left_position === 'Bottom' ? 'bottom' : '',
+      ]"
+    />
+
+    <blockquote
+      v-if="isFilled.keyText(slice.primary.pull_quote)"
+      class="quote"
+    >
+      "{{ slice.primary.pull_quote }}"
+    </blockquote>
+
+    <div
+      :class="[
+        'illustration__right',
+        isFilled.select(slice.primary.illustration_right) && slice.primary.illustration_right === 'Pink Flower' ? 'flower' : '',
+        isFilled.select(slice.primary.illustration_right) && slice.primary.illustration_right === 'Green Puddle' ? 'puddle' : '',
+        isFilled.select(slice.primary.illustration_right) && slice.primary.illustration_right === 'Blue Star' ? 'star--blue' : '',
+        isFilled.select(slice.primary.illustration_right) && slice.primary.illustration_right === 'Yellow Star' ? 'star--yellow' : '',
+        isFilled.select(slice.primary.illustration_right_position) && slice.primary.illustration_right_position === 'Top' ? 'top' : '',
+        isFilled.select(slice.primary.illustration_right_position) && slice.primary.illustration_right_position === 'Middle' ? 'middle' : '',
+        isFilled.select(slice.primary.illustration_right_position) && slice.primary.illustration_right_position === 'Bottom' ? 'bottom' : '',
+      ]"
+    />
+  </section>
+
+  <section
     v-else-if="slice.variation === 'copyWithImage'"
     class="copy-with-image wrapper wrapper--wide"
-    data-scroll-section
   >
     <figure class="image">
       <NuxtImg
@@ -66,7 +102,6 @@ const pullQuoteClass = computed(() => {
   <section
     v-else-if="slice.variation === 'copyWithPullQuote'"
     :class="['copy-with-pull-quote', pullQuoteClass, 'wrapper wrapper--wide']"
-    data-scroll-section
   >
     <div
       v-if="isFilled.richText(slice.primary.copy)"
@@ -90,6 +125,7 @@ const pullQuoteClass = computed(() => {
 
 <style lang="scss" scoped>
   @import '@/assets/scss/slices/_copy.scss';
+  @import '@/assets/scss/slices/_article-pull-quote.scss';
   @import '@/assets/scss/slices/_copy-with-image.scss';
   @import '@/assets/scss/slices/_copy-with-pull-quote.scss';
 </style>

@@ -105,5 +105,42 @@
 				"value": []
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "pullQuote",
+		"primary": {
+			"pull_quote": {
+				"__TYPE__": "FieldContent",
+				"value": "time",
+				"type": "Text"
+			},
+			"illustration_left": {
+				"__TYPE__": "FieldContent",
+				"value": "Blue Star",
+				"type": "Select"
+			},
+			"illustration_right": {
+				"__TYPE__": "FieldContent",
+				"value": "Blue Star",
+				"type": "Select"
+			},
+			"illustration_left_position": {
+				"__TYPE__": "FieldContent",
+				"value": "Bottom",
+				"type": "Select"
+			},
+			"illustration_right_position": {
+				"__TYPE__": "FieldContent",
+				"value": "Bottom",
+				"type": "Select"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

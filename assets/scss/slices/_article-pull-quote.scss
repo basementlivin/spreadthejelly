@@ -1,0 +1,130 @@
+section.article-pull-quote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  @include breakpoint($tablet) {
+    display: grid;
+    grid-template-columns: 1fr 60% 1fr;
+  }
+
+  .illustration__left {
+    justify-self: end;
+    width: 6rem;
+    height: 6rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.top {
+      align-self: start;
+    }
+
+    &.middle {
+      align-self: center;
+    }
+
+    &.bottom {
+      align-self: end;
+    }
+
+    &.flower {
+      background-color: pink;
+      &::after {
+        content: 'placeholder!';
+        font-size: 0.75rem;
+      }
+    }
+
+    &.puddle {
+      background-color: $green;
+      &::after {
+        content: 'placeholder!';
+        font-size: 0.75rem;
+      }
+    }
+
+    &.star--yellow {
+      background-color: yellow;
+      &::after {
+        content: 'placeholder!';
+        font-size: 0.75rem;
+      }
+    }
+
+    &.star--blue {
+      background-color: blue;
+      &::after {
+        content: 'placeholder!';
+        font-size: 0.75rem;
+      }
+    }
+
+  }
+  
+  .illustration__right {
+    justify-self: start;
+    width: 6rem;
+    height: 6rem;
+    
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.top {
+      align-self: start;
+    }
+
+    &.middle {
+      align-self: center;
+    }
+
+    &.bottom {
+      align-self: end;
+    }
+
+    &.flower {
+      background-color: pink;
+      &::after {
+        content: 'placeholder!';
+        font-size: 0.75rem;
+      }
+    }
+
+    &.puddle {
+      background-color: $green;
+      &::after {
+        content: 'placeholder!';
+        font-size: 0.75rem;
+      }
+    }
+
+    &.star--yellow {
+      background-color: yellow;
+      &::after {
+        content: 'placeholder!';
+        font-size: 0.75rem;
+      }
+    }
+
+    &.star--blue {
+      background-color: blue;
+      &::after {
+        content: 'placeholder!';
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  .quote {
+    justify-self: center;
+    max-width: 800px;
+    font-family: $monument;
+    font-size: 1.5rem;
+    line-height: 1.35;
+    text-align: center;
+  }
+}
