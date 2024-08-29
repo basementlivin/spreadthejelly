@@ -53,6 +53,7 @@ const onSearch = async () => {
       v-model="searchQuery"
       type="text"
       placeholder="Search articles..."
+      class="search-input h3"
       @input="onSearch"
     >
     <div v-if="loading">
@@ -72,6 +73,7 @@ const onSearch = async () => {
       >
         <NuxtLink
           :to="`/${result.type === 'ask_jelly_article' ? 'ask-jelly' : 'articles'}/${result.uid}`"
+          class="link--no-underline"
           @click="emit('close-search-modal')"
         >
           <div
