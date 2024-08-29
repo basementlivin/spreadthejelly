@@ -22,6 +22,14 @@
 }
 
 @font-face {
+  font-family: "Chivo Medium Italic";
+  src: url("/assets/fonts/Chivo-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Chivo Bold";
   src: url("/assets/fonts/Chivo-Bold.ttf") format("truetype");
   font-weight: 700;
@@ -39,6 +47,7 @@
   font-family: "Syne ExtraBold";
   src: url("/assets/fonts/Syne-ExtraBold.ttf") format("truetype");
   font-weight: 800;
+  font-display: swap;
 }
 
 @font-face {
@@ -46,6 +55,7 @@
   src:  url("/assets/fonts/PPMonumentExtended-Regular.woff") format("woff"),
         url("/assets/fonts/PPMonumentExtended-Regular.woff2") format("woff2");
   font-weight: 400;
+  font-display: swap;
 }
 
 $sans: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -53,6 +63,7 @@ $text--small: clamp(calc(13rem/16), 1.7vw, calc(15rem/16));
 
 $chivo-regular: "Chivo Regular", $sans;
 $chivo-medium: "Chivo Medium", $sans;
+$chivo-medium-italic: "Chivo Medium Italic", $sans;
 $chivo-bold: "Chivo Bold", $sans;
 $chivo-black: "Chivo Black", $sans;
 
@@ -70,7 +81,7 @@ $h1: 3.998rem;
 $h2: 2.827rem;
 $h3: 1.999rem;
 $h4: 1.414rem;
-$body: 1rem;
+$body: 1.125rem;
 $h5: 0.707rem;
 $h6: 0.5rem;
 
