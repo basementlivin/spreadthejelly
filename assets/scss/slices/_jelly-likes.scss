@@ -30,7 +30,11 @@
         display: flex;
         flex-direction: column;
         gap: 2rem;
-        width: 165px;
+        width: 150px;
+
+        @include breakpoint($tablet) {
+          width: 165px;
+        }
         
         @include breakpoint($laptop) {
           width: 20%;
