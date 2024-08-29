@@ -50,7 +50,7 @@ const relatedArticles = computed(() => {
   >
     <span
       v-if="isFilled.keyText(slice.primary.headline)"
-      class="related-articles__headline"
+      class="related-articles__headline h2"
     >
       {{ slice.primary.headline }}
     </span>
