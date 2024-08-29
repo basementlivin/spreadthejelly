@@ -108,6 +108,7 @@ onBeforeUnmount(() => {
       <NuxtLink
         to="/"
         class="logo"
+        aria-label="Navigate to homepage"
         @click="closeMenu"
       >
         <Logo />
