@@ -13,10 +13,13 @@ usePageSeo(page)
 </script>
 
 <template>
-  <SliceZone
-    id="main"
-    wrapper="main"
-    :slices="page?.data.slices ?? []"
-    :components="components"
-  />
+  <div>
+    <NewsletterSignup />
+    <SliceZone
+      id="main"
+      wrapper="main"
+      :slices="page?.data.slices ?? []"
+      :components="components"
+    />
+  </div>
 </template>

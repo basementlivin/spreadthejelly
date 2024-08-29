@@ -42,7 +42,6 @@ onMounted(() => {
 <template>
   <div class="fade-container">
     <Header />
-    <NewsletterSignup />
     <div
       id="smooth-wrapper"
       data-scroll-container
