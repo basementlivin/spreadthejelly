@@ -62,6 +62,7 @@ const relatedAnswers = computed(() => {
         <PrismicLink
           :field="answer"
           class="link"
+          aria-label="Read the full article."
         >
           read more
         </PrismicLink>

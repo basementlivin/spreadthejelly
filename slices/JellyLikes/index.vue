@@ -61,6 +61,7 @@ defineProps(
             <PrismicLink
               :field="product.product_link"
               class="purchase-link"
+              aria-label="Visit product page to learn more and purchase."
             >
               BUY
             </PrismicLink>
