@@ -116,6 +116,7 @@ onBeforeUnmount(() => {
       <button 
         ref="menuToggleRef"
         class="menu-toggle" 
+        aria-label="Toggle navigation menu"
         @click="toggleMenu"
       >
         <component :is="isMenuOpen ? MenuX : MenuHamburger" />
