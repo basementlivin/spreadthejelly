@@ -60,6 +60,7 @@ onMounted(async () => {
         v-if="prevArticle"
         :field="prevArticle"
         class="prev-article link"
+        aria-label="Navigate to the previous article."
       >
         <div class="image">
           <NuxtImg
@@ -77,6 +78,7 @@ onMounted(async () => {
         v-if="nextArticle"
         :field="nextArticle"
         class="next-article link"
+        aria-label="Navigate to the next article."
       >
         <div class="image">
           <NuxtImg

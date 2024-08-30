@@ -60,6 +60,7 @@ onMounted(async () => {
         v-if="prevArticle"
         :field="prevArticle"
         class="prev-article"
+        aria-label="Navigate to the previous article."
       >
         <span class="headline">Previous:</span> 
         <span class="title">{{ prevArticle?.data?.title }}</span>
@@ -69,6 +70,7 @@ onMounted(async () => {
         v-if="nextArticle"
         :field="nextArticle"
         class="next-article"
+        aria-label="Navigate to the next article."
       >
         <span class="headline">Next:</span> 
         <span class="title">{{ nextArticle?.data?.title }}</span>
