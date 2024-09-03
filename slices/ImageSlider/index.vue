@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { type Content } from "@prismicio/client";
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Thumbs } from 'swiper/modules';
+import { Autoplay, Navigation, A11y, Keyboard, Thumbs, FreeMode } from 'swiper/modules';
 import type { Swiper as SwiperInstance } from 'swiper';
 
 const props = defineProps(
@@ -46,7 +46,7 @@ const setThumbsSwiper = (swiper: SwiperInstance) => {
     data-scroll-section
   >
     <Swiper
-      :modules="[SwiperAutoplay, SwiperNavigation, SwiperA11y, SwiperKeyboard]"
+      :modules="[Autoplay, Navigation, A11y, Keyboard]"
       :grab-cursor="true"
       :space-between="0"
       :slides-per-view="1"
@@ -108,7 +108,7 @@ const setThumbsSwiper = (swiper: SwiperInstance) => {
     data-scroll-section
   >
     <Swiper
-      :modules="[Thumbs, SwiperNavigation, SwiperA11y, SwiperKeyboard]"
+      :modules="[Thumbs, Navigation, A11y, Keyboard]"
       :thumbs="{
         swiper: thumbsSwiper,
       }"
@@ -150,7 +150,7 @@ const setThumbsSwiper = (swiper: SwiperInstance) => {
     </Swiper>
 
     <Swiper
-      :modules="[Thumbs, SwiperFreeMode]"
+      :modules="[Thumbs, FreeMode]"
       watch-slides-progress
       :space-between="10"
       :slides-per-view="3"
