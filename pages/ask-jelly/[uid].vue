@@ -46,7 +46,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div :key="$route.fullPath">
+  <div :key="route.fullPath">
     <SliceZone
       id="main"
       wrapper="main"
