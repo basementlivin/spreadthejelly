@@ -74,6 +74,7 @@ const onSearch = async () => {
         <NuxtLink
           :to="`/${result.type === 'ask_jelly_article' ? 'ask-jelly' : 'articles'}/${result.uid}`"
           class="link--no-underline"
+          aria-label="Navigate to the page to read more"
           @click="emit('close-search-modal')"
         >
           <div
