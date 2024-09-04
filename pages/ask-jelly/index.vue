@@ -104,6 +104,7 @@ usePageSeo(pageData)
           <PrismicLink
             :field="article"
             class="link"
+            aria-label="Read the full article"
           >
             read more
           </PrismicLink>
