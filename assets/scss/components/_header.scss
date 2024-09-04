@@ -16,8 +16,8 @@
     align-items: center;
     
     .logo {
-      height: 4rem;
-      width: auto;
+      height: auto;
+      width: 9rem;
 
       @include breakpoint($tablet) {
         position: absolute;
