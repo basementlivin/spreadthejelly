@@ -24,7 +24,7 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
-        { rel: 'preconnect', href: 'https://images.prismic.io'},
+        { rel: 'preconnect', href: 'https://images.prismic.io/spreadthejelly'},
       ]
     }
   },
@@ -78,7 +78,6 @@ export default defineNuxtConfig({
           format: "webp",
           quality: 100,
           densities: [1, 2],
-          loading: "eager",
         }
       },
       default: {
