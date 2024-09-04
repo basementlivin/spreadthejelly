@@ -56,7 +56,10 @@ const onSearch = async () => {
       class="search-input h3"
       @input="onSearch"
     >
-    <div v-if="loading">
+    <div
+      v-if="loading"
+      class="loading"
+    >
       Searching...
     </div>
     <div v-if="error">
