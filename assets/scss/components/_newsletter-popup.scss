@@ -13,7 +13,7 @@
 
 .newsletter-popup {
   position: relative;
-  margin: 2rem;
+  margin: 1.25rem;
   max-width: 625px;
   width: 95vw;
   height: 50vh;
@@ -63,9 +63,6 @@
     opacity: 0;
     animation: form-fade-in 1s ease-in-out 0.83s forwards;
     
-    @include breakpoint($tablet) {
-    }
-    
     @include breakpoint($laptop) {
       gap: 1rem;
       padding: 1rem 2rem;
@@ -105,13 +102,16 @@
       width: 100%;
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 0.5rem;
 
       @include breakpoint($laptop) {
+        align-items: flex-start;
         gap: 1rem;
       }
 
       input {
+        width: 85%;
         @include chivo-variable();
         font-size: 0.875rem;
         padding: 0.5rem;
