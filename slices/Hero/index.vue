@@ -27,6 +27,7 @@ defineProps(getSliceComponentProps<Content.HeroSlice>(
           :src="slice.primary.image.url ?? ''"
           :alt="slice.primary.image.alt ?? ''"
           :sizes="fullWidthSizes"
+          :placeholder="[50, 25, 80, 1]"
           preset="hero"
         />
         <BumpMask
@@ -74,6 +75,7 @@ defineProps(getSliceComponentProps<Content.HeroSlice>(
           :src="slice.primary.image.url ?? ''"
           :alt="slice.primary.image.alt ?? ''"
           :sizes="fullWidthSizes"
+          :placeholder="[50, 25, 80, 1]"
           preset="hero"
         />
         <BumpMask class="image--mask" />
