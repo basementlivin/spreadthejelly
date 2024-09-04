@@ -24,7 +24,7 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
-        { rel: 'preconnect', href: 'https://images.prismic.io'}
+        { rel: 'preconnect', href: 'https://images.prismic.io'},
       ]
     }
   },
@@ -72,7 +72,40 @@ export default defineNuxtConfig({
       '2xl': 1536, // Ultra-wide screens or higher-res displays
       '3xl': 1920, // Very large desktop screens
     },
-    
+    presets: {
+      hero: {
+        modifiers: {
+          format: "webp",
+          quality: 100,
+          densities: [1, 2],
+          loading: "eager",
+        }
+      },
+      default: {
+        modifiers: {
+          format: "webp",
+          quality: 85,
+          densities: [1, 2],
+          loading: "lazy",
+        }
+      },
+      small: {
+        modifiers: {
+          format: "webp",
+          quality: 80,
+          densities: [1, 2],
+          loading: "lazy",
+        }
+      },
+      tiny: {
+        modifiers: {
+          format: "webp",
+          quality: 70,
+          densities: [1, 2],
+          loading: "lazy",
+        }
+      },
+    }
   },
 
   svgo: {
