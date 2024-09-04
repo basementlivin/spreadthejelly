@@ -2,6 +2,7 @@
 import { type Content } from '@prismicio/client';
 import { isFilled } from '@prismicio/client';
 import BumpMask from '@/assets/svg/mask--hero.svg';
+import { fullWidthSizes } from '@/utils/imageSizes';
 
 defineProps(getSliceComponentProps<Content.HeroSlice>(
   ['slice', 'index', 'slices', 'context']
@@ -25,6 +26,8 @@ defineProps(getSliceComponentProps<Content.HeroSlice>(
         <NuxtImg
           :src="slice.primary.image.url ?? ''"
           :alt="slice.primary.image.alt ?? ''"
+          :sizes="fullWidthSizes"
+          preset="hero"
         />
         <BumpMask
           v-if="slice.variation === 'default'"
@@ -70,6 +73,8 @@ defineProps(getSliceComponentProps<Content.HeroSlice>(
         <NuxtImg
           :src="slice.primary.image.url ?? ''"
           :alt="slice.primary.image.alt ?? ''"
+          :sizes="fullWidthSizes"
+          preset="hero"
         />
         <BumpMask class="image--mask" />
       </div>

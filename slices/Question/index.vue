@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { type Content } from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
+import { partialWidthSizes } from '@/utils/imageSizes';
 
 defineProps(
   getSliceComponentProps<Content.QuestionSlice>([
@@ -14,7 +15,7 @@ defineProps(
 
 <template>
   <section
-    v-if="isFilled.image(slice.primary.shape) && isFilled.richText(slice.primary.question) && isFilled.keyText(slice.primary.asked_by)"
+    v-show="isFilled.image(slice.primary.shape) && isFilled.richText(slice.primary.question) && isFilled.keyText(slice.primary.asked_by)"
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
     class="question wrapper wrapper--wide"
@@ -26,7 +27,10 @@ defineProps(
       <div class="image">
         <NuxtImg
           :src="slice.primary.shape.url ?? ''"
-          :alt="slice.primary.shape.alt ?? ''"
+          :alt="slice.primary.shape.alt ?? 'Abstract, illustrative shape.'"
+          :sizes="partialWidthSizes"
+          preset="default"
+          loading="eager"
         />
       </div>
       <div class="content">

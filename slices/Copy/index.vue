@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { type Content } from '@prismicio/client'
 import { isFilled } from '@prismicio/client'
+import { partialWidthSizes } from '@/utils/imageSizes'
 
 const props = defineProps(getSliceComponentProps<Content.TextSlice>(
   ['slice', 'index', 'slices', 'context']
@@ -78,8 +79,9 @@ const pullQuoteClass = computed(() => {
       <NuxtImg
         :src="slice.primary.image.url ?? ''"
         :alt="slice.primary.image.alt ?? ''"
-        loading="lazy"
-        placeholder
+        :sizes="partialWidthSizes"
+        :placeholder="[50, 25, 75, 5]"
+        preset="default"
       />
       <figcaption
         v-if="isFilled.keyText(slice.primary.image_caption)"

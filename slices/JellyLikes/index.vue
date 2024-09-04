@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { type Content } from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
+import { partialWidthSizes } from '@/utils/imageSizes';
 
 defineProps(
   getSliceComponentProps<Content.JellyLikesSlice>([
@@ -38,8 +39,10 @@ defineProps(
             <NuxtImg
               :src="product.product_image.url ?? ''"
               :alt="product.product_image.alt ?? ''"
-              loading="lazy"
-              placeholder
+              :sizes="partialWidthSizes"
+              :placeholder="[50, 25, 75, 5]"
+              preset="small"
+              height="250"
             />
           </div>
           <div

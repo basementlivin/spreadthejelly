@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import { components } from '~/slices'
 import { useArticleSeo } from '~/composables/useArticleSeo';
 import type { BlogArticleDocument } from '~/prismicio-types.d.ts'
+import { partialWidthSizes } from '@/utils/imageSizes'
 
 const prismic = usePrismic()
 const route = useRoute()
@@ -66,6 +67,11 @@ onMounted(async () => {
           <NuxtImg
             :src="prevArticle?.data?.featured_image?.url ?? ''"
             :alt="prevArticle?.data?.featured_image?.alt ?? ''"
+            :sizes="partialWidthSizes"
+            :placeholder="[50, 25, 75, 5]"
+            preset="tiny"
+            width="96"
+            height="96"
           />
         </div>
         <div class="details">
@@ -84,6 +90,11 @@ onMounted(async () => {
           <NuxtImg
             :src="nextArticle?.data?.featured_image?.url ?? ''"
             :alt="nextArticle?.data?.featured_image?.alt ?? ''"
+            :sizes="partialWidthSizes"
+            :placeholder="[50, 25, 75, 5]"
+            preset="tiny"
+            width="96"
+            height="96"
           />
         </div>
         <div class="details">

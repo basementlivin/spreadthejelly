@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { type Content } from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
+import { partialWidthSizes } from '@/utils/imageSizes';
 
 defineProps(
   getSliceComponentProps<Content.TeamMembersSlice>([
@@ -31,8 +32,9 @@ defineProps(
             v-if="isFilled.image(item.image)"
             :src="item.image.url ?? ''"
             :alt="item.image.alt ?? item.name ?? ''"
-            loading="lazy"
-            placeholder
+            :sizes="partialWidthSizes"
+            :placeholder="[50, 25, 75, 5]"
+            preset="default"
           />
         </div>
         <div class="team-member__content">

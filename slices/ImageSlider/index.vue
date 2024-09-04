@@ -4,6 +4,7 @@ import { type Content } from "@prismicio/client";
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, Navigation, A11y, Keyboard, Thumbs, FreeMode } from 'swiper/modules';
 import type { Swiper as SwiperInstance } from 'swiper';
+import { partialWidthSizes } from '@/utils/imageSizes';
 
 const props = defineProps(
   getSliceComponentProps<Content.ImageSliderSlice>([
@@ -86,6 +87,9 @@ const setThumbsSwiper = (swiper: SwiperInstance) => {
           <NuxtImg
             :src="slide.image.url ?? ''"
             :alt="slide.image.alt ?? ''"
+            :sizes="partialWidthSizes"
+            :placeholder="[50, 25, 75, 5]"
+            preset="default"
           />
         </div>
       </SwiperSlide>
@@ -136,6 +140,9 @@ const setThumbsSwiper = (swiper: SwiperInstance) => {
           <NuxtImg
             :src="slide.image.url ?? ''"
             :alt="slide.image.alt ?? ''"
+            :sizes="partialWidthSizes"
+            :placeholder="[50, 25, 75, 5]"
+            preset="default"
           />
         </div>
       </SwiperSlide>
@@ -179,6 +186,9 @@ const setThumbsSwiper = (swiper: SwiperInstance) => {
           <NuxtImg
             :src="slide.image.url ?? ''"
             :alt="slide.image.alt ?? ''"
+            :sizes="partialWidthSizes"
+            :placeholder="[50, 25, 75, 5]"
+            preset="small"
           />
         </div>
       </SwiperSlide>

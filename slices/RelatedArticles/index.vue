@@ -2,6 +2,7 @@
 import { type Content, isFilled } from "@prismicio/client";
 import { computed } from "vue";
 import type { BlogArticleDocument } from '~/prismicio-types.d.ts';
+import { partialWidthSizes } from '@/utils/imageSizes';
 
 const props = defineProps(
   getSliceComponentProps<Content.RelatedArticlesSlice>([
@@ -75,6 +76,9 @@ const relatedArticles = computed(() => {
           <NuxtImg
             :src="article.data.featured_image.url ?? ''"
             :alt="article.data.featured_image.alt ?? ''"
+            :sizes="partialWidthSizes"
+            :placeholder="[50, 25, 75, 5]"
+            preset="default"
           />
         </div>
         <div class="article__details">
