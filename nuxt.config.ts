@@ -24,6 +24,7 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+        { rel: 'preconnect', href: 'https://prismic.io'},
         { rel: 'preconnect', href: 'https://images.prismic.io/spreadthejelly'},
       ]
     }
