@@ -57,6 +57,7 @@ defineProps(getSliceComponentProps<Content.HeroSlice>(
           v-if="isFilled.link(slice.primary.link[0]?.link_location) && isFilled.keyText(slice.primary.link[0]?.link_text)"
           :field="slice.primary.link[0].link_location"
           class="link"
+          aria-label="Read the full article."
         >
           {{ slice.primary.link[0]?.link_text }}
         </PrismicLink>
@@ -102,6 +103,7 @@ defineProps(getSliceComponentProps<Content.HeroSlice>(
           v-if="isFilled.link(slice.primary.link[0]?.link_location) && isFilled.keyText(slice.primary.link[0]?.link_text)"
           :field="slice.primary.link[0].link_location"
           class="link"
+          aria-label="Read the full article."
         >
           {{ slice.primary.link[0]?.link_text }}
         </PrismicLink>
