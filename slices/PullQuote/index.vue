@@ -31,7 +31,7 @@ defineProps(
           <PrismicLink
             :field="slice.primary.article_link"
             class="citation__article-link link"
-            aria-label="Read the full article."
+            aria-label="Read the full article"
           >
             read more
           </PrismicLink>

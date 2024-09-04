@@ -112,7 +112,6 @@ usePageSeo(pageData)
         </div>
       </div>
 
-      <!-- Load More Button -->
       <span
         v-if="hasMore && !loading"
         class="articles__load-more link"

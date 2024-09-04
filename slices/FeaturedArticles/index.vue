@@ -96,7 +96,7 @@ const featuredArticles = computed(() => {
           <PrismicLink
             :field="article"
             class="link"
-            aria-label="Read the full article."
+            aria-label="Read the full article"
           >
             read more
           </PrismicLink>

@@ -53,7 +53,7 @@ defineProps(
             v-if="isFilled.link(item.social_link)"
             :field="item.social_link"
             class="link link--no-underline"
-            aria-label="Visit their social media profile."
+            aria-label="Visit their social media profile"
           >
             {{ item.social_link_text }}
           </PrismicLink>

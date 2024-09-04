@@ -110,11 +110,10 @@ usePageSeo(pageData)
         </div>
       </div>
 
-      <!-- Load More Button -->
       <span
         v-if="hasMore && !loading"
         class="articles__load-more link"
-        aria-label="Load more articles"
+        aria-label="Load more Ask Jelly articles"
         @click="loadArticles"
       >
         {{ pageData?.data.load_more_button_text ? pageData.data.load_more_button_text : 'Load More' }}

@@ -147,10 +147,16 @@ const setThumbsSwiper = (swiper: SwiperInstance) => {
         </div>
       </SwiperSlide>
       <div class="swiper-navigation">
-        <div class="swiper-button-prev--custom">
+        <div
+          class="swiper-button-prev--custom"
+          aria-label="Previous slide"
+        >
           –
         </div>
-        <div class="swiper-button-next--custom">
+        <div
+          class="swiper-button-next--custom"
+          aria-label="Next slide"
+        >
           +
         </div>
       </div>

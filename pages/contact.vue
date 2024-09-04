@@ -58,7 +58,7 @@ usePageSeo(page)
       />
       <span
         class="link tooltip-container"
-        aria-label="Copy email to clipboard."
+        aria-label="Click to copy email address to your clipboard"
         tabindex="0"
         @click.prevent="copyToClipboard(page?.data.contact_link[0]?.email ?? '')"
         @mouseover="showHoverText"
