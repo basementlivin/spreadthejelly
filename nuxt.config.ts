@@ -22,7 +22,10 @@ export default defineNuxtConfig({
         { name: 'referrer', content: 'no-referrer-when-downgrade' },
         { name: 'robots', content: 'noindex, nofollow' },
       ],
-      link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }]
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+        { rel: 'preconnect', href: 'https://images.prismic.io'}
+      ]
     }
   },
 
@@ -61,13 +64,15 @@ export default defineNuxtConfig({
     prismic: {},
     formats: ["webp", "avif", "jpg", "jpeg", "png", "gif"],
     screens: {
-      'xs': 320,
-      'sm': 640,
-      'md': 768,
-      'lg': 1024,
-      'xl': 1280,
-      'xxl': 1536
+      'xs': 360,   // Small mobile devices
+      'sm': 640,   // Standard mobile
+      'md': 768,   // Tablets
+      'lg': 1024,  // Tablets in landscape, smaller laptops
+      'xl': 1280,  // Larger laptops
+      '2xl': 1536, // Ultra-wide screens or higher-res displays
+      '3xl': 1920, // Very large desktop screens
     },
+    
   },
 
   svgo: {
