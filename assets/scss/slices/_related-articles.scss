@@ -27,18 +27,21 @@
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
-      
-      &:hover {
-        .article__image.mask.mask--black {
-          background-color: $green;
-        }
-        .article__image.mask.mask--white {
-          background-color: $black;
-        }
-        .article__image:not(.mask) {
-          border-radius: 80px;
+
+      @include breakpoint($tablet) {
+        &:hover {
+          .article__image.mask.mask--black {
+            background-color: $green;
+          }
+          .article__image.mask.mask--white {
+            background-color: $black;
+          }
+          .article__image:not(.mask) {
+            border-radius: 80px;
+          }
         }
       }
+      
 
       &__image {
         width: 100%;
