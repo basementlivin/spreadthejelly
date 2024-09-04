@@ -35,8 +35,8 @@
     }
     
     .menu-toggle {
-      height: 2.5rem;
-      width: 2.5rem;
+      height: auto;
+      width: 2.875rem;
       border: none;
       cursor: pointer;
       background: none;
@@ -44,6 +44,10 @@
       display: flex;
       justify-content: center;
       color: $black;
+
+      @include breakpoint($mobile + 100px) {
+        width: 2.5rem;
+      }
 
       @include breakpoint($tablet) {
         position: absolute;
