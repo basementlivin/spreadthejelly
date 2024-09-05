@@ -25,15 +25,18 @@ defineProps(
           "{{ slice.primary.quote }}"
         </p>
         <cite class="citation">
-          <span class="citation__article-title">
+          <span
+            id="article-title"
+            class="citation__article-title"
+          >
             From {{ slice.primary.article_title }}
           </span>
           <PrismicLink
             :field="slice.primary.article_link"
             class="citation__article-link link"
-            aria-label="Read the full article"
+            aria-labelledby="article-title"
           >
-            read more
+            read more <span class="hidden">about {{ slice.primary.article_title }}</span>
           </PrismicLink>
         </cite>
       </blockquote>

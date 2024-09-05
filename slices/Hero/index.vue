@@ -37,7 +37,10 @@ defineProps(getSliceComponentProps<Content.HeroSlice>(
       </div>
     </div>
     <div class="hero__content wrapper wrapper--wide">
-      <div class="headline">
+      <div
+        id="headline"
+        class="headline"
+      >
         <component
           :is="slice.primary.headline[0]?.headline_level"
           v-if="isFilled.keyText(slice.primary.headline[0]?.headline)"
@@ -49,6 +52,7 @@ defineProps(getSliceComponentProps<Content.HeroSlice>(
       <div class="details">
         <span
           v-if="isFilled.keyText(slice.primary.subheadline)"
+          id="subheadline"
           class="subheadline"
         >
           {{ slice.primary.subheadline }}
@@ -57,9 +61,9 @@ defineProps(getSliceComponentProps<Content.HeroSlice>(
           v-if="isFilled.link(slice.primary.link[0]?.link_location) && isFilled.keyText(slice.primary.link[0]?.link_text)"
           :field="slice.primary.link[0].link_location"
           class="link"
-          aria-label="Read the full article"
+          aria-labelledby="headline subheadline"
         >
-          {{ slice.primary.link[0]?.link_text }}
+          {{ slice.primary.link[0]?.link_text }} <span class="hidden">about {{ slice.primary.headline[0]?.headline }}</span>
         </PrismicLink>
       </div>
     </div>
