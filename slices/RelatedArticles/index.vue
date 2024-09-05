@@ -74,6 +74,8 @@ const relatedArticles = computed(() => {
           }"
         >
           <NuxtImg
+            v-if="isFilled.image(article.data.featured_image)"
+            :key="article.data.featured_image.url"
             :src="article.data.featured_image.url ?? ''"
             :alt="article.data.featured_image.alt ?? ''"
             :sizes="partialWidthSizes"

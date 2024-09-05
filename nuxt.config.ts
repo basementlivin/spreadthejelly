@@ -62,6 +62,7 @@ export default defineNuxtConfig({
 
   image: {
     provider: "prismic",
+    domains: ["images.prismic.io"],
     prismic: {},
     formats: ["webp", "avif", "jpg", "jpeg", "png", "gif"],
     screens: {
@@ -86,7 +87,7 @@ export default defineNuxtConfig({
           format: "webp",
           quality: 85,
           densities: [1, 2],
-          loading: "lazy",
+          // loading: "lazy",
         }
       },
       small: {
@@ -94,7 +95,7 @@ export default defineNuxtConfig({
           format: "webp",
           quality: 80,
           densities: [1, 2],
-          loading: "lazy",
+          // loading: "lazy",
         }
       },
       tiny: {
@@ -102,7 +103,7 @@ export default defineNuxtConfig({
           format: "webp",
           quality: 70,
           densities: [1, 2],
-          loading: "lazy",
+          // loading: "lazy",
         }
       },
     }

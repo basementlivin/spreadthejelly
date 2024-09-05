@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type Content } from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
-import { partialWidthSizes } from '@/utils/imageSizes';
+import { smallGridSizes } from '@/utils/imageSizes';
 
 defineProps(
   getSliceComponentProps<Content.JellyLikesSlice>([
@@ -11,6 +11,11 @@ defineProps(
     "context",
   ]),
 );
+
+function logAltText(altText: string) {
+  console.log("Alt text:", altText);
+  return altText;
+}
 </script>
 
 <template>
@@ -38,11 +43,10 @@ defineProps(
           >
             <NuxtImg
               :src="product.product_image.url ?? ''"
-              :alt="product.product_image.alt ?? ''"
-              :sizes="partialWidthSizes"
+              :alt="logAltText(product.product_image.alt || `Product image for ${product.product_name}`)"
+              :sizes="smallGridSizes"
               :placeholder="[50, 25, 75, 5]"
               preset="small"
-              height="250"
             />
           </div>
           <div
@@ -74,6 +78,7 @@ defineProps(
     </div>
   </section>
 </template>
+
 
 <style lang="scss" scoped>
   @import '@/assets/scss/slices/_jelly-likes.scss';

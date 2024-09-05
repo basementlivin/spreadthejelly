@@ -26,11 +26,12 @@ defineProps(
     >
       <div class="image">
         <NuxtImg
+          :key="slice.primary.shape.url"
           :src="slice.primary.shape.url ?? ''"
           :alt="slice.primary.shape.alt ?? 'Abstract, illustrative shape.'"
           :sizes="partialWidthSizes"
           preset="default"
-          loading="eager"
+          loading="lazy"
         />
       </div>
       <div class="content">

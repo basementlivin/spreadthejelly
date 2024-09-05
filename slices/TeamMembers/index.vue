@@ -30,6 +30,7 @@ defineProps(
         <div class="team-member__image">
           <NuxtImg
             v-if="isFilled.image(item.image)"
+            :key="item.image.url"
             :src="item.image.url ?? ''"
             :alt="item.image.alt ?? item.name ?? ''"
             :sizes="partialWidthSizes"
