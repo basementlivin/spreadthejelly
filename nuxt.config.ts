@@ -55,59 +55,9 @@ export default defineNuxtConfig({
 
   modules: [
     "@nuxtjs/prismic",
-    // "@nuxt/image",
     "nuxt-swiper",
     "nuxt-svgo",
   ],
-
-  // image: {
-  //   provider: "prismic",
-  //   domains: ["images.prismic.io"],
-  //   prismic: {},
-  //   formats: ["webp", "avif", "jpg", "jpeg", "png", "gif"],
-  //   screens: {
-  //     'xs': 360,   // Small mobile devices
-  //     'sm': 640,   // Standard mobile
-  //     'md': 768,   // Tablets
-  //     'lg': 1024,  // Tablets in landscape, smaller laptops
-  //     'xl': 1280,  // Larger laptops
-  //     '2xl': 1536, // Ultra-wide screens or higher-res displays
-  //     '3xl': 1920, // Very large desktop screens
-  //   },
-  //   presets: {
-  //     hero: {
-  //       modifiers: {
-  //         format: "webp",
-  //         quality: 100,
-  //         densities: [1, 2],
-  //       }
-  //     },
-  //     default: {
-  //       modifiers: {
-  //         format: "webp",
-  //         quality: 85,
-  //         densities: [1, 2],
-  //         // loading: "lazy",
-  //       }
-  //     },
-  //     small: {
-  //       modifiers: {
-  //         format: "webp",
-  //         quality: 80,
-  //         densities: [1, 2],
-  //         // loading: "lazy",
-  //       }
-  //     },
-  //     tiny: {
-  //       modifiers: {
-  //         format: "webp",
-  //         quality: 70,
-  //         densities: [1, 2],
-  //         // loading: "lazy",
-  //       }
-  //     },
-  //   }
-  // },
 
   svgo: {
     autoImportPath: "~/assets/svg",
