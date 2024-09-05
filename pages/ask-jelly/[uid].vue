@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
 import { components } from '~/slices'
 import { useArticleSeo } from '~/composables/useArticleSeo'
 import type { AskJellyArticleDocument } from '~/prismicio-types.d.ts'
@@ -7,42 +6,31 @@ import type { AskJellyArticleDocument } from '~/prismicio-types.d.ts'
 const prismic = usePrismic()
 const route = useRoute()
 
-const article = ref<AskJellyArticleDocument | null>(null)
-const nextArticle = ref<AskJellyArticleDocument | null>(null)
-const prevArticle = ref<AskJellyArticleDocument | null>(null)
-
-const fetchArticleData = async () => {
-  article.value = await prismic.client.getByUID('ask_jelly_article', route.params.uid as string)
-}
-
-await fetchArticleData()
+// Fetch the article using useAsyncData
+const { data: article } = useAsyncData('askJellyArticle', () =>
+  prismic.client.getByUID<AskJellyArticleDocument>('ask_jelly_article', route.params.uid as string)
+)
 
 useArticleSeo(article)
 
-// Lazy load next and previous articles after the main article is loaded
-onMounted(async () => {
-  if (article.value?.id) {
-    const articleId = article.value.id
+// Fetch the next and previous articles
+const { data: nextArticle } = useAsyncData('nextAskJellyArticle', () =>
+  prismic.client.getAllByType<AskJellyArticleDocument>('ask_jelly_article', {
+    pageSize: 1,
+    after: article.value?.id,
+    orderings: { field: 'my.ask_jelly_article.publication_date' },
+    fetch: ['ask_jelly_article.title'],
+  })
+)
 
-    const [nextArticles, prevArticles] = await Promise.all([
-      prismic.client.getAllByType<AskJellyArticleDocument>('ask_jelly_article', {
-        pageSize: 1,
-        after: articleId,
-        orderings: { field: 'my.ask_jelly_article.publication_date' },
-        fetch: ['ask_jelly_article.title'],
-      }),
-      prismic.client.getAllByType<AskJellyArticleDocument>('ask_jelly_article', {
-        pageSize: 1,
-        after: articleId,
-        orderings: { field: 'my.ask_jelly_article.publication_date desc' },
-        fetch: ['ask_jelly_article.title'],
-      }),
-    ])
-
-    nextArticle.value = nextArticles[0] || null
-    prevArticle.value = prevArticles[0] || null
-  }
-})
+const { data: prevArticle } = useAsyncData('prevAskJellyArticle', () =>
+  prismic.client.getAllByType<AskJellyArticleDocument>('ask_jelly_article', {
+    pageSize: 1,
+    after: article.value?.id,
+    orderings: { field: 'my.ask_jelly_article.publication_date desc' },
+    fetch: ['ask_jelly_article.title'],
+  })
+)
 </script>
 
 <template>
@@ -57,23 +45,23 @@ onMounted(async () => {
 
     <nav class="ask-jelly-article-navigation">
       <PrismicLink
-        v-if="prevArticle"
-        :field="prevArticle"
+        v-if="prevArticle && prevArticle[0]"
+        :field="prevArticle[0]"
         class="prev-article"
         aria-label="Navigate to the previous article."
       >
         <span class="headline">Previous:</span> 
-        <span class="title">{{ prevArticle?.data?.title }}</span>
+        <span class="title">{{ prevArticle[0]?.data?.title }}</span>
       </PrismicLink>
 
       <PrismicLink
-        v-if="nextArticle"
-        :field="nextArticle"
+        v-if="nextArticle && nextArticle[0]"
+        :field="nextArticle[0]"
         class="next-article"
         aria-label="Navigate to the next article."
       >
         <span class="headline">Next:</span> 
-        <span class="title">{{ nextArticle?.data?.title }}</span>
+        <span class="title">{{ nextArticle[0]?.data?.title }}</span>
       </PrismicLink>
     </nav>
   </div>
