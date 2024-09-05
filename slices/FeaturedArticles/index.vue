@@ -101,7 +101,7 @@ const featuredArticles = computed(() => {
             class="link"
             :aria-labelledby="`article__title--${index}`"
           >
-            read more
+            read more <span class="hidden">about {{ article.data.title }}</span>
           </PrismicLink>
         </div>
       </div>

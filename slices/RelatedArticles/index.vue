@@ -103,7 +103,7 @@ const relatedArticles = computed(() => {
             class="link"
             :aria-labelledby="`article__details--${index}`"
           >
-            read more
+            read more <span class="hidden">about {{ article.data.title }}</span>
           </PrismicLink>
         </div>
       </div>
