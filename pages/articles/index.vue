@@ -109,7 +109,7 @@ usePageSeo(pageData)
             <PrismicLink
               :field="article"
               class="link"
-              aria-label="Read the full article"
+              :aria-label="`Read ${article.data.title} in its entirety`"
             >
               read more
             </PrismicLink>

@@ -60,8 +60,8 @@ const featuredArticles = computed(() => {
         class="article"
       >
         <div
-          class="article__image"
           :class="{
+            'article__image': true,
             'full-bleed': article.image_style === 'Full Bleed',
             'inset': article.image_style === 'Inset',
             'mask--blob-01': article.image_style === 'Blob Mask 1',
@@ -80,8 +80,8 @@ const featuredArticles = computed(() => {
           />
         </div>
         <div
-          class="article__details"
           :class="{
+            'article__details': true,
             'align--top': article.text_align === 'Top',
             'align--bottom': article.text_align === 'Bottom'
           }"
@@ -89,14 +89,17 @@ const featuredArticles = computed(() => {
             color: article.text_color,
           }"
         >
-          <p class="title h3">
+          <p
+            :id="`article__title--${index}`"
+            class="title h3"
+          >
             {{ article.data.title }}
           </p>
           
           <PrismicLink
             :field="article"
             class="link"
-            aria-label="Read the full article"
+            :aria-labelledby="`article__title--${index}`"
           >
             read more
           </PrismicLink>

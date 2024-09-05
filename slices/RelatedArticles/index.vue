@@ -82,7 +82,10 @@ const relatedArticles = computed(() => {
             loading="lazy"
           />
         </div>
-        <div class="article__details">
+        <div
+          :id="`article__details--${index}`"
+          class="article__details"
+        >
           <span
             class="tag"
           >
@@ -98,7 +101,7 @@ const relatedArticles = computed(() => {
           <PrismicLink
             :field="article"
             class="link"
-            aria-label="Read the full article"
+            :aria-labelledby="`article__details--${index}`"
           >
             read more
           </PrismicLink>

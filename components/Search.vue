@@ -71,14 +71,14 @@ const onSearch = async () => {
       class="search-results"
     >
       <li
-        v-for="result in results"
+        v-for="(result, index) in results"
         :key="result.id"
         class="result"
       >
         <NuxtLink
           :to="`/${result.type === 'ask_jelly_article' ? 'ask-jelly' : 'articles'}/${result.uid}`"
           class="link--no-underline"
-          aria-label="Navigate to the page to read more"
+          :aria-labelledby="`result__title--${index}`"
           @click="emit('close-search-modal')"
         >
           <div
@@ -96,7 +96,10 @@ const onSearch = async () => {
               loading="lazy"
             />
           </div>
-          <span class="title">
+          <span
+            :id="`result__title--${index}`"
+            class="title"
+          >
             {{ result.data.title }}
           </span>
         </NuxtLink>

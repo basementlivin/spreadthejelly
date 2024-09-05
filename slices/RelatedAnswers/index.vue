@@ -53,7 +53,10 @@ const relatedAnswers = computed(() => {
         :key="index"
         class="answer"
       >
-        <h3 class="title">
+        <h3
+          :id="`answer__title--${index}`"
+          class="title"
+        >
           {{ answer.data.title }}
         </h3>
         <p class="asked-by">
@@ -62,7 +65,7 @@ const relatedAnswers = computed(() => {
         <PrismicLink
           :field="answer"
           class="link"
-          aria-label="Read the full article"
+          :aria-labelledby="`answer__title--${index}`"
         >
           read more
         </PrismicLink>
