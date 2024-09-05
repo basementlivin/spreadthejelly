@@ -4,6 +4,7 @@ import { components } from '~/slices'
 import { usePrismic } from '@prismicio/vue'
 import { usePageSeo } from '~/composables/usePageSeo'
 import type { BlogArticleDocument } from '~/prismicio-types.d.ts'
+import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
 const prismic = usePrismic()
 
@@ -87,9 +88,12 @@ usePageSeo(pageData)
           class="article"
         >
           <div class="article__image">
-            <NuxtImg
-              :src="article.data.featured_image.url ?? ''"
-              :alt="article.data.featured_image.alt ?? ''"
+            <PrismicImage
+              :field="article.data.featured_image"
+              :alt="article.data.featured_image.alt || 'No image description provided'"
+              :widths="prismicImageSettings.presets.default.widths"
+              :imgix-params="prismicImageSettings.presets.default.imgixParams"
+              loading="lazy"
             />
           </div>
 

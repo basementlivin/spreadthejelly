@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { usePrismic } from '@prismicio/vue'
 import * as prismic from '@prismicio/client'
+import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
 const emit = defineEmits(['close-search-modal'])
 
@@ -87,9 +88,12 @@ const onSearch = async () => {
               'image--blog': result.type === 'blog_article'
             }"
           >
-            <NuxtImg
-              :src="result.data.featured_image.url"
-              :alt="result.data.featured_image.alt"
+            <PrismicImage
+              :field="result.data.featured_image"
+              :alt="result.data.featured_image.alt || 'No image description provided'"
+              :widths="prismicImageSettings.presets.tiny.widths"
+              :imgix-params="prismicImageSettings.presets.tiny.imgixParams"
+              loading="lazy"
             />
           </div>
           <span class="title">

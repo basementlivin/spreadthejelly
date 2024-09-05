@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { type Content } from '@prismicio/client'
 import { isFilled } from '@prismicio/client'
-import { partialWidthSizes } from '@/utils/imageSizes'
+import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
 const props = defineProps(getSliceComponentProps<Content.TextSlice>(
   ['slice', 'index', 'slices', 'context']
@@ -76,12 +76,12 @@ const pullQuoteClass = computed(() => {
     class="copy-with-image wrapper wrapper--wide"
   >
     <figure class="image">
-      <NuxtImg
-        :src="slice.primary.image.url ?? ''"
-        :alt="slice.primary.image.alt ?? ''"
-        :sizes="partialWidthSizes"
-        :placeholder="[50, 25, 75, 5]"
-        preset="default"
+      <PrismicImage
+        v-if="slice.primary.image"
+        :field="slice.primary.image"
+        :alt="slice.primary.image.alt || 'Image description not provided'"
+        :widths="prismicImageSettings.presets.default.widths"
+        :imgix-params="prismicImageSettings.presets.default.imgixParams"
       />
       <figcaption
         v-if="isFilled.keyText(slice.primary.image_caption)"

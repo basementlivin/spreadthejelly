@@ -5,6 +5,7 @@ import { usePrismic } from '@prismicio/vue'
 import { usePageSeo } from '~/composables/usePageSeo'
 import AskJellyForm from '@/components/AskJellyForm.vue'
 import type { AskJellyArticleDocument } from '~/prismicio-types.d.ts'
+import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
 const prismic = usePrismic()
 
@@ -90,9 +91,11 @@ usePageSeo(pageData)
           :key="article.id"
           class="article"
         >
-          <NuxtImg
-            :src="article.data.featured_image.url ?? ''"
-            :alt="article.data.featured_image.alt ?? ''"
+          <PrismicImage
+            :field="article.data.featured_image"
+            :alt="article.data.featured_image.alt || 'No image description provided'"
+            :widths="prismicImageSettings.presets.default.widths"
+            :imgix-params="prismicImageSettings.presets.default.imgixParams"
             class="image"
           />
           <p class="headline h4">

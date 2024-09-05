@@ -2,7 +2,7 @@
 import { type Content, isFilled } from "@prismicio/client";
 import { computed } from "vue";
 import type { BlogArticleDocument } from '~/prismicio-types.d.ts';
-import { partialWidthSizes } from '@/utils/imageSizes';
+import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
 const props = defineProps(
   getSliceComponentProps<Content.RelatedArticlesSlice>([
@@ -73,14 +73,13 @@ const relatedArticles = computed(() => {
             'mask--black': article.image_mask_color === 'Black',
           }"
         >
-          <NuxtImg
-            v-if="isFilled.image(article.data.featured_image)"
-            :key="article.data.featured_image.url"
-            :src="article.data.featured_image.url ?? ''"
-            :alt="article.data.featured_image.alt ?? ''"
-            :sizes="partialWidthSizes"
-            :placeholder="[50, 25, 75, 5]"
-            preset="default"
+          <PrismicImage
+            v-if="article.data.featured_image"
+            :field="article.data.featured_image"
+            :alt="article.data.featured_image.alt || 'No image description provided'"
+            :widths="prismicImageSettings.presets.default.widths"
+            :imgix-params="prismicImageSettings.presets.default.imgixParams"
+            loading="lazy"
           />
         </div>
         <div class="article__details">

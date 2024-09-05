@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type Content } from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
-import { partialWidthSizes } from '@/utils/imageSizes';
+import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
 defineProps(
   getSliceComponentProps<Content.TeamMembersSlice>([
@@ -28,14 +28,13 @@ defineProps(
         class="team-member"
       >
         <div class="team-member__image">
-          <NuxtImg
-            v-if="isFilled.image(item.image)"
-            :key="item.image.url"
-            :src="item.image.url ?? ''"
-            :alt="item.image.alt ?? item.name ?? ''"
-            :sizes="partialWidthSizes"
-            :placeholder="[50, 25, 75, 5]"
-            preset="default"
+          <PrismicImage
+            v-if="item.image"
+            :field="item.image"
+            :alt="item.image.alt || item.name"
+            :widths="prismicImageSettings.presets.default.widths"
+            :imgix-params="prismicImageSettings.presets.default.imgixParams"
+            loading="lazy"
           />
         </div>
         <div class="team-member__content">

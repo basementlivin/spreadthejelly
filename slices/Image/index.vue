@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type Content } from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
-import { partialWidthSizes, fullWidthSizes } from '@/utils/imageSizes';
+import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
 defineProps(
   getSliceComponentProps<Content.ImageSlice>([
@@ -32,12 +32,12 @@ defineProps(
       v-if="slice.variation === 'default' && isFilled.image(slice.primary.image)"
       class="image__container full"
     >
-      <NuxtImg
-        :src="slice.primary.image.url ?? ''"
-        :alt="slice.primary.image.alt ?? ''"
-        :sizes="fullWidthSizes"
-        :placeholder="[50, 25, 75, 5]"
-        preset="hero"
+      <PrismicImage
+        v-if="slice.primary.image"
+        :field="slice.primary.image"
+        :alt="slice.primary.image.alt || 'Image description not provided'"
+        :widths="prismicImageSettings.presets.hero.widths"
+        :imgix-params="prismicImageSettings.presets.hero.imgixParams"
         loading="lazy"
       />
       <svg
@@ -56,19 +56,21 @@ defineProps(
       v-if="slice.variation === 'twoColumn' && isFilled.image(slice.primary.image_left) && isFilled.image(slice.primary.image_right)"
       class="image__container columns"
     >
-      <NuxtImg
-        :src="slice.primary.image_left.url ?? ''"
-        :alt="slice.primary.image_left.alt ?? ''"
-        :sizes="partialWidthSizes"
-        :placeholder="[50, 25, 75, 5]"
-        preset="default"
+      <PrismicImage
+        v-if="slice.primary.image_left"
+        :field="slice.primary.image_left"
+        :alt="slice.primary.image_left.alt ?? 'Image description not provided'"
+        :widths="prismicImageSettings.presets.default.widths"
+        :imgix-params="prismicImageSettings.presets.default.imgixParams"
+        loading="lazy"
       />
-      <NuxtImg
-        :src="slice.primary.image_right.url ?? ''"
-        :alt="slice.primary.image_right.alt ?? ''"
-        :sizes="partialWidthSizes"
-        :placeholder="[50, 25, 75, 5]"
-        preset="default"
+      <PrismicImage
+        v-if="slice.primary.image_right"
+        :field="slice.primary.image_right"
+        :alt="slice.primary.image_right.alt || 'Image description not provided'"
+        :widths="prismicImageSettings.presets.default.widths"
+        :imgix-params="prismicImageSettings.presets.default.imgixParams"
+        loading="lazy"
       />
     </div>
   </section>

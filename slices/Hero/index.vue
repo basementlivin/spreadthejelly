@@ -2,7 +2,7 @@
 import { type Content } from '@prismicio/client';
 import { isFilled } from '@prismicio/client';
 import BumpMask from '@/assets/svg/mask--hero.svg';
-import { fullWidthSizes } from '@/utils/imageSizes';
+import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
 defineProps(getSliceComponentProps<Content.HeroSlice>(
   ['slice', 'index', 'slices', 'context']
@@ -23,12 +23,12 @@ defineProps(getSliceComponentProps<Content.HeroSlice>(
   >
     <div class="hero__bg">
       <div class="image">
-        <NuxtImg
-          :src="slice.primary.image.url ?? ''"
-          :alt="slice.primary.image.alt ?? ''"
-          :sizes="fullWidthSizes"
-          :placeholder="[50, 25, 80, 1]"
-          preset="hero"
+        <PrismicImage
+          v-if="slice.primary.image"
+          :field="slice.primary.image"
+          :alt="slice.primary.image.alt ?? 'Image description not provided'"
+          :widths="prismicImageSettings.presets.hero.widths"
+          :imgix-params="prismicImageSettings.presets.hero.imgixParams"
         />
         <BumpMask
           v-if="slice.variation === 'default'"
@@ -72,12 +72,12 @@ defineProps(getSliceComponentProps<Content.HeroSlice>(
   >
     <div class="hero__bg">
       <div class="image">
-        <NuxtImg
-          :src="slice.primary.image.url ?? ''"
-          :alt="slice.primary.image.alt ?? ''"
-          :sizes="fullWidthSizes"
-          :placeholder="[50, 25, 80, 1]"
-          preset="hero"
+        <PrismicImage
+          v-if="slice.primary.image"
+          :field="slice.primary.image"
+          :alt="slice.primary.image.alt ?? 'Image description not provided'"
+          :widths="prismicImageSettings.presets.hero.widths"
+          :imgix-params="prismicImageSettings.presets.hero.imgixParams"
         />
         <BumpMask class="image--mask" />
       </div>

@@ -4,7 +4,7 @@ import { type Content } from "@prismicio/client";
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, Navigation, A11y, Keyboard, Thumbs, FreeMode } from 'swiper/modules';
 import type { Swiper as SwiperInstance } from 'swiper';
-import { partialWidthSizes } from '@/utils/imageSizes';
+import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
 const props = defineProps(
   getSliceComponentProps<Content.ImageSliderSlice>([
@@ -84,12 +84,13 @@ const setThumbsSwiper = (swiper: SwiperInstance) => {
         :key="index"
       >
         <div class="image">
-          <NuxtImg
-            :src="slide.image.url ?? ''"
-            :alt="slide.image.alt ?? ''"
-            :sizes="partialWidthSizes"
-            :placeholder="[50, 25, 75, 5]"
-            preset="default"
+          <PrismicImage
+            v-if="slide.image"
+            :field="slide.image"
+            :alt="slide.image.alt || 'Image description not provided'"
+            :widths="prismicImageSettings.presets.default.widths"
+            :imgix-params="prismicImageSettings.presets.default.imgixParams"
+            loading="lazy"
           />
         </div>
       </SwiperSlide>
@@ -137,12 +138,13 @@ const setThumbsSwiper = (swiper: SwiperInstance) => {
         :key="index"
       >
         <div class="image">
-          <NuxtImg
-            :src="slide.image.url ?? ''"
-            :alt="slide.image.alt ?? ''"
-            :sizes="partialWidthSizes"
-            :placeholder="[50, 25, 75, 5]"
-            preset="default"
+          <PrismicImage
+            v-if="slide.image"
+            :field="slide.image"
+            :alt="slide.image.alt || 'Image description not provided'"
+            :widths="prismicImageSettings.presets.default.widths"
+            :imgix-params="prismicImageSettings.presets.default.imgixParams"
+            loading="lazy"
           />
         </div>
       </SwiperSlide>
@@ -189,12 +191,13 @@ const setThumbsSwiper = (swiper: SwiperInstance) => {
         :key="index"
       >
         <div class="thumb">
-          <NuxtImg
-            :src="slide.image.url ?? ''"
-            :alt="slide.image.alt ?? ''"
-            :sizes="partialWidthSizes"
-            :placeholder="[50, 25, 75, 5]"
-            preset="small"
+          <PrismicImage
+            v-if="slide.image"
+            :field="slide.image"
+            :alt="slide.image.alt || 'Image description not provided'"
+            :widths="prismicImageSettings.presets.small.widths"
+            :imgix-params="prismicImageSettings.presets.small.imgixParams"
+            loading="lazy"
           />
         </div>
       </SwiperSlide>

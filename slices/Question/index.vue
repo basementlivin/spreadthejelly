@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type Content } from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
-import { partialWidthSizes } from '@/utils/imageSizes';
+import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
 defineProps(
   getSliceComponentProps<Content.QuestionSlice>([
@@ -25,12 +25,12 @@ defineProps(
       class="question__inner"
     >
       <div class="image">
-        <NuxtImg
-          :key="slice.primary.shape.url"
-          :src="slice.primary.shape.url ?? ''"
-          :alt="slice.primary.shape.alt ?? 'Abstract, illustrative shape.'"
-          :sizes="partialWidthSizes"
-          preset="default"
+        <PrismicImage
+          v-if="slice.primary.shape"
+          :field="slice.primary.shape"
+          :alt="slice.primary.shape.alt || null"
+          :widths="prismicImageSettings.presets.default.widths"
+          :imgix-params="prismicImageSettings.presets.default.imgixParams"
           loading="lazy"
         />
       </div>

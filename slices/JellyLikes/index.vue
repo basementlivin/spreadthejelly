@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type Content } from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
-import { smallGridSizes } from '@/utils/imageSizes';
+import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
 defineProps(
   getSliceComponentProps<Content.JellyLikesSlice>([
@@ -12,10 +12,6 @@ defineProps(
   ]),
 );
 
-function logAltText(altText: string) {
-  console.log("Alt text:", altText);
-  return altText;
-}
 </script>
 
 <template>
@@ -41,12 +37,12 @@ function logAltText(altText: string) {
             v-if="isFilled.image(product.product_image)"
             class="product__image"
           >
-            <NuxtImg
-              :src="product.product_image.url ?? ''"
-              :alt="logAltText(product.product_image.alt || `Product image for ${product.product_name}`)"
-              :sizes="smallGridSizes"
-              :placeholder="[50, 25, 75, 5]"
-              preset="small"
+            <PrismicImage
+              v-if="product.product_image"
+              :field="product.product_image"
+              :alt="product.product_image.alt || `Product image for ${product.product_name}`"
+              :widths="prismicImageSettings.presets.small.widths"
+              :imgix-params="prismicImageSettings.presets.small.imgixParams"
             />
           </div>
           <div
@@ -78,7 +74,6 @@ function logAltText(altText: string) {
     </div>
   </section>
 </template>
-
 
 <style lang="scss" scoped>
   @import '@/assets/scss/slices/_jelly-likes.scss';

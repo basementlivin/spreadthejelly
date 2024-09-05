@@ -2,7 +2,7 @@
 import { components } from '~/slices'
 import { useArticleSeo } from '~/composables/useArticleSeo';
 import type { BlogArticleDocument } from '~/prismicio-types.d.ts'
-import { partialWidthSizes } from '@/utils/imageSizes'
+import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
 const prismic = usePrismic()
 const route = useRoute()
@@ -52,14 +52,12 @@ const { data: prevArticle } = useAsyncData('prevArticle', () =>
         aria-label="Navigate to the previous article."
       >
         <div class="image">
-          <NuxtImg
-            :src="prevArticle[0]?.data?.featured_image?.url ?? ''"
-            :alt="prevArticle[0]?.data?.featured_image?.alt ?? ''"
-            :sizes="partialWidthSizes"
-            :placeholder="[50, 25, 75, 5]"
-            preset="tiny"
-            width="96"
-            height="96"
+          <PrismicImage
+            :field="prevArticle[0]?.data?.featured_image"
+            :alt="prevArticle[0]?.data?.featured_image?.alt || 'No image description provided.'"
+            :widths="prismicImageSettings.presets.tiny.widths"
+            :imgix-params="prismicImageSettings.presets.tiny.imgixParams"
+            loading="lazy"
           />
         </div>
         <div class="details">
@@ -75,14 +73,12 @@ const { data: prevArticle } = useAsyncData('prevArticle', () =>
         aria-label="Navigate to the next article."
       >
         <div class="image">
-          <NuxtImg
-            :src="nextArticle[0]?.data?.featured_image?.url ?? ''"
-            :alt="nextArticle[0]?.data?.featured_image?.alt ?? ''"
-            :sizes="partialWidthSizes"
-            :placeholder="[50, 25, 75, 5]"
-            preset="tiny"
-            width="96"
-            height="96"
+          <PrismicImage
+            :field="nextArticle[0]?.data?.featured_image"
+            :alt="nextArticle[0]?.data?.featured_image?.alt || 'No image description provided.'"
+            :widths="prismicImageSettings.presets.tiny.widths"
+            :imgix-params="prismicImageSettings.presets.tiny.imgixParams"
+            loading="lazy"
           />
         </div>
         <div class="details">

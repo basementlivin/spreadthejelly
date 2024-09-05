@@ -2,7 +2,7 @@
 import { type Content, isFilled } from "@prismicio/client";
 import { computed } from "vue";
 import type { BlogArticleDocument } from '~/prismicio-types.d.ts';
-import { partialWidthSizes } from '@/utils/imageSizes';
+import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
 const props = defineProps(
   getSliceComponentProps<Content.FeaturedArticlesSlice>([
@@ -71,12 +71,12 @@ const featuredArticles = computed(() => {
             backgroundColor: article.bg_color
           }"
         >
-          <NuxtImg
-            :src="article.data.featured_image.url ?? ''"
-            :alt="article.data.featured_image.alt ?? ''"
-            :sizes="partialWidthSizes"
-            :placeholder="[50, 25, 75, 5]"
-            preset="default"
+          <PrismicImage
+            v-if="article.data.featured_image"
+            :field="article.data.featured_image"
+            :alt="article.data.featured_image.alt || 'Image description not provided'"
+            :widths="prismicImageSettings.presets.default.widths"
+            :imgix-params="prismicImageSettings.presets.default.imgixParams"
           />
         </div>
         <div
