@@ -755,6 +755,219 @@ export type FooterLinksDocument<Lang extends string = string> =
     Lang
   >;
 
+type JellyLovesDocumentDataSlicesSlice = HeroSlice;
+
+/**
+ * Content for Jelly Loves documents
+ */
+interface JellyLovesDocumentData {
+  /**
+   * Slice Zone field in *Jelly Loves*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_loves.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<JellyLovesDocumentDataSlicesSlice> /**
+   * Meta Title field in *Jelly Loves*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: jelly_loves.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Jelly Loves*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: jelly_loves.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Jelly Loves*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_loves.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never> /**
+   * "Load More Articles" Button Text field in *Jelly Loves*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Load More
+   * - **API ID Path**: jelly_loves.load_more_button_text
+   * - **Tab**: Blog Roll Settings
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  load_more_button_text: prismic.KeyTextField;
+
+  /**
+   * "No More Articles" Message field in *Jelly Loves*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: No more articles to display.
+   * - **API ID Path**: jelly_loves.no_more_articles_message
+   * - **Tab**: Blog Roll Settings
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  no_more_articles_message: prismic.KeyTextField;
+}
+
+/**
+ * Jelly Loves document from Prismic
+ *
+ * - **API ID**: `jelly_loves`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type JellyLovesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<JellyLovesDocumentData>,
+    "jelly_loves",
+    Lang
+  >;
+
+type JellyLovesArticleDocumentDataSlicesSlice =
+  | ImageSlice
+  | HeroSlice
+  | RelatedArticlesSlice
+  | ImageSliderSlice
+  | TextSlice
+  | JellyLikesSlice
+  | DividingLineSlice
+  | HeadlineSlice;
+
+/**
+ * Content for Jelly Loves Article documents
+ */
+interface JellyLovesArticleDocumentData {
+  /**
+   * Article Title field in *Jelly Loves Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_loves_article.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Article Author field in *Jelly Loves Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_loves_article.author
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  author: prismic.KeyTextField;
+
+  /**
+   * Publication Date field in *Jelly Loves Article*
+   *
+   * - **Field Type**: Timestamp
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_loves_article.publication_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#timestamp
+   */
+  publication_date: prismic.TimestampField;
+
+  /**
+   * Featured Image field in *Jelly Loves Article*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_loves_article.featured_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featured_image: prismic.ImageField<never>;
+
+  /**
+   * Article Introduction field in *Jelly Loves Article*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_loves_article.article_introduction
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  article_introduction: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Jelly Loves Article*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_loves_article.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<JellyLovesArticleDocumentDataSlicesSlice> /**
+   * Meta Title field in *Jelly Loves Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: jelly_loves_article.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Jelly Loves Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: jelly_loves_article.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Jelly Loves Article*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_loves_article.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Jelly Loves Article document from Prismic
+ *
+ * - **API ID**: `jelly_loves_article`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type JellyLovesArticleDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<JellyLovesArticleDocumentData>,
+    "jelly_loves_article",
+    Lang
+  >;
+
 /**
  * Item in *Navigation → Links*
  */
@@ -1044,6 +1257,8 @@ export type AllDocumentTypes =
   | BlogArticleDocument
   | ContactDocument
   | FooterLinksDocument
+  | JellyLovesDocument
+  | JellyLovesArticleDocument
   | NavigationDocument
   | NewsletterPopupFormDocument
   | PageDocument
@@ -2470,6 +2685,16 @@ export interface TestimonialsSliceDefaultPrimary {
   testimonials: prismic.GroupField<
     Simplify<TestimonialsSliceDefaultPrimaryTestimonialsItem>
   >;
+
+  /**
+   * Headline (optional) field in *Testimonials → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Shout-outs from our community
+   * - **API ID Path**: testimonials.default.primary.headline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  headline: prismic.KeyTextField;
 }
 
 /**
@@ -2752,6 +2977,12 @@ declare module "@prismicio/client" {
       FooterLinksDocument,
       FooterLinksDocumentData,
       FooterLinksDocumentDataLinksItem,
+      JellyLovesDocument,
+      JellyLovesDocumentData,
+      JellyLovesDocumentDataSlicesSlice,
+      JellyLovesArticleDocument,
+      JellyLovesArticleDocumentData,
+      JellyLovesArticleDocumentDataSlicesSlice,
       NavigationDocument,
       NavigationDocumentData,
       NavigationDocumentDataLinksItem,

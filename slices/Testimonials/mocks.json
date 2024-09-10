@@ -28,6 +28,11 @@
 						]
 					}
 				]
+			},
+			"headline": {
+				"__TYPE__": "FieldContent",
+				"value": "cross",
+				"type": "Text"
 			}
 		},
 		"items": []
