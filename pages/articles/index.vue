@@ -4,7 +4,7 @@ import { components } from '~/slices'
 import { usePrismic } from '@prismicio/vue'
 import { usePageSeo } from '~/composables/usePageSeo'
 import type { BlogArticleDocument } from '~/prismicio-types.d.ts'
-import { prismicImageSettings } from '@/utils/prismicImageSettings';
+import { prismicImageSettings } from '@/utils/prismicImageSettings'
 
 const prismic = usePrismic()
 
