@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed } from "vue";
 import { type Content } from "@prismicio/client";
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Autoplay, Navigation, A11y, Keyboard, Thumbs, FreeMode } from 'swiper/modules';
-import type { Swiper as SwiperInstance } from 'swiper';
+import { Autoplay, Navigation, A11y, Keyboard } from 'swiper/modules';
 import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
 const props = defineProps(
@@ -30,21 +29,14 @@ const slides = computed(() => {
   return duplicatedImages;
 });
 
-// Set up the thumbsSwiper instance with the correct type
-const thumbsSwiper = ref<SwiperInstance | null>(null);
-const setThumbsSwiper = (swiper: SwiperInstance) => {
-  thumbsSwiper.value = swiper;
-};
-
 </script>
 
 <template>
   <section
-    v-if="props.slice.primary.images && slice.variation === 'default'"
+    v-if="props.slice.primary.images"
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
     class="image-slider wrapper wrapper--fullscreen"
-    data-scroll-section
   >
     <Swiper
       :modules="[Autoplay, Navigation, A11y, Keyboard]"
@@ -103,105 +95,6 @@ const setThumbsSwiper = (swiper: SwiperInstance) => {
         +
       </div>
     </div>
-  </section>
-
-  <section
-    v-else-if="props.slice.primary.images && slice.variation === 'thumbsGallery'"
-    :data-slice-type="slice.slice_type"
-    :data-slice-variation="slice.variation"
-    class="thumbs-slider wrapper--narrow"
-    data-scroll-section
-  >
-    <Swiper
-      :modules="[Thumbs, Navigation, A11y, Keyboard]"
-      :thumbs="{
-        swiper: thumbsSwiper,
-      }"
-      :space-between="0"
-      :slides-per-view="1"
-      :loop="true"
-      :speed="680"
-      :navigation="{
-        nextEl: '.swiper-button-next--custom',
-        prevEl: '.swiper-button-prev--custom',
-      }"
-      :a11y="{
-        enabled: true,
-      }"
-      :keyboard="{
-        enabled: true,
-      }"
-      class="thumbs-slider__main"
-    >
-      <SwiperSlide
-        v-for="(slide, index) in slides"
-        :key="index"
-      >
-        <div class="image">
-          <PrismicImage
-            v-if="slide.image"
-            :field="slide.image"
-            :alt="slide.image.alt || 'Image description not provided'"
-            :widths="prismicImageSettings.presets.default.widths"
-            :imgix-params="prismicImageSettings.presets.default.imgixParams"
-            loading="lazy"
-          />
-        </div>
-      </SwiperSlide>
-      <div class="swiper-navigation">
-        <div
-          class="swiper-button-prev--custom"
-          aria-label="Previous slide"
-        >
-          –
-        </div>
-        <div
-          class="swiper-button-next--custom"
-          aria-label="Next slide"
-        >
-          +
-        </div>
-      </div>
-    </Swiper>
-
-    <Swiper
-      :modules="[Thumbs, FreeMode]"
-      watch-slides-progress
-      :space-between="10"
-      :slides-per-view="3"
-      :grab-cursor="true"
-      :free-mode="{
-        enabled: true,
-        minimumVelocity: 0.05,
-      }"
-      :loop="true"
-      :breakpoints="{
-        768: {
-          slidesPerView: 4,
-        },
-        1024: {
-          slidesPerView: 5,
-        },
-      }"
-      class="thumbs-slider__thumbs"
-      @swiper="setThumbsSwiper"
-    >
-      <SwiperSlide
-        v-for="(slide, index) in slides"
-        :key="index"
-      >
-        <div class="thumb">
-          <PrismicImage
-            v-if="slide.image"
-            :field="slide.image"
-            :alt="slide.image.alt || 'Image description not provided'"
-            :widths="prismicImageSettings.presets.small.widths"
-            :imgix-params="prismicImageSettings.presets.small.imgixParams"
-            loading="lazy"
-          />
-        </div>
-      </SwiperSlide>
-    </Swiper>
   </section>
 </template>
 

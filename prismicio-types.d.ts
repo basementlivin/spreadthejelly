@@ -1877,21 +1877,6 @@ export interface ImageSliderSliceDefaultPrimaryImagesItem {
 }
 
 /**
- * Item in *ImageSlider → Thumbs Gallery → Primary → Images*
- */
-export interface ImageSliderSliceThumbsGalleryPrimaryImagesItem {
-  /**
-   * Image field in *ImageSlider → Thumbs Gallery → Primary → Images*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: image_slider.thumbsGallery.primary.images[].image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-}
-
-/**
  * Primary content in *ImageSlider → Small Carousel → Primary*
  */
 export interface ImageSliderSliceDefaultPrimary {
@@ -1922,41 +1907,9 @@ export type ImageSliderSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *ImageSlider → Thumbs Gallery → Primary*
- */
-export interface ImageSliderSliceThumbsGalleryPrimary {
-  /**
-   * Images field in *ImageSlider → Thumbs Gallery → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: image_slider.thumbsGallery.primary.images[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  images: prismic.GroupField<
-    Simplify<ImageSliderSliceThumbsGalleryPrimaryImagesItem>
-  >;
-}
-
-/**
- * Thumbs Gallery variation for ImageSlider Slice
- *
- * - **API ID**: `thumbsGallery`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ImageSliderSliceThumbsGallery = prismic.SharedSliceVariation<
-  "thumbsGallery",
-  Simplify<ImageSliderSliceThumbsGalleryPrimary>,
-  never
->;
-
-/**
  * Slice variation for *ImageSlider*
  */
-type ImageSliderSliceVariation =
-  | ImageSliderSliceDefault
-  | ImageSliderSliceThumbsGallery;
+type ImageSliderSliceVariation = ImageSliderSliceDefault;
 
 /**
  * ImageSlider Shared Slice
@@ -2900,11 +2853,8 @@ declare module "@prismicio/client" {
       ImageSliderSlice,
       ImageSliderSliceDefaultPrimaryImagesItem,
       ImageSliderSliceDefaultPrimary,
-      ImageSliderSliceThumbsGalleryPrimaryImagesItem,
-      ImageSliderSliceThumbsGalleryPrimary,
       ImageSliderSliceVariation,
       ImageSliderSliceDefault,
-      ImageSliderSliceThumbsGallery,
       JellyLikesSlice,
       JellyLikesSliceDefaultPrimaryProductsItem,
       JellyLikesSliceDefaultPrimary,
