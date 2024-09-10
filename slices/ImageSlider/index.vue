@@ -14,9 +14,9 @@ const props = defineProps(
   ]),
 );
 
-// Loop over the images array, duplicating the slides if needed
+// Check if the slice exists and has primary and images fields before processing
 const slides = computed(() => {
-  const images = props.slice.primary.images;
+  const images = props?.slice?.primary?.images ?? []; // Use optional chaining and provide a fallback to an empty array
   const minSlides = 10;
   let duplicatedImages = [...images];
 
@@ -28,15 +28,15 @@ const slides = computed(() => {
 
   return duplicatedImages;
 });
-
 </script>
 
 <template>
   <section
-    v-if="props.slice.primary.images"
+    v-if="props.slice?.primary?.images && slice.variation === 'default'"
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
     class="image-slider wrapper wrapper--fullscreen"
+    data-scroll-section
   >
     <Swiper
       :modules="[Autoplay, Navigation, A11y, Keyboard]"
@@ -77,7 +77,7 @@ const slides = computed(() => {
       >
         <div class="image">
           <PrismicImage
-            v-if="slide.image"
+            v-if="slide?.image"
             :field="slide.image"
             :alt="slide.image.alt || 'Image description not provided'"
             :widths="prismicImageSettings.presets.default.widths"
