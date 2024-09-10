@@ -213,7 +213,6 @@ type AskJellyArticleDocumentDataSlicesSlice =
   | TextSlice
   | DividingLineSlice
   | HeadlineSlice
-  | SubheadlineSlice
   | ImageSliderSlice;
 
 /**
@@ -423,7 +422,6 @@ type BlogArticleDocumentDataSlicesSlice =
   | HeroSlice
   | ImageSlice
   | DividingLineSlice
-  | SubheadlineSlice
   | HeadlineSlice;
 
 /**
@@ -899,7 +897,6 @@ type PageDocumentDataSlicesSlice =
   | QuestionSlice
   | ImageSlice
   | HeroSlice
-  | SubheadlineSlice
   | HeadlineSlice
   | TeamMembersSlice
   | TextSlice;
@@ -2334,51 +2331,6 @@ export type RelatedArticlesSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *Subheadline → Default → Primary*
- */
-export interface SubheadlineSliceDefaultPrimary {
-  /**
-   * Subheadline field in *Subheadline → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: subheadline.default.primary.subheadline
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  subheadline: prismic.KeyTextField;
-}
-
-/**
- * Default variation for Subheadline Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type SubheadlineSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<SubheadlineSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Subheadline*
- */
-type SubheadlineSliceVariation = SubheadlineSliceDefault;
-
-/**
- * Subheadline Shared Slice
- *
- * - **API ID**: `subheadline`
- * - **Description**: Subheadline
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type SubheadlineSlice = prismic.SharedSlice<
-  "subheadline",
-  SubheadlineSliceVariation
->;
-
-/**
  * Item in *TeamMembers → Default → Primary → Team Member*
  */
 export interface TeamMembersSliceDefaultPrimaryTeamMemberItem {
@@ -2878,10 +2830,6 @@ declare module "@prismicio/client" {
       RelatedArticlesSliceDefaultPrimary,
       RelatedArticlesSliceVariation,
       RelatedArticlesSliceDefault,
-      SubheadlineSlice,
-      SubheadlineSliceDefaultPrimary,
-      SubheadlineSliceVariation,
-      SubheadlineSliceDefault,
       TeamMembersSlice,
       TeamMembersSliceDefaultPrimaryTeamMemberItem,
       TeamMembersSliceDefaultPrimary,

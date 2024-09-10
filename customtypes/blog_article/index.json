@@ -67,9 +67,6 @@
             "dividing_line": {
               "type": "SharedSlice"
             },
-            "subheadline": {
-              "type": "SharedSlice"
-            },
             "headline": {
               "type": "SharedSlice"
             }
