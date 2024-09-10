@@ -101,6 +101,14 @@ export default defineNuxtConfig({
           type: "blog_article",
           path: "/articles/:uid",
         },
+        {
+          type: "jelly_loves",
+          path: "/jelly-loves",
+        },
+        {
+          type: "jelly_loves_article",
+          path: "/jelly-loves/:uid",
+        }
       ]
     }
   },
