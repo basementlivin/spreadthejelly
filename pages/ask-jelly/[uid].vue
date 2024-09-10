@@ -44,8 +44,9 @@ const { data: prevArticle } = useAsyncData('prevAskJellyArticle', () =>
     />
 
     <nav class="ask-jelly-article-navigation">
+      <!-- Render Previous Article link only if it exists and is different from the current article -->
       <PrismicLink
-        v-if="prevArticle && prevArticle[0]"
+        v-if="prevArticle && prevArticle[0] && prevArticle[0].id !== article?.id"
         :field="prevArticle[0]"
         class="prev-article"
         aria-label="Navigate to the previous article."
@@ -54,8 +55,9 @@ const { data: prevArticle } = useAsyncData('prevAskJellyArticle', () =>
         <span class="title">{{ prevArticle[0]?.data?.title }}</span>
       </PrismicLink>
 
+      <!-- Render Next Article link only if it exists and is different from the current article -->
       <PrismicLink
-        v-if="nextArticle && nextArticle[0]"
+        v-if="nextArticle && nextArticle[0] && nextArticle[0].id !== article?.id"
         :field="nextArticle[0]"
         class="next-article"
         aria-label="Navigate to the next article."

@@ -45,8 +45,9 @@ const { data: prevArticle } = useAsyncData('prevArticle', () =>
     />
 
     <nav class="article-navigation">
+      <!-- Render Previous Article link only if it exists and is different from the current article -->
       <PrismicLink
-        v-if="prevArticle && prevArticle[0]"
+        v-if="prevArticle && prevArticle[0] && prevArticle[0].id !== article?.id"
         :field="prevArticle[0]"
         class="prev-article link"
         aria-label="Navigate to the previous article."
@@ -66,8 +67,9 @@ const { data: prevArticle } = useAsyncData('prevArticle', () =>
         </div>
       </PrismicLink>
 
+      <!-- Render Next Article link only if it exists and is different from the current article -->
       <PrismicLink
-        v-if="nextArticle && nextArticle[0]"
+        v-if="nextArticle && nextArticle[0] && nextArticle[0].id !== article?.id"
         :field="nextArticle[0]"
         class="next-article link"
         aria-label="Navigate to the next article."
@@ -89,6 +91,7 @@ const { data: prevArticle } = useAsyncData('prevArticle', () =>
     </nav>
   </div>
 </template>
+
 
 <style lang="scss" scoped>
   @import '@/assets/scss/components/_article-nav.scss';
