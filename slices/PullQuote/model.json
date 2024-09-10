@@ -19,22 +19,20 @@
             "placeholder": ""
           }
         },
-        "article_title": {
+        "source": {
           "type": "Text",
           "config": {
-            "label": "Article Title",
-            "placeholder": ""
+            "label": "Quote Source",
+            "placeholder": "Title of article or source of the quote"
           }
         },
-        "article_link": {
+        "link": {
           "type": "Link",
           "config": {
-            "label": "Article Link",
-            "select": "document",
-            "customtypes": [
-              "ask_jelly_article",
-              "blog_article"
-            ]
+            "label": "Link (optional)",
+            "placeholder": "Link to an article, file, or another website",
+            "allowTargetBlank": true,
+            "select": null
           }
         }
       },

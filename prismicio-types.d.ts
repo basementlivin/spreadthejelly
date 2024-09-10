@@ -2057,26 +2057,24 @@ export interface PullQuoteSliceDefaultPrimary {
   quote: prismic.KeyTextField;
 
   /**
-   * Article Title field in *PullQuote → Default → Primary*
+   * Quote Source field in *PullQuote → Default → Primary*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: pull_quote.default.primary.article_title
+   * - **Placeholder**: Title of article or source of the quote
+   * - **API ID Path**: pull_quote.default.primary.source
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  article_title: prismic.KeyTextField;
+  source: prismic.KeyTextField;
 
   /**
-   * Article Link field in *PullQuote → Default → Primary*
+   * Link (optional) field in *PullQuote → Default → Primary*
    *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: pull_quote.default.primary.article_link
+   * - **Field Type**: Link
+   * - **Placeholder**: Link to an article, file, or another website
+   * - **API ID Path**: pull_quote.default.primary.link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  article_link: prismic.ContentRelationshipField<
-    "ask_jelly_article" | "blog_article"
-  >;
+  link: prismic.LinkField;
 }
 
 /**

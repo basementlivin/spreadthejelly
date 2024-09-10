@@ -8,16 +8,16 @@
 				"value": "pain",
 				"type": "Text"
 			},
-			"article_link": {
+			"link": {
 				"__TYPE__": "LinkContent",
 				"value": {
-					"__TYPE__": "DocumentLink",
-					"id": "mock_document_id"
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
 				}
 			},
-			"article_title": {
+			"source": {
 				"__TYPE__": "FieldContent",
-				"value": "beyond",
+				"value": "system",
 				"type": "Text"
 			}
 		},
