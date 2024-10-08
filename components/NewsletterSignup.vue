@@ -14,7 +14,7 @@ onMounted(() => {
   if (!hasSeenModal()) {
     setTimeout(() => {
       isModalVisible.value = true
-    }, 3500)
+    }, 2850)
   }
 })
 
