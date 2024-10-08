@@ -41,6 +41,7 @@ onMounted(() => {
 
 <template>
   <div class="fade-container">
+    <NewsletterSignup />
     <Header />
     <div
       id="smooth-wrapper"

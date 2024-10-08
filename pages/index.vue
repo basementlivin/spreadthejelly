@@ -14,7 +14,6 @@ usePageSeo(page)
 
 <template>
   <div>
-    <NewsletterSignup />
     <SliceZone
       id="main"
       wrapper="main"

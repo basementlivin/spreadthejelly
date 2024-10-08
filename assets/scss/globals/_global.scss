@@ -67,3 +67,7 @@ main {
 .hidden, .sr-only {
     @include visually-hidden;
 }
+
+// .no-scroll {
+//     overflow: hidden;
+// }
