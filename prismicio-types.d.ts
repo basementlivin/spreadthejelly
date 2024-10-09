@@ -841,6 +841,7 @@ export type JellyLovesDocument<Lang extends string = string> =
   >;
 
 type JellyLovesArticleDocumentDataSlicesSlice =
+  | RecommendationsSlice
   | ImageSlice
   | HeroSlice
   | RelatedArticlesSlice
