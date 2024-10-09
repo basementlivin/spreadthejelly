@@ -3,7 +3,7 @@ import { type Content } from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
 import { prismicImageSettings } from '@/utils/prismicImageSettings';
 import Masonry from 'masonry-layout';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, nextTick } from 'vue';
 
 defineProps(
   getSliceComponentProps<Content.RecommendationsSlice>([
@@ -14,17 +14,40 @@ defineProps(
   ]),
 );
 
-const masonryContainer = ref(null); // Ref for the container
+const masonryContainer = ref<HTMLElement | null>(null); // Specify the type for the container
 
-onMounted(() => {
-  if (masonryContainer.value) {
+const initializeMasonry = () => {
+  if (process.client && masonryContainer.value) {
     new Masonry(masonryContainer.value, {
       itemSelector: '.rec',
-      columnWidth: '.rec', // Can use a class for column sizing
-      percentPosition: true, // Set to true if you're using percentages for column widths
-      gutter: 30 // Adjust the space between items
+      columnWidth: '.rec',
+      percentPosition: true,
+      gutter: 32,
     });
   }
+};
+
+// Function to wait for all images to load
+const waitForImages = async () => {
+  if (!masonryContainer.value) return; // Check if the container is defined
+  const images = masonryContainer.value.querySelectorAll('img') as NodeListOf<HTMLImageElement>;
+  
+  await Promise.all(
+    Array.from(images).map((img) => {
+      if (img.complete) return Promise.resolve();
+      return new Promise<void>((resolve) => {
+        img.addEventListener('load', () => resolve());
+        img.addEventListener('error', () => resolve());
+      });
+    })
+  );
+};
+
+onMounted(async () => {
+  await waitForImages(); // Wait for all images to load
+  nextTick(() => {
+    initializeMasonry(); // Initialize Masonry after images are loaded
+  });
 });
 </script>
 
