@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { components } from '~/slices';
 import { useArticleSeo } from '~/composables/useArticleSeo';
+import { isFilled } from "@prismicio/client";
 import type { JellyLovesArticleDocument } from '~/prismicio-types.d.ts';
 import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
@@ -35,10 +36,34 @@ const { data: prevArticle } = useAsyncData('prevJellyLovesArticle', () =>
 </script>
 
 <template>
-  <div>
+  <main class="page--jelly-loves-article">
+    <div class="article__introduction wrapper wrapper--page-width">
+      <h1 class="title h2">
+        {{ article?.data.title }}
+      </h1>
+      <span class="author h3">
+        by {{ article?.data.author }}
+      </span>
+      <div class="image">
+        <PrismicImage
+          v-if="isFilled.image(article?.data.featured_image)"
+          :field="article?.data.featured_image"
+          :alt="article?.data.featured_image?.alt || 'No image description provided.'"
+          :widths="prismicImageSettings.presets.hero.widths"
+          :imgix-params="prismicImageSettings.presets.hero.imgixParams"
+          loading="lazy"
+        />
+      </div>
+      <PrismicRichText
+        v-if="isFilled.richText(article?.data.article_introduction)"
+        :field="article?.data.article_introduction"
+        wrapper="div"
+        class="intro"
+      />
+    </div>
     <SliceZone
-      id="main"
-      wrapper="main"
+      id="article__content"
+      wrapper="div"
       class="page--jelly-loves-article"
       :slices="article?.data.slices ?? []"
       :components="components"
@@ -89,9 +114,10 @@ const { data: prevArticle } = useAsyncData('prevJellyLovesArticle', () =>
         </div>
       </PrismicLink>
     </nav>
-  </div>
+  </main>
 </template>
 
 <style lang="scss" scoped>
   @import '@/assets/scss/components/_article-nav.scss';
+  @import '@/assets/scss/pages/_jelly-loves-article.scss';
 </style>
