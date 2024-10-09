@@ -16,11 +16,6 @@ html, body {
     width: 100%;
 }
 
-div[data-scroll-container] {
-    overflow: hidden;
-    height: 100%;
-}
-
 body.menu-open,
 body.contact-open,
 body.search-open {
@@ -67,7 +62,3 @@ main {
 .hidden, .sr-only {
     @include visually-hidden;
 }
-
-// .no-scroll {
-//     overflow: hidden;
-// }
