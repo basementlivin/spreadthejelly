@@ -14,8 +14,12 @@
     }
 
     .image {
-      height: 800px;
+      height: 600px;
       width: 100%;
+
+      @include breakpoint($laptop) {
+        height: 800px;
+      }
 
       img {
         height: 100%;
