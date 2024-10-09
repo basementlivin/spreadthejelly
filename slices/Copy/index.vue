@@ -19,6 +19,28 @@ const pullQuoteClass = computed(() => {
   }
   return ''
 })
+
+function getStickerFileName(selection: string | null): string {
+  switch (selection) {
+    case 'Pink Flower': return 'sticker_01.webp';
+    case 'Yellow Flower': return 'sticker_02.webp';
+    case 'Blue Flower': return 'sticker_03.webp';
+    case 'Green Flower': return 'sticker_04.webp';
+    case 'Blue Star': return 'sticker_05.webp';
+    case 'Red Star': return 'sticker_06.webp';
+    case 'Green Star': return 'sticker_07.webp';
+    default: return '';
+  }
+}
+
+function getPositionClass(position: string | null): string {
+  switch (position) {
+    case 'Top': return 'top';
+    case 'Middle': return 'middle';
+    case 'Bottom': return 'bottom';
+    default: return '';
+  }
+}
 </script>
 
 <template>
@@ -38,17 +60,15 @@ const pullQuoteClass = computed(() => {
     class="article-pull-quote wrapper wrapper--page-width"
   >
     <div
-      :class="[
-        'illustration__left',
-        isFilled.select(slice.primary.illustration_left) && slice.primary.illustration_left === 'Pink Flower' ? 'flower' : '',
-        isFilled.select(slice.primary.illustration_left) && slice.primary.illustration_left === 'Green Puddle' ? 'puddle' : '',
-        isFilled.select(slice.primary.illustration_left) && slice.primary.illustration_left === 'Blue Star' ? 'star--blue' : '',
-        isFilled.select(slice.primary.illustration_left) && slice.primary.illustration_left === 'Yellow Star' ? 'star--yellow' : '',
-        isFilled.select(slice.primary.illustration_left_position) && slice.primary.illustration_left_position === 'Top' ? 'top' : '',
-        isFilled.select(slice.primary.illustration_left_position) && slice.primary.illustration_left_position === 'Middle' ? 'middle' : '',
-        isFilled.select(slice.primary.illustration_left_position) && slice.primary.illustration_left_position === 'Bottom' ? 'bottom' : '',
-      ]"
-    />
+      v-if="isFilled.select(slice.primary.illustration_left)"
+      :class="['illustration__left', getPositionClass(slice.primary.illustration_left_position)]"
+    >
+      <img
+        v-if="getStickerFileName(slice.primary.illustration_left)"
+        :src="`/stickers/${getStickerFileName(slice.primary.illustration_left)}`"
+        :alt="slice.primary.illustration_left || 'Sticker'"
+      >
+    </div>
 
     <blockquote
       v-if="isFilled.keyText(slice.primary.pull_quote)"
@@ -58,18 +78,17 @@ const pullQuoteClass = computed(() => {
     </blockquote>
 
     <div
-      :class="[
-        'illustration__right',
-        isFilled.select(slice.primary.illustration_right) && slice.primary.illustration_right === 'Pink Flower' ? 'flower' : '',
-        isFilled.select(slice.primary.illustration_right) && slice.primary.illustration_right === 'Green Puddle' ? 'puddle' : '',
-        isFilled.select(slice.primary.illustration_right) && slice.primary.illustration_right === 'Blue Star' ? 'star--blue' : '',
-        isFilled.select(slice.primary.illustration_right) && slice.primary.illustration_right === 'Yellow Star' ? 'star--yellow' : '',
-        isFilled.select(slice.primary.illustration_right_position) && slice.primary.illustration_right_position === 'Top' ? 'top' : '',
-        isFilled.select(slice.primary.illustration_right_position) && slice.primary.illustration_right_position === 'Middle' ? 'middle' : '',
-        isFilled.select(slice.primary.illustration_right_position) && slice.primary.illustration_right_position === 'Bottom' ? 'bottom' : '',
-      ]"
-    />
+      v-if="isFilled.select(slice.primary.illustration_right)"
+      :class="['illustration__right', getPositionClass(slice.primary.illustration_right_position)]"
+    >
+      <img
+        v-if="getStickerFileName(slice.primary.illustration_right)"
+        :src="`/stickers/${getStickerFileName(slice.primary.illustration_right)}`"
+        :alt="slice.primary.illustration_right || 'Sticker'"
+      >
+    </div>
   </section>
+
 
   <section
     v-else-if="slice.variation === 'copyWithImage'"

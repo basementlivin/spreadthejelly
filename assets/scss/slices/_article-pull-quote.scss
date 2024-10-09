@@ -31,38 +31,11 @@ section.article-pull-quote {
       align-self: end;
     }
 
-    &.flower {
-      background-color: pink;
-      &::after {
-        content: 'placeholder!';
-        font-size: 0.75rem;
-      }
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
     }
-
-    &.puddle {
-      background-color: $green;
-      &::after {
-        content: 'placeholder!';
-        font-size: 0.75rem;
-      }
-    }
-
-    &.star--yellow {
-      background-color: yellow;
-      &::after {
-        content: 'placeholder!';
-        font-size: 0.75rem;
-      }
-    }
-
-    &.star--blue {
-      background-color: blue;
-      &::after {
-        content: 'placeholder!';
-        font-size: 0.75rem;
-      }
-    }
-
   }
   
   .illustration__right {
@@ -70,7 +43,6 @@ section.article-pull-quote {
     width: 6rem;
     height: 6rem;
     
-    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,36 +59,10 @@ section.article-pull-quote {
       align-self: end;
     }
 
-    &.flower {
-      background-color: pink;
-      &::after {
-        content: 'placeholder!';
-        font-size: 0.75rem;
-      }
-    }
-
-    &.puddle {
-      background-color: $green;
-      &::after {
-        content: 'placeholder!';
-        font-size: 0.75rem;
-      }
-    }
-
-    &.star--yellow {
-      background-color: yellow;
-      &::after {
-        content: 'placeholder!';
-        font-size: 0.75rem;
-      }
-    }
-
-    &.star--blue {
-      background-color: blue;
-      &::after {
-        content: 'placeholder!';
-        font-size: 0.75rem;
-      }
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
     }
   }
 
