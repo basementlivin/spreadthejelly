@@ -2388,6 +2388,88 @@ export type QuestionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Recommendations → Default → Primary → Recommendation*
+ */
+export interface RecommendationsSliceDefaultPrimaryRecommendationItem {
+  /**
+   * Image field in *Recommendations → Default → Primary → Recommendation*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recommendations.default.primary.recommendation[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Recommendations → Default → Primary → Recommendation*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recommendations.default.primary.recommendation[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Copy field in *Recommendations → Default → Primary → Recommendation*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recommendations.default.primary.recommendation[].copy
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  copy: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Recommendations → Default → Primary*
+ */
+export interface RecommendationsSliceDefaultPrimary {
+  /**
+   * Recommendation field in *Recommendations → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recommendations.default.primary.recommendation[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  recommendation: prismic.GroupField<
+    Simplify<RecommendationsSliceDefaultPrimaryRecommendationItem>
+  >;
+}
+
+/**
+ * Default variation for Recommendations Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RecommendationsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RecommendationsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Recommendations*
+ */
+type RecommendationsSliceVariation = RecommendationsSliceDefault;
+
+/**
+ * Recommendations Shared Slice
+ *
+ * - **API ID**: `recommendations`
+ * - **Description**: Recommendations
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RecommendationsSlice = prismic.SharedSlice<
+  "recommendations",
+  RecommendationsSliceVariation
+>;
+
+/**
  * Item in *RelatedAnswers → Default → Primary → Answers*
  */
 export interface RelatedAnswersSliceDefaultPrimaryAnswersItem {
@@ -2953,6 +3035,17 @@ declare module "@prismicio/client" {
     ): prismic.Client<AllDocumentTypes>;
   }
 
+  interface CreateWriteClient {
+    (
+      repositoryNameOrEndpoint: string,
+      options: prismic.WriteClientConfig,
+    ): prismic.WriteClient<AllDocumentTypes>;
+  }
+
+  interface CreateMigration {
+    (): prismic.Migration<AllDocumentTypes>;
+  }
+
   namespace Content {
     export type {
       AboutDocument,
@@ -3049,6 +3142,11 @@ declare module "@prismicio/client" {
       QuestionSliceDefaultPrimary,
       QuestionSliceVariation,
       QuestionSliceDefault,
+      RecommendationsSlice,
+      RecommendationsSliceDefaultPrimaryRecommendationItem,
+      RecommendationsSliceDefaultPrimary,
+      RecommendationsSliceVariation,
+      RecommendationsSliceDefault,
       RelatedAnswersSlice,
       RelatedAnswersSliceDefaultPrimaryAnswersItem,
       RelatedAnswersSliceDefaultPrimary,
