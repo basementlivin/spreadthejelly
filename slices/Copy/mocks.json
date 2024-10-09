@@ -117,12 +117,12 @@
 			},
 			"illustration_left": {
 				"__TYPE__": "FieldContent",
-				"value": "Blue Star",
+				"value": "Yellow Flower",
 				"type": "Select"
 			},
 			"illustration_right": {
 				"__TYPE__": "FieldContent",
-				"value": "Blue Star",
+				"value": "Blue Flower",
 				"type": "Select"
 			},
 			"illustration_left_position": {
@@ -132,7 +132,7 @@
 			},
 			"illustration_right_position": {
 				"__TYPE__": "FieldContent",
-				"value": "Bottom",
+				"value": "Middle",
 				"type": "Select"
 			}
 		},

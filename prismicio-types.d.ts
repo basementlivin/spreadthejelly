@@ -2953,44 +2953,56 @@ export interface TextSlicePullQuotePrimary {
   pull_quote: prismic.KeyTextField;
 
   /**
-   * Illustration Left (optional) field in *Copy → Pull Quote → Primary*
+   * Sticker Left (optional) field in *Copy → Pull Quote → Primary*
    *
    * - **Field Type**: Select
-   * - **Placeholder**: Select an illustrative element. Or don't!
+   * - **Placeholder**: Add a sticker. Or don't!
    * - **API ID Path**: text.pullQuote.primary.illustration_left
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   illustration_left: prismic.SelectField<
-    "Pink Flower" | "Green Puddle" | "Yellow Star" | "Blue Star"
+    | "Pink Flower"
+    | "Yellow Flower"
+    | "Blue Flower"
+    | "Green Flower"
+    | "Blue Star"
+    | "Red Star"
+    | "Green Star"
   >;
 
   /**
-   * Illustration Left Position field in *Copy → Pull Quote → Primary*
+   * Sticker Left Position field in *Copy → Pull Quote → Primary*
    *
    * - **Field Type**: Select
-   * - **Placeholder**: Set the vertical position of your illustration.
+   * - **Placeholder**: Set the vertical position of your sticker.
    * - **API ID Path**: text.pullQuote.primary.illustration_left_position
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   illustration_left_position: prismic.SelectField<"Top" | "Middle" | "Bottom">;
 
   /**
-   * Illustration Right (optional) field in *Copy → Pull Quote → Primary*
+   * Sticker Right (optional) field in *Copy → Pull Quote → Primary*
    *
    * - **Field Type**: Select
-   * - **Placeholder**: Select an illustrative element. Or don't!
+   * - **Placeholder**: Add a sticker. Or don't!
    * - **API ID Path**: text.pullQuote.primary.illustration_right
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   illustration_right: prismic.SelectField<
-    "Pink Flower" | "Green Puddle" | "Yellow Star" | "Blue Star"
+    | "Pink Flower"
+    | "Yellow Flower"
+    | "Blue Flower"
+    | "Green Flower"
+    | "Blue Star"
+    | "Red Star"
+    | "Green Star"
   >;
 
   /**
-   * Illustration Right Position field in *Copy → Pull Quote → Primary*
+   * Sticker Right Position field in *Copy → Pull Quote → Primary*
    *
    * - **Field Type**: Select
-   * - **Placeholder**: Set the vertical position of your illustration.
+   * - **Placeholder**: Set the vertical position of your sticker.
    * - **API ID Path**: text.pullQuote.primary.illustration_right_position
    * - **Documentation**: https://prismic.io/docs/field#select
    */

@@ -118,21 +118,24 @@
         "illustration_left": {
           "type": "Select",
           "config": {
-            "label": "Illustration Left (optional)",
-            "placeholder": "Select an illustrative element. Or don't!",
+            "label": "Sticker Left (optional)",
+            "placeholder": "Add a sticker. Or don't!",
             "options": [
               "Pink Flower",
-              "Green Puddle",
-              "Yellow Star",
-              "Blue Star"
+              "Yellow Flower",
+              "Blue Flower",
+              "Green Flower",
+              "Blue Star",
+              "Red Star",
+              "Green Star"
             ]
           }
         },
         "illustration_left_position": {
           "type": "Select",
           "config": {
-            "label": "Illustration Left Position",
-            "placeholder": "Set the vertical position of your illustration.",
+            "label": "Sticker Left Position",
+            "placeholder": "Set the vertical position of your sticker.",
             "options": [
               "Top",
               "Middle",
@@ -143,21 +146,24 @@
         "illustration_right": {
           "type": "Select",
           "config": {
-            "label": "Illustration Right (optional)",
-            "placeholder": "Select an illustrative element. Or don't!",
+            "label": "Sticker Right (optional)",
+            "placeholder": "Add a sticker. Or don't!",
             "options": [
               "Pink Flower",
-              "Green Puddle",
-              "Yellow Star",
-              "Blue Star"
+              "Yellow Flower",
+              "Blue Flower",
+              "Green Flower",
+              "Blue Star",
+              "Red Star",
+              "Green Star"
             ]
           }
         },
         "illustration_right_position": {
           "type": "Select",
           "config": {
-            "label": "Illustration Right Position",
-            "placeholder": "Set the vertical position of your illustration.",
+            "label": "Sticker Right Position",
+            "placeholder": "Set the vertical position of your sticker.",
             "options": [
               "Top",
               "Middle",
