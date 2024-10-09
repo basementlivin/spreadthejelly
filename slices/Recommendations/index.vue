@@ -2,7 +2,6 @@
 import { type Content } from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
 import { prismicImageSettings } from '@/utils/prismicImageSettings';
-import Masonry from 'masonry-layout';
 import { onMounted, ref, nextTick } from 'vue';
 
 defineProps(
@@ -16,8 +15,9 @@ defineProps(
 
 const masonryContainer = ref<HTMLElement | null>(null); // Specify the type for the container
 
-const initializeMasonry = () => {
-  if (process.client && masonryContainer.value) {
+const initializeMasonry = async () => {
+  if (!import.meta.env.SSR && masonryContainer.value) { // Check if not in SSR
+    const Masonry = (await import('masonry-layout')).default; // Dynamic import
     new Masonry(masonryContainer.value, {
       itemSelector: '.rec',
       columnWidth: '.rec',
@@ -26,6 +26,7 @@ const initializeMasonry = () => {
     });
   }
 };
+
 
 // Function to wait for all images to load
 const waitForImages = async () => {
