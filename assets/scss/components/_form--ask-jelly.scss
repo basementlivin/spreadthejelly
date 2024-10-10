@@ -15,7 +15,7 @@
 
     input, textarea {
       width: 100%;
-      padding: 1rem;
+      padding: 1rem 1rem 1rem 1.5rem;
       margin-bottom: 1rem;
       border: none;
       border-radius: 0;
@@ -23,10 +23,31 @@
       color: $white;
       @include chivo-variable(350);
       font-size: 1rem;
+      -webkit-mask-size: 100% 100%;
+      mask-size: 100% 100%;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      mask-position: center;
 
       &::placeholder {
         color: $white;
       }
+    }
+
+    #name {
+      -webkit-mask-image: url('/assets/svg/askjelly--name.svg');
+      mask-image: url('/assets/svg/askjelly--name.svg');
+    }
+
+    #email {
+      -webkit-mask-image: url('/assets/svg/askjelly--email.svg');
+      mask-image: url('/assets/svg/askjelly--email.svg');
+    }
+
+    #message {
+      -webkit-mask-image: url('/assets/svg/askjelly--message.svg');
+      mask-image: url('/assets/svg/askjelly--message.svg');
     }
 
     textarea {
