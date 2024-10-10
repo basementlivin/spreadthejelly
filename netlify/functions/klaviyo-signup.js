@@ -24,37 +24,60 @@ exports.handler = async (event) => {
       throw new Error('Email not found in the request payload');
     }
 
-    // Step 1: Create a profile in Klaviyo
-    const createProfilePayload = {
-      data: {
-        type: 'profile',
-        attributes: {
-          email: email,
-          properties: {
-            signupSource: 'Website footer'
-          }
-        }
-      }
-    };
+    let profileId = null;
 
-    const createProfileResponse = await fetch('https://a.klaviyo.com/api/profiles/', {
-      method: 'POST',
+    // Step 1: Search for the profile by email
+    const searchProfileResponse = await fetch(`https://a.klaviyo.com/api/profiles/?filter=equals(email,'${email}')`, {
+      method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
         'Authorization': `Klaviyo-API-Key ${process.env.KLAVIYO_API_KEY}`,
         'revision': '2024-07-15',
       },
-      body: JSON.stringify(createProfilePayload),
     });
 
-    if (!createProfileResponse.ok) {
-      const errorText = await createProfileResponse.text();
-      throw new Error(`Failed to create profile in Klaviyo: ${createProfileResponse.statusText} - ${errorText}`);
+    if (searchProfileResponse.ok) {
+      const searchResult = await searchProfileResponse.json();
+      if (searchResult.data && searchResult.data.length > 0) {
+        profileId = searchResult.data[0].id;
+        console.log('Profile found with ID:', profileId);
+      }
     }
 
-    console.log('Profile created successfully:', email);
+    // Step 2: Create the profile if it doesn't already exist
+    if (!profileId) {
+      const createProfilePayload = {
+        data: {
+          type: 'profile',
+          attributes: {
+            email: email,
+            properties: {
+              signupSource: 'Website'
+            }
+          }
+        }
+      };
 
-    // Step 2: Subscribe the profile to a list
+      const createProfileResponse = await fetch('https://a.klaviyo.com/api/profiles/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Klaviyo-API-Key ${process.env.KLAVIYO_API_KEY}`,
+          'revision': '2024-07-15',
+        },
+        body: JSON.stringify(createProfilePayload),
+      });
+
+      if (!createProfileResponse.ok) {
+        const errorText = await createProfileResponse.text();
+        throw new Error(`Failed to create profile in Klaviyo: ${createProfileResponse.statusText} - ${errorText}`);
+      }
+
+      const createdProfile = await createProfileResponse.json();
+      profileId = createdProfile.data.id;
+      console.log('Profile created successfully with ID:', profileId);
+    }
+
+    // Step 3: Subscribe the profile to the list
     const subscribePayload = {
       profiles: [
         {
@@ -79,7 +102,7 @@ exports.handler = async (event) => {
 
     return {
       statusCode: 200,
-      body: 'Profile created and subscribed to Klaviyo successfully',
+      body: 'Profile created (or already existed) and subscribed to Klaviyo successfully',
     };
   } catch (error) {
     console.error('Error:', error.message);
