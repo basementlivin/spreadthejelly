@@ -29,7 +29,9 @@ exports.handler = async (event) => {
       data: [
         {
           type: 'profile',
-          id: email,
+          attributes: {
+            email: email
+          }
         },
       ],
     };
@@ -39,7 +41,7 @@ exports.handler = async (event) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Klaviyo-API-Key ${process.env.KLAVIYO_API_KEY}`, // Correct format with the prefix
+        'Authorization': `Klaviyo-API-Key ${process.env.KLAVIYO_API_KEY}`,
         'revision': '2024-07-15',
       },
       body: JSON.stringify(klaviyoPayload),
