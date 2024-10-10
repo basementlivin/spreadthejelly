@@ -26,21 +26,19 @@ exports.handler = async (event) => {
 
     // Create the Klaviyo request payload
     const klaviyoPayload = {
-      data: [
+      profiles: [
         {
-          type: 'profile',
-          id: email
+          email: email
         }
       ]
     };
 
     // Send the request to Klaviyo
-    const response = await fetch('https://a.klaviyo.com/api/lists/Tac5wN/relationships/profiles/', {
+    const response = await fetch('https://a.klaviyo.com/api/v2/list/Tac5wN/subscribe', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Klaviyo-API-Key ${process.env.KLAVIYO_API_KEY}`,
-        'revision': '2024-07-15',
       },
       body: JSON.stringify(klaviyoPayload),
     });
