@@ -13,7 +13,7 @@ exports.handler = async (event) => {
     const payload = JSON.parse(event.body);
     console.log('Incoming Payload:', payload);
 
-    // Try to find the email in different possible locations
+    // Try to find the email in various possible locations
     const email =
       payload.email ||
       payload.data?.email ||
@@ -35,18 +35,19 @@ exports.handler = async (event) => {
     };
 
     // Send the request to Klaviyo
-    const response = await fetch('https://a.klaviyo.com/api/lists/Tac5wN/relationships/profiles', {
+    const response = await fetch('https://a.klaviyo.com/api/lists/Tac5wN/relationships/profiles/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Klaviyo-API-Key ${process.env.KLAVIYO_API_KEY}`,
+        'Authorization': `${process.env.KLAVIYO_API_KEY}`,
         'revision': '2024-07-15',
       },
       body: JSON.stringify(klaviyoPayload),
     });
 
     if (!response.ok) {
-      throw new Error(`Failed to add profile to Klaviyo: ${response.statusText}`);
+      const errorText = await response.text(); // Retrieve the error message from the response
+      throw new Error(`Failed to add profile to Klaviyo: ${response.statusText} - ${errorText}`);
     }
 
     return {
