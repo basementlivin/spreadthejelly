@@ -39,7 +39,7 @@ exports.handler = async (event) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${process.env.KLAVIYO_API_KEY}`,
+        'Authorization': `Klaviyo-API-Key ${process.env.KLAVIYO_API_KEY}`, // Correct format with the prefix
         'revision': '2024-07-15',
       },
       body: JSON.stringify(klaviyoPayload),
