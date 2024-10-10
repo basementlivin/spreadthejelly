@@ -18,29 +18,25 @@ const form = ref({
 const showAlert = ref(false)
 
 const handleSubmit = (event: Event) => {
-  event.preventDefault();
+  event.preventDefault()
 
-  // Create a JSON payload from the form data
-  const payload = {
-    email: form.value.email,
-    'form-name': 'newsletter-signup--footer',
-  };
+  const formElement = event.target as HTMLFormElement
+  const formData = new FormData(formElement)
 
   fetch("/", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData as any).toString(),
   })
     .then(() => {
-      showAlert.value = true;
-      form.value.email = '';
+      showAlert.value = true
+      form.value.email = ''
       setTimeout(() => {
-        showAlert.value = false;
-      }, 3000);
+        showAlert.value = false
+      }, 3000)
     })
-    .catch((error) => console.error("Form submission error:", error));
-};
-
+    .catch((error) => console.error("Form submission error:", error))
+}
 </script>
 
 <template>

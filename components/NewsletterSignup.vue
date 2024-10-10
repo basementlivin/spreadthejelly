@@ -23,28 +23,25 @@ const closeModal = () => {
 }
 
 const handleSubmit = (event: Event) => {
-  event.preventDefault();
+  event.preventDefault()
 
-  // Create a JSON payload from the form data
-  const payload = {
-    email: form.value.email,
-    'form-name': 'newsletter-signup--popup',
-  };
+  const formElement = event.target as HTMLFormElement
+  const formData = new FormData(formElement)
 
   fetch("/", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData as any).toString(),
   })
     .then(() => {
-      isFormSubmitted.value = true;
-      setCookie(COOKIE_NAME, 'true', DAYS_TO_EXPIRE);
+      isFormSubmitted.value = true
+      setCookie(COOKIE_NAME, 'true', DAYS_TO_EXPIRE)
       setTimeout(() => {
-        closeModal();
-      }, 2500);
+        closeModal()
+      }, 2500)
     })
-    .catch((error) => console.error("Form submission error:", error));
-};
+    .catch((error) => console.error("Form submission error:", error))
+}
 
 // Function to set a cookie with an expiration date
 const setCookie = (name: string, value: string, days: number) => {
