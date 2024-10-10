@@ -8,6 +8,9 @@ exports.handler = async (event) => {
     };
   }
 
+  // Log the Klaviyo API Key for testing
+  console.log('Klaviyo API Key:', process.env.KLAVIYO_API_KEY);
+
   try {
     // Parse the request body as JSON
     const payload = JSON.parse(event.body);
