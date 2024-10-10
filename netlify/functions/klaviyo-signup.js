@@ -51,7 +51,7 @@ exports.handler = async (event) => {
           attributes: {
             email: email,
             properties: {
-              signupSource: 'Website'
+              signupSource: 'Website footer'
             }
           }
         }
@@ -77,32 +77,35 @@ exports.handler = async (event) => {
       console.log('Profile created successfully with ID:', profileId);
     }
 
-    // Step 3: Subscribe the profile to the list
-    const subscribePayload = {
-      profiles: [
+    // Step 3: Add the profile to the list
+    const listId = 'Tac5wN';
+    const addToListPayload = {
+      data: [
         {
-          email: email
+          type: 'profile',
+          id: profileId
         }
       ]
     };
 
-    const subscribeResponse = await fetch('https://a.klaviyo.com/api/v2/list/Tac5wN/subscribe', {
+    const addToListResponse = await fetch(`https://a.klaviyo.com/api/lists/${listId}/relationships/profiles/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Klaviyo-API-Key ${process.env.KLAVIYO_API_KEY}`,
+        'revision': '2024-07-15',
       },
-      body: JSON.stringify(subscribePayload),
+      body: JSON.stringify(addToListPayload),
     });
 
-    if (!subscribeResponse.ok) {
-      const errorText = await subscribeResponse.text();
-      throw new Error(`Failed to subscribe profile to Klaviyo list: ${subscribeResponse.statusText} - ${errorText}`);
+    if (!addToListResponse.ok) {
+      const errorText = await addToListResponse.text();
+      throw new Error(`Failed to add profile to Klaviyo list: ${addToListResponse.statusText} - ${errorText}`);
     }
 
     return {
       statusCode: 200,
-      body: 'Profile created (or already existed) and subscribed to Klaviyo successfully',
+      body: 'Profile created (or already existed) and added to the Klaviyo list successfully',
     };
   } catch (error) {
     console.error('Error:', error.message);
