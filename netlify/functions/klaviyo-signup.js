@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const querystring = require('querystring');
 
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
@@ -9,18 +10,16 @@ exports.handler = async (event) => {
   }
 
   try {
-    // Parse the request body and log it for debugging
-    const payload = JSON.parse(event.body);
+    // Parse the URL-encoded request body
+    const payload = querystring.parse(event.body);
     console.log('Incoming Payload:', payload);
 
-    // Try to get the email from different possible structures
-    const email = payload.email || payload['newsletter-signup--footer']?.email || payload['newsletter-signup--popup']?.email || payload.payload?.data?.email;
+    const email = payload.email;
 
     if (!email) {
       throw new Error('Email not found in the request payload');
     }
 
-    // Create the Klaviyo request payload
     const klaviyoPayload = {
       data: [
         {
@@ -30,7 +29,6 @@ exports.handler = async (event) => {
       ],
     };
 
-    // Send the request to Klaviyo
     const response = await fetch('https://a.klaviyo.com/api/lists/Tac5wN/relationships/profiles', {
       method: 'POST',
       headers: {
