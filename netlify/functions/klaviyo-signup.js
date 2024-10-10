@@ -51,7 +51,7 @@ exports.handler = async (event) => {
           attributes: {
             email: email,
             properties: {
-              signupSource: 'Website footer'
+              signupSource: 'Website'
             }
           }
         }
@@ -102,6 +102,9 @@ exports.handler = async (event) => {
       const errorText = await addToListResponse.text();
       throw new Error(`Failed to add profile to Klaviyo list: ${addToListResponse.statusText} - ${errorText}`);
     }
+
+    // Log success message if the profile was added to the list
+    console.log(`Profile with ID ${profileId} and email ${email} successfully added to the list ${listId}`);
 
     return {
       statusCode: 200,
