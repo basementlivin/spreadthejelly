@@ -8,9 +8,6 @@ exports.handler = async (event) => {
     };
   }
 
-  // Log the Klaviyo API Key for testing
-  console.log('Klaviyo API Key:', process.env.KLAVIYO_API_KEY);
-
   try {
     // Parse the request body as JSON
     const payload = JSON.parse(event.body);
@@ -27,8 +24,38 @@ exports.handler = async (event) => {
       throw new Error('Email not found in the request payload');
     }
 
-    // Create the Klaviyo request payload
-    const klaviyoPayload = {
+    // Step 1: Create a profile in Klaviyo
+    const createProfilePayload = {
+      data: {
+        type: 'profile',
+        attributes: {
+          email: email,
+          properties: {
+            signupSource: 'Website footer'
+          }
+        }
+      }
+    };
+
+    const createProfileResponse = await fetch('https://a.klaviyo.com/api/profiles/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Klaviyo-API-Key ${process.env.KLAVIYO_API_KEY}`,
+        'revision': '2024-07-15',
+      },
+      body: JSON.stringify(createProfilePayload),
+    });
+
+    if (!createProfileResponse.ok) {
+      const errorText = await createProfileResponse.text();
+      throw new Error(`Failed to create profile in Klaviyo: ${createProfileResponse.statusText} - ${errorText}`);
+    }
+
+    console.log('Profile created successfully:', email);
+
+    // Step 2: Subscribe the profile to a list
+    const subscribePayload = {
       profiles: [
         {
           email: email
@@ -36,24 +63,23 @@ exports.handler = async (event) => {
       ]
     };
 
-    // Send the request to Klaviyo
-    const response = await fetch('https://a.klaviyo.com/api/v2/list/Tac5wN/subscribe', {
+    const subscribeResponse = await fetch('https://a.klaviyo.com/api/v2/list/Tac5wN/subscribe', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Klaviyo-API-Key ${process.env.KLAVIYO_API_KEY}`,
       },
-      body: JSON.stringify(klaviyoPayload),
+      body: JSON.stringify(subscribePayload),
     });
 
-    if (!response.ok) {
-      const errorText = await response.text(); // Retrieve the error message from the response
-      throw new Error(`Failed to add profile to Klaviyo: ${response.statusText} - ${errorText}`);
+    if (!subscribeResponse.ok) {
+      const errorText = await subscribeResponse.text();
+      throw new Error(`Failed to subscribe profile to Klaviyo list: ${subscribeResponse.statusText} - ${errorText}`);
     }
 
     return {
       statusCode: 200,
-      body: 'Profile added to Klaviyo successfully',
+      body: 'Profile created and subscribed to Klaviyo successfully',
     };
   } catch (error) {
     console.error('Error:', error.message);
