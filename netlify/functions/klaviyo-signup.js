@@ -29,11 +29,9 @@ exports.handler = async (event) => {
       data: [
         {
           type: 'profile',
-          attributes: {
-            email: email
-          }
-        },
-      ],
+          id: email
+        }
+      ]
     };
 
     // Send the request to Klaviyo
