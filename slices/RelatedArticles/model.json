@@ -35,29 +35,41 @@
                   ]
                 }
               },
-              "image_mask": {
+              "card_style": {
                 "type": "Select",
                 "config": {
-                  "label": "Image Mask",
+                  "label": "Card Style",
                   "placeholder": "",
                   "options": [
-                    "None",
-                    "Blob 1",
-                    "Blob 2"
+                    "Full-Bleed Image",
+                    "Blob Mask 1",
+                    "Blob Mask 2",
+                    "Featured Quote"
                   ],
-                  "default_value": "None"
+                  "default_value": "Full-Bleed Image"
                 }
               },
-              "image_mask_color": {
+              "card_bg_color": {
                 "type": "Select",
                 "config": {
-                  "label": "Image Mask Color",
+                  "label": "Card Background Color",
                   "placeholder": "",
                   "options": [
                     "Black",
                     "White"
                   ],
                   "default_value": "Black"
+                }
+              },
+              "card_text_color": {
+                "type": "Select",
+                "config": {
+                  "label": "Card Text Color",
+                  "placeholder": "Only applies to 'Featured Quote' card style",
+                  "options": [
+                    "White",
+                    "Black"
+                  ]
                 }
               }
             }

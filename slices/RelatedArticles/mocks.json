@@ -25,15 +25,23 @@
 								}
 							],
 							[
-								"image_mask",
+								"card_bg_color",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "None",
+									"value": "Black",
 									"type": "Select"
 								}
 							],
 							[
-								"image_mask_color",
+								"card_style",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Full-Bleed Image",
+									"type": "Select"
+								}
+							],
+							[
+								"card_text_color",
 								{
 									"__TYPE__": "FieldContent",
 									"value": "Black",

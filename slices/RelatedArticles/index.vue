@@ -20,6 +20,7 @@ const relatedArticlesData = await prismic.client.getByType<BlogArticleDocument>(
   fetchLinks: [
     "blog_article.title",
     "blog_article.featured_image",
+    "blog_article.featured_quote"
   ]
 });
 
@@ -35,8 +36,8 @@ const relatedArticles = computed(() => {
         (doc) => isFilled.contentRelationship(articleLink) && doc.id === articleLink.id
       );
 
-      // Return the related document along with the image_mask field
-      return relatedDoc ? { ...relatedDoc, image_mask: item.image_mask, image_mask_color: item.image_mask_color } : null;
+      // Return the related document along with the card_style, card_bg_color, and card_text_color fields
+      return relatedDoc ? { ...relatedDoc, card_style: item.card_style, card_bg_color: item.card_bg_color, card_text_color: item.card_text_color } : null;
     })
     .filter(article => article !== null);  // Filter out any null entries
 });
@@ -67,20 +68,31 @@ const relatedArticles = computed(() => {
         <div
           class="article__image"
           :class="{
-            'mask mask--blob-01': article.image_mask === 'Blob 1',
-            'mask mask--blob-02': article.image_mask === 'Blob 2',
-            'mask--white': article.image_mask_color === 'White',
-            'mask--black': article.image_mask_color === 'Black',
+            'mask mask--blob-01': article.card_style === 'Blob Mask 1',
+            'mask mask--blob-02': article.card_style === 'Blob Mask 2',
+            'mask mask--quote': article.card_style === 'Featured Quote',
+            'mask--white': article.card_bg_color === 'White',
+            'mask--black': article.card_bg_color === 'Black',
           }"
         >
           <PrismicImage
-            v-if="article.data.featured_image"
+            v-if="article.data.featured_image && article.card_style !== 'Featured Quote'"
             :field="article.data.featured_image"
             :alt="article.data.featured_image.alt || 'No image description provided'"
             :widths="prismicImageSettings.presets.default.widths"
             :imgix-params="prismicImageSettings.presets.default.imgixParams"
             loading="lazy"
           />
+          <span
+            v-if="article.card_style === 'Featured Quote'"
+            class="quote"
+            :class="{
+              'text--white': article.card_text_color === 'White',
+              'text--black': article.card_text_color === 'Black',
+            }"
+          >
+            "{{ article.data.featured_quote }}"
+          </span>
         </div>
         <div
           :id="`article__details--${index}`"
@@ -103,7 +115,7 @@ const relatedArticles = computed(() => {
             class="link"
             :aria-labelledby="`article__details--${index}`"
           >
-            read more <span class="hidden">about {{ article.data.title }}</span>
+            read more <span class="sr-only">about {{ article.data.title }}</span>
           </PrismicLink>
         </div>
       </div>

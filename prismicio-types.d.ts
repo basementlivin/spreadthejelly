@@ -2580,26 +2580,39 @@ export interface RelatedArticlesSliceDefaultPrimaryArticlesItem {
   article_link: prismic.ContentRelationshipField<"blog_article">;
 
   /**
-   * Image Mask field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
+   * Card Style field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: None
-   * - **API ID Path**: related_articles.default.primary.articles[].image_mask
+   * - **Default Value**: Full-Bleed Image
+   * - **API ID Path**: related_articles.default.primary.articles[].card_style
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  image_mask: prismic.SelectField<"None" | "Blob 1" | "Blob 2", "filled">;
+  card_style: prismic.SelectField<
+    "Full-Bleed Image" | "Blob Mask 1" | "Blob Mask 2" | "Featured Quote",
+    "filled"
+  >;
 
   /**
-   * Image Mask Color field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
+   * Card Background Color field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: Black
-   * - **API ID Path**: related_articles.default.primary.articles[].image_mask_color
+   * - **API ID Path**: related_articles.default.primary.articles[].card_bg_color
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  image_mask_color: prismic.SelectField<"Black" | "White", "filled">;
+  card_bg_color: prismic.SelectField<"Black" | "White", "filled">;
+
+  /**
+   * Card Text Color field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Only applies to 'Featured Quote' card style
+   * - **API ID Path**: related_articles.default.primary.articles[].card_text_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  card_text_color: prismic.SelectField<"White" | "Black">;
 }
 
 /**
