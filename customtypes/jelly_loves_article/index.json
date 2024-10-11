@@ -27,6 +27,15 @@
           "placeholder": ""
         }
       },
+      "article_introduction": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Article Introduction",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,heading2,strong,em,hyperlink"
+        }
+      },
       "uid": {
         "type": "UID",
         "config": {
@@ -41,13 +50,11 @@
           "thumbnails": []
         }
       },
-      "article_introduction": {
-        "type": "StructuredText",
+      "featured_quote": {
+        "type": "Text",
         "config": {
-          "label": "Article Introduction",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,heading2,strong,em,hyperlink"
+          "label": "Featured Quote",
+          "placeholder": ""
         }
       },
       "slices": {

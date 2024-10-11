@@ -275,6 +275,17 @@ interface AskJellyArticleDocumentData {
   publication_date: prismic.DateField;
 
   /**
+   * Featured Quote field in *Ask Jelly Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ask_jelly_article.featured_quote
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  featured_quote: prismic.KeyTextField;
+
+  /**
    * Slice Zone field in *Ask Jelly Article*
    *
    * - **Field Type**: Slice Zone
@@ -471,6 +482,17 @@ interface BlogArticleDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   featured_image: prismic.ImageField<never>;
+
+  /**
+   * Featured Quote field in *Blog Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_article.featured_quote
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  featured_quote: prismic.KeyTextField;
 
   /**
    * Slice Zone field in *Blog Article*
@@ -889,6 +911,17 @@ interface JellyLovesArticleDocumentData {
   publication_date: prismic.TimestampField;
 
   /**
+   * Article Introduction field in *Jelly Loves Article*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_loves_article.article_introduction
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  article_introduction: prismic.RichTextField;
+
+  /**
    * Featured Image field in *Jelly Loves Article*
    *
    * - **Field Type**: Image
@@ -900,15 +933,15 @@ interface JellyLovesArticleDocumentData {
   featured_image: prismic.ImageField<never>;
 
   /**
-   * Article Introduction field in *Jelly Loves Article*
+   * Featured Quote field in *Jelly Loves Article*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: jelly_loves_article.article_introduction
+   * - **API ID Path**: jelly_loves_article.featured_quote
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  article_introduction: prismic.RichTextField;
+  featured_quote: prismic.KeyTextField;
 
   /**
    * Slice Zone field in *Jelly Loves Article*

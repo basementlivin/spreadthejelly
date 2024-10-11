@@ -41,6 +41,13 @@
           "thumbnails": []
         }
       },
+      "featured_quote": {
+        "type": "Text",
+        "config": {
+          "label": "Featured Quote",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

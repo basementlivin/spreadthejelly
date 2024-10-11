@@ -6,12 +6,6 @@
   "status": true,
   "json": {
     "Main": {
-      "uid": {
-        "config": {
-          "label": "UID"
-        },
-        "type": "UID"
-      },
       "featured_image": {
         "type": "Image",
         "config": {
@@ -44,10 +38,23 @@
           "placeholder": ""
         }
       },
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
       "publication_date": {
         "type": "Date",
         "config": {
           "label": "Publication Date",
+          "placeholder": ""
+        }
+      },
+      "featured_quote": {
+        "type": "Text",
+        "config": {
+          "label": "Featured Quote",
           "placeholder": ""
         }
       },
