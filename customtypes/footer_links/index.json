@@ -56,6 +56,7 @@
         "config": {
           "label": "TikTok URL",
           "placeholder": "",
+          "allowTargetBlank": true,
           "select": null
         }
       },
@@ -64,6 +65,7 @@
         "config": {
           "label": "YouTube URL",
           "placeholder": "",
+          "allowTargetBlank": true,
           "select": null
         }
       }
