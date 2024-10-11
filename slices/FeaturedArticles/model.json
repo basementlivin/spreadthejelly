@@ -24,7 +24,8 @@
                   "label": "Article",
                   "select": "document",
                   "customtypes": [
-                    "blog_article"
+                    "blog_article",
+                    "jelly_loves_article"
                   ]
                 }
               },

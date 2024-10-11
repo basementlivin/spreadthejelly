@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type Content, isFilled } from "@prismicio/client";
 import { computed } from "vue";
-import type { BlogArticleDocument } from '~/prismicio-types.d.ts';
+import type { BlogArticleDocument, JellyLovesArticleDocument } from '~/prismicio-types.d.ts';
 import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
 const props = defineProps(
@@ -15,13 +15,27 @@ const props = defineProps(
 
 const prismic = usePrismic();
 
-// Fetch the related blog_article documents with typed data
-const featuredArticlesData = await prismic.client.getByType<BlogArticleDocument>('blog_article', {
-  fetchLinks: [
-    "blog_article.title",
-    "blog_article.featured_image",
-  ]
-});
+// Fetch related documents for both Blog Articles and Jelly Loves Articles
+const featuredArticlesData = await Promise.all([
+  prismic.client.getByType<BlogArticleDocument>('blog_article', {
+    fetchLinks: [
+      "blog_article.title",
+      "blog_article.featured_image"
+    ]
+  }),
+  prismic.client.getByType<JellyLovesArticleDocument>('jelly_loves_article', {
+    fetchLinks: [
+      "jelly_loves_article.title",
+      "jelly_loves_article.featured_image"
+    ]
+  })
+]);
+
+// Combine results from both queries
+const combinedArticlesData = [
+  ...featuredArticlesData[0].results,
+  ...featuredArticlesData[1].results
+];
 
 // Filter and map the featured articles
 const featuredArticles = computed(() => {
@@ -32,7 +46,7 @@ const featuredArticles = computed(() => {
 
       // Add type guard to ensure item.article has the id field
       if (isFilled.contentRelationship(articleLink)) {
-        const relatedDoc = featuredArticlesData.results.find(
+        const relatedDoc = combinedArticlesData.find(
           (doc) => doc.id === articleLink.id
         );
         return relatedDoc ? { ...relatedDoc, image_style: item.image_style, bg_color: item.background_color, text_align: item.text_align, text_color: item.text_color } : null;
@@ -43,6 +57,7 @@ const featuredArticles = computed(() => {
 });
 
 </script>
+
 
 <template>
   <section

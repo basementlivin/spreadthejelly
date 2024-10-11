@@ -1359,7 +1359,9 @@ export interface FeaturedArticlesSliceDefaultPrimaryArticlesItem {
    * - **API ID Path**: featured_articles.default.primary.articles[].article
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  article: prismic.ContentRelationshipField<"blog_article">;
+  article: prismic.ContentRelationshipField<
+    "blog_article" | "jelly_loves_article"
+  >;
 
   /**
    * Image Style field in *FeaturedArticles → Default → Primary → Articles*
