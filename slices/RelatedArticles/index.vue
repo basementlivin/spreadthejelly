@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type Content, isFilled } from "@prismicio/client";
 import { computed } from "vue";
-import type { BlogArticleDocument } from '~/prismicio-types.d.ts';
+import type { BlogArticleDocument, JellyLovesArticleDocument } from '~/prismicio-types.d.ts';
 import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
 const props = defineProps(
@@ -15,14 +15,29 @@ const props = defineProps(
 
 const prismic = usePrismic();
 
-// Fetch the related blog_article documents with typed data
-const relatedArticlesData = await prismic.client.getByType<BlogArticleDocument>('blog_article', {
-  fetchLinks: [
-    "blog_article.title",
-    "blog_article.featured_image",
-    "blog_article.featured_quote"
-  ]
-});
+// Fetch related documents for both Blog Articles and Jelly Loves Articles
+const relatedArticlesData = await Promise.all([
+  prismic.client.getByType<BlogArticleDocument>('blog_article', {
+    fetchLinks: [
+      "blog_article.title",
+      "blog_article.featured_image",
+      "blog_article.featured_quote"
+    ]
+  }),
+  prismic.client.getByType<JellyLovesArticleDocument>('jelly_loves_article', {
+    fetchLinks: [
+      "jelly_loves_article.title",
+      "jelly_loves_article.featured_image",
+      "jelly_loves_article.featured_quote"
+    ]
+  })
+]);
+
+// Combine results from both queries
+const combinedArticlesData = [
+  ...relatedArticlesData[0].results,
+  ...relatedArticlesData[1].results
+];
 
 // Filter and map the related articles
 const relatedArticles = computed(() => {
@@ -32,7 +47,7 @@ const relatedArticles = computed(() => {
       const articleLink = item.article_link;
 
       // Find the related document based on the content relationship field
-      const relatedDoc = relatedArticlesData.results.find(
+      const relatedDoc = combinedArticlesData.find(
         (doc) => isFilled.contentRelationship(articleLink) && doc.id === articleLink.id
       );
 
@@ -68,6 +83,7 @@ const relatedArticles = computed(() => {
         <div
           class="article__image"
           :class="{
+            'full-bleed': article.card_style === 'Full-Bleed Image',
             'mask mask--blob-01': article.card_style === 'Blob Mask 1',
             'mask mask--blob-02': article.card_style === 'Blob Mask 2',
             'mask mask--quote': article.card_style === 'Featured Quote',

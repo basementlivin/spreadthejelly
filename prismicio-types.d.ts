@@ -275,17 +275,6 @@ interface AskJellyArticleDocumentData {
   publication_date: prismic.DateField;
 
   /**
-   * Featured Quote field in *Ask Jelly Article*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: ask_jelly_article.featured_quote
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  featured_quote: prismic.KeyTextField;
-
-  /**
    * Slice Zone field in *Ask Jelly Article*
    *
    * - **Field Type**: Slice Zone
@@ -2577,7 +2566,9 @@ export interface RelatedArticlesSliceDefaultPrimaryArticlesItem {
    * - **API ID Path**: related_articles.default.primary.articles[].article_link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  article_link: prismic.ContentRelationshipField<"blog_article">;
+  article_link: prismic.ContentRelationshipField<
+    "blog_article" | "jelly_loves_article"
+  >;
 
   /**
    * Card Style field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
