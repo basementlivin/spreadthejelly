@@ -146,18 +146,9 @@
           font-family: $monument;
           line-height: 1.45;
           font-size: 1.5rem;
-          hyphens: auto;
-          overflow-wrap: break-word;
-          word-break: break-word;
 
           @include breakpoint($tablet - 100) {
             font-size: clamp(1.125rem, 2.125vw, 2rem);
-          }
-
-          @include breakpoint($laptop) {
-            hyphens: none;
-            overflow-wrap: unset;
-            word-break: unset;
           }
         }
 
@@ -171,15 +162,6 @@
             font-size: clamp(1.25rem, 2vw, 1.75rem);
             line-height: 1.35;
             margin: 0;
-            hyphens: auto;
-            overflow-wrap: break-word;
-            word-break: break-word;
-
-            @include breakpoint($laptop) {
-              hyphens: none;
-              overflow-wrap: unset;
-              word-break: unset;
-            }
           }
     
           .link {

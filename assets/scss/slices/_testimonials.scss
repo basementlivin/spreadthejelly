@@ -31,15 +31,6 @@
         font-size: clamp(1.125rem, 1.5vw, 1.5rem);
         line-height: 1.45;
         margin: 0;
-        hyphens: auto;
-        overflow-wrap: break-word;
-        word-break: break-word;
-
-        @include breakpoint($laptop) {
-          hyphens: none;
-          overflow-wrap: unset;
-          word-break: unset;
-        }
       }
 
       .credit {
