@@ -101,12 +101,13 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: 12rem 1.5rem;
+    justify-content: center;
+    padding: 2rem 1.5rem;
 
     @include breakpoint($tablet) {
-      padding: 1rem 5.825rem 1rem 13.75rem;
+      padding: 1rem 5.25rem 1rem 12.25rem;
       justify-content: center;
+      background-color: $blue;
     }
 
     ul {
@@ -130,10 +131,11 @@
         transition: opacity 0.475s;
         font-size: 2rem;
         @include chivo-variable(500);
+        text-align: center;
         margin: 0;
 
         @include breakpoint($tablet) {
-          font-size: clamp(0.875rem, 1.75vw, 1.25rem);
+          font-size: clamp(0.825rem, 1.5vw, 1.25rem);
         }
         
         a {
