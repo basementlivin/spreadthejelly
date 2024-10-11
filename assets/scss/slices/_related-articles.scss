@@ -30,11 +30,23 @@
 
       @include breakpoint($tablet) {
         &:hover {
-          .article__image.mask.mask--black {
+          .article__image.mask.mask--black.mask--blob-01 {
+            background-color: $yellow;
+          }
+          .article__image.mask.mask--black.mask--blob-02 {
+            background-color: $green;
+          }
+          .article__image.mask.mask--white.mask--blob-01 {
+            background-color: $green;
+          }
+          .article__image.mask.mask--white.mask--blob-02 {
+            background-color: $yellow;
+          }
+          .article__image.mask.mask--black.mask--quote {
             background-color: $red;
           }
-          .article__image.mask.mask--white {
-            background-color: $blue;
+          .article__image.mask.mask--white.mask--quote {
+            background-color: $pink;
           }
           .article__image:not(.mask) {
             border-radius: 64px;
