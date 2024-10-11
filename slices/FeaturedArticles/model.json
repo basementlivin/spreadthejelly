@@ -29,54 +29,60 @@
                   ]
                 }
               },
-              "image_style": {
+              "card_style": {
                 "type": "Select",
                 "config": {
-                  "label": "Image Style",
+                  "label": "Card Style",
                   "placeholder": "",
                   "options": [
-                    "Full Bleed",
-                    "Inset",
+                    "Full Bleed Image",
+                    "Inset Image",
                     "Blob Mask 1",
-                    "Blob Mask 2"
+                    "Blob Mask 2",
+                    "Featured Quote"
                   ],
-                  "default_value": "Full Bleed"
+                  "default_value": "Full Bleed Image"
                 }
               },
-              "background_color": {
+              "card_bg_color": {
                 "type": "Select",
                 "config": {
-                  "label": "Background Color",
+                  "label": "Card Background Color",
                   "placeholder": "",
                   "options": [
                     "Black",
-                    "White"
+                    "White",
+                    "Sunset",
+                    "Ember",
+                    "Soft Pink",
+                    "Light Chartreuse",
+                    "Sky Blue"
                   ],
                   "default_value": "Black"
                 }
               },
-              "text_align": {
+              "card_text_color": {
                 "type": "Select",
                 "config": {
-                  "label": "Text Align",
-                  "placeholder": "",
-                  "options": [
-                    "Bottom",
-                    "Top"
-                  ],
-                  "default_value": "Bottom"
-                }
-              },
-              "text_color": {
-                "type": "Select",
-                "config": {
-                  "label": "Text Color",
+                  "label": "Card Text Color",
                   "placeholder": "",
                   "options": [
                     "White",
                     "Black"
                   ],
                   "default_value": "White"
+                }
+              },
+              "card_text_align": {
+                "type": "Select",
+                "config": {
+                  "label": "Card Text Align",
+                  "placeholder": "",
+                  "options": [
+                    "Bottom",
+                    "Top"
+                  ],
+                  "default_value": "Bottom"
                 }
               }
             }

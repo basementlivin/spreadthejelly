@@ -1364,51 +1364,64 @@ export interface FeaturedArticlesSliceDefaultPrimaryArticlesItem {
   >;
 
   /**
-   * Image Style field in *FeaturedArticles → Default → Primary → Articles*
+   * Card Style field in *FeaturedArticles → Default → Primary → Articles*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Full Bleed
-   * - **API ID Path**: featured_articles.default.primary.articles[].image_style
+   * - **Default Value**: Full Bleed Image
+   * - **API ID Path**: featured_articles.default.primary.articles[].card_style
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  image_style: prismic.SelectField<
-    "Full Bleed" | "Inset" | "Blob Mask 1" | "Blob Mask 2",
+  card_style: prismic.SelectField<
+    | "Full Bleed Image"
+    | "Inset Image"
+    | "Blob Mask 1"
+    | "Blob Mask 2"
+    | "Featured Quote",
     "filled"
   >;
 
   /**
-   * Background Color field in *FeaturedArticles → Default → Primary → Articles*
+   * Card Background Color field in *FeaturedArticles → Default → Primary → Articles*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: Black
-   * - **API ID Path**: featured_articles.default.primary.articles[].background_color
+   * - **API ID Path**: featured_articles.default.primary.articles[].card_bg_color
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  background_color: prismic.SelectField<"Black" | "White", "filled">;
+  card_bg_color: prismic.SelectField<
+    | "Black"
+    | "White"
+    | "Sunset"
+    | "Ember"
+    | "Soft Pink"
+    | "Light Chartreuse"
+    | "Sky Blue",
+    "filled"
+  >;
 
   /**
-   * Text Align field in *FeaturedArticles → Default → Primary → Articles*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Bottom
-   * - **API ID Path**: featured_articles.default.primary.articles[].text_align
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  text_align: prismic.SelectField<"Bottom" | "Top", "filled">;
-
-  /**
-   * Text Color field in *FeaturedArticles → Default → Primary → Articles*
+   * Card Text Color field in *FeaturedArticles → Default → Primary → Articles*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **Default Value**: White
-   * - **API ID Path**: featured_articles.default.primary.articles[].text_color
+   * - **API ID Path**: featured_articles.default.primary.articles[].card_text_color
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  text_color: prismic.SelectField<"White" | "Black", "filled">;
+  card_text_color: prismic.SelectField<"White" | "Black", "filled">;
+
+  /**
+   * Card Text Align field in *FeaturedArticles → Default → Primary → Articles*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Bottom
+   * - **API ID Path**: featured_articles.default.primary.articles[].card_text_align
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  card_text_align: prismic.SelectField<"Bottom" | "Top", "filled">;
 }
 
 /**

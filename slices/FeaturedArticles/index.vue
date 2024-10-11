@@ -49,7 +49,7 @@ const featuredArticles = computed(() => {
         const relatedDoc = combinedArticlesData.find(
           (doc) => doc.id === articleLink.id
         );
-        return relatedDoc ? { ...relatedDoc, image_style: item.image_style, bg_color: item.background_color, text_align: item.text_align, text_color: item.text_color } : null;
+        return relatedDoc ? { ...relatedDoc, card_style: item.card_style, card_bg_color: item.card_bg_color, card_text_align: item.card_text_align, card_text_color: item.card_text_color } : null;
       }
       return null;
     })
@@ -77,17 +77,22 @@ const featuredArticles = computed(() => {
         <div
           :class="{
             'article__image': true,
-            'full-bleed': article.image_style === 'Full Bleed',
-            'inset': article.image_style === 'Inset',
-            'mask--blob-01': article.image_style === 'Blob Mask 1',
-            'mask--blob-02': article.image_style === 'Blob Mask 2',
-          }"
-          :style="{
-            backgroundColor: article.bg_color
+            'full-bleed': article.card_style === 'Full Bleed Image',
+            'inset': article.card_style === 'Inset Image',
+            'mask--blob-01': article.card_style === 'Blob Mask 1',
+            'mask--blob-02': article.card_style === 'Blob Mask 2',
+            'quote': article.card_style === 'Featured Quote',
+            'bg--white': article.card_bg_color === 'White',
+            'bg--black': article.card_bg_color === 'Black',
+            'bg--yellow': article.card_bg_color === 'Sunset',
+            'bg--red': article.card_bg_color === 'Ember',
+            'bg--pink': article.card_bg_color === 'Soft Pink',
+            'bg--green': article.card_bg_color === 'Light Chartreuse',
+            'bg--blue': article.card_bg_color === 'Sky Blue',
           }"
         >
           <PrismicImage
-            v-if="article.data.featured_image"
+            v-if="article.data.featured_image && article.card_style !== 'Featured Quote'"
             :field="article.data.featured_image"
             :alt="article.data.featured_image.alt || 'Image description not provided'"
             :widths="prismicImageSettings.presets.default.widths"
@@ -97,27 +102,35 @@ const featuredArticles = computed(() => {
         <div
           :class="{
             'article__details': true,
-            'align--top': article.text_align === 'Top',
-            'align--bottom': article.text_align === 'Bottom'
-          }"
-          :style="{
-            color: article.text_color,
+            'article__details--quote': article.card_style === 'Featured Quote',
+            'align--top': article.card_text_align === 'Top',
+            'align--bottom': article.card_text_align === 'Bottom',
+            'text--white': article.card_text_color === 'White',
+            'text--black': article.card_text_color === 'Black',
           }"
         >
-          <p
-            :id="`article__title--${index}`"
-            class="title h3"
+          <span
+            v-if="article.card_style === 'Featured Quote'"
+            class="quote"
           >
-            {{ article.data.title }}
-          </p>
-          
-          <PrismicLink
-            :field="article"
-            class="link"
-            :aria-labelledby="`article__title--${index}`"
-          >
-            read more <span class="hidden">about {{ article.data.title }}</span>
-          </PrismicLink>
+            "{{ article.data.featured_quote }}"
+          </span>
+          <div class="title-and-link">
+            <span
+              :id="`article__title--${index}`"
+              class="title h3"
+            >
+              {{ article.data.title }}
+            </span>
+            
+            <PrismicLink
+              :field="article"
+              class="link"
+              :aria-labelledby="`article__title--${index}`"
+            >
+              read more <span class="sr-only">about {{ article.data.title }}</span>
+            </PrismicLink>
+          </div>
         </div>
       </div>
     </div>

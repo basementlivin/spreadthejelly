@@ -20,31 +20,31 @@
 								}
 							],
 							[
-								"image_style",
+								"card_text_color",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "Full Bleed",
+									"value": "White",
 									"type": "Select"
 								}
 							],
 							[
-								"text_align",
+								"card_text_align",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "Top",
+									"value": "Bottom",
 									"type": "Select"
 								}
 							],
 							[
-								"text_color",
+								"card_style",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "Black",
+									"value": "Full Bleed Image",
 									"type": "Select"
 								}
 							],
 							[
-								"background_color",
+								"card_bg_color",
 								{
 									"__TYPE__": "FieldContent",
 									"value": "Black",
