@@ -18,7 +18,7 @@ useArticleSeo(article);
 // Fetch all articles sorted by publication date
 const { data: allArticles } = useAsyncData('allJellyLovesArticles', () =>
   prismic.client.getAllByType<JellyLovesArticleDocument>('jelly_loves_article', {
-    orderings: { field: 'my.jelly_loves_article.publication_date', direction: 'desc' },
+    orderings: { field: 'my.jelly_loves_article.publication_date', direction: 'asc' },
     fetch: ['jelly_loves_article.title', 'jelly_loves_article.featured_image'],
   })
 )
