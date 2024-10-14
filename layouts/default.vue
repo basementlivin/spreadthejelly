@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, watch } from 'vue'
 import { useRouter } from 'vue-router'
-import gsap from 'gsap'
-import ScrollSmoother from 'gsap/ScrollSmoother'
-import ScrollTrigger from 'gsap/ScrollTrigger'
+import { watch } from 'vue'
 
 const settings = useSettings()
 const prismic = usePrismic()
@@ -19,39 +16,9 @@ useSeoMeta({
   ogImage
 })
 
-let smoother: ScrollSmoother | null = null // Explicit type declaration
-
-onMounted(() => {
-  if (typeof window !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
-    
-    // Initialize ScrollSmoother only if it's not already initialized
-    if (!smoother) {
-      smoother = ScrollSmoother.create({
-        wrapper: "#smooth-wrapper",
-        content: "#smooth-content",
-        smooth: 0.875,
-        effects: true,
-      })
-    }
-
-    // Refresh ScrollTrigger on route changes
-    watch(router.currentRoute, () => {
-      if (smoother) {
-        smoother.scrollTop(0) // Start at the top of the new page
-        ScrollTrigger.refresh() // Refresh ScrollTrigger to recalculate positions
-      }
-    })
-  }
-})
-
-onBeforeUnmount(() => {
-  if (smoother) {
-    smoother.kill() // Properly kill the ScrollSmoother instance
-    smoother = null // Set it to null to prevent reinitialization issues
-  }
-  // Ensure all ScrollTrigger instances are killed
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+// Watch for route changes and perform any required actions here
+watch(router.currentRoute, () => {
+  // Add any custom actions here if needed
 })
 </script>
 
