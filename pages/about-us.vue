@@ -4,6 +4,7 @@ import { usePrismic } from '@prismicio/vue'
 import { usePageSeo } from '~/composables/usePageSeo'
 
 const prismic = usePrismic()
+const route = useRoute()
 
 const { data: page, error } = useAsyncData('aboutPage', () => 
   prismic.client.getSingle('about'))
@@ -16,27 +17,30 @@ usePageSeo(page)
 </script>
 
 <template>
-  <main 
-    id="main"
-    class="page--about"
-  >
-    <div class="about__intro wrapper wrapper--narrow">
-      <h1 class="headline">
-        {{ page?.data.headline }}
-      </h1>
-      <span class="subheadline">
-        {{ page?.data.subheadline }}
-      </span>
-      <PrismicRichText
-        :field="page?.data.copy"
-        class="copy"
+  <div :key="route.fullPath">
+    <main 
+      id="main"
+      :key="route.fullPath"
+      class="page--about"
+    >
+      <div class="about__intro wrapper wrapper--narrow">
+        <h1 class="headline">
+          {{ page?.data.headline }}
+        </h1>
+        <span class="subheadline">
+          {{ page?.data.subheadline }}
+        </span>
+        <PrismicRichText
+          :field="page?.data.copy"
+          class="copy"
+        />
+      </div>
+      <SliceZone
+        :slices="page?.data.slices ?? []"
+        :components="components"
       />
-    </div>
-    <SliceZone
-      :slices="page?.data.slices ?? []"
-      :components="components"
-    />
-  </main>
+    </main>
+  </div>
 </template>
 
 <style lang="scss" scoped>

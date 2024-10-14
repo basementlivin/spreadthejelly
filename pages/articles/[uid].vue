@@ -35,7 +35,7 @@ const { data: prevArticle } = useAsyncData('prevArticle', () =>
 </script>
 
 <template>
-  <div>
+  <div :key="route.fullPath">
     <SliceZone
       id="main"
       wrapper="main"

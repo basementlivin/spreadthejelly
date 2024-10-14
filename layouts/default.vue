@@ -43,14 +43,8 @@ onMounted(() => {
   <div class="fade-container">
     <NewsletterSignup />
     <Header />
-    <div
-      id="smooth-wrapper"
-      data-scroll-container
-    >
-      <div
-        id="smooth-content"
-        data-scroll-content
-      >
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
         <slot />
         <Footer />
       </div>

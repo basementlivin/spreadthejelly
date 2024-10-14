@@ -7,6 +7,7 @@ import type { BlogArticleDocument } from '~/prismicio-types.d.ts'
 import { prismicImageSettings } from '@/utils/prismicImageSettings'
 
 const prismic = usePrismic()
+const route = useRoute()
 
 // State for loaded articles and pagination
 const articles = ref<BlogArticleDocument[]>([])
@@ -68,71 +69,73 @@ usePageSeo(pageData)
 </script>
 
 <template>
-  <main 
-    id="main"
-    class="page--blog"
-  >
-    <SliceZone
-      :slices="pageData?.data.slices ?? []"
-      :components="components"
-    />
-
-    <section
-      v-if="articles.length"
-      class="blog__articles wrapper wrapper--fullscreen"
+  <div :key="route.fullPath">
+    <main 
+      id="main"
+      class="page--blog"
     >
-      <div class="articles__container">
-        <div
-          v-for="article in articles"
-          :key="article.id"
-          class="article"
-        >
-          <div class="article__image">
-            <PrismicImage
-              :field="article.data.featured_image"
-              :alt="article.data.featured_image.alt || 'No image description provided'"
-              :widths="prismicImageSettings.presets.default.widths"
-              :imgix-params="prismicImageSettings.presets.default.imgixParams"
-              loading="lazy"
-            />
-          </div>
-
-          <div class="article__details">
-            <span class="tag">
-              {{ article.tags[0] }}
-            </span>
+      <SliceZone
+        :slices="pageData?.data.slices ?? []"
+        :components="components"
+      />
   
-            <p class="headline">
-              {{ article.data.title }}
-            </p>
+      <section
+        v-if="articles.length"
+        class="blog__articles wrapper wrapper--fullscreen"
+      >
+        <div class="articles__container">
+          <div
+            v-for="article in articles"
+            :key="article.id"
+            class="article"
+          >
+            <div class="article__image">
+              <PrismicImage
+                :field="article.data.featured_image"
+                :alt="article.data.featured_image.alt || 'No image description provided'"
+                :widths="prismicImageSettings.presets.default.widths"
+                :imgix-params="prismicImageSettings.presets.default.imgixParams"
+                loading="lazy"
+              />
+            </div>
   
-            <PrismicLink
-              :field="article"
-              class="link"
-              :aria-label="`Read ${article.data.title} in its entirety`"
-            >
-              read more
-            </PrismicLink>
+            <div class="article__details">
+              <span class="tag">
+                {{ article.tags[0] }}
+              </span>
+    
+              <p class="headline">
+                {{ article.data.title }}
+              </p>
+    
+              <PrismicLink
+                :field="article"
+                class="link"
+                :aria-label="`Read ${article.data.title} in its entirety`"
+              >
+                read more
+              </PrismicLink>
+            </div>
           </div>
         </div>
-      </div>
-
-      <span
-        v-if="hasMore && !loading"
-        class="articles__load-more link"
-        aria-label="Load more articles"
-        @click="handleLoadMoreClick"
-      >
-        {{ pageData?.data.load_more_button_text ? pageData.data.load_more_button_text : 'Load More' }}
-      </span>
-      <p
-        v-else-if="!hasMore"
-        class="articles__no-more"
-      >
-        {{ pageData?.data.no_more_articles_message ? pageData.data.no_more_articles_message : 'You made it to the end!' }}
-      </p>
-    </section>
-  </main>
+  
+        <span
+          v-if="hasMore && !loading"
+          class="articles__load-more link"
+          aria-label="Load more articles"
+          @click="handleLoadMoreClick"
+        >
+          {{ pageData?.data.load_more_button_text ? pageData.data.load_more_button_text : 'Load More' }}
+        </span>
+        <p
+          v-else-if="!hasMore"
+          class="articles__no-more"
+        >
+          {{ pageData?.data.no_more_articles_message ? pageData.data.no_more_articles_message : 'You made it to the end!' }}
+        </p>
+      </section>
+    </main>
+  </div>
 </template>
 
 <style lang="scss" scoped>

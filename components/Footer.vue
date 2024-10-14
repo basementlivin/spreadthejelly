@@ -43,10 +43,7 @@ const handleSubmit = (event: Event) => {
   <div class="footer__mask">
     <FooterMask class="mask" />
   </div>
-  <footer
-    class="footer"
-    data-scroll-section
-  >
+  <footer class="footer">
     <div class="footer__logo">
       <FooterLogo class="logo" />
     </div>

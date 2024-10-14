@@ -8,6 +8,7 @@ import type { AskJellyArticleDocument } from '~/prismicio-types.d.ts'
 import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
 const prismic = usePrismic()
+const route = useRoute()
 
 // State for loaded articles and pagination
 const articles = ref<AskJellyArticleDocument[]>([])
@@ -53,83 +54,85 @@ usePageSeo(pageData)
 </script>
 
 <template>
-  <main 
-    id="main"
-    class="page--ask-jelly"
-  >
-    <section class="ask-jelly__intro wrapper wrapper--page-width">
-      <div class="content">
-        <h1 class="headline">
-          {{ pageData?.data.headline }}
-        </h1>
-        <PrismicRichText
-          :field="pageData?.data.copy"
-          class="copy"
-        />
-      </div>
-      <div class="form">
-        <AskJellyForm />
-      </div>
-    </section>
-
-    <SliceZone
-      :slices="pageData?.data.slices ?? []"
-      :components="components"
-    />
-
-    <section
-      v-if="articles.length"
-      class="ask-jelly__articles wrapper wrapper--wide"
+  <div :key="route.fullPath">
+    <main 
+      id="main"
+      class="page--ask-jelly"
     >
-      <h2 class="headline">
-        Jelly answers:
-      </h2>
-
-      <div class="articles__container">
-        <div
-          v-for="article in articles"
-          :key="article.id"
-          class="article"
-        >
-          <PrismicImage
-            :field="article.data.featured_image"
-            :alt="article.data.featured_image.alt || 'No image description provided'"
-            :widths="prismicImageSettings.presets.default.widths"
-            :imgix-params="prismicImageSettings.presets.default.imgixParams"
-            class="image"
+      <section class="ask-jelly__intro wrapper wrapper--page-width">
+        <div class="content">
+          <h1 class="headline">
+            {{ pageData?.data.headline }}
+          </h1>
+          <PrismicRichText
+            :field="pageData?.data.copy"
+            class="copy"
           />
-          <p class="headline h4">
-            {{ article.data.title }}
-          </p>
-          <span class="asked-by">
-            From {{ article.data.asked_by }}
-          </span>
-          <PrismicLink
-            :field="article"
-            class="link"
-            :aria-label="`Read ${article.data.title} in its entirety`"
-          >
-            read more
-          </PrismicLink>
         </div>
-      </div>
-
-      <span
-        v-if="hasMore && !loading"
-        class="articles__load-more link"
-        aria-label="Load more Ask Jelly articles"
-        @click="loadArticles"
+        <div class="form">
+          <AskJellyForm />
+        </div>
+      </section>
+  
+      <SliceZone
+        :slices="pageData?.data.slices ?? []"
+        :components="components"
+      />
+  
+      <section
+        v-if="articles.length"
+        class="ask-jelly__articles wrapper wrapper--wide"
       >
-        {{ pageData?.data.load_more_button_text ? pageData.data.load_more_button_text : 'Load More' }}
-      </span>
-      <p
-        v-else-if="!hasMore"
-        class="articles__no-more"
-      >
-        {{ pageData?.data.no_more_articles_message ? pageData.data.no_more_articles_message : 'You made it to the end!' }}
-      </p>
-    </section>
-  </main>
+        <h2 class="headline">
+          Jelly answers:
+        </h2>
+  
+        <div class="articles__container">
+          <div
+            v-for="article in articles"
+            :key="article.id"
+            class="article"
+          >
+            <PrismicImage
+              :field="article.data.featured_image"
+              :alt="article.data.featured_image.alt || 'No image description provided'"
+              :widths="prismicImageSettings.presets.default.widths"
+              :imgix-params="prismicImageSettings.presets.default.imgixParams"
+              class="image"
+            />
+            <p class="headline h4">
+              {{ article.data.title }}
+            </p>
+            <span class="asked-by">
+              From {{ article.data.asked_by }}
+            </span>
+            <PrismicLink
+              :field="article"
+              class="link"
+              :aria-label="`Read ${article.data.title} in its entirety`"
+            >
+              read more
+            </PrismicLink>
+          </div>
+        </div>
+  
+        <span
+          v-if="hasMore && !loading"
+          class="articles__load-more link"
+          aria-label="Load more Ask Jelly articles"
+          @click="loadArticles"
+        >
+          {{ pageData?.data.load_more_button_text ? pageData.data.load_more_button_text : 'Load More' }}
+        </span>
+        <p
+          v-else-if="!hasMore"
+          class="articles__no-more"
+        >
+          {{ pageData?.data.no_more_articles_message ? pageData.data.no_more_articles_message : 'You made it to the end!' }}
+        </p>
+      </section>
+    </main>
+  </div>
 </template>
 
 <style lang="scss" scoped>

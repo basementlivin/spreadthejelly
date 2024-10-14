@@ -36,85 +36,90 @@ const { data: prevArticle } = useAsyncData('prevJellyLovesArticle', () =>
 </script>
 
 <template>
-  <main class="page--jelly-loves-article">
-    <div class="article__introduction wrapper wrapper--page-width">
-      <h1 class="title h2">
-        {{ article?.data.title }}
-      </h1>
-      <span class="author h3">
-        by {{ article?.data.author }}
-      </span>
-      <div class="image">
-        <PrismicImage
-          v-if="isFilled.image(article?.data.featured_image)"
-          :field="article?.data.featured_image"
-          :alt="article?.data.featured_image?.alt || 'No image description provided.'"
-          :widths="prismicImageSettings.presets.hero.widths"
-          :imgix-params="prismicImageSettings.presets.hero.imgixParams"
-          loading="lazy"
+  <div :key="route.fullPath">
+    <main
+      id="main"
+      class="page--jelly-loves-article"
+    >
+      <div class="article__introduction wrapper wrapper--page-width">
+        <h1 class="title h2">
+          {{ article?.data.title }}
+        </h1>
+        <span class="author h3">
+          by {{ article?.data.author }}
+        </span>
+        <div class="image">
+          <PrismicImage
+            v-if="isFilled.image(article?.data.featured_image)"
+            :field="article?.data.featured_image"
+            :alt="article?.data.featured_image?.alt || 'No image description provided.'"
+            :widths="prismicImageSettings.presets.hero.widths"
+            :imgix-params="prismicImageSettings.presets.hero.imgixParams"
+            loading="lazy"
+          />
+        </div>
+        <PrismicRichText
+          v-if="isFilled.richText(article?.data.article_introduction)"
+          :field="article?.data.article_introduction"
+          wrapper="div"
+          class="intro"
         />
       </div>
-      <PrismicRichText
-        v-if="isFilled.richText(article?.data.article_introduction)"
-        :field="article?.data.article_introduction"
+      <SliceZone
+        id="article__content"
         wrapper="div"
-        class="intro"
+        class="page--jelly-loves-article"
+        :slices="article?.data.slices ?? []"
+        :components="components"
       />
-    </div>
-    <SliceZone
-      id="article__content"
-      wrapper="div"
-      class="page--jelly-loves-article"
-      :slices="article?.data.slices ?? []"
-      :components="components"
-    />
-
-    <nav class="article-navigation">
-      <!-- Render Previous Article link only if it exists and is different from the current article -->
-      <PrismicLink
-        v-if="prevArticle && prevArticle[0] && prevArticle[0].id !== article?.id"
-        :field="prevArticle[0]"
-        class="prev-article link"
-        aria-label="Navigate to the previous article."
-      >
-        <div class="image">
-          <PrismicImage
-            :field="prevArticle[0]?.data?.featured_image"
-            :alt="prevArticle[0]?.data?.featured_image?.alt || 'No image description provided.'"
-            :widths="prismicImageSettings.presets.tiny.widths"
-            :imgix-params="prismicImageSettings.presets.tiny.imgixParams"
-            loading="lazy"
-          />
-        </div>
-        <div class="details">
-          <span class="headline">Previous:</span>
-          <span class="title">{{ prevArticle[0]?.data?.title }}</span>
-        </div>
-      </PrismicLink>
-
-      <!-- Render Next Article link only if it exists and is different from the current article -->
-      <PrismicLink
-        v-if="nextArticle && nextArticle[0] && nextArticle[0].id !== article?.id"
-        :field="nextArticle[0]"
-        class="next-article link"
-        aria-label="Navigate to the next article."
-      >
-        <div class="image">
-          <PrismicImage
-            :field="nextArticle[0]?.data?.featured_image"
-            :alt="nextArticle[0]?.data?.featured_image?.alt || 'No image description provided.'"
-            :widths="prismicImageSettings.presets.tiny.widths"
-            :imgix-params="prismicImageSettings.presets.tiny.imgixParams"
-            loading="lazy"
-          />
-        </div>
-        <div class="details">
-          <span class="headline">Next:</span>
-          <span class="title">{{ nextArticle[0]?.data?.title }}</span>
-        </div>
-      </PrismicLink>
-    </nav>
-  </main>
+  
+      <nav class="article-navigation">
+        <!-- Render Previous Article link only if it exists and is different from the current article -->
+        <PrismicLink
+          v-if="prevArticle && prevArticle[0] && prevArticle[0].id !== article?.id"
+          :field="prevArticle[0]"
+          class="prev-article link"
+          aria-label="Navigate to the previous article."
+        >
+          <div class="image">
+            <PrismicImage
+              :field="prevArticle[0]?.data?.featured_image"
+              :alt="prevArticle[0]?.data?.featured_image?.alt || 'No image description provided.'"
+              :widths="prismicImageSettings.presets.tiny.widths"
+              :imgix-params="prismicImageSettings.presets.tiny.imgixParams"
+              loading="lazy"
+            />
+          </div>
+          <div class="details">
+            <span class="headline">Previous:</span>
+            <span class="title">{{ prevArticle[0]?.data?.title }}</span>
+          </div>
+        </PrismicLink>
+  
+        <!-- Render Next Article link only if it exists and is different from the current article -->
+        <PrismicLink
+          v-if="nextArticle && nextArticle[0] && nextArticle[0].id !== article?.id"
+          :field="nextArticle[0]"
+          class="next-article link"
+          aria-label="Navigate to the next article."
+        >
+          <div class="image">
+            <PrismicImage
+              :field="nextArticle[0]?.data?.featured_image"
+              :alt="nextArticle[0]?.data?.featured_image?.alt || 'No image description provided.'"
+              :widths="prismicImageSettings.presets.tiny.widths"
+              :imgix-params="prismicImageSettings.presets.tiny.imgixParams"
+              loading="lazy"
+            />
+          </div>
+          <div class="details">
+            <span class="headline">Next:</span>
+            <span class="title">{{ nextArticle[0]?.data?.title }}</span>
+          </div>
+        </PrismicLink>
+      </nav>
+    </main>
+  </div>
 </template>
 
 <style lang="scss" scoped>
