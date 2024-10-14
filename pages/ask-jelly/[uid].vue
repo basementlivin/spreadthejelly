@@ -13,24 +13,30 @@ const { data: article } = useAsyncData('askJellyArticle', () =>
 
 useArticleSeo(article)
 
-// Fetch the next and previous articles
-const { data: nextArticle } = useAsyncData('nextAskJellyArticle', () =>
+// Fetch all articles sorted by publication date
+const { data: allArticles } = useAsyncData('allAskJellyArticles', () =>
   prismic.client.getAllByType<AskJellyArticleDocument>('ask_jelly_article', {
-    pageSize: 1,
-    after: article.value?.id,
-    orderings: { field: 'my.ask_jelly_article.publication_date' },
+    orderings: { field: 'my.ask_jelly_article.publication_date', direction: 'desc' },
     fetch: ['ask_jelly_article.title'],
   })
 )
 
-const { data: prevArticle } = useAsyncData('prevAskJellyArticle', () =>
-  prismic.client.getAllByType<AskJellyArticleDocument>('ask_jelly_article', {
-    pageSize: 1,
-    after: article.value?.id,
-    orderings: { field: 'my.ask_jelly_article.publication_date desc' },
-    fetch: ['ask_jelly_article.title'],
-  })
-)
+// Find the current article index and determine next/previous articles
+const currentIndex = computed(() => {
+  return allArticles.value?.findIndex(a => a.id === article.value?.id)
+})
+
+const nextArticle = computed(() => {
+  return allArticles.value && currentIndex.value !== undefined && currentIndex.value < allArticles.value.length - 1
+    ? allArticles.value[currentIndex.value + 1]
+    : null
+})
+
+const prevArticle = computed(() => {
+  return allArticles.value && currentIndex.value !== undefined && currentIndex.value > 0
+    ? allArticles.value[currentIndex.value - 1]
+    : null
+})
 </script>
 
 <template>
@@ -44,26 +50,26 @@ const { data: prevArticle } = useAsyncData('prevAskJellyArticle', () =>
     />
 
     <nav class="ask-jelly-article-navigation">
-      <!-- Render Previous Article link only if it exists and is different from the current article -->
+      <!-- Render Previous Article link only if it exists -->
       <PrismicLink
-        v-if="prevArticle && prevArticle[0] && prevArticle[0].id !== article?.id"
-        :field="prevArticle[0]"
+        v-if="prevArticle"
+        :field="prevArticle"
         class="prev-article"
         aria-label="Navigate to the previous article."
       >
         <span class="headline">Previous:</span> 
-        <span class="title">{{ prevArticle[0]?.data?.title }}</span>
+        <span class="title">{{ prevArticle?.data?.title }}</span>
       </PrismicLink>
 
-      <!-- Render Next Article link only if it exists and is different from the current article -->
+      <!-- Render Next Article link only if it exists -->
       <PrismicLink
-        v-if="nextArticle && nextArticle[0] && nextArticle[0].id !== article?.id"
-        :field="nextArticle[0]"
+        v-if="nextArticle"
+        :field="nextArticle"
         class="next-article"
         aria-label="Navigate to the next article."
       >
         <span class="headline">Next:</span> 
-        <span class="title">{{ nextArticle[0]?.data?.title }}</span>
+        <span class="title">{{ nextArticle?.data?.title }}</span>
       </PrismicLink>
     </nav>
   </div>

@@ -14,24 +14,31 @@ const { data: article } = useAsyncData('article', () =>
 
 useArticleSeo(article)
 
-// Fetch the next and previous articles
-const { data: nextArticle } = useAsyncData('nextArticle', () =>
+// Fetch all articles sorted by publication date
+const { data: allArticles } = useAsyncData('allArticles', () =>
   prismic.client.getAllByType<BlogArticleDocument>('blog_article', {
-    pageSize: 1,
-    after: article.value?.id,
-    orderings: { field: 'my.blog_article.publication_date' },
+    orderings: { field: 'my.blog_article.publication_date', direction: 'desc' },
     fetch: ['blog_article.title', 'blog_article.featured_image'],
   })
 )
 
-const { data: prevArticle } = useAsyncData('prevArticle', () =>
-  prismic.client.getAllByType<BlogArticleDocument>('blog_article', {
-    pageSize: 1,
-    after: article.value?.id,
-    orderings: { field: 'my.blog_article.publication_date desc' },
-    fetch: ['blog_article.title', 'blog_article.featured_image'],
-  })
-)
+// Find the current article index and determine next/previous articles
+const currentIndex = computed(() => {
+  return allArticles.value?.findIndex(a => a.id === article.value?.id)
+})
+
+const nextArticle = computed(() => {
+  return allArticles.value && currentIndex.value !== undefined && currentIndex.value < allArticles.value.length - 1
+    ? allArticles.value[currentIndex.value + 1]
+    : null
+})
+
+const prevArticle = computed(() => {
+  return allArticles.value && currentIndex.value !== undefined && currentIndex.value > 0
+    ? allArticles.value[currentIndex.value - 1]
+    : null
+})
+
 </script>
 
 <template>
@@ -45,17 +52,17 @@ const { data: prevArticle } = useAsyncData('prevArticle', () =>
     />
 
     <nav class="article-navigation">
-      <!-- Render Previous Article link only if it exists and is different from the current article -->
+      <!-- Render Previous Article link only if it exists -->
       <PrismicLink
-        v-if="prevArticle && prevArticle[0] && prevArticle[0].id !== article?.id"
-        :field="prevArticle[0]"
+        v-if="prevArticle"
+        :field="prevArticle"
         class="prev-article link"
         aria-label="Navigate to the previous article."
       >
         <div class="image">
           <PrismicImage
-            :field="prevArticle[0]?.data?.featured_image"
-            :alt="prevArticle[0]?.data?.featured_image?.alt || 'No image description provided.'"
+            :field="prevArticle?.data?.featured_image"
+            :alt="prevArticle?.data?.featured_image?.alt || 'No image description provided.'"
             :widths="prismicImageSettings.presets.tiny.widths"
             :imgix-params="prismicImageSettings.presets.tiny.imgixParams"
             loading="lazy"
@@ -63,21 +70,21 @@ const { data: prevArticle } = useAsyncData('prevArticle', () =>
         </div>
         <div class="details">
           <span class="headline">Previous:</span>
-          <span class="title">{{ prevArticle[0]?.data?.title }}</span>
+          <span class="title">{{ prevArticle?.data?.title }}</span>
         </div>
       </PrismicLink>
 
-      <!-- Render Next Article link only if it exists and is different from the current article -->
+      <!-- Render Next Article link only if it exists -->
       <PrismicLink
-        v-if="nextArticle && nextArticle[0] && nextArticle[0].id !== article?.id"
-        :field="nextArticle[0]"
+        v-if="nextArticle"
+        :field="nextArticle"
         class="next-article link"
         aria-label="Navigate to the next article."
       >
         <div class="image">
           <PrismicImage
-            :field="nextArticle[0]?.data?.featured_image"
-            :alt="nextArticle[0]?.data?.featured_image?.alt || 'No image description provided.'"
+            :field="nextArticle?.data?.featured_image"
+            :alt="nextArticle?.data?.featured_image?.alt || 'No image description provided.'"
             :widths="prismicImageSettings.presets.tiny.widths"
             :imgix-params="prismicImageSettings.presets.tiny.imgixParams"
             loading="lazy"
@@ -85,13 +92,12 @@ const { data: prevArticle } = useAsyncData('prevArticle', () =>
         </div>
         <div class="details">
           <span class="headline">Next:</span>
-          <span class="title">{{ nextArticle[0]?.data?.title }}</span>
+          <span class="title">{{ nextArticle?.data?.title }}</span>
         </div>
       </PrismicLink>
     </nav>
   </div>
 </template>
-
 
 <style lang="scss" scoped>
   @import '@/assets/scss/components/_article-nav.scss';
