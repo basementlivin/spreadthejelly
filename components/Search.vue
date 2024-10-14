@@ -31,6 +31,14 @@ const onSearch = async () => {
       ],
     })
 
+    // Search in Jelly Loves Articles
+    const jellyLovesResults = await prismicClient.get({
+      predicates: [
+        prismic.filter.at('document.type', 'jelly_loves_article'),
+        prismic.filter.fulltext('document', searchQuery.value)
+      ],
+    })
+
     // Search in Blog Articles
     const blogArticleResults = await prismicClient.get({
       predicates: [
@@ -39,7 +47,7 @@ const onSearch = async () => {
       ],
     })
 
-    results.value = [...askJellyResults.results, ...blogArticleResults.results]
+    results.value = [...askJellyResults.results, ...jellyLovesResults.results, ...blogArticleResults.results]
   } catch (err) {
     error.value = 'An error occurred while searching.'
   } finally {
@@ -85,7 +93,7 @@ const onSearch = async () => {
             :class="{
               'image': true,
               'image--ask-jelly': result.type === 'ask_jelly_article',
-              'image--blog': result.type === 'blog_article'
+              'image--blog': result.type === 'blog_article' || result.type === 'jelly_loves_article'
             }"
           >
             <PrismicImage
