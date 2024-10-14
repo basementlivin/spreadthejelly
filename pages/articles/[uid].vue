@@ -46,11 +46,10 @@ const prevArticle = computed(() => {
 </script>
 
 <template>
-  <div>
+  <div :key="route.fullPath">
     <SliceZone
       v-if="article"
       id="main"
-      :key="route.fullPath"
       wrapper="main"
       class="page--article"
       :slices="article?.data.slices ?? []"
@@ -58,7 +57,6 @@ const prevArticle = computed(() => {
     />
 
     <nav class="article-navigation">
-      <!-- Render Previous Article link only if it exists -->
       <PrismicLink
         v-if="prevArticle"
         :field="prevArticle"
@@ -80,7 +78,6 @@ const prevArticle = computed(() => {
         </div>
       </PrismicLink>
 
-      <!-- Render Next Article link only if it exists -->
       <PrismicLink
         v-if="nextArticle"
         :field="nextArticle"
