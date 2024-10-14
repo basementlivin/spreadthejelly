@@ -48,3 +48,18 @@ onBeforeUnmount(() => {
   ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 })
 </script>
+
+<template>
+  <div class="fade-container">
+    <div :key="router.currentRoute.value.fullPath">
+      <NewsletterSignup />
+      <Header />
+      <div id="smooth-wrapper">
+        <div id="smooth-content">
+          <slot />
+          <Footer />
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
