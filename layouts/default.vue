@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { onMounted, watch } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import gsap from 'gsap'
 import ScrollSmoother from 'gsap/ScrollSmoother'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
-
 const settings = useSettings()
 const prismic = usePrismic()
 const router = useRouter()
+const route = useRoute()
 
 const title = computed(() => settings.value?.data.site_title ?? 'Spread the Jelly')
 const description = computed(() => settings.value?.data.meta_description ?? 'An editorial resource & storytelling platform for every motherhood journey.')
@@ -30,9 +30,9 @@ onMounted(() => {
       effects: true,
     })
 
-    // Refresh ScrollTrigger on route changes
+    // Watch for route changes and refresh GSAP + manually refetch data
     watch(router.currentRoute, () => {
-      smoother.scrollTop(0) // Start at the top of the new page
+      smoother.scrollTop(0) // Reset scroll to top on page change
       ScrollTrigger.refresh()
     })
   }
@@ -44,7 +44,10 @@ onMounted(() => {
     <NewsletterSignup />
     <Header />
     <div id="smooth-wrapper">
-      <div id="smooth-content">
+      <div
+        id="smooth-content"
+        :key="route.fullPath"
+      >
         <slot />
         <Footer />
       </div>
