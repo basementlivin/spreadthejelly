@@ -19,24 +19,28 @@ useSeoMeta({
   ogImage
 })
 
-let smoother: ScrollSmoother | null = null  // Explicitly declare the type of smoother
+let smoother: ScrollSmoother | null = null // Explicit type declaration
 
 onMounted(() => {
   if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
-    smoother = ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: 0.875,
-      effects: true,
-    })
+    
+    // Initialize ScrollSmoother only if it's not already initialized
+    if (!smoother) {
+      smoother = ScrollSmoother.create({
+        wrapper: "#smooth-wrapper",
+        content: "#smooth-content",
+        smooth: 0.875,
+        effects: true,
+      })
+    }
 
     // Refresh ScrollTrigger on route changes
     watch(router.currentRoute, () => {
       if (smoother) {
         smoother.scrollTop(0) // Start at the top of the new page
+        ScrollTrigger.refresh() // Refresh ScrollTrigger to recalculate positions
       }
-      ScrollTrigger.refresh()
     })
   }
 })
@@ -44,12 +48,12 @@ onMounted(() => {
 onBeforeUnmount(() => {
   if (smoother) {
     smoother.kill() // Properly kill the ScrollSmoother instance
-    smoother = null
+    smoother = null // Set it to null to prevent reinitialization issues
   }
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill()) // Properly kill all ScrollTrigger instances
+  // Ensure all ScrollTrigger instances are killed
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 })
 </script>
-
 
 <template>
   <div class="fade-container">
