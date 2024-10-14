@@ -2,23 +2,26 @@
 import { components } from '~/slices'
 import { useArticleSeo } from '~/composables/useArticleSeo'
 import type { AskJellyArticleDocument } from '~/prismicio-types.d.ts'
+import { useRoute } from 'vue-router'
 
 const prismic = usePrismic()
 const route = useRoute()
 
-// Fetch the article using useAsyncData
+// Fetch the article using useAsyncData and ensure it refetches on UID changes
 const { data: article } = useAsyncData('askJellyArticle', () =>
-  prismic.client.getByUID<AskJellyArticleDocument>('ask_jelly_article', route.params.uid as string)
+  prismic.client.getByUID<AskJellyArticleDocument>('ask_jelly_article', route.params.uid as string),
+  { watch: [() => route.params.uid] }  // Refetch when the route UID changes
 )
 
 useArticleSeo(article)
 
-// Fetch all articles sorted by publication date
+// Fetch all Ask Jelly articles sorted by publication date
 const { data: allArticles } = useAsyncData('allAskJellyArticles', () =>
   prismic.client.getAllByType<AskJellyArticleDocument>('ask_jelly_article', {
     orderings: { field: 'my.ask_jelly_article.publication_date', direction: 'asc' },
     fetch: ['ask_jelly_article.title'],
-  })
+  }),
+  { watch: [() => route.params.uid] }  // Refetch when the route UID changes
 )
 
 // Find the current article index and determine next/previous articles
@@ -40,7 +43,7 @@ const prevArticle = computed(() => {
 </script>
 
 <template>
-  <div :key="route.fullPath">
+  <div>
     <SliceZone
       id="main"
       wrapper="main"
