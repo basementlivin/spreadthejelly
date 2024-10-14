@@ -11,9 +11,10 @@ const route = useRoute()
 // Fetch the article using useAsyncData, ensuring it refetches on UID changes
 const { data: article } = useAsyncData('article', () => 
   prismic.client.getByUID<BlogArticleDocument>('blog_article', route.params.uid as string), 
-  { watch: [() => route.params.uid] }  // Pass the reactive route.params.uid as a watch source
+  { watch: [() => route.params.uid] }  // Use the watch option to refetch when UID changes
 )
 
+// Use the article data for SEO purposes
 useArticleSeo(article)
 
 // Fetch all articles sorted by publication date
@@ -22,7 +23,7 @@ const { data: allArticles } = useAsyncData('allArticles', () =>
     orderings: { field: 'my.blog_article.publication_date', direction: 'asc' },
     fetch: ['blog_article.title', 'blog_article.featured_image'],
   }),
-  { watch: [() => route.params.uid] }  // Refetch when the route UID changes
+  { watch: [() => route.params.uid] }
 )
 
 // Find the current article index and determine next/previous articles
@@ -47,6 +48,7 @@ const prevArticle = computed(() => {
 <template>
   <div>
     <SliceZone
+      v-if="article"
       id="main"
       wrapper="main"
       class="page--article"
