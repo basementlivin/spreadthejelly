@@ -3,13 +3,15 @@ import { components } from '~/slices'
 import { useArticleSeo } from '~/composables/useArticleSeo';
 import type { BlogArticleDocument } from '~/prismicio-types.d.ts'
 import { prismicImageSettings } from '@/utils/prismicImageSettings';
+import { useRoute } from 'vue-router'
 
 const prismic = usePrismic()
 const route = useRoute()
 
-// Fetch the article using useAsyncData
-const { data: article } = useAsyncData('article', () =>
-  prismic.client.getByUID<BlogArticleDocument>('blog_article', route.params.uid as string)
+// Fetch the article using useAsyncData, ensuring it refetches on UID changes
+const { data: article } = useAsyncData('article', () => 
+  prismic.client.getByUID<BlogArticleDocument>('blog_article', route.params.uid as string), 
+  { watch: [() => route.params.uid] }  // Pass the reactive route.params.uid as a watch source
 )
 
 useArticleSeo(article)
@@ -19,7 +21,8 @@ const { data: allArticles } = useAsyncData('allArticles', () =>
   prismic.client.getAllByType<BlogArticleDocument>('blog_article', {
     orderings: { field: 'my.blog_article.publication_date', direction: 'asc' },
     fetch: ['blog_article.title', 'blog_article.featured_image'],
-  })
+  }),
+  { watch: [() => route.params.uid] }  // Refetch when the route UID changes
 )
 
 // Find the current article index and determine next/previous articles
@@ -42,7 +45,7 @@ const prevArticle = computed(() => {
 </script>
 
 <template>
-  <div :key="route.fullPath">
+  <div>
     <SliceZone
       id="main"
       wrapper="main"
