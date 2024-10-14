@@ -50,6 +50,7 @@ const prevArticle = computed(() => {
     <SliceZone
       v-if="article"
       id="main"
+      :key="route.fullPath"
       wrapper="main"
       class="page--article"
       :slices="article?.data.slices ?? []"
