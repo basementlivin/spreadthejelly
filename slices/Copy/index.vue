@@ -60,7 +60,6 @@ function getPositionClass(position: string | null): string {
     class="article-pull-quote wrapper wrapper--page-width"
   >
     <div
-      v-if="isFilled.select(slice.primary.illustration_left)"
       :class="['illustration__left', getPositionClass(slice.primary.illustration_left_position)]"
     >
       <img
@@ -78,7 +77,6 @@ function getPositionClass(position: string | null): string {
     </blockquote>
 
     <div
-      v-if="isFilled.select(slice.primary.illustration_right)"
       :class="['illustration__right', getPositionClass(slice.primary.illustration_right_position)]"
     >
       <img
