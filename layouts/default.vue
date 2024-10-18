@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, watch } from 'vue'
+import { onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import gsap from 'gsap'
 import ScrollSmoother from 'gsap/ScrollSmoother'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+
 
 const settings = useSettings()
 const prismic = usePrismic()
@@ -19,12 +20,10 @@ useSeoMeta({
   ogImage
 })
 
-let smoother: ScrollSmoother | null = null // Explicitly define type
-
 onMounted(() => {
   if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
-    smoother = ScrollSmoother.create({
+    const smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",
       smooth: 0.875,
@@ -33,32 +32,21 @@ onMounted(() => {
 
     // Refresh ScrollTrigger on route changes
     watch(router.currentRoute, () => {
-      smoother?.scrollTop(0) // Start at the top of the new page
+      smoother.scrollTop(0) // Start at the top of the new page
       ScrollTrigger.refresh()
     })
   }
-})
-
-onBeforeUnmount(() => {
-  if (smoother) {
-    smoother.kill() // Properly kill ScrollSmoother instance
-    smoother = null
-  }
-  // Kill all ScrollTrigger instances
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 })
 </script>
 
 <template>
   <div class="fade-container">
-    <div :key="router.currentRoute.value.fullPath">
-      <NewsletterSignup />
-      <Header />
-      <div id="smooth-wrapper">
-        <div id="smooth-content">
-          <slot />
-          <Footer />
-        </div>
+    <NewsletterSignup />
+    <Header />
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <slot />
+        <Footer />
       </div>
     </div>
   </div>
