@@ -8,6 +8,7 @@ import { useRoute } from 'vue-router'
 const prismic = usePrismic()
 const route = useRoute()
 
+// Fetch the current article
 const { data: article } = useAsyncData(`
   articles/${route.params.uid}`,
   () =>

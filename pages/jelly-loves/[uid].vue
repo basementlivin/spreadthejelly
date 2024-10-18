@@ -9,10 +9,13 @@ import { useRoute } from 'vue-router';
 const prismic = usePrismic();
 const route = useRoute();
 
-// Fetch the article using useAsyncData, ensuring it refetches on UID changes
-const { data: article } = useAsyncData('jellyLovesArticle', () =>
-  prismic.client.getByUID<JellyLovesArticleDocument>('jelly_loves_article', route.params.uid as string),
-  { watch: [() => route.params.uid] }  // Refetch when the route UID changes
+// Fetch the current Jelly Loves article
+const { data: article } = useAsyncData(`
+  articles/${route.params.uid}`,
+  () =>
+    prismic.client.getByUID<JellyLovesArticleDocument>(
+      'jelly_loves_article', route.params.uid as string
+    ), 
 )
 
 useArticleSeo(article);
@@ -23,7 +26,6 @@ const { data: allArticles } = useAsyncData('allJellyLovesArticles', () =>
     orderings: { field: 'my.jelly_loves_article.publication_date', direction: 'asc' },
     fetch: ['jelly_loves_article.title', 'jelly_loves_article.featured_image'],
   }),
-  { watch: [() => route.params.uid] }  // Refetch when the route UID changes
 )
 
 // Find the current article index and determine next/previous articles
@@ -47,7 +49,9 @@ const prevArticle = computed(() => {
 <template>
   <main class="page--jelly-loves-article">
     <div class="article__introduction wrapper wrapper--page-width">
-      <h1 class="title h2">{{ article?.data.title }}</h1>
+      <h1 class="title h2">
+        {{ article?.data.title }}
+      </h1>
       <span class="author h3">by {{ article?.data.author }}</span>
       <div class="image">
         <PrismicImage
@@ -76,7 +80,6 @@ const prevArticle = computed(() => {
     />
 
     <nav class="article-navigation">
-      <!-- Render Previous Article link only if it exists -->
       <PrismicLink
         v-if="prevArticle"
         :field="prevArticle"
@@ -98,7 +101,6 @@ const prevArticle = computed(() => {
         </div>
       </PrismicLink>
 
-      <!-- Render Next Article link only if it exists -->
       <PrismicLink
         v-if="nextArticle"
         :field="nextArticle"

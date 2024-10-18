@@ -7,10 +7,13 @@ import { useRoute } from 'vue-router'
 const prismic = usePrismic()
 const route = useRoute()
 
-// Fetch the article using useAsyncData and ensure it refetches on UID changes
-const { data: article } = useAsyncData('askJellyArticle', () =>
-  prismic.client.getByUID<AskJellyArticleDocument>('ask_jelly_article', route.params.uid as string),
-  { watch: [() => route.params.uid] }  // Refetch when the route UID changes
+// Fetch the current Ask Jelly article
+const { data: article } = useAsyncData(`
+  articles/${route.params.uid}`,
+  () =>
+    prismic.client.getByUID<AskJellyArticleDocument>(
+      'ask_jelly_article', route.params.uid as string
+    ), 
 )
 
 useArticleSeo(article)
@@ -21,7 +24,6 @@ const { data: allArticles } = useAsyncData('allAskJellyArticles', () =>
     orderings: { field: 'my.ask_jelly_article.publication_date', direction: 'asc' },
     fetch: ['ask_jelly_article.title'],
   }),
-  { watch: [() => route.params.uid] }  // Refetch when the route UID changes
 )
 
 // Find the current article index and determine next/previous articles
@@ -53,7 +55,6 @@ const prevArticle = computed(() => {
     />
 
     <nav class="ask-jelly-article-navigation">
-      <!-- Render Previous Article link only if it exists -->
       <PrismicLink
         v-if="prevArticle"
         :field="prevArticle"
@@ -64,7 +65,6 @@ const prevArticle = computed(() => {
         <span class="title">{{ prevArticle?.data?.title }}</span>
       </PrismicLink>
 
-      <!-- Render Next Article link only if it exists -->
       <PrismicLink
         v-if="nextArticle"
         :field="nextArticle"
