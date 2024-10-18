@@ -4,36 +4,27 @@ import { useArticleSeo } from '~/composables/useArticleSeo';
 import type { BlogArticleDocument } from '~/prismicio-types.d.ts'
 import { prismicImageSettings } from '@/utils/prismicImageSettings';
 import { useRoute } from 'vue-router'
-import { watch } from 'vue'
 
-// Prismic and Route Initialization
 const prismic = usePrismic()
 const route = useRoute()
 
-// Fetch the article using useAsyncData, ensuring it refetches on UID changes
-const { data: article, refresh: refreshArticle } = useAsyncData('article', () => 
-  prismic.client.getByUID<BlogArticleDocument>('blog_article', route.params.uid as string), 
-  { watch: [() => route.params.uid] }
+const { data: article } = useAsyncData(`
+  articles/${route.params.uid}`,
+  () =>
+    prismic.client.getByUID<BlogArticleDocument>(
+      'blog_article', route.params.uid as string
+    ), 
 )
 
-// Use the article data for SEO purposes
 useArticleSeo(article)
 
 // Fetch all articles sorted by publication date
-const { data: allArticles, refresh: refreshAllArticles } = useAsyncData('allArticles', () =>
+const { data: allArticles } = useAsyncData('allArticles', () =>
   prismic.client.getAllByType<BlogArticleDocument>('blog_article', {
     orderings: { field: 'my.blog_article.publication_date', direction: 'asc' },
     fetch: ['blog_article.title', 'blog_article.featured_image'],
-  }),
-  { watch: [() => route.params.uid] }
+  })
 )
-
-// Watch for Route Changes and Trigger Refresh
-watch(() => route.params.uid, async () => {
-  // Trigger re-fetching of article and related data on route change
-  await refreshArticle()
-  await refreshAllArticles()
-})
 
 // Find the current article index and determine next/previous articles
 const currentIndex = computed(() => {
