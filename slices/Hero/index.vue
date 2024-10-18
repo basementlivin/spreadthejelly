@@ -19,7 +19,6 @@ defineProps(getSliceComponentProps<Content.HeroSlice>(
       slice.variation === 'straight' && slice.primary.text_color === 'White' ? 'text--white' : '',
       slice.variation === 'straight' && slice.primary.text_color === 'Black' ? 'text--black' : '',
     ]"
-    data-scroll-section
   >
     <div class="hero__bg">
       <div class="image">
@@ -72,7 +71,6 @@ defineProps(getSliceComponentProps<Content.HeroSlice>(
   <section
     v-else-if="slice.variation === 'super'"
     :class="['hero', 'hero--super', 'wrapper--fullscreen']"
-    data-scroll-section
   >
     <div class="hero__bg">
       <div class="image">

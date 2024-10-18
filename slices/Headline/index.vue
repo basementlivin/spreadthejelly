@@ -30,7 +30,6 @@ const headlineClass = computed(() => {
   <section
     v-if="isFilled.keyText(slice.primary.headline)"
     class="headline wrapper"
-    data-scroll-section
   >
     <component
       :is="slice.primary.headline_level"

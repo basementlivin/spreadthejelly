@@ -36,7 +36,6 @@ const slides = computed(() => {
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
     class="image-slider wrapper wrapper--fullscreen"
-    data-scroll-section
   >
     <Swiper
       :modules="[Autoplay, Navigation, A11y, Keyboard]"
