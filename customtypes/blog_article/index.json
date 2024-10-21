@@ -53,6 +53,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "spacer": {
+              "type": "SharedSlice"
+            },
             "related_articles": {
               "type": "SharedSlice"
             },

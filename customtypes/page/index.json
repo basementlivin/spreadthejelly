@@ -35,6 +35,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "related_answers": {
+              "type": "SharedSlice"
+            },
+            "spacer": {
+              "type": "SharedSlice"
+            },
+            "recommendations": {
+              "type": "SharedSlice"
+            },
             "related_articles": {
               "type": "SharedSlice"
             },

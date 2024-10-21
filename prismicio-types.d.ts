@@ -4,7 +4,10 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type AboutDocumentDataSlicesSlice = DividingLineSlice | TeamMembersSlice;
+type AboutDocumentDataSlicesSlice =
+  | SpacerSlice
+  | DividingLineSlice
+  | TeamMembersSlice;
 
 /**
  * Content for About documents
@@ -98,7 +101,7 @@ interface AboutDocumentData {
 export type AboutDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<AboutDocumentData>, "about", Lang>;
 
-type AskJellyDocumentDataSlicesSlice = DividingLineSlice;
+type AskJellyDocumentDataSlicesSlice = SpacerSlice | DividingLineSlice;
 
 /**
  * Content for Ask Jelly documents
@@ -206,6 +209,7 @@ export type AskJellyDocument<Lang extends string = string> =
   >;
 
 type AskJellyArticleDocumentDataSlicesSlice =
+  | SpacerSlice
   | JellyLikesSlice
   | RelatedAnswersSlice
   | QuestionSlice
@@ -333,7 +337,7 @@ export type AskJellyArticleDocument<Lang extends string = string> =
     Lang
   >;
 
-type BlogDocumentDataSlicesSlice = HeroSlice;
+type BlogDocumentDataSlicesSlice = SpacerSlice | HeroSlice;
 
 /**
  * Content for Blog documents
@@ -415,6 +419,7 @@ export type BlogDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
 
 type BlogArticleDocumentDataSlicesSlice =
+  | SpacerSlice
   | RelatedArticlesSlice
   | JellyLikesSlice
   | ImageSliderSlice
@@ -766,7 +771,7 @@ export type FooterLinksDocument<Lang extends string = string> =
     Lang
   >;
 
-type JellyLovesDocumentDataSlicesSlice = HeroSlice;
+type JellyLovesDocumentDataSlicesSlice = SpacerSlice | HeroSlice;
 
 /**
  * Content for Jelly Loves documents
@@ -852,6 +857,7 @@ export type JellyLovesDocument<Lang extends string = string> =
   >;
 
 type JellyLovesArticleDocumentDataSlicesSlice =
+  | SpacerSlice
   | RecommendationsSlice
   | ImageSlice
   | HeroSlice
@@ -1123,6 +1129,9 @@ export type NewsletterPopupFormDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | RelatedAnswersSlice
+  | SpacerSlice
+  | RecommendationsSlice
   | RelatedArticlesSlice
   | FeaturedArticlesSlice
   | PullQuoteSlice
@@ -2679,6 +2688,48 @@ export type RelatedArticlesSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Spacer → Default → Primary*
+ */
+export interface SpacerSliceDefaultPrimary {
+  /**
+   * Size field in *Spacer → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Set the height of your spacer.
+   * - **API ID Path**: spacer.default.primary.size
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  size: prismic.SelectField<"Small" | "Medium" | "Large" | "XL">;
+}
+
+/**
+ * Default variation for Spacer Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SpacerSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SpacerSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Spacer*
+ */
+type SpacerSliceVariation = SpacerSliceDefault;
+
+/**
+ * Spacer Shared Slice
+ *
+ * - **API ID**: `spacer`
+ * - **Description**: Spacer
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SpacerSlice = prismic.SharedSlice<"spacer", SpacerSliceVariation>;
+
+/**
  * Item in *TeamMembers → Default → Primary → Team Member*
  */
 export interface TeamMembersSliceDefaultPrimaryTeamMemberItem {
@@ -3222,6 +3273,10 @@ declare module "@prismicio/client" {
       RelatedArticlesSliceDefaultPrimary,
       RelatedArticlesSliceVariation,
       RelatedArticlesSliceDefault,
+      SpacerSlice,
+      SpacerSliceDefaultPrimary,
+      SpacerSliceVariation,
+      SpacerSliceDefault,
       TeamMembersSlice,
       TeamMembersSliceDefaultPrimaryTeamMemberItem,
       TeamMembersSliceDefaultPrimary,
