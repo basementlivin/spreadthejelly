@@ -28,8 +28,6 @@ const spacerHeight = spacerOptions[slice.primary.size ?? 'Medium'];
     :data-slice-variation="slice.variation"
     class="spacer wrapper wrapper--full-width"
   >
-    <div :style="{ height: spacerHeight }">
-      <h1>{{ spacerHeight }}</h1>
-    </div>
+    <div :style="{ height: spacerHeight }" />
   </section>
 </template>
