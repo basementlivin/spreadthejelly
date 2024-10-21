@@ -16,7 +16,7 @@ const props = defineProps(
 
 // Check if the slice exists and has primary and images fields before processing
 const slides = computed(() => {
-  const images = props?.slice?.primary?.images ?? []; // Use optional chaining and provide a fallback to an empty array
+  const images = props?.slice?.primary?.images ?? [];
   const minSlides = 10;
   let duplicatedImages = [...images];
 
@@ -40,24 +40,13 @@ const slides = computed(() => {
     <Swiper
       :modules="[Autoplay, Navigation, A11y, Keyboard]"
       :grab-cursor="true"
-      :space-between="0"
-      :slides-per-view="1"
+      :space-between="16"
+      :slides-per-view="'auto'"
       :loop="true"
       :speed="680"
       :autoplay="{
         delay: 2850,
         disableOnInteraction: false,
-      }"
-      :breakpoints="{
-        768: {
-          slidesPerView: 2,
-        },
-        1024: {
-          slidesPerView: 3,
-        },
-        1600: {
-          slidesPerView: 4,
-        },
       }"
       :navigation="{
         nextEl: '.swiper-button-next--custom',
@@ -73,6 +62,7 @@ const slides = computed(() => {
       <SwiperSlide
         v-for="(slide, index) in slides"
         :key="index"
+        class="swiper-slide--custom"
       >
         <div class="image">
           <PrismicImage
@@ -96,6 +86,7 @@ const slides = computed(() => {
     </div>
   </section>
 </template>
+
 
 <style lang="scss" scoped>
   @import '@/assets/scss/slices/_image-slider.scss';

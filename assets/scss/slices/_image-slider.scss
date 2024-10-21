@@ -3,145 +3,52 @@
   padding-bottom: 4rem;
   position: relative;
   padding-right: 4rem;
-  
-  @include breakpoint($tablet) {
-    padding-right: 4.75rem;
-  }
-  
-  @include breakpoint($laptop){
-    padding-right: 5.85rem;
-  }
-  
-  .image {
-    height: 100%;
-    width: 100%;
-    aspect-ratio: 5 / 7;
-    
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+
+  .swiper {
+    height: 300px;
+
+    @include breakpoint($tablet) {
+      height: 400px;
+    }
+
+    @include breakpoint($laptop) {
+      height: 500px;
     }
   }
-  
+
+  .swiper-slide--custom {
+    width: auto;
+    height: 100%;
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+
+    img {
+      display: block;
+      width: auto;
+      height: 100%;
+      object-fit: cover;
+
+      @include breakpoint($tablet) {
+        object-fit: contain;
+      }
+    }
+  }
+
   .swiper-navigation {
     position: absolute;
     z-index: 2;
     top: 50%;
     transform: translateY(-50%);
     right: 1.25rem;
-    
-    @include breakpoint($tablet) {
-      right: 1.55rem
-    }
-    
-    @include breakpoint($laptop){
-      right: 2rem;
-    }
 
     .swiper-button-prev--custom,
     .swiper-button-next--custom {
       color: $black;
       font-size: 2.75rem;
-      @include chivo-variable(500);
       cursor: pointer;
-      
-      &::selection {
-        background-color: transparent;
-        color: $black;
-      }
-      
-      @include breakpoint($tablet) {
-        font-size: 3.125rem
-      }
-      
-      @include breakpoint($laptop){
-        font-size: 3.5rem;
-      }
-    }
-  }
-}
-
-.thumbs-slider {
-  margin: 0 auto;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-  
-  &__main {
-    border-bottom: 4px solid $black;
-  }
-  
-  .image {
-    margin: 0 auto;
-    height: 600px;
-    width: 100%;
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-  }
-  
-  .thumb {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 1 / 1;
-    
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-  }
-  
-  &__thumbs {
-    border-bottom: 4px solid $black;
-    
-    .swiper-slide {
-      &::after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        background-color: $black;
-        opacity: 0.5;
-        
-      }
-      
-      &.swiper-slide-thumb-active {
-        &::after {
-          opacity: 0;
-        }
-      }
-    }
-    
-  }
-  .swiper-navigation {
-    position: absolute;
-    z-index: 2;
-    top: 50%;
-    left: 1rem;
-    right: 1rem;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: space-between;
-  
-  
-    .swiper-button-prev--custom,
-    .swiper-button-next--custom {
-      color: $black;
-      font-size: clamp(2.75rem, 4vw, 3.5rem);
-      @include chivo-variable(500);
-      cursor: pointer;
-      user-select: none;
     }
   }
 }
