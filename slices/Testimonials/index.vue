@@ -19,6 +19,12 @@ defineProps(
     :data-slice-variation="slice.variation"
     class="testimonials wrapper wrapper--fullscreen"
   >
+    <span
+      v-if="isFilled.keyText(slice.primary.headline)"
+      class="testimonials__headline"
+    >
+      {{ slice.primary.headline }}
+    </span>
     <div class="testimonials__inner wrapper wrapper--wide">
       <div
         v-for="(testimonial, index) in slice.primary.testimonials"

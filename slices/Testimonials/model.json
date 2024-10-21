@@ -12,6 +12,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "headline": {
+          "type": "Text",
+          "config": {
+            "label": "Headline (optional)",
+            "placeholder": "Jelly Community"
+          }
+        },
         "testimonials": {
           "type": "Group",
           "config": {
@@ -33,13 +40,6 @@
                 }
               }
             }
-          }
-        },
-        "headline": {
-          "type": "Text",
-          "config": {
-            "label": "Headline (optional)",
-            "placeholder": "Shout-outs from our community"
           }
         }
       },

@@ -13,16 +13,58 @@
 								"testimonial",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "anything",
-									"type": "Text"
+									"type": "Text",
+									"value": "Urna primis molestie netus pretium mi tristique nascetur proin. Erat sodales viverra et quisque primis nam ligula varius."
 								}
 							],
 							[
 								"credit",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "girl",
-									"type": "Text"
+									"type": "Text",
+									"value": "Maria, New York"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"testimonial",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Nascetur lacus rutrum fringilla massa sem laoreet potenti metus feugiat!"
+								}
+							],
+							[
+								"credit",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Jane, Miami"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"testimonial",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Pretium laoreet viverra lectus donec maximus curabitur tristique feugiat? Aenean nullam curabitur duis et conubia sapien."
+								}
+							],
+							[
+								"credit",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Anna, LA"
 								}
 							]
 						]
@@ -31,8 +73,8 @@
 			},
 			"headline": {
 				"__TYPE__": "FieldContent",
-				"value": "cross",
-				"type": "Text"
+				"type": "Text",
+				"value": "Jelly Community"
 			}
 		},
 		"items": []

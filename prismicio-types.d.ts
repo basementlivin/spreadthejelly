@@ -2861,6 +2861,16 @@ export interface TestimonialsSliceDefaultPrimaryTestimonialsItem {
  */
 export interface TestimonialsSliceDefaultPrimary {
   /**
+   * Headline (optional) field in *Testimonials → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Jelly Community
+   * - **API ID Path**: testimonials.default.primary.headline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  headline: prismic.KeyTextField;
+
+  /**
    * Testimonials field in *Testimonials → Default → Primary*
    *
    * - **Field Type**: Group
@@ -2871,16 +2881,6 @@ export interface TestimonialsSliceDefaultPrimary {
   testimonials: prismic.GroupField<
     Simplify<TestimonialsSliceDefaultPrimaryTestimonialsItem>
   >;
-
-  /**
-   * Headline (optional) field in *Testimonials → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Shout-outs from our community
-   * - **API ID Path**: testimonials.default.primary.headline
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  headline: prismic.KeyTextField;
 }
 
 /**
