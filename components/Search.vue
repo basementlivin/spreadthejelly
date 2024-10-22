@@ -84,7 +84,7 @@ const onSearch = async () => {
         class="result"
       >
         <NuxtLink
-          :to="`/${result.type === 'ask_jelly_article' ? 'ask-jelly' : 'articles'}/${result.uid}`"
+          :to="`/${result.type === 'ask_jelly_article' ? 'ask-jelly' : result.type === 'jelly_loves_article' ? 'jelly-loves' : 'articles'}/${result.uid}`"
           class="link--no-underline"
           :aria-labelledby="`result__title--${index}`"
           @click="emit('close-search-modal')"
