@@ -64,6 +64,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "than",
 				"type": "Text"
+			},
+			"layout": {
+				"__TYPE__": "FieldContent",
+				"value": "Image Left",
+				"type": "Select"
 			}
 		},
 		"items": [

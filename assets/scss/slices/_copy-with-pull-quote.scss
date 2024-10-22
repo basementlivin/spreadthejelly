@@ -82,5 +82,11 @@ section.copy-with-pull-quote {
     @include breakpoint($laptop) {
       width: 52%;
     }
+
+    &__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
   }
 }

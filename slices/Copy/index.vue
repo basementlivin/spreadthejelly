@@ -90,7 +90,11 @@ function getPositionClass(position: string | null): string {
 
   <section
     v-else-if="slice.variation === 'copyWithImage'"
-    class="copy-with-image wrapper wrapper--wide"
+    class="copy-with-image wrapper wrapper--page-width"
+    :class="{
+      'image--left': slice.primary.layout === 'Image Left',
+      'image--right': slice.primary.layout === 'Image Right',
+    }"
   >
     <figure class="image">
       <PrismicImage
@@ -114,13 +118,14 @@ function getPositionClass(position: string | null): string {
     >
       <PrismicRichText
         :field="slice.primary.copy"
+        class="copy__inner"
       />
     </div>
   </section>
 
   <section
     v-else-if="slice.variation === 'copyWithPullQuote'"
-    :class="['copy-with-pull-quote', pullQuoteClass, 'wrapper wrapper--wide']"
+    :class="['copy-with-pull-quote', pullQuoteClass, 'wrapper wrapper--page-width']"
   >
     <div
       v-if="isFilled.richText(slice.primary.copy)"
@@ -128,6 +133,7 @@ function getPositionClass(position: string | null): string {
     >
       <PrismicRichText
         :field="slice.primary.copy"
+        class="copy__inner"
       />
     </div>
 

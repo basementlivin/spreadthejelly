@@ -2991,6 +2991,16 @@ export interface TextSliceCopyWithImagePrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   copy: prismic.RichTextField;
+
+  /**
+   * Layout field in *Copy → Copy with Image → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.copyWithImage.primary.layout
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  layout: prismic.SelectField<"Image Left" | "Image Right">;
 }
 
 /**
