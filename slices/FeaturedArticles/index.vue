@@ -80,7 +80,8 @@ const featuredArticles = computed(() => {
           :class="{
             'article__image': true,
             'full-bleed': article.card_style === 'Full Bleed Image',
-            'inset': article.card_style === 'Inset Image',
+            'inset inset--vertical': article.card_style === 'Inset Image Vertical',
+            'inset inset--horizontal': article.card_style === 'Inset Image Horizontal',
             'mask--blob-01': article.card_style === 'Blob Mask 1',
             'mask--blob-02': article.card_style === 'Blob Mask 2',
             'quote': article.card_style === 'Featured Quote',

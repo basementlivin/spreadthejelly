@@ -45,6 +45,8 @@
                     "Full-Bleed Image",
                     "Blob Mask 1",
                     "Blob Mask 2",
+                    "Inset Image Vertical",
+                    "Inset Image Horizontal",
                     "Featured Quote"
                   ],
                   "default_value": "Full-Bleed Image"

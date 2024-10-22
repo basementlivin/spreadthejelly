@@ -88,6 +88,8 @@ const relatedArticles = computed(() => {
             'full-bleed': article.card_style === 'Full-Bleed Image',
             'mask mask--blob-01': article.card_style === 'Blob Mask 1',
             'mask mask--blob-02': article.card_style === 'Blob Mask 2',
+            'inset inset--vertical': article.card_style === 'Inset Image Vertical',
+            'inset inset--horizontal': article.card_style === 'Inset Image Horizontal',
             'mask mask--quote': article.card_style === 'Featured Quote',
             'mask--white': article.card_bg_color === 'White',
             'mask--black': article.card_bg_color === 'Black',

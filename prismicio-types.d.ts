@@ -1383,9 +1383,10 @@ export interface FeaturedArticlesSliceDefaultPrimaryArticlesItem {
    */
   card_style: prismic.SelectField<
     | "Full Bleed Image"
-    | "Inset Image"
     | "Blob Mask 1"
     | "Blob Mask 2"
+    | "Inset Image Vertical"
+    | "Inset Image Horizontal"
     | "Featured Quote",
     "filled"
   >;
@@ -2604,7 +2605,12 @@ export interface RelatedArticlesSliceDefaultPrimaryArticlesItem {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   card_style: prismic.SelectField<
-    "Full-Bleed Image" | "Blob Mask 1" | "Blob Mask 2" | "Featured Quote",
+    | "Full-Bleed Image"
+    | "Blob Mask 1"
+    | "Blob Mask 2"
+    | "Inset Image Vertical"
+    | "Inset Image Horizontal"
+    | "Featured Quote",
     "filled"
   >;
 
