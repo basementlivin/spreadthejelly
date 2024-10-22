@@ -28,10 +28,12 @@ defineProps(
         {{ slice.primary.who_likes }}
       </span>
       <div class="products">
-        <div
+        <PrismicLink
           v-for="(product, index) in slice.primary.products"
           :key="index"
+          :field="product.product_link"
           class="product"
+          :aria-label="`Visit the ${product.product_name} product page to learn more and purchase`"
         >
           <div 
             v-if="isFilled.image(product.product_image)"
@@ -61,15 +63,11 @@ defineProps(
             <p class="price">
               ${{ product.product_price }}
             </p>
-            <PrismicLink
-              :field="product.product_link"
-              class="purchase-link"
-              :aria-label="`Visit the ${product.product_name} product page to learn more and purchase`"
-            >
+            <span class="purchase-link">
               BUY
-            </PrismicLink>
+            </span>
           </div>
-        </div>
+        </PrismicLink>
       </div>
     </div>
   </section>

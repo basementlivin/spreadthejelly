@@ -27,6 +27,7 @@
       }
       
       .product {
+        text-decoration: none;
         display: flex;
         flex-direction: column;
         gap: 2rem;
@@ -42,6 +43,7 @@
         }
         
         &__image {
+          pointer-events: none;
           width: 100%;
           height: auto;
           max-height: 250px;
@@ -56,6 +58,7 @@
         }
 
         &__details {
+          pointer-events: none;
           display: flex;
           flex-direction: column;
           font-size: 0.825rem;
@@ -81,6 +84,7 @@
           }
 
           .purchase-link {
+            pointer-events: all;
             display: inline-flex;
             align-self: flex-start;
             text-decoration: underline;
