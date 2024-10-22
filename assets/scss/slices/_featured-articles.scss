@@ -21,8 +21,10 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
     }
-
+    
     .article {
+      display: block;
+      text-decoration: none;
       position: relative;
 
       &__image {

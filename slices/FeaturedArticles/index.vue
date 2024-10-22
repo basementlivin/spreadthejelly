@@ -69,10 +69,12 @@ const featuredArticles = computed(() => {
       v-if="isFilled.group(slice.primary.articles)"
       class="featured-articles__inner"
     >
-      <div
+      <PrismicLink
         v-for="(article, index) in featuredArticles"
         :key="index"
+        :field="article"
         class="article"
+        :aria-labelledby="`article__title--${index}`"
       >
         <div
           :class="{
@@ -122,20 +124,14 @@ const featuredArticles = computed(() => {
             >
               {{ article.data.title }}
             </span>
-            
-            <PrismicLink
-              :field="article"
-              class="link"
-              :aria-labelledby="`article__title--${index}`"
-            >
-              read more <span class="sr-only">about {{ article.data.title }}</span>
-            </PrismicLink>
+            <span class="link">read more</span>
           </div>
         </div>
-      </div>
+      </PrismicLink>
     </div>
   </section>
 </template>
+
 
 <style lang="scss" scoped>
   @import url('/assets/scss/slices/_featured-articles.scss');
