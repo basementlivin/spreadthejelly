@@ -72,11 +72,13 @@
       }
 
       .article {
+        text-decoration: none;
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
   
         .image {
+          pointer-events: none;
           width: 90%;
           height: auto;
           align-self: center;
@@ -103,7 +105,6 @@
         }
   
         .link {
-          font-size: 1rem;
           line-height: 1.45;
         }
       }

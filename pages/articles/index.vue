@@ -84,10 +84,12 @@ usePageSeo(pageData)
         class="blog__articles wrapper wrapper--fullscreen"
       >
         <div class="articles__container">
-          <div
+          <PrismicLink
             v-for="article in articles"
             :key="article.id"
+            :field="article"
             class="article"
+            :aria-label="`Read ${article.data.title} in its entirety`"
           >
             <div class="article__image">
               <PrismicImage
@@ -107,16 +109,10 @@ usePageSeo(pageData)
               <p class="headline">
                 {{ article.data.title }}
               </p>
-    
-              <PrismicLink
-                :field="article"
-                class="link"
-                :aria-label="`Read ${article.data.title} in its entirety`"
-              >
-                read more
-              </PrismicLink>
+
+              <span class="link">read more</span>
             </div>
-          </div>
+          </PrismicLink>
         </div>
   
         <span

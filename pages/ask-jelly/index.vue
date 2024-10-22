@@ -88,10 +88,12 @@ usePageSeo(pageData)
         </h2>
   
         <div class="articles__container">
-          <div
+          <PrismicLink
             v-for="article in articles"
             :key="article.id"
+            :field="article"
             class="article"
+            :aria-label="`Read ${article.data.title} in its entirety`"
           >
             <PrismicImage
               :field="article.data.featured_image"
@@ -106,14 +108,10 @@ usePageSeo(pageData)
             <span class="asked-by">
               From {{ article.data.asked_by }}
             </span>
-            <PrismicLink
-              :field="article"
-              class="link"
-              :aria-label="`Read ${article.data.title} in its entirety`"
-            >
+            <span class="link">
               read more
-            </PrismicLink>
-          </div>
+            </span>
+          </PrismicLink>
         </div>
   
         <span

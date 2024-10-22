@@ -84,10 +84,12 @@ usePageSeo(pageData);
         class="jelly-loves__articles wrapper wrapper--fullscreen"
       >
         <div class="articles__container">
-          <div
+          <PrismicLink
             v-for="article in articles"
             :key="article.id"
+            :field="article"
             class="article"
+            :aria-label="`Read ${article.data.title} in its entirety`"
           >
             <div class="article__image">
               <PrismicImage
@@ -108,15 +110,11 @@ usePageSeo(pageData);
                 {{ article.data.title }}
               </p>
     
-              <PrismicLink
-                :field="article"
-                class="link"
-                :aria-label="`Read ${article.data.title} in its entirety`"
-              >
+              <span class="link">
                 read more
-              </PrismicLink>
+              </span>
             </div>
-          </div>
+          </PrismicLink>
         </div>
   
         <span
