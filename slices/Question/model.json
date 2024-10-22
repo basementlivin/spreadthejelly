@@ -38,6 +38,18 @@
             "label": "Asked By",
             "placeholder": "from "
           }
+        },
+        "layout": {
+          "type": "Select",
+          "config": {
+            "label": "Layout",
+            "placeholder": "",
+            "options": [
+              "Image Left",
+              "Image Right"
+            ],
+            "default_value": "Image Left"
+          }
         }
       },
       "items": {}

@@ -8,12 +8,21 @@
     align-items: center;
     justify-content: center;
     gap: 4rem;
-    
-    @include breakpoint($laptop) {
-      flex-direction: row;
-      justify-content: space-between;
+
+    &.image--left {
+      @include breakpoint($laptop) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
     }
 
+    &.image--right {
+      @include breakpoint($laptop) {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+      }
+    }
+    
     .image {
       width: 100%;
       max-width: 525px;

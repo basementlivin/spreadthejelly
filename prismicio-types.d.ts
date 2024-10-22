@@ -2403,6 +2403,17 @@ export interface QuestionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   asked_by: prismic.KeyTextField;
+
+  /**
+   * Layout field in *Question → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Image Left
+   * - **API ID Path**: question.default.primary.layout
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  layout: prismic.SelectField<"Image Left" | "Image Right", "filled">;
 }
 
 /**

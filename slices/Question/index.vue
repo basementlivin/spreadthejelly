@@ -21,7 +21,11 @@ defineProps(
     class="question wrapper wrapper--wide"
   >
     <div
-      class="question__inner"
+      :class="{
+        'question__inner': true,
+        'image--left': slice.primary.layout === 'Image Left',
+        'image--right': slice.primary.layout === 'Image Right',
+      }"
     >
       <div class="image">
         <PrismicImage
