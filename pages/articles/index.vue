@@ -69,69 +69,67 @@ usePageSeo(pageData)
 </script>
 
 <template>
-  <div :key="route.fullPath">
-    <main 
-      id="main"
-      class="page--blog"
-    >
-      <SliceZone
-        :slices="pageData?.data.slices ?? []"
-        :components="components"
-      />
-  
-      <section
-        v-if="articles.length"
-        class="blog__articles wrapper wrapper--fullscreen"
-      >
-        <div class="articles__container">
-          <PrismicLink
-            v-for="article in articles"
-            :key="article.id"
-            :field="article"
-            class="article"
-            :aria-label="`Read ${article.data.title} in its entirety`"
-          >
-            <div class="article__image">
-              <PrismicImage
-                :field="article.data.featured_image"
-                :alt="article.data.featured_image.alt || 'No image description provided'"
-                :widths="prismicImageSettings.presets.default.widths"
-                :imgix-params="prismicImageSettings.presets.default.imgixParams"
-                loading="lazy"
-              />
-            </div>
-  
-            <div class="article__details">
-              <span class="tag">
-                {{ article.tags[0] }}
-              </span>
-    
-              <p class="headline">
-                {{ article.data.title }}
-              </p>
+  <main 
+    id="main"
+    class="page--blog"
+  >
+    <SliceZone
+      :slices="pageData?.data.slices ?? []"
+      :components="components"
+    />
 
-              <span class="link">read more</span>
-            </div>
-          </PrismicLink>
-        </div>
+    <section
+      v-if="articles.length"
+      class="blog__articles wrapper wrapper--fullscreen"
+    >
+      <div class="articles__container">
+        <PrismicLink
+          v-for="article in articles"
+          :key="article.id"
+          :field="article"
+          class="article"
+          :aria-label="`Read ${article.data.title} in its entirety`"
+        >
+          <div class="article__image">
+            <PrismicImage
+              :field="article.data.featured_image"
+              :alt="article.data.featured_image.alt || 'No image description provided'"
+              :widths="prismicImageSettings.presets.default.widths"
+              :imgix-params="prismicImageSettings.presets.default.imgixParams"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="article__details">
+            <span class="tag">
+              {{ article.tags[0] }}
+            </span>
   
-        <span
-          v-if="hasMore && !loading"
-          class="articles__load-more link"
-          aria-label="Load more articles"
-          @click="handleLoadMoreClick"
-        >
-          {{ pageData?.data.load_more_button_text ? pageData.data.load_more_button_text : 'Load More' }}
-        </span>
-        <p
-          v-else-if="!hasMore"
-          class="articles__no-more"
-        >
-          {{ pageData?.data.no_more_articles_message ? pageData.data.no_more_articles_message : 'You made it to the end!' }}
-        </p>
-      </section>
-    </main>
-  </div>
+            <p class="headline">
+              {{ article.data.title }}
+            </p>
+
+            <span class="link">read more</span>
+          </div>
+        </PrismicLink>
+      </div>
+
+      <span
+        v-if="hasMore && !loading"
+        class="articles__load-more link"
+        aria-label="Load more articles"
+        @click="handleLoadMoreClick"
+      >
+        {{ pageData?.data.load_more_button_text ? pageData.data.load_more_button_text : 'Load More' }}
+      </span>
+      <p
+        v-else-if="!hasMore"
+        class="articles__no-more"
+      >
+        {{ pageData?.data.no_more_articles_message ? pageData.data.no_more_articles_message : 'You made it to the end!' }}
+      </p>
+    </section>
+  </main>
 </template>
 
 <style lang="scss" scoped>

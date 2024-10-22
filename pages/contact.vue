@@ -45,41 +45,39 @@ usePageSeo(page)
 </script>
 
 <template>
-  <div :key="route.fullPath">
-    <main
-      id="main"
-      class="page--contact"
-    >
-      <section class="contact__intro wrapper wrapper--narrow">
-        <h1 class="headline">
-          {{ page?.data.headline }}
-        </h1>
-        <PrismicRichText
-          :field="page?.data.copy"
-          class="copy"
-        />
+  <main
+    id="main"
+    class="page--contact"
+  >
+    <section class="contact__intro wrapper wrapper--narrow">
+      <h1 class="headline">
+        {{ page?.data.headline }}
+      </h1>
+      <PrismicRichText
+        :field="page?.data.copy"
+        class="copy"
+      />
+      <span
+        class="link tooltip-container"
+        aria-label="Click to copy email address to your clipboard"
+        tabindex="0"
+        @click.prevent="copyToClipboard(page?.data.contact_link[0]?.email ?? '')"
+        @mouseover="showHoverText"
+        @mouseleave="hideHoverText"
+        @focus="showHoverText"
+        @blur="hideHoverText"
+        @keydown="handleKeydown($event, page?.data.contact_link[0]?.email ?? '')"
+      >
+        {{ page?.data.contact_link[0]?.link_text }}
         <span
-          class="link tooltip-container"
-          aria-label="Click to copy email address to your clipboard"
-          tabindex="0"
-          @click.prevent="copyToClipboard(page?.data.contact_link[0]?.email ?? '')"
-          @mouseover="showHoverText"
-          @mouseleave="hideHoverText"
-          @focus="showHoverText"
-          @blur="hideHoverText"
-          @keydown="handleKeydown($event, page?.data.contact_link[0]?.email ?? '')"
+          v-if="tooltipText"
+          class="tooltip"
         >
-          {{ page?.data.contact_link[0]?.link_text }}
-          <span
-            v-if="tooltipText"
-            class="tooltip"
-          >
-            {{ tooltipText }}
-          </span>
+          {{ tooltipText }}
         </span>
-      </section>
-    </main>
-  </div>
+      </span>
+    </section>
+  </main>
 </template>
 
 <style lang="scss" scoped>

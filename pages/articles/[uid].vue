@@ -48,7 +48,7 @@ const prevArticle = computed(() => {
 
 
 <template>
-  <div :key="route.fullPath">
+  <div>
     <SliceZone
       v-if="article"
       id="main"

@@ -14,12 +14,10 @@ usePageSeo(page)
 </script>
 
 <template>
-  <div :key="route.fullPath">
-    <SliceZone
-      id="main"
-      wrapper="main"
-      :slices="page?.data.slices ?? []"
-      :components="components"
-    />
-  </div>
+  <SliceZone
+    id="main"
+    wrapper="main"
+    :slices="page?.data.slices ?? []"
+    :components="components"
+  />
 </template>

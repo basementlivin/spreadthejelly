@@ -17,30 +17,28 @@ usePageSeo(page)
 </script>
 
 <template>
-  <div :key="route.fullPath">
-    <main 
-      id="main"
-      :key="route.fullPath"
-      class="page--about"
-    >
-      <div class="about__intro wrapper wrapper--narrow">
-        <h1 class="headline">
-          {{ page?.data.headline }}
-        </h1>
-        <span class="subheadline">
-          {{ page?.data.subheadline }}
-        </span>
-        <PrismicRichText
-          :field="page?.data.copy"
-          class="copy"
-        />
-      </div>
-      <SliceZone
-        :slices="page?.data.slices ?? []"
-        :components="components"
+  <main 
+    id="main"
+    :key="route.fullPath"
+    class="page--about"
+  >
+    <div class="about__intro wrapper wrapper--narrow">
+      <h1 class="headline">
+        {{ page?.data.headline }}
+      </h1>
+      <span class="subheadline">
+        {{ page?.data.subheadline }}
+      </span>
+      <PrismicRichText
+        :field="page?.data.copy"
+        class="copy"
       />
-    </main>
-  </div>
+    </div>
+    <SliceZone
+      :slices="page?.data.slices ?? []"
+      :components="components"
+    />
+  </main>
 </template>
 
 <style lang="scss" scoped>
