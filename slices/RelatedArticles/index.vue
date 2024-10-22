@@ -75,10 +75,12 @@ const relatedArticles = computed(() => {
       v-if="isFilled.group(slice.primary.articles)"
       class="related-articles__inner"
     >
-      <div
+      <PrismicLink
         v-for="(article, index) in relatedArticles"
         :key="index"
+        :field="article"
         class="article"
+        :aria-labelledby="`article__details--${index}`"
       >
         <div
           class="article__image"
@@ -114,27 +116,15 @@ const relatedArticles = computed(() => {
           :id="`article__details--${index}`"
           class="article__details"
         >
-          <span
-            class="tag"
-          >
+          <span class="tag">
             {{ article.tags[0] }}
           </span>
-
-          <p
-            class="title h3"
-          >
+          <p class="title h3">
             {{ article.data.title }}
           </p>
-          
-          <PrismicLink
-            :field="article"
-            class="link"
-            :aria-labelledby="`article__details--${index}`"
-          >
-            read more <span class="sr-only">about {{ article.data.title }}</span>
-          </PrismicLink>
+          <span class="link">read more</span>
         </div>
-      </div>
+      </PrismicLink>
     </div>
   </section>
 </template>
