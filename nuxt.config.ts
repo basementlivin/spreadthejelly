@@ -53,11 +53,7 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: [
-    "@nuxtjs/prismic",
-    "nuxt-swiper",
-    "nuxt-svgo",
-  ],
+  modules: ["@nuxtjs/prismic", "nuxt-swiper", "nuxt-svgo", "nuxt-gtag"],
 
   svgo: {
     autoImportPath: "~/assets/svg",
