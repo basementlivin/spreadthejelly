@@ -13,20 +13,20 @@ export const prismicImageSettings = {
 
   presets: {
     hero: {
-      widths: [640, 1024, 1280],  // Matching larger screens
-      imgixParams: { format: "webp", q: 100 },  // Format and quality
+      widths: [640, 1024, 1280, 1920, 2560],
+      imgixParams: { format: ["avif", "webp"], q: 85, auto: "compress" },
     },
     default: {
-      widths: [360, 640, 1024],
-      imgixParams: { format: "webp", q: 85 },
+      widths: [360, 640, 1024, 1536],
+      imgixParams: { format: ["avif", "webp"], q: 85, auto: "compress" },
     },
     small: {
       widths: [200, 400, 600],
-      imgixParams: { format: "webp", q: 80 },
+      imgixParams: { format: ["avif", "webp"], q: 80, auto: "compress" },
     },
     tiny: {
       widths: [100, 200, 300],
-      imgixParams: { format: "webp", q: 70 },
+      imgixParams: { format: ["avif", "webp"], q: 70, auto: "compress" },
     },
   },
 };
