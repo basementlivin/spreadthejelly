@@ -20,7 +20,7 @@ export default defineNuxtConfig({
         },
         { name: 'format-detection', content: 'telephone=no' },
         { name: 'referrer', content: 'no-referrer-when-downgrade' },
-        { name: 'robots', content: 'index, follow' },
+        { name: 'robots', content: 'noindex, nofollow' },
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
@@ -53,7 +53,12 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: ["@nuxtjs/prismic", "nuxt-swiper", "nuxt-svgo", "nuxt-gtag"],
+  modules: [
+    "@nuxtjs/prismic",
+    "nuxt-swiper",
+    "nuxt-svgo",
+    "nuxt-gtag"
+  ],
 
   svgo: {
     autoImportPath: "~/assets/svg",
