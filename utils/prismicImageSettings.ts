@@ -14,19 +14,19 @@ export const prismicImageSettings = {
   presets: {
     hero: {
       widths: [640, 1024, 1280, 1920, 2560],
-      imgixParams: { format: ["avif", "webp"], q: 85, auto: "compress" },
+      imgixParams: { format: ["avif", "webp"], q: 85 },
     },
     default: {
       widths: [360, 640, 1024, 1536],
-      imgixParams: { format: ["avif", "webp"], q: 85, auto: "compress" },
+      imgixParams: { format: ["avif", "webp"], q: 85 },
     },
     small: {
       widths: [200, 400, 600],
-      imgixParams: { format: ["avif", "webp"], q: 80, auto: "compress" },
+      imgixParams: { format: ["avif", "webp"], q: 80 },
     },
     tiny: {
       widths: [100, 200, 300],
-      imgixParams: { format: ["avif", "webp"], q: 70, auto: "compress" },
+      imgixParams: { format: ["avif", "webp"], q: 70 },
     },
   },
 };
