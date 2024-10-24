@@ -5,6 +5,19 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type AboutDocumentDataSlicesSlice =
+  | ImageSlice
+  | HeroSlice
+  | FeaturedArticlesSlice
+  | ImageSliderSlice
+  | RelatedArticlesSlice
+  | TextSlice
+  | JellyLikesSlice
+  | RelatedAnswersSlice
+  | QuestionSlice
+  | TestimonialsSlice
+  | PullQuoteSlice
+  | RecommendationsSlice
+  | HeadlineSlice
   | SpacerSlice
   | DividingLineSlice
   | TeamMembersSlice;
@@ -101,7 +114,23 @@ interface AboutDocumentData {
 export type AboutDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<AboutDocumentData>, "about", Lang>;
 
-type AskJellyDocumentDataSlicesSlice = SpacerSlice | DividingLineSlice;
+type AskJellyDocumentDataSlicesSlice =
+  | ImageSlice
+  | HeroSlice
+  | FeaturedArticlesSlice
+  | ImageSliderSlice
+  | RelatedArticlesSlice
+  | TeamMembersSlice
+  | TextSlice
+  | JellyLikesSlice
+  | RelatedAnswersSlice
+  | QuestionSlice
+  | TestimonialsSlice
+  | PullQuoteSlice
+  | RecommendationsSlice
+  | HeadlineSlice
+  | SpacerSlice
+  | DividingLineSlice;
 
 /**
  * Content for Ask Jelly documents
@@ -209,6 +238,13 @@ export type AskJellyDocument<Lang extends string = string> =
   >;
 
 type AskJellyArticleDocumentDataSlicesSlice =
+  | HeroSlice
+  | FeaturedArticlesSlice
+  | RelatedArticlesSlice
+  | TeamMembersSlice
+  | TestimonialsSlice
+  | PullQuoteSlice
+  | RecommendationsSlice
   | SpacerSlice
   | JellyLikesSlice
   | RelatedAnswersSlice
@@ -337,7 +373,23 @@ export type AskJellyArticleDocument<Lang extends string = string> =
     Lang
   >;
 
-type BlogDocumentDataSlicesSlice = SpacerSlice | HeroSlice;
+type BlogDocumentDataSlicesSlice =
+  | ImageSlice
+  | FeaturedArticlesSlice
+  | ImageSliderSlice
+  | RelatedArticlesSlice
+  | TeamMembersSlice
+  | TextSlice
+  | JellyLikesSlice
+  | TestimonialsSlice
+  | QuestionSlice
+  | RelatedAnswersSlice
+  | PullQuoteSlice
+  | DividingLineSlice
+  | RecommendationsSlice
+  | HeadlineSlice
+  | SpacerSlice
+  | HeroSlice;
 
 /**
  * Content for Blog documents
@@ -419,6 +471,13 @@ export type BlogDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
 
 type BlogArticleDocumentDataSlicesSlice =
+  | FeaturedArticlesSlice
+  | QuestionSlice
+  | TestimonialsSlice
+  | TeamMembersSlice
+  | RelatedAnswersSlice
+  | PullQuoteSlice
+  | RecommendationsSlice
   | SpacerSlice
   | RelatedArticlesSlice
   | JellyLikesSlice
@@ -561,7 +620,23 @@ export interface ContactDocumentDataContactLinkItem {
   email: prismic.KeyTextField;
 }
 
-type ContactDocumentDataSlicesSlice = never;
+type ContactDocumentDataSlicesSlice =
+  | ImageSlice
+  | HeroSlice
+  | FeaturedArticlesSlice
+  | ImageSliderSlice
+  | TextSlice
+  | TeamMembersSlice
+  | RelatedArticlesSlice
+  | JellyLikesSlice
+  | TestimonialsSlice
+  | QuestionSlice
+  | DividingLineSlice
+  | PullQuoteSlice
+  | RelatedAnswersSlice
+  | SpacerSlice
+  | RecommendationsSlice
+  | HeadlineSlice;
 
 /**
  * Content for Contact documents
@@ -760,7 +835,23 @@ export type FooterLinksDocument<Lang extends string = string> =
     Lang
   >;
 
-type JellyLovesDocumentDataSlicesSlice = SpacerSlice | HeroSlice;
+type JellyLovesDocumentDataSlicesSlice =
+  | ImageSlice
+  | FeaturedArticlesSlice
+  | TeamMembersSlice
+  | RelatedArticlesSlice
+  | ImageSliderSlice
+  | TextSlice
+  | JellyLikesSlice
+  | TestimonialsSlice
+  | PullQuoteSlice
+  | RelatedAnswersSlice
+  | QuestionSlice
+  | DividingLineSlice
+  | RecommendationsSlice
+  | HeadlineSlice
+  | SpacerSlice
+  | HeroSlice;
 
 /**
  * Content for Jelly Loves documents
@@ -846,6 +937,12 @@ export type JellyLovesDocument<Lang extends string = string> =
   >;
 
 type JellyLovesArticleDocumentDataSlicesSlice =
+  | TestimonialsSlice
+  | TeamMembersSlice
+  | FeaturedArticlesSlice
+  | QuestionSlice
+  | RelatedAnswersSlice
+  | PullQuoteSlice
   | SpacerSlice
   | RecommendationsSlice
   | ImageSlice

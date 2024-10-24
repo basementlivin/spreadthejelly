@@ -18,6 +18,48 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "image": {
+              "type": "SharedSlice"
+            },
+            "featured_articles": {
+              "type": "SharedSlice"
+            },
+            "image_slider": {
+              "type": "SharedSlice"
+            },
+            "related_articles": {
+              "type": "SharedSlice"
+            },
+            "team_members": {
+              "type": "SharedSlice"
+            },
+            "text": {
+              "type": "SharedSlice"
+            },
+            "jelly_likes": {
+              "type": "SharedSlice"
+            },
+            "testimonials": {
+              "type": "SharedSlice"
+            },
+            "question": {
+              "type": "SharedSlice"
+            },
+            "related_answers": {
+              "type": "SharedSlice"
+            },
+            "pull_quote": {
+              "type": "SharedSlice"
+            },
+            "dividing_line": {
+              "type": "SharedSlice"
+            },
+            "recommendations": {
+              "type": "SharedSlice"
+            },
+            "headline": {
+              "type": "SharedSlice"
+            },
             "spacer": {
               "type": "SharedSlice"
             },

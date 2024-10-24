@@ -56,6 +56,27 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "hero": {
+              "type": "SharedSlice"
+            },
+            "featured_articles": {
+              "type": "SharedSlice"
+            },
+            "related_articles": {
+              "type": "SharedSlice"
+            },
+            "team_members": {
+              "type": "SharedSlice"
+            },
+            "testimonials": {
+              "type": "SharedSlice"
+            },
+            "pull_quote": {
+              "type": "SharedSlice"
+            },
+            "recommendations": {
+              "type": "SharedSlice"
+            },
             "spacer": {
               "type": "SharedSlice"
             },
