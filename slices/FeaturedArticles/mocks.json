@@ -50,6 +50,14 @@
 									"value": "Black",
 									"type": "Select"
 								}
+							],
+							[
+								"featured_quote",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "stay",
+									"type": "Text"
+								}
 							]
 						]
 					}

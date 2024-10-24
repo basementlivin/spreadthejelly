@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type Content, isFilled } from "@prismicio/client";
 import { computed } from "vue";
-import type { BlogArticleDocument, JellyLovesArticleDocument } from '~/prismicio-types.d.ts';
+import type { AskJellyArticleDocument, BlogArticleDocument, JellyLovesArticleDocument } from '~/prismicio-types.d.ts';
 import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
 const props = defineProps(
@@ -20,15 +20,19 @@ const relatedArticlesData = await Promise.all([
   prismic.client.getByType<BlogArticleDocument>('blog_article', {
     fetchLinks: [
       "blog_article.title",
-      "blog_article.featured_image",
-      "blog_article.featured_quote"
+      "blog_article.featured_image"
     ]
   }),
   prismic.client.getByType<JellyLovesArticleDocument>('jelly_loves_article', {
     fetchLinks: [
       "jelly_loves_article.title",
-      "jelly_loves_article.featured_image",
-      "jelly_loves_article.featured_quote"
+      "jelly_loves_article.featured_image"
+    ]
+  }),
+  prismic.client.getByType<AskJellyArticleDocument>('ask_jelly_article', {
+    fetchLinks: [
+      "ask_jelly_article.title",
+      "ask_jelly_article.featured_image"
     ]
   })
 ]);
@@ -36,7 +40,8 @@ const relatedArticlesData = await Promise.all([
 // Combine results from both queries
 const combinedArticlesData = [
   ...relatedArticlesData[0].results,
-  ...relatedArticlesData[1].results
+  ...relatedArticlesData[1].results,
+  ...relatedArticlesData[2].results
 ];
 
 // Filter and map the related articles
@@ -52,7 +57,7 @@ const relatedArticles = computed(() => {
       );
 
       // Return the related document along with the card_style, card_bg_color, and card_text_color fields
-      return relatedDoc ? { ...relatedDoc, card_style: item.card_style, card_bg_color: item.card_bg_color, card_text_color: item.card_text_color } : null;
+      return relatedDoc ? { ...relatedDoc, card_style: item.card_style, featured_quote: item.featured_quote, card_bg_color: item.card_bg_color, card_text_color: item.card_text_color } : null;
     })
     .filter(article => article !== null);  // Filter out any null entries
 });
@@ -111,7 +116,7 @@ const relatedArticles = computed(() => {
               'text--black': article.card_text_color === 'Black',
             }"
           >
-            "{{ article.data.featured_quote }}"
+            "{{ article.featured_quote }}"
           </span>
         </div>
         <div

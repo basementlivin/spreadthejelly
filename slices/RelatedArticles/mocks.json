@@ -47,6 +47,14 @@
 									"value": "Black",
 									"type": "Select"
 								}
+							],
+							[
+								"featured_quote",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "built",
+									"type": "Text"
+								}
 							]
 						]
 					}

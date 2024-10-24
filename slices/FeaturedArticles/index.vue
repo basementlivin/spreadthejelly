@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type Content, isFilled } from "@prismicio/client";
 import { computed } from "vue";
-import type { BlogArticleDocument, JellyLovesArticleDocument } from '~/prismicio-types.d.ts';
+import type { AskJellyArticleDocument, BlogArticleDocument, JellyLovesArticleDocument } from '~/prismicio-types.d.ts';
 import { prismicImageSettings } from '@/utils/prismicImageSettings';
 
 const props = defineProps(
@@ -28,13 +28,20 @@ const featuredArticlesData = await Promise.all([
       "jelly_loves_article.title",
       "jelly_loves_article.featured_image"
     ]
+  }),
+  prismic.client.getByType<AskJellyArticleDocument>('ask_jelly_article', {
+    fetchLinks: [
+      "ask_jelly_article.title",
+      "ask_jelly_article.featured_image"
+    ]
   })
 ]);
 
 // Combine results from both queries
 const combinedArticlesData = [
   ...featuredArticlesData[0].results,
-  ...featuredArticlesData[1].results
+  ...featuredArticlesData[1].results,
+  ...featuredArticlesData[2].results
 ];
 
 // Filter and map the featured articles
@@ -49,7 +56,7 @@ const featuredArticles = computed(() => {
         const relatedDoc = combinedArticlesData.find(
           (doc) => doc.id === articleLink.id
         );
-        return relatedDoc ? { ...relatedDoc, card_style: item.card_style, card_bg_color: item.card_bg_color, card_text_align: item.card_text_align, card_text_color: item.card_text_color } : null;
+        return relatedDoc ? { ...relatedDoc, card_style: item.card_style, featured_quote: item.featured_quote, card_bg_color: item.card_bg_color, card_text_align: item.card_text_align, card_text_color: item.card_text_color } : null;
       }
       return null;
     })
@@ -116,7 +123,7 @@ const featuredArticles = computed(() => {
             v-if="article.card_style === 'Featured Quote'"
             class="quote"
           >
-            "{{ article.data.featured_quote }}"
+            "{{ article.featured_quote }}"
           </span>
           <div class="title-and-link">
             <span

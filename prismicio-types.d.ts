@@ -478,17 +478,6 @@ interface BlogArticleDocumentData {
   featured_image: prismic.ImageField<never>;
 
   /**
-   * Featured Quote field in *Blog Article*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: blog_article.featured_quote
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  featured_quote: prismic.KeyTextField;
-
-  /**
    * Slice Zone field in *Blog Article*
    *
    * - **Field Type**: Slice Zone
@@ -928,17 +917,6 @@ interface JellyLovesArticleDocumentData {
   featured_image: prismic.ImageField<never>;
 
   /**
-   * Featured Quote field in *Jelly Loves Article*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: jelly_loves_article.featured_quote
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  featured_quote: prismic.KeyTextField;
-
-  /**
    * Slice Zone field in *Jelly Loves Article*
    *
    * - **Field Type**: Slice Zone
@@ -1369,7 +1347,7 @@ export interface FeaturedArticlesSliceDefaultPrimaryArticlesItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   article: prismic.ContentRelationshipField<
-    "blog_article" | "jelly_loves_article"
+    "blog_article" | "jelly_loves_article" | "ask_jelly_article"
   >;
 
   /**
@@ -1390,6 +1368,16 @@ export interface FeaturedArticlesSliceDefaultPrimaryArticlesItem {
     | "Featured Quote",
     "filled"
   >;
+
+  /**
+   * Featured Quote field in *FeaturedArticles → Default → Primary → Articles*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Optional! This will only appear if you select the "Featured Quote" card style.
+   * - **API ID Path**: featured_articles.default.primary.articles[].featured_quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  featured_quote: prismic.KeyTextField;
 
   /**
    * Card Background Color field in *FeaturedArticles → Default → Primary → Articles*
@@ -2603,7 +2591,7 @@ export interface RelatedArticlesSliceDefaultPrimaryArticlesItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   article_link: prismic.ContentRelationshipField<
-    "blog_article" | "jelly_loves_article"
+    "blog_article" | "jelly_loves_article" | "ask_jelly_article"
   >;
 
   /**
@@ -2624,6 +2612,16 @@ export interface RelatedArticlesSliceDefaultPrimaryArticlesItem {
     | "Featured Quote",
     "filled"
   >;
+
+  /**
+   * Featured Quote field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Optional! This will only appear if you select the "Featured Quote" card style.
+   * - **API ID Path**: related_articles.default.primary.articles[].featured_quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  featured_quote: prismic.KeyTextField;
 
   /**
    * Card Background Color field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
