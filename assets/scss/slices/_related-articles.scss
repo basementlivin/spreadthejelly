@@ -47,6 +47,18 @@
           .article__image.mask.mask--white.mask--quote {
             background-color: $pink;
           }
+          .article__image.inset--vertical.mask--white {
+            background-color: $blue;
+          }
+          .article__image.inset--vertical.mask--black {
+            background-color: $red;
+          }
+          .article__image.inset--horizontal.mask--white {
+            background-color: $pink;
+          }
+          .article__image.inset--horizontal.mask--black {
+            background-color: $green;
+          }
           .article__image.full-bleed {
             border-radius: 64px;
           }
@@ -107,8 +119,8 @@
           object-fit: cover;
         }
         
-        &.mask--blob-01, &.mask--blob-02, &.mask--quote {
-          transition: background-color 0.185s;
+        &.mask--blob-01, &.mask--blob-02, &.mask--quote, &.inset {
+          transition: background-color 0.275s;
         }
 
         &.mask--blob-01 {
