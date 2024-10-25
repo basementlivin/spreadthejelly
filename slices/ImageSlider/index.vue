@@ -32,7 +32,7 @@ const slides = computed(() => {
 
 <template>
   <section
-    v-if="props.slice?.primary?.images && slice.variation === 'default'"
+    v-if="props.slice?.primary?.images"
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
     class="image-slider wrapper wrapper--fullscreen"
@@ -43,51 +43,53 @@ const slides = computed(() => {
     >
       {{ props.slice.primary.headline }}
     </span>
-    <Swiper
-      :modules="[Autoplay, Navigation, A11y, Keyboard]"
-      :grab-cursor="true"
-      :space-between="16"
-      :slides-per-view="'auto'"
-      :loop="true"
-      :speed="680"
-      :autoplay="{
-        delay: 2850,
-        disableOnInteraction: false,
-      }"
-      :navigation="{
-        nextEl: '.swiper-button-next--custom',
-        prevEl: '.swiper-button-prev--custom',
-      }"
-      :a11y="{
-        enabled: true,
-      }"
-      :keyboard="{
-        enabled: true,
-      }"
-    >
-      <SwiperSlide
-        v-for="(slide, index) in slides"
-        :key="index"
-        class="swiper-slide--custom"
+    <div class="swiper__container">
+      <Swiper
+        :modules="[Autoplay, Navigation, A11y, Keyboard]"
+        :grab-cursor="true"
+        :space-between="16"
+        :slides-per-view="'auto'"
+        :loop="true"
+        :speed="680"
+        :autoplay="{
+          delay: 2850,
+          disableOnInteraction: false,
+        }"
+        :navigation="{
+          nextEl: '.swiper-button-next--custom',
+          prevEl: '.swiper-button-prev--custom',
+        }"
+        :a11y="{
+          enabled: true,
+        }"
+        :keyboard="{
+          enabled: true,
+        }"
       >
-        <div class="image">
-          <PrismicImage
-            v-if="slide?.image"
-            :field="slide.image"
-            :alt="slide.image.alt || 'Image description not provided'"
-            :widths="prismicImageSettings.presets.default.widths"
-            :imgix-params="prismicImageSettings.presets.default.imgixParams"
-            loading="lazy"
-          />
+        <SwiperSlide
+          v-for="(slide, index) in slides"
+          :key="index"
+          class="swiper-slide--custom"
+        >
+          <div class="image">
+            <PrismicImage
+              v-if="slide?.image"
+              :field="slide.image"
+              :alt="slide.image.alt || 'Image description not provided'"
+              :widths="prismicImageSettings.presets.default.widths"
+              :imgix-params="prismicImageSettings.presets.default.imgixParams"
+              loading="lazy"
+            />
+          </div>
+        </SwiperSlide>
+      </Swiper>
+      <div class="swiper-navigation">
+        <div
+          class="swiper-button-next--custom"
+          aria-label="Next slide"
+        >
+          +
         </div>
-      </SwiperSlide>
-    </Swiper>
-    <div class="swiper-navigation">
-      <div
-        class="swiper-button-next--custom"
-        aria-label="Next slide"
-      >
-        +
       </div>
     </div>
   </section>
