@@ -58,6 +58,30 @@
 									"value": "stay",
 									"type": "Text"
 								}
+							],
+							[
+								"article_title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "collect",
+									"type": "Text"
+								}
+							],
+							[
+								"article_subtitle",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "rope",
+									"type": "Text"
+								}
+							],
+							[
+								"card_hover_color",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Black",
+									"type": "Select"
+								}
 							]
 						]
 					}

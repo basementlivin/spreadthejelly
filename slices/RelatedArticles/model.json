@@ -37,6 +37,27 @@
                   ]
                 }
               },
+              "article_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Article Title",
+                  "placeholder": ""
+                }
+              },
+              "article_subtitle": {
+                "type": "Text",
+                "config": {
+                  "label": "Article Subtitle",
+                  "placeholder": ""
+                }
+              },
+              "featured_quote": {
+                "type": "Text",
+                "config": {
+                  "label": "Featured Quote",
+                  "placeholder": "Optional! This will only appear if you select the \"Featured Quote\" card style."
+                }
+              },
               "card_style": {
                 "type": "Select",
                 "config": {
@@ -53,13 +74,6 @@
                   "default_value": "Full-Bleed Image"
                 }
               },
-              "featured_quote": {
-                "type": "Text",
-                "config": {
-                  "label": "Featured Quote",
-                  "placeholder": "Optional! This will only appear if you select the \"Featured Quote\" card style."
-                }
-              },
               "card_bg_color": {
                 "type": "Select",
                 "config": {
@@ -67,9 +81,30 @@
                   "placeholder": "",
                   "options": [
                     "Black",
-                    "White"
+                    "White",
+                    "Sunset",
+                    "Ember",
+                    "Soft Pink",
+                    "Light Chartreuse",
+                    "Sky Blue"
                   ],
                   "default_value": "Black"
+                }
+              },
+              "card_hover_color": {
+                "type": "Select",
+                "config": {
+                  "label": "Card Hover Color",
+                  "placeholder": "This is the color you'll see when you hover over the card with your mouse.",
+                  "options": [
+                    "Black",
+                    "White",
+                    "Sunset",
+                    "Ember",
+                    "Soft Pink",
+                    "Light Chartreuse",
+                    "Sky Blue"
+                  ]
                 }
               },
               "card_text_color": {

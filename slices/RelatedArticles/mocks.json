@@ -55,6 +55,30 @@
 									"value": "built",
 									"type": "Text"
 								}
+							],
+							[
+								"article_title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "neighborhood",
+									"type": "Text"
+								}
+							],
+							[
+								"article_subtitle",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "pretty",
+									"type": "Text"
+								}
+							],
+							[
+								"card_hover_color",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Light Chartreuse",
+									"type": "Select"
+								}
 							]
 						]
 					}

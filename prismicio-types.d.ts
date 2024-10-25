@@ -1448,6 +1448,36 @@ export interface FeaturedArticlesSliceDefaultPrimaryArticlesItem {
   >;
 
   /**
+   * Article Title field in *FeaturedArticles → Default → Primary → Articles*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_articles.default.primary.articles[].article_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  article_title: prismic.KeyTextField;
+
+  /**
+   * Article Subtitle field in *FeaturedArticles → Default → Primary → Articles*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_articles.default.primary.articles[].article_subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  article_subtitle: prismic.KeyTextField;
+
+  /**
+   * Featured Quote field in *FeaturedArticles → Default → Primary → Articles*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Optional! This will only appear if you select the "Featured Quote" card style.
+   * - **API ID Path**: featured_articles.default.primary.articles[].featured_quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  featured_quote: prismic.KeyTextField;
+
+  /**
    * Card Style field in *FeaturedArticles → Default → Primary → Articles*
    *
    * - **Field Type**: Select
@@ -1467,16 +1497,6 @@ export interface FeaturedArticlesSliceDefaultPrimaryArticlesItem {
   >;
 
   /**
-   * Featured Quote field in *FeaturedArticles → Default → Primary → Articles*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Optional! This will only appear if you select the "Featured Quote" card style.
-   * - **API ID Path**: featured_articles.default.primary.articles[].featured_quote
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  featured_quote: prismic.KeyTextField;
-
-  /**
    * Card Background Color field in *FeaturedArticles → Default → Primary → Articles*
    *
    * - **Field Type**: Select
@@ -1494,6 +1514,24 @@ export interface FeaturedArticlesSliceDefaultPrimaryArticlesItem {
     | "Light Chartreuse"
     | "Sky Blue",
     "filled"
+  >;
+
+  /**
+   * Card Hover Color field in *FeaturedArticles → Default → Primary → Articles*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: This is the color you'll see when you hover over the card with your mouse.
+   * - **API ID Path**: featured_articles.default.primary.articles[].card_hover_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  card_hover_color: prismic.SelectField<
+    | "Black"
+    | "White"
+    | "Sunset"
+    | "Ember"
+    | "Soft Pink"
+    | "Light Chartreuse"
+    | "Sky Blue"
   >;
 
   /**
@@ -2692,6 +2730,36 @@ export interface RelatedArticlesSliceDefaultPrimaryArticlesItem {
   >;
 
   /**
+   * Article Title field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: related_articles.default.primary.articles[].article_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  article_title: prismic.KeyTextField;
+
+  /**
+   * Article Subtitle field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: related_articles.default.primary.articles[].article_subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  article_subtitle: prismic.KeyTextField;
+
+  /**
+   * Featured Quote field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Optional! This will only appear if you select the "Featured Quote" card style.
+   * - **API ID Path**: related_articles.default.primary.articles[].featured_quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  featured_quote: prismic.KeyTextField;
+
+  /**
    * Card Style field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
    *
    * - **Field Type**: Select
@@ -2711,16 +2779,6 @@ export interface RelatedArticlesSliceDefaultPrimaryArticlesItem {
   >;
 
   /**
-   * Featured Quote field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Optional! This will only appear if you select the "Featured Quote" card style.
-   * - **API ID Path**: related_articles.default.primary.articles[].featured_quote
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  featured_quote: prismic.KeyTextField;
-
-  /**
    * Card Background Color field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
    *
    * - **Field Type**: Select
@@ -2729,7 +2787,34 @@ export interface RelatedArticlesSliceDefaultPrimaryArticlesItem {
    * - **API ID Path**: related_articles.default.primary.articles[].card_bg_color
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  card_bg_color: prismic.SelectField<"Black" | "White", "filled">;
+  card_bg_color: prismic.SelectField<
+    | "Black"
+    | "White"
+    | "Sunset"
+    | "Ember"
+    | "Soft Pink"
+    | "Light Chartreuse"
+    | "Sky Blue",
+    "filled"
+  >;
+
+  /**
+   * Card Hover Color field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: This is the color you'll see when you hover over the card with your mouse.
+   * - **API ID Path**: related_articles.default.primary.articles[].card_hover_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  card_hover_color: prismic.SelectField<
+    | "Black"
+    | "White"
+    | "Sunset"
+    | "Ember"
+    | "Soft Pink"
+    | "Light Chartreuse"
+    | "Sky Blue"
+  >;
 
   /**
    * Card Text Color field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
