@@ -8,9 +8,16 @@ const props = defineProps(getSliceComponentProps<Content.TextSlice>(
   ['slice', 'index', 'slices', 'context']
 ));
 
-function isCopyWithPullQuote(slice: Content.TextSlice): slice is Content.TextSlice & { primary: { pull_quote_position: string } } {
+function isCopyWithPullQuote(slice: Content.TextSlice): slice is Content.TextSlice & { primary: { pull_quote_position: string, max_width: number } } {
   return slice.variation === 'copyWithPullQuote'
 }
+
+const maxQuoteWidth = computed(() => {
+  if (props.slice.variation === 'pullQuote') {
+    return isFilled.number(props.slice.primary.max_quote_width) ? props.slice.primary.max_quote_width : 800
+  }
+  return 800
+})
 
 const pullQuoteClass = computed(() => {
   if (isCopyWithPullQuote(props.slice)) {
@@ -71,6 +78,7 @@ function getPositionClass(position: string | null): string {
 
     <blockquote
       v-if="isFilled.keyText(slice.primary.pull_quote)"
+      :style="{ maxWidth: `${maxQuoteWidth}px` }"
       class="quote"
     >
       "{{ slice.primary.pull_quote }}"

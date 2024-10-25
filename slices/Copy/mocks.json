@@ -117,8 +117,8 @@
 		"primary": {
 			"pull_quote": {
 				"__TYPE__": "FieldContent",
-				"value": "time",
-				"type": "Text"
+				"type": "Text",
+				"value": "Now this here's an example of a short quote!"
 			},
 			"illustration_left": {
 				"__TYPE__": "FieldContent",
@@ -139,6 +139,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "Middle",
 				"type": "Select"
+			},
+			"max_quote_width": {
+				"__TYPE__": "FieldContent",
+				"type": "Number",
+				"value": "800"
 			}
 		},
 		"items": [

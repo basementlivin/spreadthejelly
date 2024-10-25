@@ -119,6 +119,13 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "Text",
       "primary": {
+        "max_quote_width": {
+          "type": "Number",
+          "config": {
+            "label": "Max Quote Width (in pixels)",
+            "placeholder": "The default is 800, but if your quote is short, you should lower it to force line breaks."
+          }
+        },
         "pull_quote": {
           "type": "Text",
           "config": {

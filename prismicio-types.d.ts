@@ -3223,6 +3223,16 @@ export type TextSliceCopyWithPullQuote = prismic.SharedSliceVariation<
  */
 export interface TextSlicePullQuotePrimary {
   /**
+   * Max Quote Width (in pixels) field in *Copy → Pull Quote → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: The default is 800, but if your quote is short, you should lower it to force line breaks.
+   * - **API ID Path**: text.pullQuote.primary.max_quote_width
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  max_quote_width: prismic.NumberField;
+
+  /**
    * Pull Quote field in *Copy → Pull Quote → Primary*
    *
    * - **Field Type**: Text

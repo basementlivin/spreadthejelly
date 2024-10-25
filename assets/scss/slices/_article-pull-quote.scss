@@ -7,7 +7,8 @@ section.article-pull-quote {
 
   @include breakpoint($tablet) {
     display: grid;
-    grid-template-columns: 1fr 60% 1fr;
+    grid-template-columns: 1fr auto 1fr;
+    column-gap: 2rem;
   }
 
   .illustration__left {
@@ -68,7 +69,6 @@ section.article-pull-quote {
 
   .quote {
     justify-self: center;
-    max-width: 800px;
     font-family: $monument;
     font-size: 1.5rem;
     line-height: 1.35;
