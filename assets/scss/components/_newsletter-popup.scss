@@ -14,9 +14,12 @@
 .newsletter-popup {
   position: relative;
   margin: 1.25rem;
-  max-width: 625px;
+  // max-width: 625px;
+  // width: 95vw;
+  // height: 50vh;
+
   width: 95vw;
-  height: 50vh;
+  height: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,18 +28,13 @@
   color: $black;
   
   @include breakpoint($tablet - 200px) {
-    width: 80vw;
-    height: 55vh;
-  }
-
-  @include breakpoint($tablet) {
-    width: 80vw;
-    height: 75vh;
+    width: 600px;
+    height: 450px;
   }
   
   @include breakpoint($laptop) {
-    width: 70vw;
-    max-width: 900px;
+    width: 700px;
+    height: 540px;
   }
   
   &:before {
@@ -65,7 +63,7 @@
     @include breakpoint($laptop) {
       gap: 1rem;
       padding: 1rem 2rem;
-      width: 60%;
+      width: 85%;
       align-items: flex-start;
     }
 
@@ -125,6 +123,7 @@
         }
         
         @include breakpoint($laptop) {
+          width: 75%;
           font-size: 1rem;
           padding: 0.75rem 1rem;
         }
