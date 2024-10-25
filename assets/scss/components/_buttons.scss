@@ -1,4 +1,4 @@
-.link {
+.link, .cta {
     display: inline-flex;
     align-self: flex-start;
     cursor: pointer;
@@ -13,7 +13,7 @@
     }    
 }
 
-.link--no-underline {
+.link--no-underline, .cta--no-underline {
     text-decoration: none;
     
     &:hover {
@@ -60,16 +60,5 @@
             background-color: $black;
             color: $white
         }
-    }
-}
-
-.cta {
-    text-transform: uppercase;
-    letter-spacing: 0.05rem;
-    text-decoration: none;
-    text-underline-offset: 0.3rem;
-
-    &:hover {
-        text-decoration: underline;
     }
 }
