@@ -12,6 +12,16 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link (optional)",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null,
+            "allowText": false
+          }
+        },
         "image": {
           "type": "Image",
           "config": {
@@ -48,15 +58,11 @@
                   "label": "Headline Level",
                   "placeholder": "",
                   "options": [
-                    "p",
                     "h1",
                     "h2",
-                    "h3",
-                    "h4",
-                    "h5",
-                    "h6"
+                    "p"
                   ],
-                  "default_value": "p"
+                  "default_value": "h1"
                 }
               }
             }
@@ -69,29 +75,11 @@
             "placeholder": ""
           }
         },
-        "link": {
-          "type": "Group",
+        "cta": {
+          "type": "Text",
           "config": {
-            "label": "Link (optional)",
-            "repeat": false,
-            "fields": {
-              "link_text": {
-                "type": "Text",
-                "config": {
-                  "label": "Link Text",
-                  "placeholder": ""
-                }
-              },
-              "link_location": {
-                "type": "Link",
-                "config": {
-                  "label": "Link Location",
-                  "placeholder": "",
-                  "allowTargetBlank": true,
-                  "select": null
-                }
-              }
-            }
+            "label": "Call to Action (optional)",
+            "placeholder": "Add a short CTA like \"read more\", \"find out why\", etc."
           }
         }
       },
@@ -105,6 +93,16 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link (optional)",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null,
+            "allowText": false
+          }
+        },
         "image": {
           "type": "Image",
           "config": {
@@ -135,15 +133,11 @@
                   "label": "Headline Level",
                   "placeholder": "",
                   "options": [
-                    "p",
                     "h1",
                     "h2",
-                    "h3",
-                    "h4",
-                    "h5",
-                    "h6"
+                    "p"
                   ],
-                  "default_value": "p"
+                  "default_value": "h1"
                 }
               }
             }
@@ -156,31 +150,6 @@
             "placeholder": ""
           }
         },
-        "link": {
-          "type": "Group",
-          "config": {
-            "label": "Link (optional)",
-            "repeat": false,
-            "fields": {
-              "link_text": {
-                "type": "Text",
-                "config": {
-                  "label": "Link Text",
-                  "placeholder": ""
-                }
-              },
-              "link_location": {
-                "type": "Link",
-                "config": {
-                  "label": "Link Location",
-                  "placeholder": "",
-                  "allowTargetBlank": true,
-                  "select": null
-                }
-              }
-            }
-          }
-        },
         "text_color": {
           "type": "Select",
           "config": {
@@ -191,6 +160,13 @@
               "Black"
             ],
             "default_value": "White"
+          }
+        },
+        "cta": {
+          "type": "Text",
+          "config": {
+            "label": "Call to Action (optional)",
+            "placeholder": "Add a short CTA like \"read more\", \"find out why\", etc."
           }
         }
       },
@@ -240,15 +216,11 @@
                   "label": "Headline Level",
                   "placeholder": "",
                   "options": [
-                    "p",
                     "h1",
                     "h2",
-                    "h3",
-                    "h4",
-                    "h5",
-                    "h6"
+                    "p"
                   ],
-                  "default_value": "p"
+                  "default_value": "h1"
                 }
               }
             }
@@ -261,31 +233,6 @@
             "placeholder": ""
           }
         },
-        "link": {
-          "type": "Group",
-          "config": {
-            "label": "Link (optional)",
-            "repeat": false,
-            "fields": {
-              "link_text": {
-                "type": "Text",
-                "config": {
-                  "label": "Link Text",
-                  "placeholder": ""
-                }
-              },
-              "link_location": {
-                "type": "Link",
-                "config": {
-                  "label": "Link Location",
-                  "placeholder": "",
-                  "allowTargetBlank": true,
-                  "select": null
-                }
-              }
-            }
-          }
-        },
         "copy": {
           "type": "StructuredText",
           "config": {
@@ -293,6 +240,23 @@
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link (optional)",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null,
+            "allowText": false
+          }
+        },
+        "cta": {
+          "type": "Text",
+          "config": {
+            "label": "Call to Action (optional)",
+            "placeholder": "Add a short CTA like \"read more\", \"find out why\", etc."
           }
         }
       },
@@ -306,6 +270,16 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link (optional)",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null,
+            "allowText": false
+          }
+        },
         "image": {
           "type": "Image",
           "config": {
@@ -336,15 +310,11 @@
                   "label": "Headline Level",
                   "placeholder": "",
                   "options": [
-                    "p",
                     "h1",
                     "h2",
-                    "h3",
-                    "h4",
-                    "h5",
-                    "h6"
+                    "p"
                   ],
-                  "default_value": "p"
+                  "default_value": "h1"
                 }
               }
             }
@@ -357,29 +327,11 @@
             "placeholder": ""
           }
         },
-        "link": {
-          "type": "Group",
+        "cta": {
+          "type": "Text",
           "config": {
-            "label": "Link (optional)",
-            "repeat": false,
-            "fields": {
-              "link_text": {
-                "type": "Text",
-                "config": {
-                  "label": "Link Text",
-                  "placeholder": ""
-                }
-              },
-              "link_location": {
-                "type": "Link",
-                "config": {
-                  "label": "Link Location",
-                  "placeholder": "",
-                  "allowTargetBlank": true,
-                  "select": null
-                }
-              }
-            }
+            "label": "Call to Action (optional)",
+            "placeholder": "Add a short CTA like \"read more\", \"find out why\", etc."
           }
         }
       },

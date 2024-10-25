@@ -1,3 +1,10 @@
+.hero--linked {
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
 .hero {
     position: relative;
     z-index: 1;
@@ -68,7 +75,7 @@
                 line-height: 1.25;
             }
             
-            .link {
+            .cta {
                 font-size: 1rem;
                 line-height: 1.6;
                 
@@ -212,7 +219,7 @@
             flex-direction: column;
             align-items: flex-start;
             
-            .link {
+            .cta {
                 align-self: flex-start;
             }
         }

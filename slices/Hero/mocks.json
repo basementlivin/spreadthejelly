@@ -53,34 +53,6 @@
 				"value": "character",
 				"type": "Text"
 			},
-			"link": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"link_text",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "vowel",
-									"type": "Text"
-								}
-							],
-							[
-								"link_location",
-								{
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "ExternalLink",
-										"url": "http://google.com"
-									}
-								}
-							]
-						]
-					}
-				]
-			},
 			"headline": {
 				"__TYPE__": "GroupContentType",
 				"value": [
@@ -99,13 +71,25 @@
 								"headline_level",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "h4",
+									"value": "h1",
 									"type": "Select"
 								}
 							]
 						]
 					}
 				]
+			},
+			"cta": {
+				"__TYPE__": "FieldContent",
+				"value": "wife",
+				"type": "Text"
+			},
+			"link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
 			}
 		},
 		"items": []
@@ -115,25 +99,26 @@
 		"variation": "straight",
 		"primary": {
 			"image": {
+				"provider": "imgix",
+				"url": "https://images.unsplash.com/photo-1590098440413-b73573388b02?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyN3x8c2tpbm55fGVufDB8fHx8MTcyOTg4OTQwNXww&ixlib=rb-4.0.3&q=85",
+				"alt": "a man in a black shirt is posing for a picture",
 				"origin": {
-					"id": "main",
-					"url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f",
-					"width": 6000,
-					"height": 4000
+					"id": "ABNwyVyvCbo",
+					"url": "https://images.unsplash.com/photo-1590098440413-b73573388b02?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyN3x8c2tpbm55fGVufDB8fHx8MTcyOTg4OTQwNXww&ixlib=rb-4.0.3&q=85",
+					"width": 4240,
+					"height": 2832
 				},
-				"url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f",
-				"width": 6000,
-				"height": 4000,
+				"width": 4240,
+				"height": 2832,
 				"edit": {
+					"background": "transparent",
 					"zoom": 1,
 					"crop": {
 						"x": 0,
 						"y": 0
-					},
-					"background": "transparent"
+					}
 				},
 				"credits": null,
-				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
@@ -144,52 +129,19 @@
 						"__TYPE__": "GroupItemContent",
 						"value": [
 							[
-								"headline",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "arrange",
-									"type": "Text"
-								}
-							],
-							[
 								"headline_level",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "p",
+									"value": "h1",
 									"type": "Select"
-								}
-							]
-						]
-					}
-				]
-			},
-			"subheadline": {
-				"__TYPE__": "FieldContent",
-				"value": "weight",
-				"type": "Text"
-			},
-			"link": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"link_text",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "account",
-									"type": "Text"
 								}
 							],
 							[
-								"link_location",
+								"headline",
 								{
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "ExternalLink",
-										"url": "https://slicemachine.dev"
-									}
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "snatched"
 								}
 							]
 						]
@@ -198,8 +150,25 @@
 			},
 			"text_color": {
 				"__TYPE__": "FieldContent",
-				"value": "White",
-				"type": "Select"
+				"type": "Select",
+				"value": "White"
+			},
+			"link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
+				}
+			},
+			"cta": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "read more"
+			},
+			"subheadline": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "or, how I learned to cut glass with my cheeckbones"
 			}
 		},
 		"items": [
@@ -289,34 +258,6 @@
 				"value": "wash",
 				"type": "Text"
 			},
-			"link": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"link_text",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "pass",
-									"type": "Text"
-								}
-							],
-							[
-								"link_location",
-								{
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "ExternalLink",
-										"url": "http://twitter.com"
-									}
-								}
-							]
-						]
-					}
-				]
-			},
 			"copy": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -327,6 +268,18 @@
 						}
 					}
 				]
+			},
+			"link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com"
+				}
+			},
+			"cta": {
+				"__TYPE__": "FieldContent",
+				"value": "mean",
+				"type": "Text"
 			}
 		},
 		"items": [
@@ -381,7 +334,7 @@
 								"headline_level",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "p",
+									"value": "h2",
 									"type": "Select"
 								}
 							]
@@ -395,32 +348,16 @@
 				"type": "Text"
 			},
 			"link": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"link_text",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "tie",
-									"type": "Text"
-								}
-							],
-							[
-								"link_location",
-								{
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "ExternalLink",
-										"url": "https://slicemachine.dev"
-									}
-								}
-							]
-						]
-					}
-				]
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
+				}
+			},
+			"cta": {
+				"__TYPE__": "FieldContent",
+				"value": "solar",
+				"type": "Text"
 			}
 		},
 		"items": [
