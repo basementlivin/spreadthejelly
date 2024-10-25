@@ -19,18 +19,12 @@ defineProps(
     :data-slice-variation="slice.variation"
     :class="[
       'image', 
-      'image--' + slice.variation,
-      'wrapper', 
-      { 
-        'wrapper--fullscreen': slice.variation === 'default',
-        'wrapper--wide': slice.variation === 'twoColumn' || 'threeColumn',
-        'wrapper--narrow': slice.variation === 'grid',
-      }
+      'image--' + slice.variation
     ]"
   >
     <div
       v-if="slice.variation === 'default' && isFilled.image(slice.primary.image)"
-      class="image__container full"
+      class="image__container wrapper wrapper--fullscreen"
     >
       <PrismicImage
         v-if="slice.primary.image"
@@ -55,7 +49,7 @@ defineProps(
 
     <div
       v-if="slice.variation === 'twoColumn' && isFilled.image(slice.primary.image_left) && isFilled.image(slice.primary.image_right)"
-      class="image__container"
+      class="image__container wrapper wrapper--wide"
     >
       <PrismicImage
         v-if="slice.primary.image_left"
@@ -77,7 +71,7 @@ defineProps(
 
     <div
       v-if="slice.variation === 'threeColumn' && isFilled.group(slice.primary.images)"
-      class="image__container"
+      class="image__container wrapper wrapper--wide"
     >
       <PrismicImage
         v-for="(image, index) in slice.primary.images"
@@ -92,7 +86,7 @@ defineProps(
     
     <div
       v-if="slice.variation === 'grid' && isFilled.group(slice.primary.images)"
-      class="image__container"
+      class="image__container wrapper wrapper--narrow"
     >
       <PrismicImage
         v-for="(image, index) in slice.primary.images"
