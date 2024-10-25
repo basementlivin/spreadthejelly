@@ -3,6 +3,17 @@
   padding-bottom: 4rem;
   position: relative;
   padding-right: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+
+  .headline {
+    @include chivo-variable(500);
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.025em;
+  }
 
   .swiper {
     height: 300px;

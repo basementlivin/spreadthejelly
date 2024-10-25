@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { type Content } from "@prismicio/client";
+import { isFilled, type Content } from "@prismicio/client";
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, Navigation, A11y, Keyboard } from 'swiper/modules';
 import { prismicImageSettings } from '@/utils/prismicImageSettings';
@@ -37,6 +37,12 @@ const slides = computed(() => {
     :data-slice-variation="slice.variation"
     class="image-slider wrapper wrapper--fullscreen"
   >
+    <span
+      v-if="isFilled.keyText(props.slice.primary?.headline)"
+      class="headline"
+    >
+      {{ props.slice.primary.headline }}
+    </span>
     <Swiper
       :modules="[Autoplay, Navigation, A11y, Keyboard]"
       :grab-cursor="true"

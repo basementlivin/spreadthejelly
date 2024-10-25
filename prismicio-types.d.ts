@@ -2234,6 +2234,16 @@ export interface ImageSliderSliceDefaultPrimaryImagesItem {
  */
 export interface ImageSliderSliceDefaultPrimary {
   /**
+   * Headline (optional) field in *ImageSlider → Small Carousel → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_slider.default.primary.headline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  headline: prismic.KeyTextField;
+
+  /**
    * Images field in *ImageSlider → Small Carousel → Primary*
    *
    * - **Field Type**: Group

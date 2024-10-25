@@ -38,6 +38,11 @@
 						]
 					}
 				]
+			},
+			"headline": {
+				"__TYPE__": "FieldContent",
+				"value": "second",
+				"type": "Text"
 			}
 		},
 		"items": []
