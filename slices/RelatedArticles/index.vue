@@ -76,10 +76,8 @@ const relatedArticles = computed(() => {
         card_style: item.card_style, 
         featured_quote: item.featured_quote, 
         card_bg_color: getColor(item.card_bg_color as ColorChoice),
-      card_hover_color: getColor(item.card_hover_color as ColorChoice),
-
+        card_hover_color: getColor(item.card_hover_color as ColorChoice),
         card_text_color: item.card_text_color 
-
       } : null;
     })
     .filter(article => article !== null);  // Filter out any null entries
