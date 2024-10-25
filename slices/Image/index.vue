@@ -23,7 +23,7 @@ defineProps(
       'wrapper', 
       { 
         'wrapper--fullscreen': slice.variation === 'default',
-        'wrapper--wide': slice.variation === 'twoColumn'
+        'wrapper--wide': slice.variation === 'twoColumn' || 'threeColumn'
       }
     ]"
   >
@@ -53,7 +53,7 @@ defineProps(
     </div>
     <div
       v-if="slice.variation === 'twoColumn' && isFilled.image(slice.primary.image_left) && isFilled.image(slice.primary.image_right)"
-      class="image__container columns"
+      class="image__container two__columns"
     >
       <PrismicImage
         v-if="slice.primary.image_left"
@@ -67,6 +67,21 @@ defineProps(
         v-if="slice.primary.image_right"
         :field="slice.primary.image_right"
         :alt="slice.primary.image_right.alt || 'Image description not provided'"
+        :widths="prismicImageSettings.presets.default.widths"
+        :imgix-params="prismicImageSettings.presets.default.imgixParams"
+        loading="lazy"
+      />
+    </div>
+
+    <div
+      v-if="slice.variation === 'threeColumn' && isFilled.group(slice.primary.images)"
+      class="image__container three__columns"
+    >
+      <PrismicImage
+        v-for="(image, index) in slice.primary.images"
+        :key="index"
+        :field="image.image"
+        :alt="image.image.alt || 'Image description not provided'"
         :widths="prismicImageSettings.presets.default.widths"
         :imgix-params="prismicImageSettings.presets.default.imgixParams"
         loading="lazy"
