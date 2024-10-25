@@ -15,23 +15,35 @@ const props = defineProps(
 
 const prismic = usePrismic();
 
+const colorMap = {
+  "Black": "var(--black)",
+  "White": "var(--white)",
+  "Sunset": "var(--yellow)",
+  "Ember": "var(--red)",
+  "Soft Pink": "var(--pink)",
+  "Light Chartreuse": "var(--green)",
+  "Sky Blue": "var(--blue)",
+};
+
+// Explicitly define the color choices for the card
+type ColorChoice = "Black" | "White" | "Sunset" | "Ember" | "Soft Pink" | "Light Chartreuse" | "Sky Blue";
+
+const getColor = (choice: ColorChoice) => colorMap[choice];
+
 // Fetch related documents for both Blog Articles and Jelly Loves Articles
 const relatedArticlesData = await Promise.all([
   prismic.client.getByType<BlogArticleDocument>('blog_article', {
     fetchLinks: [
-      "blog_article.title",
       "blog_article.featured_image"
     ]
   }),
   prismic.client.getByType<JellyLovesArticleDocument>('jelly_loves_article', {
     fetchLinks: [
-      "jelly_loves_article.title",
       "jelly_loves_article.featured_image"
     ]
   }),
   prismic.client.getByType<AskJellyArticleDocument>('ask_jelly_article', {
     fetchLinks: [
-      "ask_jelly_article.title",
       "ask_jelly_article.featured_image"
     ]
   })
@@ -56,8 +68,19 @@ const relatedArticles = computed(() => {
         (doc) => isFilled.contentRelationship(articleLink) && doc.id === articleLink.id
       );
 
-      // Return the related document along with the card_style, card_bg_color, and card_text_color fields
-      return relatedDoc ? { ...relatedDoc, card_style: item.card_style, featured_quote: item.featured_quote, card_bg_color: item.card_bg_color, card_text_color: item.card_text_color } : null;
+      // Return the related document along with all fields from each article item
+      return relatedDoc ? { 
+        ...relatedDoc, 
+        title: item.article_title, 
+        subtitle: item.article_subtitle, 
+        card_style: item.card_style, 
+        featured_quote: item.featured_quote, 
+        card_bg_color: getColor(item.card_bg_color as ColorChoice),
+      card_hover_color: getColor(item.card_hover_color as ColorChoice),
+
+        card_text_color: item.card_text_color 
+
+      } : null;
     })
     .filter(article => article !== null);  // Filter out any null entries
 });
@@ -96,8 +119,10 @@ const relatedArticles = computed(() => {
             'inset inset--vertical': article.card_style === 'Inset Image Vertical',
             'inset inset--horizontal': article.card_style === 'Inset Image Horizontal',
             'mask mask--quote': article.card_style === 'Featured Quote',
-            'mask--white': article.card_bg_color === 'White',
-            'mask--black': article.card_bg_color === 'Black',
+          }"
+          :style="{
+            '--card-bg-color': article.card_bg_color,
+            '--card-hover-color': article.card_hover_color
           }"
         >
           <PrismicImage
@@ -127,7 +152,10 @@ const relatedArticles = computed(() => {
             {{ article.tags[0] }}
           </span>
           <p class="title h3">
-            {{ article.data.title }}
+            {{ article.title }}
+          </p>
+          <p class="subtitle">
+            {{ article.subtitle }}
           </p>
           <span class="link">read more</span>
         </div>
