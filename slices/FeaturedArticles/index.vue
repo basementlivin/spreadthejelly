@@ -15,23 +15,35 @@ const props = defineProps(
 
 const prismic = usePrismic();
 
+const colorMap = {
+  "Black": "var(--black)",
+  "White": "var(--white)",
+  "Sunset": "var(--yellow)",
+  "Ember": "var(--red)",
+  "Soft Pink": "var(--pink)",
+  "Light Chartreuse": "var(--green)",
+  "Sky Blue": "var(--blue)",
+};
+
+// Explicitly define the color choices for the card
+type ColorChoice = "Black" | "White" | "Sunset" | "Ember" | "Soft Pink" | "Light Chartreuse" | "Sky Blue";
+
+const getColor = (choice: ColorChoice) => colorMap[choice];
+
 // Fetch related documents for both Blog Articles and Jelly Loves Articles
 const featuredArticlesData = await Promise.all([
   prismic.client.getByType<BlogArticleDocument>('blog_article', {
     fetchLinks: [
-      "blog_article.title",
       "blog_article.featured_image"
     ]
   }),
   prismic.client.getByType<JellyLovesArticleDocument>('jelly_loves_article', {
     fetchLinks: [
-      "jelly_loves_article.title",
       "jelly_loves_article.featured_image"
     ]
   }),
   prismic.client.getByType<AskJellyArticleDocument>('ask_jelly_article', {
     fetchLinks: [
-      "ask_jelly_article.title",
       "ask_jelly_article.featured_image"
     ]
   })
@@ -56,7 +68,17 @@ const featuredArticles = computed(() => {
         const relatedDoc = combinedArticlesData.find(
           (doc) => doc.id === articleLink.id
         );
-        return relatedDoc ? { ...relatedDoc, card_style: item.card_style, featured_quote: item.featured_quote, card_bg_color: item.card_bg_color, card_text_align: item.card_text_align, card_text_color: item.card_text_color } : null;
+        return relatedDoc ? { 
+          ...relatedDoc, 
+          title: item.article_title, 
+          subtitle: item.article_subtitle, 
+          card_style: item.card_style, 
+          featured_quote: item.featured_quote, 
+          card_bg_color: getColor(item.card_bg_color as ColorChoice),
+          card_hover_color: getColor(item.card_hover_color as ColorChoice),
+          card_text_color: item.card_text_color, 
+          card_text_align: item.card_text_align
+        } : null;
       }
       return null;
     })
@@ -92,13 +114,10 @@ const featuredArticles = computed(() => {
             'mask--blob-01': article.card_style === 'Blob Mask 1',
             'mask--blob-02': article.card_style === 'Blob Mask 2',
             'quote': article.card_style === 'Featured Quote',
-            'bg--white': article.card_bg_color === 'White',
-            'bg--black': article.card_bg_color === 'Black',
-            'bg--yellow': article.card_bg_color === 'Sunset',
-            'bg--red': article.card_bg_color === 'Ember',
-            'bg--pink': article.card_bg_color === 'Soft Pink',
-            'bg--green': article.card_bg_color === 'Light Chartreuse',
-            'bg--blue': article.card_bg_color === 'Sky Blue',
+          }"
+          :style="{
+            '--card-bg-color': article.card_bg_color,
+            '--card-hover-color': article.card_hover_color,
           }"
         >
           <PrismicImage
@@ -126,11 +145,17 @@ const featuredArticles = computed(() => {
             "{{ article.featured_quote }}"
           </span>
           <div class="title-and-link">
+            <span class="tag">
+              {{ article.tags[0] }}
+            </span>
             <span
               :id="`article__title--${index}`"
               class="title h3"
             >
-              {{ article.data.title }}
+              {{ article.title }}
+            </span>
+            <span class="subtitle">
+              {{ article.subtitle }}
             </span>
             <span class="link">read more</span>
           </div>
@@ -139,7 +164,6 @@ const featuredArticles = computed(() => {
     </div>
   </section>
 </template>
-
 
 <style lang="scss" scoped>
   @import url('/assets/scss/slices/_featured-articles.scss');
