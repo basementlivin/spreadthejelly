@@ -1372,36 +1372,6 @@ export type AllDocumentTypes =
   | SettingsDocument;
 
 /**
- * Primary content in *DividingLine → Default → Primary*
- */
-export interface DividingLineSliceDefaultPrimary {
-  /**
-   * Padding Top field in *DividingLine → Default → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: 16px
-   * - **API ID Path**: dividing_line.default.primary.padding_top
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  padding_top: prismic.SelectField<"16px" | "32px" | "48px" | "64px", "filled">;
-
-  /**
-   * Padding Bottom field in *DividingLine → Default → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: 16px
-   * - **API ID Path**: dividing_line.default.primary.padding_bottom
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  padding_bottom: prismic.SelectField<
-    "16px" | "32px" | "48px" | "64px",
-    "filled"
-  >;
-}
-
-/**
  * Default variation for DividingLine Slice
  *
  * - **API ID**: `default`
@@ -1410,7 +1380,7 @@ export interface DividingLineSliceDefaultPrimary {
  */
 export type DividingLineSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<DividingLineSliceDefaultPrimary>,
+  Record<string, never>,
   never
 >;
 
@@ -3411,7 +3381,6 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       AllDocumentTypes,
       DividingLineSlice,
-      DividingLineSliceDefaultPrimary,
       DividingLineSliceVariation,
       DividingLineSliceDefault,
       FeaturedArticlesSlice,
