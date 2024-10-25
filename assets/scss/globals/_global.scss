@@ -1,3 +1,13 @@
+:root {
+    --black: #{$black};
+    --white: #{$white};
+    --yellow: #{$yellow};
+    --red: #{$red};
+    --pink: #{$pink};
+    --green: #{$green};
+    --blue: #{$blue};
+  }
+
 html, body {
     font-family: $sans;
     font-weight: 400;
