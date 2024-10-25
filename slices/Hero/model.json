@@ -180,6 +180,16 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link (optional)",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null,
+            "allowText": false
+          }
+        },
         "image": {
           "type": "Image",
           "config": {
@@ -240,16 +250,6 @@
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
-          }
-        },
-        "link": {
-          "type": "Link",
-          "config": {
-            "label": "Link (optional)",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "select": null,
-            "allowText": false
           }
         },
         "cta": {

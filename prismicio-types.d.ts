@@ -1903,6 +1903,16 @@ export type HeroSliceStraight = prismic.SharedSliceVariation<
  */
 export interface HeroSliceSuperPrimary {
   /**
+   * Link (optional) field in *Hero → Super → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.super.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
    * Image field in *Hero → Super → Primary*
    *
    * - **Field Type**: Image
@@ -1941,16 +1951,6 @@ export interface HeroSliceSuperPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   copy: prismic.RichTextField;
-
-  /**
-   * Link (optional) field in *Hero → Super → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.super.primary.link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
 
   /**
    * Call to Action (optional) field in *Hero → Super → Primary*
