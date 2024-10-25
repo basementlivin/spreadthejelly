@@ -47,6 +47,10 @@
 						"alt": null
 					}
 				}
+			},
+			"include_mask": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": []

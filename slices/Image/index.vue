@@ -40,7 +40,7 @@ defineProps(
         loading="lazy"
       />
       <svg
-        v-if="slice.variation === 'default' && isFilled.image(slice.primary.image)"
+        v-if="slice.variation === 'default' && isFilled.image(slice.primary.image) && slice.primary.include_mask === true"
         class="mask"
         viewBox="0 0 1543.25 38.41"
       >

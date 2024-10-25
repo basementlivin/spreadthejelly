@@ -28,6 +28,15 @@
               }
             ]
           }
+        },
+        "include_mask": {
+          "type": "Boolean",
+          "config": {
+            "label": "Include Bump Mask?",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": true
+          }
         }
       },
       "items": {}

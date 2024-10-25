@@ -2162,6 +2162,17 @@ export interface ImageSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<"mobile">;
+
+  /**
+   * Include Bump Mask? field in *Image → Full-Width → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: image.default.primary.include_mask
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  include_mask: prismic.BooleanField;
 }
 
 /**
