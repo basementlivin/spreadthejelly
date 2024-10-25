@@ -2150,6 +2150,21 @@ export interface ImageSliceThreeColumnPrimaryImagesItem {
 }
 
 /**
+ * Item in *Image → Grid → Primary → Images (choose 4)*
+ */
+export interface ImageSliceGridPrimaryImagesItem {
+  /**
+   * Image field in *Image → Grid → Primary → Images (choose 4)*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image.grid.primary.images[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
  * Primary content in *Image → Full-Width → Primary*
  */
 export interface ImageSliceDefaultPrimary {
@@ -2255,12 +2270,41 @@ export type ImageSliceThreeColumn = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Image → Grid → Primary*
+ */
+export interface ImageSliceGridPrimary {
+  /**
+   * Images (choose 4) field in *Image → Grid → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image.grid.primary.images[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  images: prismic.GroupField<Simplify<ImageSliceGridPrimaryImagesItem>>;
+}
+
+/**
+ * Grid variation for Image Slice
+ *
+ * - **API ID**: `grid`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageSliceGrid = prismic.SharedSliceVariation<
+  "grid",
+  Simplify<ImageSliceGridPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Image*
  */
 type ImageSliceVariation =
   | ImageSliceDefault
   | ImageSliceTwoColumn
-  | ImageSliceThreeColumn;
+  | ImageSliceThreeColumn
+  | ImageSliceGrid;
 
 /**
  * Image Shared Slice
@@ -3492,10 +3536,13 @@ declare module "@prismicio/client" {
       ImageSliceTwoColumnPrimary,
       ImageSliceThreeColumnPrimaryImagesItem,
       ImageSliceThreeColumnPrimary,
+      ImageSliceGridPrimaryImagesItem,
+      ImageSliceGridPrimary,
       ImageSliceVariation,
       ImageSliceDefault,
       ImageSliceTwoColumn,
       ImageSliceThreeColumn,
+      ImageSliceGrid,
       ImageSliderSlice,
       ImageSliderSliceDefaultPrimaryImagesItem,
       ImageSliderSliceDefaultPrimary,
