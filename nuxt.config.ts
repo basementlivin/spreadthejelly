@@ -2,7 +2,7 @@ import { repositoryName } from './slicemachine.config.json'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: { enabled: false },
 
   app: {
     head: {
@@ -20,7 +20,7 @@ export default defineNuxtConfig({
         },
         { name: 'format-detection', content: 'telephone=no' },
         { name: 'referrer', content: 'no-referrer-when-downgrade' },
-        { name: 'robots', content: 'noindex, nofollow' },
+        { name: 'robots', content: 'index, follow' },
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
