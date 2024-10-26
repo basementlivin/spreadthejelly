@@ -1490,7 +1490,8 @@ export interface FeaturedArticlesSliceDefaultPrimaryArticlesItem {
    * Card Hover Color field in *FeaturedArticles → Default → Primary → Articles*
    *
    * - **Field Type**: Select
-   * - **Placeholder**: This is the color you'll see when you hover over the card with your mouse.
+   * - **Placeholder**: *None*
+   * - **Default Value**: Black
    * - **API ID Path**: featured_articles.default.primary.articles[].card_hover_color
    * - **Documentation**: https://prismic.io/docs/field#select
    */
@@ -1501,7 +1502,8 @@ export interface FeaturedArticlesSliceDefaultPrimaryArticlesItem {
     | "Ember"
     | "Soft Pink"
     | "Light Chartreuse"
-    | "Sky Blue"
+    | "Sky Blue",
+    "filled"
   >;
 
   /**
@@ -2811,7 +2813,8 @@ export interface RelatedArticlesSliceDefaultPrimaryArticlesItem {
    * Card Hover Color field in *RelatedArticles → Default → Primary → Related Articles (choose 3)*
    *
    * - **Field Type**: Select
-   * - **Placeholder**: This is the color you'll see when you hover over the card with your mouse.
+   * - **Placeholder**: *None*
+   * - **Default Value**: Black
    * - **API ID Path**: related_articles.default.primary.articles[].card_hover_color
    * - **Documentation**: https://prismic.io/docs/field#select
    */
@@ -2822,7 +2825,8 @@ export interface RelatedArticlesSliceDefaultPrimaryArticlesItem {
     | "Ember"
     | "Soft Pink"
     | "Light Chartreuse"
-    | "Sky Blue"
+    | "Sky Blue",
+    "filled"
   >;
 
   /**

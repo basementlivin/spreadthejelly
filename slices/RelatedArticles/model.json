@@ -95,7 +95,7 @@
                 "type": "Select",
                 "config": {
                   "label": "Card Hover Color",
-                  "placeholder": "This is the color you'll see when you hover over the card with your mouse.",
+                  "placeholder": "",
                   "options": [
                     "Black",
                     "White",
@@ -104,7 +104,8 @@
                     "Soft Pink",
                     "Light Chartreuse",
                     "Sky Blue"
-                  ]
+                  ],
+                  "default_value": "Black"
                 }
               },
               "card_text_color": {
