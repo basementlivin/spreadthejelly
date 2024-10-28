@@ -60,6 +60,10 @@ export default defineNuxtConfig({
     "nuxt-gtag"
   ],
 
+  gtag: {
+    id: "G-LDTYJ63JTB",
+  },
+
   svgo: {
     autoImportPath: "~/assets/svg",
   },
