@@ -26,26 +26,20 @@
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
-			"question": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Consequat aute aute esse."
-						}
-					}
-				]
-			},
 			"asked_by": {
 				"__TYPE__": "FieldContent",
-				"value": "cow",
+				"value": "air",
 				"type": "Text"
 			},
 			"layout": {
 				"__TYPE__": "FieldContent",
 				"value": "Image Right",
 				"type": "Select"
+			},
+			"question": {
+				"__TYPE__": "FieldContent",
+				"value": "alphabet",
+				"type": "Text"
 			}
 		},
 		"items": []

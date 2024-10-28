@@ -15,10 +15,10 @@ defineProps(
 
 <template>
   <section
-    v-show="isFilled.image(slice.primary.shape) && isFilled.richText(slice.primary.question) && isFilled.keyText(slice.primary.asked_by)"
+    v-show="isFilled.image(slice.primary.shape) && isFilled.keyText(slice.primary.question) && isFilled.keyText(slice.primary.asked_by)"
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="question wrapper wrapper--wide"
+    class="question wrapper wrapper--page-width"
   >
     <div
       :class="{
@@ -38,10 +38,9 @@ defineProps(
         />
       </div>
       <div class="content">
-        <PrismicRichText
-          :field="slice.primary.question"
-          class="content__question"
-        />
+        <h1 class="content__question h2">
+          {{ slice.primary.question }}
+        </h1>
         <span class="content__asker">
           from {{ slice.primary.asked_by }}
         </span>

@@ -2532,18 +2532,18 @@ export interface QuestionSliceDefaultPrimary {
   /**
    * Question field in *Question → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: question.default.primary.question
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  question: prismic.RichTextField;
+  question: prismic.KeyTextField;
 
   /**
    * Asked By field in *Question → Default → Primary*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: from
+   * - **Placeholder**: *None*
    * - **API ID Path**: question.default.primary.asked_by
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */

@@ -24,19 +24,17 @@
           }
         },
         "question": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Question",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink"
+            "placeholder": ""
           }
         },
         "asked_by": {
           "type": "Text",
           "config": {
             "label": "Asked By",
-            "placeholder": "from "
+            "placeholder": ""
           }
         },
         "layout": {
