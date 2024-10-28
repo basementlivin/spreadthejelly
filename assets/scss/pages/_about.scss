@@ -8,21 +8,94 @@
     gap: 0.5rem;
     text-align: center;
 
-    .headline {
-      font-family: $syne;
-      margin: 0;
+    @include breakpoint($tablet) {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      column-gap: 2rem;
     }
 
-    .subheadline, .copy {
-      @include chivo-variable(500);
-      font-size: 1.35rem;
-      line-height: 1.45;
+    .content {
+      justify-self: center;
+      padding: 0 2rem;
+
+      .headline {
+        font-family: $syne;
+        margin: 0;
+      }
+  
+      .subheadline, .copy {
+        @include chivo-variable(500);
+        font-size: 1.35rem;
+        line-height: 1.55;
+      }
+  
+      .copy {
+        padding-top: 2rem;
+        display: flex;
+        flex-direction: column;
+      }
     }
 
-    .copy {
-      padding-top: 2rem;
+    .illustration__left {
+      justify-self: end;
+      width: 6rem;
+      height: 8rem;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+      @include breakpoint($tablet) {
+        height: 200px;
+      }
+  
+      &.top {
+        align-self: start;
+      }
+  
+      &.middle {
+        align-self: center;
+      }
+  
+      &.bottom {
+        align-self: end;
+      }
+  
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+    
+    .illustration__right {
+      justify-self: start;
+      width: 6rem;
+      height: 8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @include breakpoint($tablet) {
+        height: 200px;
+      }
+  
+      &.top {
+        align-self: start;
+      }
+  
+      &.middle {
+        align-self: center;
+      }
+  
+      &.bottom {
+        align-self: end;
+      }
+  
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
     }
   }
 }

@@ -60,6 +60,66 @@ interface AboutDocumentData {
   copy: prismic.RichTextField;
 
   /**
+   * Sticker Left (optional) field in *About*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Add a sticker. Or don't!
+   * - **API ID Path**: about.illustration_left
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  illustration_left: prismic.SelectField<
+    | "Pink Flower"
+    | "Yellow Flower"
+    | "Blue Flower"
+    | "Green Flower"
+    | "Blue Star"
+    | "Red Star"
+    | "Green Star"
+  >;
+
+  /**
+   * Sticker Left Position field in *About*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Set the vertical position of your sticker in relation to the intro copy.
+   * - **API ID Path**: about.illustration_left_position
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  illustration_left_position: prismic.SelectField<"Top" | "Middle" | "Bottom">;
+
+  /**
+   * Sticker Right (optional) field in *About*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Add a sticker. Or don't!
+   * - **API ID Path**: about.illustration_right
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  illustration_right: prismic.SelectField<
+    | "Pink Flower"
+    | "Yellow Flower"
+    | "Blue Flower"
+    | "Green Flower"
+    | "Blue Star"
+    | "Red Star"
+    | "Green Star"
+  >;
+
+  /**
+   * Sticker Right Position field in *About*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Set the vertical position of your sticker in relation to the intro copy.
+   * - **API ID Path**: about.illustration_right_position
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  illustration_right_position: prismic.SelectField<"Top" | "Middle" | "Bottom">;
+
+  /**
    * Slice Zone field in *About*
    *
    * - **Field Type**: Slice Zone

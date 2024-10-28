@@ -36,6 +36,54 @@
           "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
+      "illustration_left": {
+        "type": "Select",
+        "config": {
+          "label": "Sticker Left (optional)",
+          "placeholder": "Add a sticker. Or don't!",
+          "options": [
+            "Pink Flower",
+            "Yellow Flower",
+            "Blue Flower",
+            "Green Flower",
+            "Blue Star",
+            "Red Star",
+            "Green Star"
+          ]
+        }
+      },
+      "illustration_left_position": {
+        "type": "Select",
+        "config": {
+          "label": "Sticker Left Position",
+          "placeholder": "Set the vertical position of your sticker in relation to the intro copy.",
+          "options": ["Top", "Middle", "Bottom"]
+        }
+      },
+      "illustration_right": {
+        "type": "Select",
+        "config": {
+          "label": "Sticker Right (optional)",
+          "placeholder": "Add a sticker. Or don't!",
+          "options": [
+            "Pink Flower",
+            "Yellow Flower",
+            "Blue Flower",
+            "Green Flower",
+            "Blue Star",
+            "Red Star",
+            "Green Star"
+          ]
+        }
+      },
+      "illustration_right_position": {
+        "type": "Select",
+        "config": {
+          "label": "Sticker Right Position",
+          "placeholder": "Set the vertical position of your sticker in relation to the intro copy.",
+          "options": ["Top", "Middle", "Bottom"]
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
