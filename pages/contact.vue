@@ -4,7 +4,6 @@ import { usePrismic } from '@prismicio/vue'
 import { usePageSeo } from '~/composables/usePageSeo'
 
 const prismic = usePrismic()
-const route = useRoute()
 
 const { data: page, error } = useAsyncData('contactPage', () => 
   prismic.client.getSingle('contact'))

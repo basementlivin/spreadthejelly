@@ -4,7 +4,6 @@ import { usePrismic } from '@prismicio/vue'
 import { usePageSeo } from '~/composables/usePageSeo'
 
 const prismic = usePrismic()
-const route = useRoute()
 
 const { data: page, error } = useAsyncData('aboutPage', () => 
   prismic.client.getSingle('about'))
@@ -42,7 +41,6 @@ function getPositionClass(position: string | null): string {
 <template>
   <main 
     id="main"
-    :key="route.fullPath"
     class="page--about"
   >
     <div class="about__intro wrapper wrapper--narrow">

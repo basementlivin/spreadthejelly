@@ -2,7 +2,6 @@
 import { components } from '~/slices'
 import { usePageSeo } from '~/composables/usePageSeo'
 const prismic = usePrismic()
-const route = useRoute()
 
 const { data: page } = useAsyncData('index', () =>
   prismic.client.getByUID('page', 'home', {
