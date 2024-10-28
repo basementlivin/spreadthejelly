@@ -17,11 +17,21 @@
     display: flex;
     flex-direction: column;
     gap: 5rem;
+    max-width: 75%;
+
+    @include breakpoint($tablet) {
+      max-width: 68%;
+    }
 
     @include breakpoint($laptop) {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      column-gap: 3rem;
+      column-gap: 4rem;
+      max-width: unset;
+    }
+
+    @include breakpoint($desktop) {
+      column-gap: 6rem;
     }
 
     .answer {
@@ -29,9 +39,10 @@
       flex-direction: column;
 
       .title {
-        font-family: $syne;
-        font-size: 1.625rem;
-        line-height: 1.25;
+        font-family: $monument;
+        font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+        line-height: 1.55;
+        margin: 0;
         padding-bottom: 1rem;
       }
 
