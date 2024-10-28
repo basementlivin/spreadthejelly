@@ -3177,14 +3177,24 @@ export interface TextSliceCopyWithImagePrimary {
   image: prismic.ImageField<never>;
 
   /**
-   * Image Caption field in *Copy → Copy with Image → Primary*
+   * Caption: Name field in *Copy → Copy with Image → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: text.copyWithImage.primary.image_caption
+   * - **API ID Path**: text.copyWithImage.primary.name
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  image_caption: prismic.KeyTextField;
+  name: prismic.KeyTextField;
+
+  /**
+   * Caption: Title field in *Copy → Copy with Image → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.copyWithImage.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
 
   /**
    * Copy field in *Copy → Copy with Image → Primary*

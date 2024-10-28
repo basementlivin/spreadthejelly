@@ -113,10 +113,20 @@ function getPositionClass(position: string | null): string {
         :imgix-params="prismicImageSettings.presets.default.imgixParams"
       />
       <figcaption
-        v-if="isFilled.keyText(slice.primary.image_caption)"
         class="image__caption"
       >
-        {{ slice.primary.image_caption }}
+        <span
+          v-if="isFilled.keyText(slice.primary.name)"
+          class="name"
+        >
+          {{ slice.primary.name }}
+        </span>
+        <span
+          v-if="isFilled.keyText(slice.primary.title)"
+          class="title"
+        >
+          {{ slice.primary.title }}
+        </span>
       </figcaption>
     </figure>
 

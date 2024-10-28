@@ -60,15 +60,20 @@
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
-			"image_caption": {
-				"__TYPE__": "FieldContent",
-				"value": "than",
-				"type": "Text"
-			},
 			"layout": {
 				"__TYPE__": "FieldContent",
 				"value": "Image Left",
 				"type": "Select"
+			},
+			"name": {
+				"__TYPE__": "FieldContent",
+				"value": "air",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "label",
+				"type": "Text"
 			}
 		},
 		"items": [

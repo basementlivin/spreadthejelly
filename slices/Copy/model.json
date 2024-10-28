@@ -42,10 +42,17 @@
             "thumbnails": []
           }
         },
-        "image_caption": {
+        "name": {
           "type": "Text",
           "config": {
-            "label": "Image Caption",
+            "label": "Caption: Name",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Caption: Title",
             "placeholder": ""
           }
         },

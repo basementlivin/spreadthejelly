@@ -51,7 +51,20 @@ section.copy-with-image {
     }
 
     &__caption {
-      font-family: $syne;
+      display: flex;
+      flex-direction: column;
+      gap: 0rem;
+
+      .name {
+        font-family: $monument;
+        font-size: 1.55rem;
+        line-height: 1.45;
+      }
+
+      .title {
+        @include chivo-variable();
+        font-size: 1.125rem;
+      }
     }
 
   }
