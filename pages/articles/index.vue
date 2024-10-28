@@ -7,7 +7,6 @@ import type { BlogArticleDocument } from '~/prismicio-types.d.ts'
 import { prismicImageSettings } from '@/utils/prismicImageSettings'
 
 const prismic = usePrismic()
-const route = useRoute()
 
 // State for loaded articles and pagination
 const articles = ref<BlogArticleDocument[]>([])
