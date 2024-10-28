@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
 
-    @include breakpoint($tablet - 100px) {
+    @include breakpoint($tablet) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
     }
@@ -30,7 +30,7 @@
           background-color: var(--card-hover-color);
         }
 
-        .article__image.full-bleed {
+        .article__image.full-bleed.scale {
           img {
             transform: scale(1.05);
             rotate: 0.875deg;
@@ -159,7 +159,7 @@
           line-height: 1.45;
           font-size: 1.5rem;
 
-          @include breakpoint($tablet - 100) {
+          @include breakpoint($tablet) {
             font-size: clamp(1.125rem, 2.125vw, 2rem);
           }
         }

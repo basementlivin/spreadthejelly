@@ -82,6 +82,13 @@
 									"value": "Black",
 									"type": "Select"
 								}
+							],
+							[
+								"scale",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
+								}
 							]
 						]
 					}

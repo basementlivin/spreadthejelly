@@ -124,6 +124,15 @@
                   ],
                   "default_value": "Bottom"
                 }
+              },
+              "scale": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Scale Full-Bleed Image on Hover?",
+                  "placeholder_false": "nope, don't scale the image",
+                  "placeholder_true": "yes, do it",
+                  "default_value": false
+                }
               }
             }
           }

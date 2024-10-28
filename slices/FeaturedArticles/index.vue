@@ -77,7 +77,8 @@ const featuredArticles = computed(() => {
           card_bg_color: getColor(item.card_bg_color as ColorChoice),
           card_hover_color: getColor(item.card_hover_color as ColorChoice),
           card_text_color: item.card_text_color, 
-          card_text_align: item.card_text_align
+          card_text_align: item.card_text_align,
+          scale: item.scale
         } : null;
       }
       return null;
@@ -114,6 +115,7 @@ const featuredArticles = computed(() => {
             'mask--blob-01': article.card_style === 'Blob Mask 1',
             'mask--blob-02': article.card_style === 'Blob Mask 2',
             'quote': article.card_style === 'Featured Quote',
+            'scale': article.scale === true
           }"
           :style="{
             '--card-bg-color': article.card_bg_color,

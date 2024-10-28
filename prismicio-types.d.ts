@@ -1527,6 +1527,17 @@ export interface FeaturedArticlesSliceDefaultPrimaryArticlesItem {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   card_text_align: prismic.SelectField<"Bottom" | "Top", "filled">;
+
+  /**
+   * Scale Full-Bleed Image on Hover? field in *FeaturedArticles → Default → Primary → Articles*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: featured_articles.default.primary.articles[].scale
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  scale: prismic.BooleanField;
 }
 
 /**
