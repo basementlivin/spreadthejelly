@@ -47,24 +47,50 @@
 
         &__details {
           pointer-events: none;
-          padding: 0.5rem 2rem;
           display: flex;
           flex-direction: column;
-          font-family: $monument;
+          gap: 0.75rem;
+          padding: 0.75rem 1.875rem;
 
-          .tag, .link {
-            text-transform: lowercase;
-            font-size: 0.875rem;
+          .tag {
+            @include chivo-variable(500);
+            text-transform: uppercase;
+            letter-spacing: 0.01em;
           }
 
-          .headline {
+          .title {
+            font-family: $monument;
+            font-size: 1.625rem;
+            line-height: 1.35;
             margin: 0;
-            padding-top: 2rem;
-            padding-bottom: 1rem;
-            font-size: 1.5rem;
-            line-height: 1.4;
+            padding-right: 2rem;
+            
+            @include breakpoint($tablet) {
+              padding-right: 3rem;
+              font-size: clamp(1.125rem, 1.5vw, 1.625rem);
+            }
           }
 
+          .subtitle {
+            @include chivo-variable(500);
+            font-size: 1rem;
+            line-height: 1.35;
+            margin: 0;
+            padding-right: 2rem;
+
+            @include breakpoint($tablet) {
+              padding-right: 5rem;
+            }
+
+            @include breakpoint($laptop) {
+              padding-right: 3rem;
+            }
+            
+            @include breakpoint($desktop) {
+              padding-right: 6rem;
+            }
+          }
+    
           .link {
             pointer-events: all;
           }

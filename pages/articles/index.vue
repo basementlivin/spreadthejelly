@@ -105,8 +105,12 @@ usePageSeo(pageData)
               {{ article.tags[0] }}
             </span>
   
-            <p class="headline">
+            <p class="title">
               {{ article.data.title }}
+            </p>
+            
+            <p class="subtitle">
+              {{ article.data.subtitle }}
             </p>
 
             <span class="link">read more</span>

@@ -19,6 +19,13 @@
           "placeholder": ""
         }
       },
+      "subtitle": {
+        "type": "Text",
+        "config": {
+          "label": "Article Subtitle",
+          "placeholder": "Appears only in the My Jelly blog roll!"
+        }
+      },
       "author": {
         "type": "Text",
         "config": {

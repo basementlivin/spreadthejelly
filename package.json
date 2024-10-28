@@ -30,12 +30,12 @@
     "@nuxt/devtools": "^1.0.0",
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxtjs/prismic": "^3.1.0",
-    "@slicemachine/adapter-nuxt": "^0.3.51",
+    "@slicemachine/adapter-nuxt": "^0.3.54",
     "concurrently": "^8.2.2",
     "eslint": "^8.52.0",
     "nuxt-svgo": "^4.0.3",
     "sass": "^1.71.1",
     "sass-loader": "^14.1.1",
-    "slice-machine-ui": "^2.8.1"
+    "slice-machine-ui": "^2.10.0"
   }
 }

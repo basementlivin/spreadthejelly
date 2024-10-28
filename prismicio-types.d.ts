@@ -564,6 +564,17 @@ interface BlogArticleDocumentData {
   title: prismic.KeyTextField;
 
   /**
+   * Article Subtitle field in *Blog Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Appears only in the My Jelly blog roll!
+   * - **API ID Path**: blog_article.subtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
    * Author(s) field in *Blog Article*
    *
    * - **Field Type**: Text
@@ -1090,17 +1101,6 @@ interface JellyLovesArticleDocumentData {
   title: prismic.KeyTextField;
 
   /**
-   * Article Author field in *Jelly Loves Article*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: jelly_loves_article.author
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  author: prismic.KeyTextField;
-
-  /**
    * Publication Date field in *Jelly Loves Article*
    *
    * - **Field Type**: Timestamp
@@ -1112,6 +1112,17 @@ interface JellyLovesArticleDocumentData {
   publication_date: prismic.TimestampField;
 
   /**
+   * Article Subtitle field in *Jelly Loves Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Appears only in the Jelly Loves blog roll!
+   * - **API ID Path**: jelly_loves_article.subtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
    * Article Introduction field in *Jelly Loves Article*
    *
    * - **Field Type**: Rich Text
@@ -1121,6 +1132,17 @@ interface JellyLovesArticleDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   article_introduction: prismic.RichTextField;
+
+  /**
+   * Article Author field in *Jelly Loves Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_loves_article.author
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  author: prismic.KeyTextField;
 
   /**
    * Featured Image field in *Jelly Loves Article*
