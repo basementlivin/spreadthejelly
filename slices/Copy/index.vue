@@ -108,7 +108,7 @@ function getPositionClass(position: string | null): string {
       <PrismicImage
         v-if="slice.primary.image"
         :field="slice.primary.image"
-        :alt="slice.primary.image.alt || 'Image description not provided'"
+        :alt="slice.primary.image.alt || slice.primary.name"
         :widths="prismicImageSettings.presets.default.widths"
         :imgix-params="prismicImageSettings.presets.default.imgixParams"
       />
