@@ -47,25 +47,36 @@ defineProps(
               :imgix-params="prismicImageSettings.presets.small.imgixParams"
             />
           </div>
-          <div
-            v-if="isFilled.keyText(product.product_name) && isFilled.keyText(product.product_manufacturer) && isFilled.keyText(product.product_info) && isFilled.number(product.product_price) && isFilled.link(product.product_link)"
-            class="product__details"
-          >
-            <p class="name">
+          <div class="product__details">
+            <p 
+              v-if="isFilled.keyText(product.product_name)"
+              class="name"
+            >
               {{ product.product_name }}
             </p>
-            <p class="manufacturer">
+
+            <p
+              v-if="isFilled.keyText(product.product_manufacturer)" 
+              class="manufacturer"
+            >
               {{ product.product_manufacturer }}
             </p>
-            <p class="info">
+
+            <p
+              v-if="isFilled.keyText(product.product_info)"
+              class="info"
+            >
               {{ product.product_info }}
             </p>
-            <p class="price">
+
+            <p
+              v-if="isFilled.number(product.product_price)"
+              class="price"
+            >
               ${{ product.product_price }}
             </p>
-            <span class="purchase-link">
-              BUY
-            </span>
+
+            <span class="purchase-link">BUY</span>
           </div>
         </PrismicLink>
       </div>
