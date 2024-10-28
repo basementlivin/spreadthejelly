@@ -53,6 +53,12 @@ export default defineNuxtConfig({
     }
   },
 
+  nitro: {
+    prerender: {
+      // routes: ['/']
+    }
+  },
+
   modules: [
     "@nuxtjs/prismic",
     "nuxt-swiper",
