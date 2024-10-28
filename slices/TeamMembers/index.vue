@@ -37,12 +37,18 @@ defineProps(
           />
         </div>
         <div class="team-member__content">
-          <h3
+          <p
             v-if="isFilled.keyText(item.name)"
-            class="name"
+            class="name h3"
           >
             {{ item.name }}
-          </h3>
+          </p>
+          <span
+            v-if="isFilled.keyText(item.title)"
+            class="title h4"
+          >
+            {{ item.title }}
+          </span>
           <PrismicRichText
             v-if="isFilled.richText(item.bio)"
             :field="item.bio"
@@ -52,7 +58,7 @@ defineProps(
             v-if="isFilled.link(item.social_link)"
             :field="item.social_link"
             class="link link--no-underline"
-            aria-label="Visit their social media profile"
+            :aria-label="`Visit the social media profile of ${item.name}`"
           >
             {{ item.social_link_text }}
           </PrismicLink>

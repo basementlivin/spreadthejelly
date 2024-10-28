@@ -3095,6 +3095,16 @@ export interface TeamMembersSliceDefaultPrimaryTeamMemberItem {
   name: prismic.KeyTextField;
 
   /**
+   * Title field in *TeamMembers → Default → Primary → Team Member*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_members.default.primary.team_member[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
    * Bio field in *TeamMembers → Default → Primary → Team Member*
    *
    * - **Field Type**: Rich Text

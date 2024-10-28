@@ -12,7 +12,6 @@
 							[
 								"image",
 								{
-									"__TYPE__": "ImageContent",
 									"url": "https://images.unsplash.com/photo-1498159413615-882f272c24f1?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHx3b21hbiUyMHdpdGglMjBiYWJ5fGVufDB8fHx8MTcyMjg5MzY2MXww&ixlib=rb-4.0.3&q=85",
 									"alt": "woman carrying baby",
 									"origin": {
@@ -31,6 +30,8 @@
 											"y": 0
 										}
 									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							],
@@ -73,6 +74,14 @@
 										"url": "https://instagram.com",
 										"target": "_blank"
 									}
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "eager",
+									"type": "Text"
 								}
 							]
 						]

@@ -38,20 +38,26 @@
                 text-align: left;
                 display: flex;
                 flex-direction: column;
-                gap: 1rem;
 
                 .name {
                     font-family: $syne;
                     margin: 0;
+                    padding-bottom: 0.25rem;
+                }
+
+                .title {
+                    font-family: $monument;
+                    margin: 0;
+                    padding-bottom: 1rem;
                 }
 
                 .bio {
                     @include chivo-variable(500);
                     line-height: 1.5;
-                    padding-bottom: 1rem;
                     display: flex;
                     flex-direction: column;
                     gap: 1rem;
+                    padding-bottom: 1.25rem;
                 }
             }
         }

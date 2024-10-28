@@ -33,6 +33,13 @@
                   "placeholder": ""
                 }
               },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
               "bio": {
                 "type": "StructuredText",
                 "config": {
