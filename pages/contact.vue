@@ -42,6 +42,29 @@ const handleKeydown = (event: KeyboardEvent, text: string) => {
 }
 
 usePageSeo(page)
+
+function getStickerFileName(selection: string | null): string {
+  switch (selection) {
+    case 'Pink Flower': return 'sticker_01.webp';
+    case 'Yellow Flower': return 'sticker_02.webp';
+    case 'Blue Flower': return 'sticker_03.webp';
+    case 'Green Flower': return 'sticker_04.webp';
+    case 'Blue Star': return 'sticker_05.webp';
+    case 'Red Star': return 'sticker_06.webp';
+    case 'Green Star': return 'sticker_07.webp';
+    default: return '';
+  }
+}
+
+function getPositionClass(position: string | null): string {
+  switch (position) {
+    case 'Top': return 'top';
+    case 'Middle': return 'middle';
+    case 'Bottom': return 'bottom';
+    default: return '';
+  }
+}
+
 </script>
 
 <template>
@@ -50,32 +73,54 @@ usePageSeo(page)
     class="page--contact"
   >
     <section class="contact__intro wrapper wrapper--narrow">
-      <h1 class="headline">
-        {{ page?.data.headline }}
-      </h1>
-      <PrismicRichText
-        :field="page?.data.copy"
-        class="copy"
-      />
-      <span
-        class="link tooltip-container"
-        aria-label="Click to copy email address to your clipboard"
-        tabindex="0"
-        @click.prevent="copyToClipboard(page?.data.contact_link[0]?.email ?? '')"
-        @mouseover="showHoverText"
-        @mouseleave="hideHoverText"
-        @focus="showHoverText"
-        @blur="hideHoverText"
-        @keydown="handleKeydown($event, page?.data.contact_link[0]?.email ?? '')"
+      <div
+        :class="['illustration__left', getPositionClass(page?.data.illustration_left_position ?? null)]"
       >
-        {{ page?.data.contact_link[0]?.link_text }}
-        <span
-          v-if="tooltipText"
-          class="tooltip"
+        <img
+          v-if="getStickerFileName(page?.data.illustration_left ?? null)"
+          :src="`/stickers/${getStickerFileName(page?.data.illustration_left ?? null)}`"
+          :alt="page?.data.illustration_left || 'Sticker'"
         >
-          {{ tooltipText }}
+      </div>
+
+      <div class="content">
+        <h1 class="headline h1">
+          {{ page?.data.headline }}
+        </h1>
+        <PrismicRichText
+          :field="page?.data.copy"
+          class="copy"
+        />
+        <span
+          class="link tooltip-container"
+          aria-label="Click to copy email address to your clipboard"
+          tabindex="0"
+          @click.prevent="copyToClipboard(page?.data.contact_link[0]?.email ?? '')"
+          @mouseover="showHoverText"
+          @mouseleave="hideHoverText"
+          @focus="showHoverText"
+          @blur="hideHoverText"
+          @keydown="handleKeydown($event, page?.data.contact_link[0]?.email ?? '')"
+        >
+          {{ page?.data.contact_link[0]?.link_text }}
+          <span
+            v-if="tooltipText"
+            class="tooltip"
+          >
+            {{ tooltipText }}
+          </span>
         </span>
-      </span>
+      </div>
+
+      <div
+        :class="['illustration__right', getPositionClass(page?.data.illustration_right_position ?? null)]"
+      >
+        <img
+          v-if="getStickerFileName(page?.data.illustration_right ?? null)"
+          :src="`/stickers/${getStickerFileName(page?.data.illustration_right ?? null)}`"
+          :alt="page?.data.illustration_right || 'Sticker'"
+        >
+      </div>
     </section>
   </main>
 </template>
