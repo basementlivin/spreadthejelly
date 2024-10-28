@@ -25,10 +25,11 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       align-items: start;
+      column-gap: 4rem;
     }
 
     @include breakpoint($desktop) {
-      gap: 5rem;
+      column-gap: 6rem;
     }
 
     .testimonial {
@@ -38,9 +39,9 @@
       max-width: 500px;
 
       .quote {
-        font-family: $syne;
+        font-family: $monument;
         font-size: clamp(1.125rem, 1.5vw, 1.5rem);
-        line-height: 1.45;
+        line-height: 1.55;
         margin: 0;
       }
 
