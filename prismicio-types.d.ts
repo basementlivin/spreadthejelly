@@ -2483,7 +2483,7 @@ export interface JellyLikesSliceDefaultPrimaryProductsItem {
   product_manufacturer: prismic.KeyTextField;
 
   /**
-   * Product Info field in *JellyLikes → Default → Primary → Products*
+   * Product Info (optional) field in *JellyLikes → Default → Primary → Products*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*

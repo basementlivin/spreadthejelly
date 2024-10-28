@@ -50,7 +50,7 @@
               "product_info": {
                 "type": "Text",
                 "config": {
-                  "label": "Product Info",
+                  "label": "Product Info (optional)",
                   "placeholder": ""
                 }
               },
