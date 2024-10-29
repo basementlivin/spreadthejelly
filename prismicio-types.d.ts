@@ -1101,17 +1101,6 @@ interface JellyLovesArticleDocumentData {
   title: prismic.KeyTextField;
 
   /**
-   * Publication Date field in *Jelly Loves Article*
-   *
-   * - **Field Type**: Timestamp
-   * - **Placeholder**: *None*
-   * - **API ID Path**: jelly_loves_article.publication_date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#timestamp
-   */
-  publication_date: prismic.TimestampField;
-
-  /**
    * Article Subtitle field in *Jelly Loves Article*
    *
    * - **Field Type**: Text
@@ -1123,17 +1112,6 @@ interface JellyLovesArticleDocumentData {
   subtitle: prismic.KeyTextField;
 
   /**
-   * Article Introduction field in *Jelly Loves Article*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: jelly_loves_article.article_introduction
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  article_introduction: prismic.RichTextField;
-
-  /**
    * Article Author field in *Jelly Loves Article*
    *
    * - **Field Type**: Text
@@ -1143,6 +1121,28 @@ interface JellyLovesArticleDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   author: prismic.KeyTextField;
+
+  /**
+   * Publication Date field in *Jelly Loves Article*
+   *
+   * - **Field Type**: Timestamp
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_loves_article.publication_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#timestamp
+   */
+  publication_date: prismic.TimestampField;
+
+  /**
+   * Article Introduction field in *Jelly Loves Article*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jelly_loves_article.article_introduction
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  article_introduction: prismic.RichTextField;
 
   /**
    * Featured Image field in *Jelly Loves Article*
