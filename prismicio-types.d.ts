@@ -2766,6 +2766,16 @@ export interface RecommendationsSliceDefaultPrimaryRecommendationItem {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   copy: prismic.RichTextField;
+
+  /**
+   * CTA field in *Recommendations → Default → Primary → Recommendation*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recommendations.default.primary.recommendation[].cta
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta: prismic.LinkField;
 }
 
 /**

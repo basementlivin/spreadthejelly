@@ -75,6 +75,17 @@
 										}
 									]
 								}
+							],
+							[
+								"cta",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com",
+										"text": "whose"
+									}
+								}
 							]
 						]
 					},
@@ -139,6 +150,17 @@
 									"type": "Text",
 									"value": "All kinds of citrus"
 								}
+							],
+							[
+								"cta",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io",
+										"text": "composition"
+									}
+								}
 							]
 						]
 					},
@@ -194,6 +216,17 @@
 									"__TYPE__": "FieldContent",
 									"type": "Text",
 									"value": "Slime molds"
+								}
+							],
+							[
+								"cta",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com",
+										"text": "until"
+									}
 								}
 							]
 						]
@@ -259,6 +292,17 @@
 									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
+							],
+							[
+								"cta",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io",
+										"text": "coast"
+									}
+								}
 							]
 						]
 					},
@@ -322,6 +366,17 @@
 									"__TYPE__": "FieldContent",
 									"type": "Text",
 									"value": "Vintage swimwear looks"
+								}
+							],
+							[
+								"cta",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com",
+										"text": "religious"
+									}
 								}
 							]
 						]
@@ -387,6 +442,17 @@
 										}
 									]
 								}
+							],
+							[
+								"cta",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io",
+										"text": "church"
+									}
+								}
 							]
 						]
 					},
@@ -396,7 +462,6 @@
 							[
 								"image",
 								{
-									"__TYPE__": "ImageContent",
 									"provider": "imgix",
 									"url": "https://images.unsplash.com/photo-1696025522422-aa9a74e4f3d5?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyNXx8c2tpbiUyMGNhcmV8ZW58MHx8fHwxNzI4NDkyOTgyfDA&ixlib=rb-4.0.3&q=85",
 									"alt": "a bottle of vitamin oil sitting on top of a rock",
@@ -416,6 +481,8 @@
 											"y": 0
 										}
 									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							],
@@ -457,6 +524,17 @@
 											"direction": "ltr"
 										}
 									]
+								}
+							],
+							[
+								"cta",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com",
+										"text": "without"
+									}
 								}
 							]
 						]

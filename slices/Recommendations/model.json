@@ -41,6 +41,16 @@
                   "allowTargetBlank": true,
                   "multi": "paragraph,strong,em,hyperlink"
                 }
+              },
+              "cta": {
+                "type": "Link",
+                "config": {
+                  "label": "CTA",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "select": null,
+                  "allowText": true
+                }
               }
             }
           }
