@@ -77,6 +77,7 @@ onMounted(async () => {
             loading="lazy"
           />
         </div>
+
         <div class="rec__content">
           <span
             v-if="isFilled.keyText(item.title)"
@@ -84,11 +85,13 @@ onMounted(async () => {
           >
             {{ item.title }}
           </span>
+
           <PrismicRichText
             v-if="isFilled.richText(item.copy)"
             :field="item.copy"
             class="copy" 
           />
+          
           <PrismicLink
             v-if="isFilled.link(item.cta)"
             :field="item.cta"
