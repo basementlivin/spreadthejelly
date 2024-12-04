@@ -1928,7 +1928,7 @@ export interface HeroSliceDefaultPrimary {
    * - **API ID Path**: hero.default.primary.image
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  image: prismic.ImageField<"mobile">;
+  image: prismic.ImageField<never>;
 
   /**
    * Headline field in *Hero → Bump → Primary*
@@ -2075,7 +2075,7 @@ export interface HeroSliceSuperPrimary {
    * - **API ID Path**: hero.super.primary.image
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  image: prismic.ImageField<"mobile">;
+  image: prismic.ImageField<never>;
 
   /**
    * Headline field in *Hero → Super → Primary*
@@ -2259,7 +2259,7 @@ export interface ImageSliceDefaultPrimary {
    * - **API ID Path**: image.default.primary.image
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  image: prismic.ImageField<"mobile">;
+  image: prismic.ImageField<never>;
 
   /**
    * Include Bump Mask? field in *Image → Full-Width → Primary*

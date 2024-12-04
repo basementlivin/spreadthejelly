@@ -17,16 +17,10 @@
           "config": {
             "label": "Image",
             "constraint": {
-              "width": 1920,
-              "height": 1080
+              "width": null,
+              "height": null
             },
-            "thumbnails": [
-              {
-                "name": "mobile",
-                "width": 960,
-                "height": 1200
-              }
-            ]
+            "thumbnails": []
           }
         },
         "include_mask": {
