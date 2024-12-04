@@ -193,11 +193,11 @@ type AskJellyDocumentDataSlicesSlice =
   | DividingLineSlice;
 
 /**
- * Content for Ask Jelly documents
+ * Content for Ask Jelly Blog Roll documents
  */
 interface AskJellyDocumentData {
   /**
-   * Headline field in *Ask Jelly*
+   * Headline field in *Ask Jelly Blog Roll*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -208,7 +208,7 @@ interface AskJellyDocumentData {
   headline: prismic.KeyTextField;
 
   /**
-   * Copy field in *Ask Jelly*
+   * Copy field in *Ask Jelly Blog Roll*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -219,7 +219,7 @@ interface AskJellyDocumentData {
   copy: prismic.RichTextField;
 
   /**
-   * Slice Zone field in *Ask Jelly*
+   * Slice Zone field in *Ask Jelly Blog Roll*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
@@ -228,7 +228,7 @@ interface AskJellyDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
   slices: prismic.SliceZone<AskJellyDocumentDataSlicesSlice> /**
-   * Meta Title field in *Ask Jelly*
+   * Meta Title field in *Ask Jelly Blog Roll*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A title of the page used for social media and search engines
@@ -239,7 +239,7 @@ interface AskJellyDocumentData {
   meta_title: prismic.KeyTextField;
 
   /**
-   * Meta Description field in *Ask Jelly*
+   * Meta Description field in *Ask Jelly Blog Roll*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
@@ -250,7 +250,7 @@ interface AskJellyDocumentData {
   meta_description: prismic.KeyTextField;
 
   /**
-   * Meta Image field in *Ask Jelly*
+   * Meta Image field in *Ask Jelly Blog Roll*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -259,7 +259,7 @@ interface AskJellyDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never> /**
-   * "Load More Articles" Button Text field in *Ask Jelly*
+   * "Load More Articles" Button Text field in *Ask Jelly Blog Roll*
    *
    * - **Field Type**: Text
    * - **Placeholder**: Load More
@@ -270,7 +270,7 @@ interface AskJellyDocumentData {
   load_more_button_text: prismic.KeyTextField;
 
   /**
-   * "No More Articles" Message field in *Ask Jelly*
+   * "No More Articles" Message field in *Ask Jelly Blog Roll*
    *
    * - **Field Type**: Text
    * - **Placeholder**: No more articles to display.
@@ -282,7 +282,7 @@ interface AskJellyDocumentData {
 }
 
 /**
- * Ask Jelly document from Prismic
+ * Ask Jelly Blog Roll document from Prismic
  *
  * - **API ID**: `ask_jelly`
  * - **Repeatable**: `false`
@@ -452,11 +452,11 @@ type BlogDocumentDataSlicesSlice =
   | HeroSlice;
 
 /**
- * Content for Blog documents
+ * Content for My Jelly Blog Roll documents
  */
 interface BlogDocumentData {
   /**
-   * Slice Zone field in *Blog*
+   * Slice Zone field in *My Jelly Blog Roll*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
@@ -465,7 +465,7 @@ interface BlogDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
   slices: prismic.SliceZone<BlogDocumentDataSlicesSlice> /**
-   * Meta Title field in *Blog*
+   * Meta Title field in *My Jelly Blog Roll*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A title of the page used for social media and search engines
@@ -476,7 +476,7 @@ interface BlogDocumentData {
   meta_title: prismic.KeyTextField;
 
   /**
-   * Meta Description field in *Blog*
+   * Meta Description field in *My Jelly Blog Roll*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
@@ -487,7 +487,7 @@ interface BlogDocumentData {
   meta_description: prismic.KeyTextField;
 
   /**
-   * Meta Image field in *Blog*
+   * Meta Image field in *My Jelly Blog Roll*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -496,7 +496,7 @@ interface BlogDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never> /**
-   * "Load More Articles" Button Text field in *Blog*
+   * "Load More Articles" Button Text field in *My Jelly Blog Roll*
    *
    * - **Field Type**: Text
    * - **Placeholder**: Load More
@@ -507,7 +507,7 @@ interface BlogDocumentData {
   load_more_button_text: prismic.KeyTextField;
 
   /**
-   * "No More Articles" Message field in *Blog*
+   * "No More Articles" Message field in *My Jelly Blog Roll*
    *
    * - **Field Type**: Text
    * - **Placeholder**: No more articles to display.
@@ -519,7 +519,7 @@ interface BlogDocumentData {
 }
 
 /**
- * Blog document from Prismic
+ * My Jelly Blog Roll document from Prismic
  *
  * - **API ID**: `blog`
  * - **Repeatable**: `false`
@@ -549,11 +549,11 @@ type BlogArticleDocumentDataSlicesSlice =
   | HeadlineSlice;
 
 /**
- * Content for Blog Article documents
+ * Content for My Jelly Article documents
  */
 interface BlogArticleDocumentData {
   /**
-   * Article Title field in *Blog Article*
+   * Article Title field in *My Jelly Article*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -564,7 +564,7 @@ interface BlogArticleDocumentData {
   title: prismic.KeyTextField;
 
   /**
-   * Article Subtitle field in *Blog Article*
+   * Article Subtitle field in *My Jelly Article*
    *
    * - **Field Type**: Text
    * - **Placeholder**: Appears only in the My Jelly blog roll!
@@ -575,7 +575,7 @@ interface BlogArticleDocumentData {
   subtitle: prismic.KeyTextField;
 
   /**
-   * Author(s) field in *Blog Article*
+   * Author(s) field in *My Jelly Article*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -586,7 +586,7 @@ interface BlogArticleDocumentData {
   author: prismic.KeyTextField;
 
   /**
-   * Publication Date field in *Blog Article*
+   * Publication Date field in *My Jelly Article*
    *
    * - **Field Type**: Date
    * - **Placeholder**: *None*
@@ -597,7 +597,7 @@ interface BlogArticleDocumentData {
   publication_date: prismic.DateField;
 
   /**
-   * Featured Image field in *Blog Article*
+   * Featured Image field in *My Jelly Article*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -608,7 +608,7 @@ interface BlogArticleDocumentData {
   featured_image: prismic.ImageField<never>;
 
   /**
-   * Slice Zone field in *Blog Article*
+   * Slice Zone field in *My Jelly Article*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
@@ -617,7 +617,7 @@ interface BlogArticleDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
   slices: prismic.SliceZone<BlogArticleDocumentDataSlicesSlice> /**
-   * Meta Title field in *Blog Article*
+   * Meta Title field in *My Jelly Article*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A title of the page used for social media and search engines
@@ -628,7 +628,7 @@ interface BlogArticleDocumentData {
   meta_title: prismic.KeyTextField;
 
   /**
-   * Meta Description field in *Blog Article*
+   * Meta Description field in *My Jelly Article*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
@@ -639,7 +639,7 @@ interface BlogArticleDocumentData {
   meta_description: prismic.KeyTextField;
 
   /**
-   * Meta Image field in *Blog Article*
+   * Meta Image field in *My Jelly Article*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -651,7 +651,7 @@ interface BlogArticleDocumentData {
 }
 
 /**
- * Blog Article document from Prismic
+ * My Jelly Article document from Prismic
  *
  * - **API ID**: `blog_article`
  * - **Repeatable**: `true`
@@ -985,11 +985,11 @@ type JellyLovesDocumentDataSlicesSlice =
   | HeroSlice;
 
 /**
- * Content for Jelly Loves documents
+ * Content for Jelly Loves Blog Roll documents
  */
 interface JellyLovesDocumentData {
   /**
-   * Slice Zone field in *Jelly Loves*
+   * Slice Zone field in *Jelly Loves Blog Roll*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
@@ -998,7 +998,7 @@ interface JellyLovesDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
   slices: prismic.SliceZone<JellyLovesDocumentDataSlicesSlice> /**
-   * Meta Title field in *Jelly Loves*
+   * Meta Title field in *Jelly Loves Blog Roll*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A title of the page used for social media and search engines
@@ -1009,7 +1009,7 @@ interface JellyLovesDocumentData {
   meta_title: prismic.KeyTextField;
 
   /**
-   * Meta Description field in *Jelly Loves*
+   * Meta Description field in *Jelly Loves Blog Roll*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
@@ -1020,7 +1020,7 @@ interface JellyLovesDocumentData {
   meta_description: prismic.KeyTextField;
 
   /**
-   * Meta Image field in *Jelly Loves*
+   * Meta Image field in *Jelly Loves Blog Roll*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -1029,7 +1029,7 @@ interface JellyLovesDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never> /**
-   * "Load More Articles" Button Text field in *Jelly Loves*
+   * "Load More Articles" Button Text field in *Jelly Loves Blog Roll*
    *
    * - **Field Type**: Text
    * - **Placeholder**: Load More
@@ -1040,7 +1040,7 @@ interface JellyLovesDocumentData {
   load_more_button_text: prismic.KeyTextField;
 
   /**
-   * "No More Articles" Message field in *Jelly Loves*
+   * "No More Articles" Message field in *Jelly Loves Blog Roll*
    *
    * - **Field Type**: Text
    * - **Placeholder**: No more articles to display.
@@ -1052,7 +1052,7 @@ interface JellyLovesDocumentData {
 }
 
 /**
- * Jelly Loves document from Prismic
+ * Jelly Loves Blog Roll document from Prismic
  *
  * - **API ID**: `jelly_loves`
  * - **Repeatable**: `false`
