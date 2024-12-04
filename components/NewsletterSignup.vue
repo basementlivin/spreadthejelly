@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 import { isFilled } from '@prismicio/client';
 import Cookies from 'universal-cookie'
+import MenuX from '@/assets/svg/menu--x.svg'
 
 const newsletter = useNewsletterPopupForm()
 const isModalVisible = ref(false) // Controls modal visibility
@@ -72,14 +73,6 @@ const form = ref({
         'newsletter-popup': true,
       }"
     >
-      <button
-        class="close-button sr-only"
-        aria-label="Close signup modal"
-        @click="closeModal"
-      >
-        X
-      </button>
-
       <div
         v-if="isFormSubmitted"
         class="success-message"
@@ -122,6 +115,13 @@ const form = ref({
             class="headline"
           >
             {{ newsletter?.data.headline || 'Get Jelly' }}
+            <button
+              class="close-button"
+              aria-label="Close signup modal"
+              @click="closeModal"
+            >
+              <MenuX />
+            </button>
           </span>
           <span
             v-if="isFilled.keyText(newsletter?.data.subheadline)"

@@ -17,7 +17,7 @@
   // max-width: 625px;
   // width: 95vw;
   // height: 50vh;
-
+  
   width: 95vw;
   height: 350px;
   display: flex;
@@ -66,26 +66,58 @@
       width: 85%;
       align-items: flex-start;
     }
-
+    
     .signup-form__intro {
       width: 100%;
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 0.175rem;
-
+      
       @include breakpoint($tablet) {
         gap: 0.75rem;
       }
+      
       
       .headline, .subheadline {
         font-family: $syne;
         line-height: 1.2;
       }
-    
+      
       .headline {
+        position: relative;
         font-size: clamp(1.125rem, 4vw, 3.25rem);
         text-transform: uppercase;
         white-space: nowrap;
+        
+        .close-button {
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: $black;
+          font-size: 0.875rem;
+        
+          position: absolute;
+          z-index: 10;
+          top: -14px;
+          right: -25px;
+        
+          opacity: 0;
+          animation: form-fade-in 1s ease-in-out 0.83s forwards;
+          transition: all 0.33s ease;
+        
+          @include breakpoint($tablet) {
+            font-size: 1rem;
+          }
+        
+          @include breakpoint($laptop) {
+            font-size: 1.25rem;
+          }
+
+          &:hover {
+            transform: rotate(180deg);
+          }
+        }
       }
       
       .subheadline {
@@ -157,6 +189,7 @@
       gap: 1.5rem;
     }
 
+
     .headline {
       font-family: $syne;
       font-size: clamp(1.5rem, 4vw, 3.25rem);
@@ -171,17 +204,5 @@
     }
   }
 
-  .close-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    position: absolute;
-    top: 40%;
-    right: 15%;
-    z-index: 10;
-    color: $black;
-    opacity: 0;
-    animation: form-fade-in 1s ease-in-out 0.83s forwards;
-  }
+
 }

@@ -69,7 +69,7 @@ export default defineNuxtConfig({
   },
 
   prismic: {
-    endpoint: "spreadthejelly",
+    endpoint: repositoryName,
     preview: "/api/preview",
     clientConfig: {
       routes: [
