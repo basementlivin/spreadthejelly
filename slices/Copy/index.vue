@@ -45,7 +45,7 @@ function getPositionClass(position: string | null): string {
     case 'Top': return 'top';
     case 'Middle': return 'middle';
     case 'Bottom': return 'bottom';
-    default: return '';
+    default: return 'middle';
   }
 }
 </script>
