@@ -15,7 +15,7 @@ const hasMore = ref(true);
 const loading = ref(false);
 
 // Initial number of articles to load
-const initialPageSize = 6;
+const initialPageSize = 15;
 // Number of articles to load on "Load More"
 const subsequentPageSize = 6;
 

@@ -15,9 +15,9 @@ const hasMore = ref(true)
 const loading = ref(false)
 
 // Initial number of articles to load
-const initialPageSize = 9
+const initialPageSize = 15
 // Number of articles to load on "Load More"
-const subsequentPageSize = 6
+const subsequentPageSize = 3
 
 // Fetch the initial page content
 const { data: pageData, error } = useAsyncData('blogPage', () => 

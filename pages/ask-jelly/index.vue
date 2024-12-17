@@ -26,7 +26,7 @@ const loadArticles = async () => {
   loading.value = true
 
   const newArticles = await prismic.client.getByType<AskJellyArticleDocument>("ask_jelly_article", {
-    pageSize: 6,  // Number of articles per page (or, in this case, per group)
+    pageSize: 15,  // Number of articles per page (or, in this case, per group)
     page: page.value,  // Page number for pagination
     orderings: { 
       field: 'my.ask_jelly_article.publication_date', 
